@@ -1,0 +1,68 @@
+@import './Variables.scss';
+
+@import './sections/Header.scss';
+@import './sections/Home.scss';
+@import './sections/List.scss';
+@import './sections/Info.scss';
+@import './sections/Contact.scss';
+@import './sections/Carrito.scss';
+@import './sections/Profile.scss';
+@import './sections/Footer.scss';
+
+@import './components/Item.scss';
+@import './components/Discount.scss';
+@import './components/PageNotFound.scss';
+@import './components/Filter.scss';
+@import './components/Spinner.scss';
+@import './sections/ToBuy.scss';
+
+body {
+  //o es body?
+  padding: 0;
+  margin: 0;
+}
+
+//VALIDACIÓN FORMULARIOS
+
+.validacion-incorrecto input {
+  border-color: $border-input-color-incorrecto;
+}
+
+// .validacion-incorrecto .seccionPerfil__contenedorFormulario__contenedorInput--infoError{
+//   color: #bb2929;
+// }
+
+.validacion-correcto input {
+  border-color: $border-input-color-correcto;
+}
+
+.infoError{
+    display: none;
+    width: 70%;
+    font-size: $fontSize-inputError;
+    font-family: $fontFamily-subtitulo2;
+
+    &-activo{
+        display: block;
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+}
+
+.icon_validacion{
+  position: absolute;
+  display: none;
+  right: 3rem;
+  top: 2.15rem;
+  height: 1.15rem;
+
+  &-correcto{
+    display: block;
+    color: $color-correcto;
+  }
+
+  &-incorrecto{
+    display: block;
+    color: $color-incorrecto;
+  }
+}

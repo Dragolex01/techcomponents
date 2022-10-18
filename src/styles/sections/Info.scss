@@ -1,0 +1,55 @@
+.seccionInformacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-weight: $fontWeight-subtitulo;
+    font-family: $fontFamily-subtitulo;
+    font-size: $fontSize-subtitulo;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    color: $color-subtitulo-claro;
+    letter-spacing: 3px;
+    font-size: $fontSize-subtitulo3;
+    font-family: $fontFamily-subtitulo2;
+    margin-bottom: 3rem;
+  }
+
+  &__contenedorInfo {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8rem;
+
+    &--img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    &--info {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        p{
+            font-size: $fontSize-texto;
+            letter-spacing: $fontLetterSpacing-tituloFooter;
+        }
+    }
+  }
+}
+
+
+
+//CAMBIAR ESTILOS DE LAS LETRAS
+//CAMBIAR DOS IMAGENES

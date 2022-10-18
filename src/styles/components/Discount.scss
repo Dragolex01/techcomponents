@@ -1,0 +1,41 @@
+.contenedorOferta{
+    width: 21%;
+    height: 8rem;
+    background-color: $backgroundColor-discount;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__contenedorIcono{
+        width: 30%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--icono{
+            color: white;
+        }
+    }
+
+    &__contenedorInfo{
+        width: 70%;
+        padding-right: 2rem;
+        
+        h1{
+            color: $color-text;
+            font-size: $fontSize-tituloOferta;
+            text-transform: uppercase;
+            letter-spacing: $fontLetterSpacing-input;
+            font-family: $fontFamily-subtitulo2;
+            margin: 0;
+        }
+
+        p{
+            font-size: $fontSize-infoOferta;
+            font-family: $fontFamily-subtitulo2;
+            letter-spacing: $fontLetterSpacing-input;
+            color: white;
+        }
+    }
+}
