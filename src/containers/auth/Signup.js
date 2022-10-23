@@ -1,33 +1,10 @@
 import { useState, useEffect } from "react";
 
-import Layout from "../../hocs/Layout"
+import Layout from "../../hocs/Layout";
 
-import { validateEmpty } from "../../helpers/functions";
+import { validarFormulario } from "../../helpers/functions";
 
 function Signup() {
-
-    // const inputNombre = useRef("");
-    // const inputApellido = useRef("");
-    // const inputCorreo = useRef("");
-    // const inputContraseña = useRef("");
-    // const inputContraseña2 = useRef("");
-
-    // function validateForm() {
-    //     validateEmpty(inputNombre);
-    //     validateEmpty(inputApellido);
-    //     validateEmpty(inputCorreo);
-    //     validateEmpty(inputContraseña);
-    //     validateEmpty(inputContraseña2);
-
-    //     // console.log(inputContraseña);
-    //     // console.log(inputContraseña2);
-
-    //     if (validateEmpty(inputContraseña) == false && validateEmpty(inputContraseña2) == false) {
-    //         if (inputContraseña.current.value !== inputContraseña2.current.value) {
-    //             alert('Las contraseñas no coinciden');
-    //         }
-    //     }
-    // }
 
     useEffect(() => {
         window.scrollTo(0,0) //Ir al inicio de la página al pulsar un Link
@@ -52,18 +29,14 @@ function Signup() {
     } = formData;
 
     function onChange(e){
-        setFormData({...formData, [e.target.name]: e.target.value})
+        setFormData({...formData, [e.target.name]: e.target.value});
+        // validarFormulario(e.target.name, e.target.value); -------------> NO FUNCIONA (functions.js)
     }
 
     function onSubmit(e){
         e.preventDefault();
         console.log(formData)
     }
-
-    
-
-
-
 
     return (
         <Layout>
@@ -82,15 +55,15 @@ function Signup() {
                     </div>
                     <div className="seccionPerfil__contenedorFormulario__contenedorInput">
                         <label htmlFor="email">Correo electrónico: </label>
-                        <input type="email" name="email" value={email} onChange={(e) => onChange(e)} />
+                        <input type="email" name="email" value={email} required onChange={(e) => onChange(e)} />
                     </div>
                     <div className="seccionPerfil__contenedorFormulario__contenedorInput">
                         <label htmlFor="password">Contraseña: </label>
-                        <input type="password" name="password" value={password} onChange={(e) => onChange(e)} />
+                        <input type="password" name="password" value={password} required onChange={(e) => onChange(e)} />
                     </div>
                     <div className="seccionPerfil__contenedorFormulario__contenedorInput">
                         <label htmlFor="re_password">Vuelva a introducir una contraseña: </label>
-                        <input type="password" name="re_password" value={re_password} onChange={(e) => onChange(e)} />
+                        <input type="password" name="re_password" value={re_password} required onChange={(e) => onChange(e)} />
                     </div>
                     <button type="submit" className="seccionPerfil__contenedorFormulario--boton" >Registrarse</button>
                 </form>
