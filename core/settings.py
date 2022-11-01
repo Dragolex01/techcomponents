@@ -17,6 +17,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# ALLOWED_HOSTS = [
+#     ".vudera.com",
+#     "vudera.com",
+#     "www.vudera.com",
+#     "127.0.0.1",
+#     "localhost",
+#     ]
+
+# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+# if RENDER_EXTERNAL_HOSTNAME:
+#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,23 +38,17 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-PROJECT_APPS=[]
+PROJECT_APPS=['apps.user']
 ECOMMERCE_APPS=[]
-# THIRD_PARTY_APPS = [ #Aqui van las dependencias 
-#     'corsheaders',
-#     'rest_framework', #Si esta instalada
-#     'djoser',
-#     'social_django',
-#     'rest_framework_simplejwt',
-#     'rest_framework_simplejwt.token_blacklist',
-#     'ckeditor',
-#     'ckeditor_uploader',
-# ]
-
-THIRD_PARTY_APPS=[ #Aqui van las dependencias 
+THIRD_PARTY_APPS = [
+    'corsheaders',
     'rest_framework',
     'djoser',
-    'rest_framework_simplejwt'
+    'social_django',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    # 'ckeditor',
+    # 'ckeditor_uploader',
 ]
 
 INSTALLED_APPS=DJANGO_APPS+PROJECT_APPS+ECOMMERCE_APPS+THIRD_PARTY_APPS
@@ -65,6 +71,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -161,22 +170,20 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_BACKENDS = (
-  #NECESARIO???
-  'social_core.backends.google.GoogleOAuth2',
-  'social_core.backends.facebook.FacebookAuth2',
-  'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT', ),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes = 10080),
-    'REFRESh_TOKEN_LIFETIME': timedelta(days = 30),
-    'ROTATE_REFRESH_TOKEN': True,
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10080),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+    'ROTATE_REFRESFH_TOKENS':True,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_TOKEN_CLASSES': (
-        'rest_framework_simplejwt.tokens.AccessToken'
+        'rest_framework_simplejwt.tokens.AccessToken',
     )
-
 }
 
 DJOSER = {
@@ -202,13 +209,13 @@ DJOSER = {
     },
 }
 
-# AUTH_USER_MODEL = "user.UserAccount"
+AUTH_USER_MODEL = "user.UserAccount"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 if not DEBUG:
     DEFAULT_FROM_EMAIL = 'Prueba de correo <emailprofinal@gmail.com>'
-    EMAIL_BACKEND-'django. core. mail. backends smtp. EmailBackend'
+    EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = env('EMAIL_HOST')
     EMAIL_HOST_USER = env('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')

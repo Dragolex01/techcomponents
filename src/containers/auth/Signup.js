@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 
 import Layout from "../../hocs/Layout";
 
-import { validarFormulario } from "../../helpers/functions";
+import { connect } from 'react-redux';
+import { signup } from '../../redux/actions/auth';
+ 
+// import { validarFormulario } from "../../helpers/functions";
 
-function Signup() {
+function Signup({ signup }) {
 
     useEffect(() => {
-        window.scrollTo(0,0) //Ir al inicio de la página al pulsar un Link
+        window.scrollTo(0,0)
     })
 
     const [accountCreated, setAccountCreated] = useState(false)
@@ -35,7 +38,9 @@ function Signup() {
 
     function onSubmit(e){
         e.preventDefault();
-        console.log(formData)
+        signup(first_name, last_name, email, password, re_password);
+        setAccountCreated(true);
+        // console.log(formData)
     }
 
     return (
@@ -72,7 +77,13 @@ function Signup() {
     )
 }
 
-export default Signup;
+const mapStateToProps = state => ({
+
+})
+
+export default connect(mapStateToProps, {
+    signup
+}) (Signup);
 
 
 //Remember me (Cookies)
