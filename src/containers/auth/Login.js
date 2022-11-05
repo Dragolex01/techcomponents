@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faAmericanSignLanguageInterpreting, faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 import Layout from "../../hocs/Layout";
 
-import { validarFormulario } from "../../helpers/functions";
+import { connect } from 'react-redux';
+import { login } from '../../redux/actions/auth';
 
-function Login() {
+// import { validarFormulario } from "../../helpers/functions";
+
+function Login({ login }) {
 
     useEffect(() => {
-        window.scrollTo(0,0) //Ir al inicio de la página al pulsar un Link
-    })
+        window.scrollTo(0, 0)
+    }, [])
 
     const [formData, setFormData] = useState({
         email: '',
-        password:''
+        password: ''
     })
 
     const {
@@ -23,14 +26,14 @@ function Login() {
         password
     } = formData;
 
-    function onChange(e){
-        setFormData({...formData, [e.target.name]: e.target.value});
+    function onChange(e) {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
         // validarFormulario(e.target.name, e.target.value); -------------> NO FUNCIONA (functions.js)
     }
 
-    function onSubmit(e){
+    function onSubmit(e) {
         e.preventDefault();
-        console.log(formData)
+        login(email, password);
     }
 
     return (
@@ -58,7 +61,13 @@ function Login() {
     )
 }
 
-export default Login;
+const mapStateToProps = state => ({
+    loading: state.Auth.loading
+})
+
+export default connect(mapStateToProps, {
+    login
+})(Login)
 
 
 
