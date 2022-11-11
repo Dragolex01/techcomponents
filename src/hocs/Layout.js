@@ -1,10 +1,11 @@
-import Header from '../components/navigation/Header';
-import Footer from '../components/navigation/Footer';
-
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { check_authenticated, load_user, refresh } from '../redux/actions/auth';
+
+import Header from '../components/navigation/Header';
+import Footer from '../components/navigation/Footer';
+
 
 function Layout(props){
 

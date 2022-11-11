@@ -3,21 +3,22 @@
 @import './sections/Header.scss';
 @import './sections/Home.scss';
 @import './sections/List.scss';
-@import './sections/Info.scss';
-@import './sections/Contact.scss';
-@import './sections/Carrito.scss';
+// @import './sections/Info.scss';
+// @import './sections/Contact.scss';
+// @import './sections/Carrito.scss';
 @import './sections/Profile.scss';
 @import './sections/Footer.scss';
 
-@import './components/Item.scss';
-@import './components/Discount.scss';
+// @import './components/Item.scss';
+// @import './components/Discount.scss';
 @import './components/PageNotFound.scss';
-@import './components/Filter.scss';
-@import './components/Spinner.scss';
-@import './sections/ToBuy.scss';
+// @import './components/Filter.scss';
+// @import './components/Spinner.scss';
+// @import './sections/ToBuy.scss';
+
+@import './components/Dropdown.scss';
 
 body {
-  //o es body?
   padding: 0;
   margin: 0;
 }

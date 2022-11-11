@@ -1,7 +1,10 @@
+import { connect } from "react-redux";
+
 import { Link } from "react-router-dom";
 
+
+
 function NavBar() {
-    
 
     return (
         // <nav className="header__contenedorCentral--contenedorMenu">
