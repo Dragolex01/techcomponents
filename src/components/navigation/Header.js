@@ -1,16 +1,30 @@
-import { connect } from "react-redux";
+import { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faUserCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+
 import NavBar from './NavBar.js';
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faUserCircle, faUser } from "@fortawesome/free-solid-svg-icons";
+import { logout } from '../../redux/actions/auth';
 
 
-import "../../styles/dropdown.css";
+
+import '../../styles/dropdown.css'; //Temporal
 
 
-function Header({ isAuthenticated, user }) {
+function Header({ isAuthenticated, user, logout }) {
+
+  const [redirect, setRedirect] = useState(false)
+
+  function logoutHandler(){
+    logout()
+    setRedirect(true)
+  }
+
+  if(redirect ){
+    return <Navigate to='/' />
+  }
 
   // function selectUrl(){
   //   return user === null ? "/perfil/iniciar_sesion" : "perfil/usuario"
@@ -28,7 +42,9 @@ function Header({ isAuthenticated, user }) {
               <a href="#">My profile</a>
             </li>
             <li>
-              <a href="#">Cerrar sesión</a>
+              <form method='POST' action='#'>
+                <button onClick={logoutHandler}>Cerrar sesión</button>
+              </form>
             </li>
           </ul>
         </div>
@@ -88,5 +104,5 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-
+  logout
 })(Header)
