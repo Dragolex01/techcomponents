@@ -19,7 +19,7 @@ function NavBar() {
         <nav className="header__contenedorCentral__contenedorMenu">
             <ul>
                 <li><Link to="/" >Inicio</Link></li>
-                <li><Link to="/lista" id="linkArticulos" >Artículos</Link></li>
+                <li><Link to="/shop" id="linkArticulos" >Artículos</Link></li>
                 <li><Link to="/" >Otra cosa</Link></li>
                 <li><Link to="/informacion" >Sobre nosotros</Link></li>
                 <li><Link to="/contactanos" >Contactanos</Link></li>

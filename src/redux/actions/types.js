@@ -1,3 +1,4 @@
+// Authentication
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAIL = 'SIGNUP_FAIL';
 
@@ -20,3 +21,7 @@ export const REFRESH_SUCCESS = 'REFRESH_SUCCESS';
 export const REFRESH_FAIL = 'REFRESH_FAIL';
 
 export const LOGOUT = 'LOGOUT';
+
+// Categories
+export const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+export const GET_CATEGORIES_FAIL = 'GET_CATEGORIES_FAIL';
