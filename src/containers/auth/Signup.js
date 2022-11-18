@@ -53,11 +53,11 @@ function Signup({ signup }) {
                         <div className="seccionPerfil__contenedorForm__contenedorInputs__contenedorNombre">
                             <div className="seccionPerfil__contenedorForm__contenedorInputs__contenedorNombre--input">
                                 <label htmlFor="first_name">Nombre: </label>
-                                <input type="text" name="first_name" value={first_name} onChange={(e) => onChange(e)} required />
+                                <input type="text" name="first_name" value={first_name} required onChange={(e) => onChange(e)} />
                             </div>
                             <div className="seccionPerfil__contenedorForm__contenedorInputs__contenedorNombre--input">
                                 <label htmlFor="last_name">Apellido: </label>
-                                <input type="text" name="last_name" value={last_name} onChange={(e) => onChange(e)} required />
+                                <input type="text" name="last_name" value={last_name} required onChange={(e) => onChange(e)} />
                             </div>
                         </div>
                         <div className="seccionPerfil__contenedorForm__contenedorInputs--input">

@@ -1,58 +1,103 @@
-.contenedorFiltro {
-  //background-color: rgba(255, 68, 0, 0.507);
-  //position: absolute;
-  //right: 1rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
+.seccionLista{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: 1px solid lightgray;
 
-  ul {
-    list-style: none;
+  &__contenedorTitulo{
+    width: 90%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
-  h3 {
-    font-family: $fontFamily-subtitulo2;
-    font-size: $fontSize-subtitulo2;
-    letter-spacing: 2px;
-    margin-top: 1.5rem;
-  }
+  &__contenedorTienda{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-  &__contenedorBuscador {
-    &--buscador {
-      width: 80%;
-      padding: 0.8rem 2rem;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
-      background-color: $backgroundColor-input;
-      border: 1px solid $border-input-color;
-      border-radius: 12px;
-      color: $color-text-claro;
-    }
+    &__contenedorFiltros{
+      width: 18rem;
+      padding: 0 1.5rem;
 
-    &--buscador:focus {
-      outline: 1px solid $border-input-color;
-    }
-  }
+      &--form{
+        
+        ul{
+          list-style: none;
+        }
 
-  &__sublista {
-    &--li {
-      color: $color-text-claro;
-      margin: 0.5rem 0;
-      letter-spacing: 1px;
-
-      #inputPrecio,
-      #inputValoracion {
-        cursor: pointer;
+        input{
+          margin-right: 1rem;
+        }
+        
       }
     }
+  
+    &__contendorArticulos{
+      width: 56rem;
+      height: 50rem;
+      outline: 1px solid lightgray;
+    }
   }
 
-  &--boton {
-    width: 9rem;
-    height: 3rem;
-    border: 2px solid $border-boton;
-    background-color: white;
-    margin-top: 5rem;
-    font-size: $fontSize-boton;
-    cursor: pointer;
-  }
+  
 }
+
+// .contenedorFiltro {
+//   //background-color: rgba(255, 68, 0, 0.507);
+//   //position: absolute;
+//   //right: 1rem;
+//   margin-top: 2rem;
+//   margin-left: 2rem;
+
+//   ul {
+//     list-style: none;
+//   }
+
+//   h3 {
+//     font-family: $fontFamily-subtitulo2;
+//     font-size: $fontSize-subtitulo2;
+//     letter-spacing: 2px;
+//     margin-top: 1.5rem;
+//   }
+
+//   &__contenedorBuscador {
+//     &--buscador {
+//       width: 80%;
+//       padding: 0.8rem 2rem;
+//       margin-bottom: 2rem;
+//       letter-spacing: 1px;
+//       background-color: $backgroundColor-input;
+//       border: 1px solid $border-input-color;
+//       border-radius: 12px;
+//       color: $color-text-claro;
+//     }
+
+//     &--buscador:focus {
+//       outline: 1px solid $border-input-color;
+//     }
+//   }
+
+//   &__sublista {
+//     &--li {
+//       color: $color-text-claro;
+//       margin: 0.5rem 0;
+//       letter-spacing: 1px;
+
+//       #inputPrecio,
+//       #inputValoracion {
+//         cursor: pointer;
+//       }
+//     }
+//   }
+
+//   &--boton {
+//     width: 9rem;
+//     height: 3rem;
+//     border: 2px solid $border-boton;
+//     background-color: white;
+//     margin-top: 5rem;
+//     font-size: $fontSize-boton;
+//     cursor: pointer;
+//   }
+// }
