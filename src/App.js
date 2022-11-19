@@ -6,6 +6,7 @@ import store from './store';
 
 import Home from './containers/Home';
 import Shop from './containers/Shop';
+import AboutUs from './containers/pages/AboutUs';
 import Contact from './containers/pages/Contact';
 
 import Signup from './containers/auth/Signup';
@@ -33,7 +34,8 @@ function App() {
           {/* Shop */}
           <Route exact path='/shop' element={<Shop/>} />
 
-          {/*a */}
+          {/* Pages */}
+          <Route exact path='/about_us' element={<AboutUs/>} />
           <Route exact path='/contact' element={<Contact/>} />
         </Routes>
       </Router>

@@ -77,27 +77,21 @@ function Contact() {
           <div className="seccionContacto__contenedorInfo__bloque">
             <div className="seccionContacto__contenedorInfo__bloque--icono"></div>
             <div className="seccionContacto__contenedorInfo__bloque--info">
-              <h4>
-                <FontAwesomeIcon icon={faStreetView} /> Direccion
-              </h4>
+              <h4><FontAwesomeIcon icon={faStreetView} /> Direccion</h4>
               <p>Madrid, España</p>
             </div>
           </div>
           <div className="seccionContacto__contenedorInfo__bloque">
             <div className="seccionContacto__contenedorInfo__bloque--icono"></div>
             <div className="seccionContacto__contenedorInfo__bloque--info">
-              <h4>
-                <FontAwesomeIcon icon={faEnvelope} /> Email
-              </h4>
+              <h4><FontAwesomeIcon icon={faEnvelope} /> Email</h4>
               <p>techcomponents@example.com</p>
             </div>
           </div>
           <div className="seccionContacto__contenedorInfo__bloque">
             <div className="seccionContacto__contenedorInfo__bloque--icono"></div>
             <div className="seccionContacto__contenedorInfo__bloque--info">
-              <h4>
-                <FontAwesomeIcon icon={faPhone} /> Teléfono
-              </h4>
+              <h4><FontAwesomeIcon icon={faPhone} /> Teléfono</h4>
               <p>+34 666 66 66 66</p>
             </div>
           </div>
@@ -106,78 +100,33 @@ function Contact() {
         <form className="seccionContacto__contenedorFormulario" ref={form}>
           <div className="seccionContacto__contenedorFormulario__contenedorInputs">
             <div className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq">
-              <div
-                className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq--contenedor"
-                id="grupo__nombre"
-              >
+              <div className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq--contenedor" id="grupo__nombre">
                 <label>Nombre</label>
-                <input
-                  type="text"
-                  name="nombre"
-                  ref={inputNombre}
-                  onChange={validarFormulario}
-                />
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="icon_validacion"
-                />
-                <p className="infoError">
-                  No se permiten caracteres especiales y números.
-                </p>
+                <input type="text" name="nombre" ref={inputNombre} onChange={validarFormulario} />
+                <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" />
+                <p className="infoError"> No se permiten caracteres especiales y números. </p>
               </div>
-              <div
-                className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq--contenedor"
-                id="grupo__correo"
-              >
+              <div className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq--contenedor" id="grupo__correo">
                 <label>Email</label>
-                <input
-                  type="email"
-                  name="correo"
-                  ref={inputCorreo}
-                  onChange={validarFormulario}
-                />
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="icon_validacion"
-                />
+                <input type="email" name="correo" ref={inputCorreo} onChange={validarFormulario}/>
+                <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
                 {/* <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p> */}
                 <p className="infoError">El correo introducido no es válido.</p>
               </div>
-              <div
-                className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq--contenedor"
-                id="grupo__asunto"
-              >
+              <div className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorIzq--contenedor" id="grupo__asunto">
                 <label>Asunto</label>
-                <input
-                  type="text"
-                  name="asunto"
-                  ref={inputAsunto}
-                  onChange={validarFormulario}
-                />
-                <FontAwesomeIcon
-                  icon={faCheckCircle}
-                  className="icon_validacion"
-                />
+                <input type="text" name="asunto" ref={inputAsunto} onChange={validarFormulario}/>
+                <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
                 <p className="infoError">Error asunto.</p>
               </div>
             </div>
-            <div
-              className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorDer"
-              id="grupo__mensaje"
-            >
+            <div className="seccionContacto__contenedorFormulario__contenedorInputs__contenedorDer" id="grupo__mensaje">
               <label>Mensaje</label>
-              <textarea
-                name="mensaje"
-                ref={inputMensaje}
-                onChange={validarFormulario}
-              />
+              <textarea name="mensaje" ref={inputMensaje} onChange={validarFormulario}/>
               <p className="infoError">El texto no puede estar vacio.</p>
             </div>
           </div>
-          <input
-            type="submit"
-            className="seccionContacto__contenedorFormulario--boton"
-            value="Enviar"
+          <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar"
           />
           {/* <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar" onClick={validateForm} /> */}
         </form>

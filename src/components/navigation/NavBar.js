@@ -21,7 +21,7 @@ function NavBar() {
                 <li><Link to="/" >Inicio</Link></li>
                 <li><Link to="/shop" id="linkArticulos" >Artículos</Link></li>
                 <li><Link to="/" >Otra cosa</Link></li>
-                <li><Link to="/informacion" >Sobre nosotros</Link></li>
+                <li><Link to="/about_us" >Sobre nosotros</Link></li>
                 <li><Link to="/contact" >Contactanos</Link></li>
             </ul>
             {/* <div className="header__contenedorCentral__contenedorMenu__subcontenedor">
