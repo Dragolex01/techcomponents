@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
 import { get_categories } from '../redux/actions/categories';
+import { get_products } from '../redux/actions/products';
 
 import Layout from '../hocs/Layout';
 import { useEffect } from 'react';
 
-function Shop({ get_categories, categories }) {
-
+function Shop({ get_categories, categories, get_products, products }) {
   useEffect(() => {
-    get_categories()
-  }, [])
+    window.scrollTo(0, 0);
+
+    get_categories();
+    get_products();
+  }, []);
 
   return (
     <Layout>
@@ -22,42 +25,42 @@ function Shop({ get_categories, categories }) {
             <form className="seccionLista__contenedorTienda__contenedorFiltros--form">
               {/* <h3>Categoria1</h3> */}
               <ul>
-                {
-                  categories && categories !== null && categories !== undefined && 
-                  categories.map(category => {
-                    if(category.sub_categories.length === 0){
-                      return(
+                {categories &&
+                  categories !== null &&
+                  categories !== undefined &&
+                  categories.map((category) => {
+                    if (category.sub_categories.length === 0) {
+                      return (
                         <div key={category.id}>
-                          <input type='radio' name={category.id} />
+                          <input type="radio" name={category.id} />
                           <label>{category.name}</label>
                         </div>
-                      )
-                    }else{
-                      let result = []
+                      );
+                    } else {
+                      let result = [];
 
                       result.push(
                         <div key={category.id}>
-                          <input type='radio' name={category.id} />
+                          <input type="radio" name={category.id} />
                           <label>{category.name}</label>
                         </div>
-                      )
-                      
-                      category.sub_categories.map(sub_category => {
+                      );
+
+                      category.sub_categories.map((sub_category) => {
                         result.push(
                           <div key={sub_category.id}>
-                            <input type='radio' name={sub_category.id} />
+                            <input type="radio" name={sub_category.id} />
                             <label>{sub_category.name}</label>
                           </div>
-                        )
-                      })
+                        );
+                      });
 
-                      return result
+                      return result;
                     }
-                  })
-                }
+                  })}
               </ul>
             </form>
-            <hr/>
+            <hr />
             <form className="seccionLista__contenedorTienda__contenedorFiltros--form">
               <h3>Categoria2</h3>
               <ul>
@@ -75,9 +78,20 @@ function Shop({ get_categories, categories }) {
                 </li>
               </ul>
             </form>
-            <hr/>
+            <hr />
           </div>
-          <div className="seccionLista__contenedorTienda__contendorArticulos"></div>
+          <div className="seccionLista__contenedorTienda__contendorArticulos">
+            {products &&
+              products !== null &&
+              products !== undefined &&
+              products.map((product) => {
+                return (
+                  <div key={product.id}>
+                    <h2>{product.name}</h2>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </section>
     </Layout>
@@ -234,10 +248,12 @@ function Shop({ get_categories, categories }) {
   );
 }
 
-const mapStateToProps = state => ({
-  categories: state.Categories.categories
-})
+const mapStateToProps = (state) => ({
+  categories: state.Categories.categories,
+  products: state.Products.products,
+});
 
 export default connect(mapStateToProps, {
-  get_categories
-}) (Shop)
+  get_categories,
+  get_products,
+})(Shop);
