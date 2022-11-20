@@ -38,7 +38,7 @@ function Footer(){
                             <li><NavLink to="/lista" className="contenedorFooter__contenedor__contenedorTexto--boton" >Ordenadores</NavLink></li>
                             <li><NavLink to="/lista" className="contenedorFooter__contenedor__contenedorTexto--boton" >Móviles</NavLink></li>
                             <li><NavLink to="/lista" className="contenedorFooter__contenedor__contenedorTexto--boton" >Tablets</NavLink></li>
-                            <li><NavLink to="/contactanos" className="contenedorFooter__contenedor__contenedorTexto--boton" >Contacto</NavLink></li>
+                            <li><NavLink to="/contact" className="contenedorFooter__contenedor__contenedorTexto--boton" >Contacto</NavLink></li>
                         </ul>
                     </nav>
                 </div>

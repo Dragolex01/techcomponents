@@ -4,6 +4,7 @@ import { get_products } from '../redux/actions/products';
 
 import Layout from '../hocs/Layout';
 import { useEffect } from 'react';
+import Card from '../components/product/Card';
 
 function Shop({ get_categories, categories, get_products, products }) {
   useEffect(() => {
@@ -86,9 +87,7 @@ function Shop({ get_categories, categories, get_products, products }) {
               products !== undefined &&
               products.map((product) => {
                 return (
-                  <div key={product.id}>
-                    <h2>{product.name}</h2>
-                  </div>
+                  <Card product={product} key={product.id}/>
                 );
               })}
           </div>
