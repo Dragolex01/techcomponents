@@ -6,6 +6,7 @@ import store from './store';
 
 import Home from './containers/Home';
 import Shop from './containers/Shop';
+import ProductInfo from './containers/pages/ProductInfo';
 import AboutUs from './containers/pages/AboutUs';
 import Contact from './containers/pages/Contact';
 
@@ -22,21 +23,22 @@ function App() {
       <Router>
         <Routes>
           {/* Error */}
-          <Route path='*' element={<Error404/>} />
+          <Route path='*' element={<Error404 />} />
 
-          <Route exact path='/' element={<Home/>} />
+          <Route exact path='/' element={<Home />} />
 
           {/* Authentication users */}
-          <Route exact path='/register' element={<Signup/>} />
-          <Route exact path='/login' element={<Login/>} />
-          <Route exact path='/activate/:uid/:token' element={<Activate/>} />
+          <Route exact path='/register' element={<Signup />} />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/activate/:uid/:token' element={<Activate />} />
 
           {/* Shop */}
           <Route exact path='/shop' element={<Shop/>} />
+          <Route exact path='/product/:productId' element={<ProductInfo />}/>
 
           {/* Pages */}
-          <Route exact path='/about_us' element={<AboutUs/>} />
-          <Route exact path='/contact' element={<Contact/>} />
+          <Route exact path='/about_us' element={<AboutUs />} />
+          <Route exact path='/contact' element={<Contact />} />
         </Routes>
       </Router>
     </Provider>

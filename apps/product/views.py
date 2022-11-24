@@ -19,8 +19,8 @@ class ProductDetailView(APIView):
                 {'error': 'Product ID must be an integer'},
                 status = status.HTTP_404_NOT_FOUND)
         
-        if Product.objects.filter(id=product_id).exists():
-            product = Product.objects.get(id=product_id)
+        if Product.objects.filter(id = product_id).exists():
+            product = Product.objects.get(id = product_id)
 
             product = ProductSerializer(product)
 

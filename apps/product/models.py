@@ -2,6 +2,9 @@ from django.db import models
 from datetime import datetime
 from apps.category.models import Category
 
+from django.conf import settings
+domain = settings.DOMAIN
+
 class Product(models.Model):
     name = models.CharField(max_length = 255)
     photo = models.ImageField(upload_to = 'photos/%Y/%m/')
@@ -13,5 +16,12 @@ class Product(models.Model):
     sold = models.IntegerField(default = 0)
     date_created = models.DateTimeField(default = datetime.now)
 
+    def get_image(self):
+        if self.photo:
+            url_img = '127.0.0.1:8000' + self.photo.url
+            return url_img
+            # return self.photo.url
+        return ''
+    
     def __str__(self):
         return self.name

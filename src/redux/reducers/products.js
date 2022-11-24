@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     products: null,
-    produt: null
+    product: null
 }
 
 export default function Products(state = initialState, action) {

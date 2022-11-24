@@ -19,7 +19,6 @@ function Shop({ get_categories, categories, get_products, products }) {
       <section className="seccionLista">
         <div className="seccionLista__contenedorTitulo">
           <h2>Listado articulos</h2>
-          <hr />
         </div>
         <div className="seccionLista__contenedorTienda">
           <div className="seccionLista__contenedorTienda__contenedorFiltros">
@@ -61,7 +60,6 @@ function Shop({ get_categories, categories, get_products, products }) {
                   })}
               </ul>
             </form>
-            <hr />
             <form className="seccionLista__contenedorTienda__contenedorFiltros--form">
               <h3>Categoria2</h3>
               <ul>
@@ -79,7 +77,6 @@ function Shop({ get_categories, categories, get_products, products }) {
                 </li>
               </ul>
             </form>
-            <hr />
           </div>
           <div className="seccionLista__contenedorTienda__contendorArticulos">
             {products &&

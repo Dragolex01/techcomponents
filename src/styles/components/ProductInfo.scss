@@ -1,0 +1,51 @@
+.seccionProducto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__contInfo{
+        width: 60%;
+        height: 30rem;
+        margin: 5rem 0;
+        display: flex;
+        justify-content: space-between;
+
+        &__contIzq{
+            width: 49%;
+            outline: 1px solid gray;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        &__contDer{
+            width: 49%;
+            outline: 1px solid gray;
+
+            h1{
+
+            }
+
+            h2{
+
+            }
+
+            p{
+
+            }
+
+            &--boton{
+                background-color: rgba(79, 70, 229, 255);
+                color: white;
+                border-color: rgba(140, 134, 238, 255);
+                border-radius: 7px;
+                width: 40%;
+                padding: 0.6rem 0;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

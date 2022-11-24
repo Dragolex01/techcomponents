@@ -15,6 +15,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
+DOMAIN = os.environ.get('DOMAIN')
+
 ALLOWED_HOSTS = ['*']
 
 # ALLOWED_HOSTS = [
