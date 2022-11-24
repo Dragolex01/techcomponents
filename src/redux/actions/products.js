@@ -41,7 +41,7 @@ export const get_product = (productId) => async dispatch => {
     };
 
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/product/product/${productId}`, config);
+        const res = await axios.get(`http://localhost:8000/api/product/product/${productId}`, config);
 
         if (res.status === 200) {
             dispatch({
