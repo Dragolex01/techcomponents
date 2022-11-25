@@ -41,23 +41,23 @@ function Login({ login }) {
         <Layout>
             <section className="seccionPerfil">
                 <h2>Iniciar Sesión</h2>
-                <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contenedorForm">
-                    <div className="seccionPerfil__contenedorForm__contenedorInputs">
-                        <div className="seccionPerfil__contenedorForm__contenedorInputs--input">
+                <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contForm">
+                    <div className="seccionPerfil__contForm__contInputs">
+                        <div className="seccionPerfil__contForm__contInputs--input">
                             <label htmlFor="email">Correo electrónico: </label>
                             <input type="email" name="email" value={email} required onChange={(e) => onChange(e)} />
                             <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" />
                             <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p>
                         </div>
-                        <div className="seccionPerfil__contenedorForm__contenedorInputs--input">
+                        <div className="seccionPerfil__contForm__contInputs--input">
                             <label htmlFor="password">Contraseña: </label>
                             <input type="password" name="password" value={password} required onChange={(e) => onChange(e)} />
                             <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" />
                             <p className="infoError">La contraseña debe ser de 4 a 12 dígitos.</p>
                         </div>
                     </div>
-                    <div className="seccionPerfil__contenedorForm__contenedorBoton">
-                        <button type="submit" className="seccionPerfil__contenedorForm__contenedorBoton--boton">Iniciar sesión</button>
+                    <div className="seccionPerfil__contForm__contBoton">
+                        <button type="submit" className="seccionPerfil__contForm__contBoton--boton">Iniciar sesión</button>
                         <Link to="/register">¿Aún no tienes cuenta? Registrate</Link>
                     </div>
                 </form>

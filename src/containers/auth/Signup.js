@@ -48,33 +48,33 @@ function Signup({ signup }) {
         <Layout>
             <section className="seccionPerfil">
                 <h2>Registrarse</h2>
-                <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contenedorForm">
-                    <div className="seccionPerfil__contenedorForm__contenedorInputs">
-                        <div className="seccionPerfil__contenedorForm__contenedorInputs__contenedorNombre">
-                            <div className="seccionPerfil__contenedorForm__contenedorInputs__contenedorNombre--input">
+                <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contForm">
+                    <div className="seccionPerfil__contForm__contInputs">
+                        <div className="seccionPerfil__contForm__contInputs__contNombre">
+                            <div className="seccionPerfil__contForm__contInputs__contNombre--input">
                                 <label htmlFor="first_name">Nombre: </label>
                                 <input type="text" name="first_name" value={first_name} required onChange={(e) => onChange(e)} />
                             </div>
-                            <div className="seccionPerfil__contenedorForm__contenedorInputs__contenedorNombre--input">
+                            <div className="seccionPerfil__contForm__contInputs__contNombre--input">
                                 <label htmlFor="last_name">Apellido: </label>
                                 <input type="text" name="last_name" value={last_name} required onChange={(e) => onChange(e)} />
                             </div>
                         </div>
-                        <div className="seccionPerfil__contenedorForm__contenedorInputs--input">
+                        <div className="seccionPerfil__contForm__contInputs--input">
                             <label htmlFor="email">Correo electrónico: </label>
                             <input type="email" name="email" value={email} required onChange={(e) => onChange(e)} />
                         </div>
-                        <div className="seccionPerfil__contenedorForm__contenedorInputs--input">
+                        <div className="seccionPerfil__contForm__contInputs--input">
                             <label htmlFor="password">Contraseña: </label>
                             <input type="password" name="password" value={password} required onChange={(e) => onChange(e)} />
                         </div>
-                        <div className="seccionPerfil__contenedorForm__contenedorInputs--input">
+                        <div className="seccionPerfil__contForm__contInputs--input">
                             <label htmlFor="re_password">Vuelva a introducir una contraseña: </label>
                             <input type="password" name="re_password" value={re_password} required onChange={(e) => onChange(e)} />
                         </div>
                     </div>
-                    <div className="seccionPerfil__contenedorForm__contenedorBoton">
-                        <button type="submit" className="seccionPerfil__contenedorForm__contenedorBoton--boton" >Registrarse</button>
+                    <div className="seccionPerfil__contForm__contBoton">
+                        <button type="submit" className="seccionPerfil__contForm__contBoton--boton" >Registrarse</button>
                         <Link to="/login">¿Ya tienes una cuenta? Inicia Sesión</Link>
                     </div>
                 </form>

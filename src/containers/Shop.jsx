@@ -17,12 +17,12 @@ function Shop({ get_categories, categories, get_products, products }) {
   return (
     <Layout>
       <section className="seccionLista">
-        <div className="seccionLista__contenedorTitulo">
+        <div className="seccionLista__contTitulo">
           <h2>Listado articulos</h2>
         </div>
-        <div className="seccionLista__contenedorTienda">
-          <div className="seccionLista__contenedorTienda__contenedorFiltros">
-            <form className="seccionLista__contenedorTienda__contenedorFiltros--form">
+        <div className="seccionLista__contTienda">
+          <div className="seccionLista__contTienda__contFiltros">
+            <form className="seccionLista__contTienda__contFiltros--form">
               {/* <h3>Categoria1</h3> */}
               <ul>
                 {categories &&
@@ -60,7 +60,7 @@ function Shop({ get_categories, categories, get_products, products }) {
                   })}
               </ul>
             </form>
-            <form className="seccionLista__contenedorTienda__contenedorFiltros--form">
+            <form className="seccionLista__contTienda__contFiltros--form">
               <h3>Categoria2</h3>
               <ul>
                 <li>
@@ -78,7 +78,7 @@ function Shop({ get_categories, categories, get_products, products }) {
               </ul>
             </form>
           </div>
-          <div className="seccionLista__contenedorTienda__contendorArticulos">
+          <div className="seccionLista__contTienda__contArticulos">
             {products &&
               products !== null &&
               products !== undefined &&

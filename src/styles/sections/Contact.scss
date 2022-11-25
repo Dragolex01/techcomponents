@@ -21,7 +21,7 @@
     margin-bottom: 5rem;
   }
 
-  &__contenedorInfo {
+  &__contInfo {
     display: flex;
     justify-content: center;
 
@@ -47,7 +47,7 @@
     }
   }
 
-  &__contenedorFormulario {
+  &__contFormulario {
     width: 55%;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@
     align-items: center;
     padding-bottom: 5rem;
 
-    &__contenedorInputs {
+    &__contInputs {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -87,7 +87,7 @@
         background-color: white;
       }
 
-      &__contenedorIzq {
+      &__contIzq {
         width: 100%;
         // display: flex;
         // align-items: center;
@@ -111,7 +111,7 @@
         }
       }
 
-      &__contenedorDer {
+      &__contDer {
         width: 100%;
         display: flex;
         align-items: center;
@@ -141,11 +141,9 @@
     }
   }
 
-  &__googleMap{
+  &--googleMap{
     border: 0;
     width: 70%;
     height: 30rem;
   }
 }
-
-//Input al estar activo no cambie el borde

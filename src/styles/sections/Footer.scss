@@ -1,4 +1,4 @@
-.contenedorFooter{
+.seccionFooter{
     background-color: $backgroundColor-footer;
     width: 100%;
     display: flex;
@@ -11,17 +11,18 @@
         padding: 0 3rem;
         margin: 3rem 0;
 
-        &--titulo{
+        h1{
             color: white;
             font-size: $fontSize-tituloFooter;
             font-family: $fontFamily-subtitulo;
             letter-spacing: $fontLetterSpacing-tituloFooter;
             border-bottom: 1px solid $border-outlineFooter;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        &__contenedorTexto{
+        &__contTexto{
             color: $color-subtitulo-claro;
-            margin-top: 2rem;
 
             &--info{
                 display: flex;
@@ -34,7 +35,7 @@
                 }
             }
 
-            &__contenedorBoton{
+            &__contBoton{
                 margin: 1rem 0;
             }
 

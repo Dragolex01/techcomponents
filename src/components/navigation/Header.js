@@ -34,7 +34,7 @@ function Header({ isAuthenticated, user, logout }) {
     <>
       <div className="action">
         <div className="profile" onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="header__contenedorLateral--icono" />
+          <FontAwesomeIcon icon={faUserCircle} className="seccionHeader__contLateral--icono" />
         </div>
         <div className="menu">
           <ul>
@@ -49,14 +49,33 @@ function Header({ isAuthenticated, user, logout }) {
           </ul>
         </div>
       </div>
-    </>
+        {/* <>
+        <div className="seccionHeader__contLateral">
+          <div onClick={menuToggle}>
+            <FontAwesomeIcon icon={faUserCircle} className="seccionHeader__contLateral--icono" />
+          </div>
+          <div className="seccionHeader__contLateral__contLinks">
+            <ul>
+              <li>
+                <a href="#">My profile</a>
+              </li>
+              <li>
+                <form method='POST' action='#'>
+                  <button onClick={logoutHandler}>Cerrar sesión</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </> */}
+    </>    
   )
 
   const guestLinks = (
     <>
       <div className="action">
         <div className="profile" onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="header__contenedorLateral--icono" />
+          <FontAwesomeIcon icon={faUserCircle} className="header__contLateral--icono" />
         </div>
         <div className="menu">
           <ul>
@@ -69,8 +88,26 @@ function Header({ isAuthenticated, user, logout }) {
           </ul>
         </div>
       </div>
+      {/* <>
+      <div className="seccionHeader__contLateral">
+        <div onClick={menuToggle}>
+          <FontAwesomeIcon icon={faUserCircle} className="seccionHeader__contLateral--icono" />
+        </div>
+        <div className="seccionHeader__contLateral__contLinks">
+          <ul>
+            <li>
+              <Link to="/login">Iniciar sesión</Link>
+            </li>
+            <li>
+              <Link to="/register">Registrarse</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </> */}
     </>
   )
+      
 
   function menuToggle() {
     const toggleMenu = document.querySelector(".menu");
@@ -78,22 +115,25 @@ function Header({ isAuthenticated, user, logout }) {
   }
 
   return (
-    <div className="header">
-      <div className="header__contenedorCentral">
+    <div className="seccionHeader">
+      <div className="seccionHeader__contCentral">
         <h1>TechComponents</h1>
         <hr />
         <NavBar />
       </div>
-      <nav className="header__contenedorLateral">
-        <ul>
-          {/* <li><Link to="/carrito" ><FontAwesomeIcon icon={faShoppingCart} className="header__contenedorLateral--icono"/></Link></li>
-              <li><Link to={selectUrl()} ><FontAwesomeIcon icon={faUserCircle} className="header__contenedorLateral--icono"/></Link></li> */}
-
-          {/* <li><Link to="/register">Register</Link></li>
-          <li><Link to="/login">Login</Link></li> */}
-          <li>{isAuthenticated ? authLinks : guestLinks}</li>
-        </ul>
+      <nav className="seccionHeader__contLateral">
+        {isAuthenticated ? authLinks : guestLinks}
       </nav>
+      {/*
+      
+      <ul>
+          <li><Link to="/carrito" ><FontAwesomeIcon icon={faShoppingCart} className="header__contenedorLateral--icono"/></Link></li>
+          <li><Link to={selectUrl()} ><FontAwesomeIcon icon={faUserCircle} className="header__contenedorLateral--icono"/></Link></li>
+
+          <li><Link to="/register">Register</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
+      */}
     </div>
   );
 }

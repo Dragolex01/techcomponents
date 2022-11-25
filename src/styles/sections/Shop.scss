@@ -1,38 +1,98 @@
-.seccionLista {
+.seccionLista{
   width: 100%;
   display: flex;
-  justify-content: center;
-  //flex-direction: column;
-  // padding-bottom: 5rem;
-  position: relative;
-  //min-height: 115vh;
-  
+  flex-direction: column;
+  align-items: center;
 
-  &__contenedorLateral{
-    width: 25%;
+  &__contTitulo{
+    width: 90%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.200);
   }
 
-  &__contenedorLista {
-    width: 75%;
+  &__contTienda{
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding-right: 2rem;
-    
+    justify-content: center;
 
-    &__contenedorListado{
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      margin: 5rem 0;
+    &__contFiltros{
+      width: 18rem;
+      padding: 0 1.5rem;
 
-      &--boton{
-        margin: 0 1rem;
-        height: 1.5rem;
-        width: 5rem;
+      &--form{
+
+        ul{
+          list-style: none;
+          padding-bottom: 2rem;
+          border-bottom: 1px solid rgba(128, 128, 128, 0.200);
+        }
+
+        input{
+          margin-right: 1rem;
+        }
       }
     }
-  }
+  
+    &__contArticulos{
+      width: 56rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .seccionLista {
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   //flex-direction: column;
+//   // padding-bottom: 5rem;
+//   position: relative;
+//   //min-height: 115vh;
+  
+
+//   &__contenedorLateral{
+//     width: 25%;
+//   }
+
+//   &__contenedorLista {
+//     width: 75%;
+//     display: flex;
+//     justify-content: space-around;
+//     flex-wrap: wrap;
+//     padding-right: 2rem;
+    
+
+//     &__contenedorListado{
+//       display: flex;
+//       justify-content: center;
+//       width: 100%;
+//       margin: 5rem 0;
+
+//       &--boton{
+//         margin: 0 1rem;
+//         height: 1.5rem;
+//         width: 5rem;
+//       }
+//     }
+//   }
 
   // &__contenedorLateral {
   //   margin: 1rem;
@@ -103,7 +163,7 @@
   //     margin: 1rem;
   //   }
   // }
-}
+//}
 
 // &__contenedorBuscador {
 //     display: flex;

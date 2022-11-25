@@ -1,12 +1,11 @@
-.header {
+.seccionHeader {
   width: 100%;
-  // height: 30vh;
   display: flex;
   justify-content: center;
   text-align: center;
   margin-bottom: 5rem;
 
-  &__contenedorCentral {
+  &__contCentral {
     width: 55%;
 
     h1 {
@@ -16,7 +15,7 @@
       letter-spacing: 3px;
     }
 
-    &__contenedorMenu {
+    &__contMenu {
 
       ul {
         list-style: none;
@@ -41,31 +40,34 @@
     }
   }
 
-  &__contenedorLateral {
+  &__contLateral {
     position: absolute;
     right: 4rem;
     top: 4.25rem;
     // width: 16%; //10.5rem
     width: 8%;
 
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      font-size: $fontSize-enlaces;
-      font-family: $fontFamily-subtitulo;
-      justify-content: space-around;
-
-      li {
-        padding: 0.15rem;
-        position: relative;
-      }
-    }
-
     &--icono{
       height: 1.5rem;
     }
+
+    &__contLinks{
+      background-color: red;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        font-size: $fontSize-enlaces;
+        font-family: $fontFamily-subtitulo;
+        justify-content: space-around;
+  
+        li {
+          padding: 0.15rem;
+          position: relative;
+        }
+      }
+    }    
   }
 
   a {
@@ -93,3 +95,7 @@
     transform-origin: bottom left;
   }
 }
+
+
+
+//CSS DE DROPDOWN A PARTE

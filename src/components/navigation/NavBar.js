@@ -7,16 +7,7 @@ import { Link } from "react-router-dom";
 function NavBar() {
 
     return (
-        // <nav className="header__contenedorCentral--contenedorMenu">
-        //     <ul>
-        //         <li><Link to="/" >Inicio</Link></li>
-        //         <li><Link to="/lista" >Ordenadores</Link></li>
-        //         <li><Link to="/lista" >Móviles</Link></li>
-        //         <li><Link to="/lista" >Tablets</Link></li>
-        //         <li><Link to="/contacto" >Contacto</Link></li>
-        //     </ul>
-        // </nav>
-        <nav className="header__contenedorCentral__contenedorMenu">
+        <nav className="seccionHeader__contCentral__contMenu">
             <ul>
                 <li><Link to="/" >Inicio</Link></li>
                 <li><Link to="/shop" id="linkArticulos" >Artículos</Link></li>

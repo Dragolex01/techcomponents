@@ -13,58 +13,32 @@
 @import './components/ProductInfo.scss';
 // @import './components/Discount.scss';
 @import './components/PageNotFound.scss';
-@import './components/Filter.scss';
 // @import './components/Spinner.scss';
 // @import './sections/ToBuy.scss';
 
-@import './components/Dropdown.scss';
+@import './ValidacionForms.scss';
 
 body {
   padding: 0;
   margin: 0;
 }
 
-//VALIDACIÓN FORMULARIOS
 
-.validacion-incorrecto input {
-  border-color: $border-input-color-incorrecto;
-}
 
-// .validacion-incorrecto .seccionPerfil__contenedorFormulario__contenedorInput--infoError{
-//   color: #bb2929;
-// }
 
-.validacion-correcto input {
-  border-color: $border-input-color-correcto;
-}
 
-.infoError{
-    display: none;
-    width: 70%;
-    font-size: $fontSize-inputError;
-    font-family: $fontFamily-subtitulo2;
 
-    &-activo{
-        display: block;
-        margin: 0;
-        margin-bottom: 0.5rem;
-      }
-}
 
-.icon_validacion{
-  position: absolute;
-  display: none;
-  right: 3rem;
-  top: 2.15rem;
-  height: 1.15rem;
+// CAMBIOS
 
-  &-correcto{
-    display: block;
-    color: $color-correcto;
-  }
+/*
+- About US:
+    * Cambiar estilos de las letras
+    * Cambiar dos imagenes
 
-  &-incorrecto{
-    display: block;
-    color: $color-incorrecto;
-  }
-}
+- Contact:
+    * Input al estar activo no cambie el borde
+
+-Footer:
+    * Input type="email" para introducir el correo y que le lleguen ofertas y novedades. OPCIONAL para rellenar (Sucede al registrarse también)
+*/

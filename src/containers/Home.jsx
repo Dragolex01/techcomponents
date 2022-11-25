@@ -11,7 +11,7 @@ function Home(){
 
     return(
         <Layout>
-            <div>
+            <div className="seccionHome">
                 Home
             </div>
         </Layout>
