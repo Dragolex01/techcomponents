@@ -5,19 +5,20 @@
   align-items: center;
 
   &__contTitulo{
-    width: 90%;
+    width: 65%;
     margin-bottom: 2rem;
     margin-top: 2rem;
     border-bottom: 1px solid rgba(128, 128, 128, 0.200);
   }
 
   &__contTienda{
-    width: 100%;
+    width: 65%;
     display: flex;
     justify-content: center;
 
     &__contFiltros{
-      width: 18rem;
+      //width: 18rem;
+      width: 20%;
       padding: 0 1.5rem;
 
       &--form{
@@ -35,9 +36,10 @@
     }
   
     &__contArticulos{
-      width: 56rem;
+      //width: 56rem;
+      width: 80%;
       display: flex;
-      justify-content: space-around;
+      // justify-content: space-around;
       flex-wrap: wrap;
     }
   } 
