@@ -34,12 +34,15 @@ function Header({ isAuthenticated, user, logout }) {
     <>
       <div className="action">
         <div className="profile" onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="seccionHeader__contLateral--icono" />
+          <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         </div>
         <div className="menu">
           <ul>
             <li>
               <a href="#">My profile</a>
+            </li>
+            <li>
+              <a href="#">Carrito</a>
             </li>
             <li>
               <form method='POST' action='#'>
