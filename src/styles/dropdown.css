@@ -9,15 +9,25 @@
   } */
   
   .action {
-    position: fixed;
-    top: 20px;
-    right: 30px;
+    /* top: 20px;
+    right: 30px; */
+  }
+
+  .profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .profileimg{
+    height: 100%;
   }
   
   .action .profile {
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;

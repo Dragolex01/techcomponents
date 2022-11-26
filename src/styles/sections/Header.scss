@@ -41,14 +41,14 @@
   }
 
   &__contLateral {
-    position: absolute;
+    position: fixed;
     right: 4rem;
     top: 4.25rem;
     // width: 16%; //10.5rem
-    width: 8%;
+    // width: 8%;
 
     &--icono{
-      height: 1.5rem;
+      // height: 1.5rem;
     }
 
     &__contLinks{

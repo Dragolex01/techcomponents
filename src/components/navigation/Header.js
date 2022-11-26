@@ -75,7 +75,7 @@ function Header({ isAuthenticated, user, logout }) {
     <>
       <div className="action">
         <div className="profile" onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="header__contLateral--icono" />
+          <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         </div>
         <div className="menu">
           <ul>
