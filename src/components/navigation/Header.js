@@ -42,7 +42,7 @@ function Header({ isAuthenticated, user, logout }) {
               <a href="#">My profile</a>
             </li>
             <li>
-              <a href="#">Carrito</a>
+              <Link to="/cart" >Carrito</Link>
             </li>
             <li>
               <form method='POST' action='#'>

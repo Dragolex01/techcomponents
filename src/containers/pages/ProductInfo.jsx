@@ -2,13 +2,18 @@ import { useParams } from "react-router-dom";
 import { connect } from 'react-redux'
 
 import { get_product } from '../../redux/actions/products';
+import {
+    get_items,
+    add_item,
+    get_total
+} from '../../redux/actions/cart';
 import { useEffect } from "react";
 
 import Layout from '../../hocs/Layout';
 
 import imgPrueba from '../../img/imgMundial.jpg';
 
-function ProductInfo({ get_product, product }){
+function ProductInfo({ get_product, product, get_items, add_item, get_total }){
     const params = useParams()
     const productId = params.productId
 
@@ -16,6 +21,14 @@ function ProductInfo({ get_product, product }){
         window.scrollTo(0,0)
         get_product(productId)
     }, [])
+
+    async function addToCart(){
+        if(product && product !== null && product !== undefined && product.quantity > 0){
+            await add_item(product)
+            await get_items()
+            await get_total()
+        }
+    }
 
     return(
         <Layout>
@@ -28,7 +41,13 @@ function ProductInfo({ get_product, product }){
                         <h1>{product && product.name}</h1>
                         <h2>{product && product.price}</h2>
                         <p>{product && product.description}</p>
-                        <button className="seccionProducto__contInfo__contDer--boton">Boton</button>
+                        <p>
+                            {
+                                product && product !== null && product !== undefined && product.quantity > 0 ?
+                                <p>En stock</p> : <p>Sin stock</p>
+                            }
+                        </p>
+                        <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -40,5 +59,8 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-    get_product
+    get_product,
+    get_items,
+    add_item,
+    get_total
 }) (ProductInfo)
