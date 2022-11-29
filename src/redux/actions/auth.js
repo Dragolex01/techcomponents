@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
@@ -16,7 +17,6 @@ import {
     LOGOUT
 } from "./types";
 
-import axios from "axios";
 
 export const check_authenticated = () => async dispatch => {
     if(localStorage.getItem('access')){
