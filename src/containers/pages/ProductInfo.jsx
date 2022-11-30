@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { get_product } from '../../redux/actions/products';
 import {
     get_items,
+    get_item_total,
     add_item,
     get_total
 } from '../../redux/actions/cart';
@@ -13,7 +14,7 @@ import Layout from '../../hocs/Layout';
 
 import imgPrueba from '../../img/imgMundial.jpg';
 
-function ProductInfo({ get_product, product, get_items, add_item, get_total }){
+function ProductInfo({ get_product, product, get_items, get_item_total, add_item, get_total }){
     const params = useParams()
     const productId = params.productId
 
@@ -26,6 +27,7 @@ function ProductInfo({ get_product, product, get_items, add_item, get_total }){
         if(product && product !== null && product !== undefined && product.quantity > 0){
             await add_item(product)
             await get_items()
+            await get_item_total()
             await get_total()
         }
     }
@@ -41,12 +43,10 @@ function ProductInfo({ get_product, product, get_items, add_item, get_total }){
                         <h1>{product && product.name}</h1>
                         <h2>{product && product.price}</h2>
                         <p>{product && product.description}</p>
-                        <p>
-                            {
-                                product && product !== null && product !== undefined && product.quantity > 0 ?
-                                <p>En stock</p> : <p>Sin stock</p>
-                            }
-                        </p>
+                        {
+                            product && product !== null && product !== undefined && product.quantity > 0 ?
+                            <p>En stock</p> : <p>Sin stock</p>
+                        }
                         <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
                     </div>
                 </div>
@@ -61,6 +61,7 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
     get_product,
     get_items,
+    get_item_total,
     add_item,
     get_total
 }) (ProductInfo)

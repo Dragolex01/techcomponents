@@ -12,6 +12,9 @@ import {
     GET_ITEMS_FAIL,
     GET_TOTAL_SUCCESS,
     GET_TOTAL_FAIL,
+    GET_ITEM_TOTAL_SUCCESS,
+    GET_ITEM_TOTAL_FAIL,
+    GET_ITEM_TOTAL,
     UPDATE_ITEM_SUCCESS,
     UPDATE_ITEM_FAIL,
     REMOVE_ITEM_SUCCESS,
@@ -163,6 +166,48 @@ export const get_total = () => async dispatch => {
     }
 }
 
+export const get_item_total = () => async dispatch => {
+    if (localStorage.getItem('access')) {
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+            }
+        };
+
+        try {
+            const res = await axios.get('http://localhost:8000/api/cart/get-item-total', config);
+
+            if (res.status === 200) {
+                console.log("data", res.data)
+                dispatch({
+                    type: GET_ITEM_TOTAL_SUCCESS,
+                    payload: res.data
+                });
+            } else {
+                dispatch({
+                    type: GET_ITEM_TOTAL_FAIL
+                });
+            }
+        } catch(err) {
+            dispatch({
+                type: GET_ITEM_TOTAL_FAIL
+            });
+        }
+    } else {
+        let total = 0;
+
+        if (localStorage.getItem('cart')) {
+            total = JSON.parse(localStorage.getItem('cart')).length;
+        }
+
+        dispatch({
+            type: GET_ITEM_TOTAL,
+            payload: total
+        });
+    }
+}
+
 export const update_item = (item, count) => async dispatch => {
     if (localStorage.getItem('access')) {
         const config = {
@@ -194,7 +239,6 @@ export const update_item = (item, count) => async dispatch => {
                 type: UPDATE_ITEM_FAIL
             });
         }
-
     } else {
         let cart = [];
 

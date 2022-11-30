@@ -11,6 +11,9 @@ import {
     GET_ITEMS_FAIL,
     GET_TOTAL_SUCCESS,
     GET_TOTAL_FAIL,
+    GET_ITEM_TOTAL_SUCCESS,
+    GET_ITEM_TOTAL_FAIL,
+    GET_ITEM_TOTAL,
     UPDATE_ITEM_SUCCESS,
     UPDATE_ITEM_FAIL,
     REMOVE_ITEM_SUCCESS,
@@ -27,6 +30,7 @@ const initialState = {
 
 export default function Cart(state = initialState, action){
     const {type, payload} = action;
+    console.log(payload)
 
     switch(type){
         case ADD_ITEM_SUCCESS:
@@ -76,6 +80,17 @@ export default function Cart(state = initialState, action){
             return{
                 ...state,
                 amount: payload[0]
+            }
+
+        case GET_ITEM_TOTAL_SUCCESS:
+            return{
+                ...state,
+                total_items: payload.total_items
+            }
+        case GET_ITEM_TOTAL_FAIL:
+            return{
+                ...state,
+                total_items: 0
             }
         
         case UPDATE_ITEM_SUCCESS:

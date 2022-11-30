@@ -112,7 +112,7 @@ class AddItemView(APIView):
 
 
 class GetTotalView(APIView):
-    def get(self, request, format=None):
+    def get(self, request, format = None):
         user = self.request.user
 
         try:
@@ -132,11 +132,11 @@ class GetTotalView(APIView):
                 total_compare_cost = round(total_compare_cost, 2)
             return Response(
                 {'total_cost': total_cost, 'total_compare_cost': total_compare_cost},
-                status=status.HTTP_200_OK)
+                status = status.HTTP_200_OK)
         except:
             return Response(
                 {'error': 'Error al obtener el coste total'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                status = status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 
@@ -150,18 +150,15 @@ class GetItemTotalView(APIView):
 
             return Response(
                 {'total_items': total_items},
-                status = status.HTTP_200_OK
-            )
-        
+                status = status.HTTP_200_OK)
         except:
             return Response(
-                {'error': 'Error al obtener el total de productos'},
-                status = status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
+                {'error': 'Error al obtener el numero total de items'},
+                status = status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class UpdateItemView(APIView):
-    def put(self, request, format=None):
+    def put(self, request, format = None):
         user = self.request.user
         data = self.request.data
 
@@ -300,7 +297,7 @@ class RemoveItemView(APIView):
 
 
 class EmptyCartView(APIView):
-    def delete(self, request, format=None):
+    def delete(self, request, format = None):
         user = self.request.user
 
         try:
