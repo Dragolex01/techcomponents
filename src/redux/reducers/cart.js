@@ -30,7 +30,6 @@ const initialState = {
 
 export default function Cart(state = initialState, action){
     const {type, payload} = action;
-    console.log(payload)
 
     switch(type){
         case ADD_ITEM_SUCCESS:

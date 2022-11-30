@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAmericanSignLanguageInterpreting, faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +16,8 @@ function Login({ login }) {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         email: '',
@@ -35,6 +37,8 @@ function Login({ login }) {
     function onSubmit(e) {
         e.preventDefault();
         login(email, password);
+        
+        navigate("/")
     }
 
     return (

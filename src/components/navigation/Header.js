@@ -13,18 +13,18 @@ import { logout } from '../../redux/actions/auth';
 import '../../styles/dropdown.css'; //Temporal
 
 
-function Header({ isAuthenticated, user, logout }) {
+function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
 
-  const [redirect, setRedirect] = useState(false)
+  // const [redirect, setRedirect] = useState(false)
 
   function logoutHandler(){
     logout()
-    setRedirect(true)
+    //setRedirect(true)
   }
 
-  if(redirect ){
-    return <Navigate to='/' />
-  }
+  // if(redirect){
+  //   return <Navigate to='/' />
+  // }
 
   // function selectUrl(){
   //   return user === null ? "/perfil/iniciar_sesion" : "perfil/usuario"
@@ -42,11 +42,11 @@ function Header({ isAuthenticated, user, logout }) {
               <a href="#">My profile</a>
             </li>
             <li>
-              <Link to="/cart" >Carrito</Link>
+              <Link to="/cart">Carrito</Link>
             </li>
             <li>
-              <form method='POST' action='#'>
-                <button onClick={logoutHandler}>Cerrar sesión</button>
+              <form method="POST" action="#">
+                <button type="button" onClick={logoutHandler}>Cerrar sesión</button>
               </form>
             </li>
           </ul>

@@ -179,7 +179,6 @@ export const get_item_total = () => async dispatch => {
             const res = await axios.get('http://localhost:8000/api/cart/get-item-total', config);
 
             if (res.status === 200) {
-                console.log("data", res.data)
                 dispatch({
                     type: GET_ITEM_TOTAL_SUCCESS,
                     payload: res.data

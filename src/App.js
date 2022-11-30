@@ -19,6 +19,7 @@ import Error404 from './containers/errors/Error404';
 
 
 function App() {
+  console.log(localStorage)
   return (
     <Provider store={store}>
       <Router>

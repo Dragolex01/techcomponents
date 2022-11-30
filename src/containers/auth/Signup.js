@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Layout from "../../hocs/Layout";
 
@@ -13,6 +13,8 @@ function Signup({ signup }) {
     useEffect(() => {
         window.scrollTo(0, 0)
     })
+
+    const navigate = useNavigate()
 
     const [accountCreated, setAccountCreated] = useState(false)
 
@@ -41,7 +43,8 @@ function Signup({ signup }) {
         e.preventDefault();
         signup(first_name, last_name, email, password, re_password);
         setAccountCreated(true);
-        // console.log(formData)
+
+        navigate("/")
     }
 
     return (

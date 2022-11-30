@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { connect } from 'react-redux'
 
 import { get_product } from '../../redux/actions/products';
@@ -18,6 +18,8 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
     const params = useParams()
     const productId = params.productId
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         window.scrollTo(0,0)
         get_product(productId)
@@ -29,6 +31,8 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
             await get_items()
             await get_item_total()
             await get_total()
+
+            navigate("/cart")
         }
     }
 

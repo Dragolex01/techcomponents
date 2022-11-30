@@ -49,23 +49,22 @@ export default function Auth (state = initialState, action){
                 ...state,
                 user: null
             }
-        case AUTHENTICATED_FAIL:
-            
-        return{
-                ...state,
-                isAuthenticated: false
-            }
 
         case AUTHENTICATED_SUCCESS:
-            localStorage.setItem('access', payload.access)
-            localStorage.setItem('refresh', payload.refresh)
-            return{
+            return {
                 ...state,
-                isAuthenticated: true,
+                isAuthenticated: true
+            }
+        case AUTHENTICATED_FAIL:
+            localStorage.removeItem('access');
+            localStorage.removeItem('refresh');
+            return {
+                ...state,
+                isAuthenticated: false,
                 access: null,
                 refresh: null
             }
-            
+        
         case LOGIN_SUCCESS:
             localStorage.setItem('access', payload.access)
             localStorage.setItem('refresh', payload.refresh)
