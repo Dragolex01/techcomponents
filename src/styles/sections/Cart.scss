@@ -1,0 +1,67 @@
+.seccionCarrito{
+    width: 100%;
+
+    h1{
+        margin-left: 5rem;
+    }
+
+    &__contenedor{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        &__contItems{
+            width: 60%;
+            margin-right: 1rem;
+            // display: flex;
+            // justify-content: space-between;
+            // flex-wrap: wrap;
+
+            &__item{
+                width: 100%;
+                height: 10rem;
+                margin-bottom: 0.5rem;
+                display: flex;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+                position: relative;
+
+                &--img{
+                    width: 10rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &--info{
+                    padding-left: 2rem;
+                    border-left: 1px solid gray;
+                }
+
+                &--boton{
+                    position: absolute;
+                    right: 2rem;
+                    top: 2rem;
+                }
+
+            }
+        }
+
+        &__contInfo{
+            width: 30%;
+            
+            &--info{
+                width: 30rem;
+                height: 30rem;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+            }
+        }
+
+        &__contBoton{
+            background-color: red;
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+}
