@@ -10,7 +10,7 @@ import { logout } from '../../redux/actions/auth';
 
 
 
-import '../../styles/dropdown.css'; //Temporal
+import '../../styles/otros/dropdown.css'; //Temporal
 
 
 function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle

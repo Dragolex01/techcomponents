@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import Layout from '../../hocs/Layout';
 import { get_items, get_item_total, get_total } from '../../redux/actions/cart';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
+
 function Cart({
   get_items,
   get_item_total,
@@ -44,8 +47,10 @@ function Cart({
                           </div>
                         </div>
                       </div>
-                      <div className="seccionCarrito__contenedor__contItems__item--boton">
-                        a
+                      <div className="seccionCarrito__contenedor__contItems__item__contBoton">
+                        <button className="seccionCarrito__contenedor__contItems__item__contBoton--boton">
+                          <FontAwesomeIcon icon={faX} className="seccionCarrito__contenedor__contItems__item__contBoton--imgBoton" />
+                        </button>
                       </div>
                     </div>
                   );
@@ -53,12 +58,18 @@ function Cart({
               : null}
           </div>
           <div className="seccionCarrito__contenedor__contInfoCompra">
-            <div className="seccionCarrito__contenedor__contInfo--info">
+            <div className="seccionCarrito__contenedor__contInfoCompra__contInfo">
                 <h2>Resumen</h2>
-                <div>
+                <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont1">
                     <h3>Precio total: </h3>
-                    <p>83€</p>
+                    <p>{amount}€</p>
                 </div>
+                <hr/>
+                <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont2">
+                    <h3>Precio total: </h3>
+                    <p>{amount}€</p>
+                </div>
+                <button>Finalizar compra</button>
             </div>
           </div>
         </div>

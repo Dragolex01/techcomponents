@@ -95,13 +95,13 @@
 .seccionCarrito {
   width: 100%; }
   .seccionCarrito h1 {
-    margin-left: 5rem; }
+    margin-left: 10rem; }
   .seccionCarrito__contenedor {
     width: 100%;
     display: flex;
     justify-content: space-around; }
     .seccionCarrito__contenedor__contItems {
-      width: 60%;
+      width: 50%;
       margin-right: 1rem; }
       .seccionCarrito__contenedor__contItems__item {
         width: 100%;
@@ -119,17 +119,39 @@
         .seccionCarrito__contenedor__contItems__item--info {
           padding-left: 2rem;
           border-left: 1px solid gray; }
-        .seccionCarrito__contenedor__contItems__item--boton {
+        .seccionCarrito__contenedor__contItems__item__contBoton {
           position: absolute;
           right: 2rem;
           top: 2rem; }
-    .seccionCarrito__contenedor__contInfo {
+          .seccionCarrito__contenedor__contItems__item__contBoton--boton {
+            border: none;
+            background-color: transparent;
+            cursor: pointer; }
+          .seccionCarrito__contenedor__contItems__item__contBoton--imgBoton {
+            color: gray; }
+    .seccionCarrito__contenedor__contInfoCompra {
       width: 30%; }
-      .seccionCarrito__contenedor__contInfo--info {
-        width: 30rem;
-        height: 30rem;
+      .seccionCarrito__contenedor__contInfoCompra__contInfo {
+        width: 80%;
         border: 1px solid lightgray;
-        border-radius: 10px; }
+        border-radius: 10px;
+        padding: 2rem; }
+        .seccionCarrito__contenedor__contInfoCompra__contInfo--cont1 {
+          padding: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between; }
+        .seccionCarrito__contenedor__contInfoCompra__contInfo--cont2 {
+          padding: 1rem;
+          margin-top: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between; }
+        .seccionCarrito__contenedor__contInfoCompra__contInfo button {
+          width: 100%;
+          height: 2.5rem;
+          border-radius: 10px;
+          border: 1px solid lightgray; }
     .seccionCarrito__contenedor__contBoton {
       background-color: red;
       width: 1rem;
