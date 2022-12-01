@@ -1,0 +1,635 @@
+@charset "UTF-8";
+.seccionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.seccionHeader__contCentral {
+  width: 65rem;
+}
+.seccionHeader__contCentral h1 {
+  font-size: 4em;
+  color: #212529;
+  font-family: sans-serif;
+  letter-spacing: 3px;
+}
+.seccionHeader__contCentral__contMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-size: 1.15em;
+  font-family: "Inconsolata", monospace;
+  justify-content: space-around;
+}
+.seccionHeader__contCentral__contMenu ul li {
+  padding: 0.15rem;
+  position: relative;
+}
+.seccionHeader__contCentral__contMenu__subcontenedor {
+  background-color: rgba(255, 68, 0, 0.511);
+  height: 15rem;
+  display: none;
+}
+.seccionHeader__contLateral {
+  position: fixed;
+  right: 4rem;
+  top: 4.25rem;
+}
+.seccionHeader__contLateral__contLinks {
+  background-color: red;
+}
+.seccionHeader__contLateral__contLinks ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-size: 1.15em;
+  font-family: "Inconsolata", monospace;
+  justify-content: space-around;
+}
+.seccionHeader__contLateral__contLinks ul li {
+  padding: 0.15rem;
+  position: relative;
+}
+.seccionHeader a {
+  color: #212529;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.seccionHeader a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.seccionHeader a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.seccionLista {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.seccionLista__contTitulo {
+  width: 65%;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+.seccionLista__contTienda {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+}
+.seccionLista__contTienda__contFiltros {
+  width: 20%;
+  padding: 0 1.5rem;
+}
+.seccionLista__contTienda__contFiltros--form ul {
+  list-style: none;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+.seccionLista__contTienda__contFiltros--form input {
+  margin-right: 1rem;
+}
+.seccionLista__contTienda__contArticulos {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.seccionCarrito {
+  width: 100%;
+}
+.seccionCarrito h1 {
+  margin-left: 5rem;
+}
+.seccionCarrito__contenedor {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.seccionCarrito__contenedor__contItems {
+  width: 60%;
+  margin-right: 1rem;
+}
+.seccionCarrito__contenedor__contItems__item {
+  width: 100%;
+  height: 10rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  position: relative;
+}
+.seccionCarrito__contenedor__contItems__item--img {
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seccionCarrito__contenedor__contItems__item--info {
+  padding-left: 2rem;
+  border-left: 1px solid gray;
+}
+.seccionCarrito__contenedor__contItems__item--boton {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+}
+.seccionCarrito__contenedor__contInfo {
+  width: 30%;
+}
+.seccionCarrito__contenedor__contInfo--info {
+  width: 30rem;
+  height: 30rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.seccionCarrito__contenedor__contBoton {
+  background-color: red;
+  width: 1rem;
+  height: 1rem;
+}
+
+.seccionInformacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.seccionInformacion h2 {
+  font-weight: 400;
+  font-family: "Inconsolata", monospace;
+  font-size: 2.15em;
+  letter-spacing: 2px;
+}
+.seccionInformacion h3 {
+  color: #959596;
+  letter-spacing: 3px;
+  font-size: 1.15em;
+  font-family: "Source Sans Pro", sans-serif;
+  margin-bottom: 3rem;
+}
+.seccionInformacion__contInfo {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8rem;
+}
+.seccionInformacion__contInfo--img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
+.seccionInformacion__contInfo--img img {
+  width: 100%;
+}
+.seccionInformacion__contInfo--info {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.seccionInformacion__contInfo--info p {
+  font-size: 1em;
+  letter-spacing: 1.5px;
+}
+
+.seccionContacto {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.seccionContacto h2 {
+  margin: 1.5rem 0;
+  text-align: center;
+  font-weight: 400;
+  font-family: "Inconsolata", monospace;
+  font-size: 2.15em;
+  letter-spacing: 2px;
+}
+.seccionContacto h3 {
+  text-align: center;
+  color: #959596;
+  letter-spacing: 3px;
+  font-size: 0.95em;
+  margin-bottom: 5rem;
+}
+.seccionContacto__contInfo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.seccionContacto__contInfo__bloque {
+  width: 23.5rem;
+  height: 9rem;
+  border: 1px solid #ebeeef;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+}
+.seccionContacto__contInfo__bloque--icono {
+  width: 7rem;
+}
+.seccionContacto__contInfo__bloque--info {
+  width: 100%;
+}
+.seccionContacto__contInfo__bloque p {
+  color: #2a8490;
+}
+.seccionContacto__contFormulario {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+.seccionContacto__contFormulario__contInputs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.seccionContacto__contFormulario__contInputs input,
+.seccionContacto__contFormulario__contInputs textarea {
+  border: 3px solid #ebeeef;
+  border-radius: 7px;
+  color: #8c9398;
+}
+.seccionContacto__contFormulario__contInputs input:focus,
+.seccionContacto__contFormulario__contInputs textarea:focus {
+  outline: 1px solid #ebeeef;
+}
+.seccionContacto__contFormulario__contInputs label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  padding: 1rem 0;
+  letter-spacing: 1px;
+  position: absolute;
+  padding: 0 0.8rem;
+  font-size: 0.95em;
+  left: 3rem;
+  top: 0.5rem;
+  background-color: white;
+}
+.seccionContacto__contFormulario__contInputs__contIzq {
+  width: 100%;
+}
+.seccionContacto__contFormulario__contInputs__contIzq--contenedor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.seccionContacto__contFormulario__contInputs__contIzq input {
+  height: 3rem;
+  width: 88%;
+  padding-left: 1rem;
+  letter-spacing: 1px;
+  margin: 1rem 0;
+}
+.seccionContacto__contFormulario__contInputs__contDer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.seccionContacto__contFormulario__contInputs__contDer textarea {
+  width: 85%;
+  height: 12rem;
+  padding: 1rem;
+  resize: none;
+  letter-spacing: 1px;
+}
+.seccionContacto__contFormulario--boton {
+  width: 9rem;
+  height: 3rem;
+  border: 2px solid orangered;
+  background-color: white;
+  margin-top: 5rem;
+  font-size: 1em;
+  cursor: pointer;
+}
+.seccionContacto--googleMap {
+  border: 0;
+  width: 70%;
+  height: 30rem;
+}
+
+.seccionPerfil {
+  width: 100%;
+  padding-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.seccionPerfil h2 {
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.seccionPerfil__contForm {
+  background-color: rgb(249, 250, 251);
+  border: 1px solid rgba(128, 128, 128, 0.108);
+  border-radius: 15px;
+  width: 28rem;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.seccionPerfil__contForm__contInputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.seccionPerfil__contForm__contInputs__contNombre {
+  width: 22rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.seccionPerfil__contForm__contInputs__contNombre--input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.seccionPerfil__contForm__contInputs__contNombre--input input {
+  width: 9.5rem;
+  padding: 0.65rem 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 5px;
+}
+.seccionPerfil__contForm__contInputs__contNombre--input input:focus {
+  outline-color: rgb(79, 70, 229);
+}
+.seccionPerfil__contForm__contInputs--input {
+  width: 22rem;
+  margin-bottom: 1.5rem;
+}
+.seccionPerfil__contForm__contInputs--input label {
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.seccionPerfil__contForm__contInputs--input input {
+  width: 95%;
+  padding: 0.65rem 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 5px;
+}
+.seccionPerfil__contForm__contInputs--input input:focus {
+  outline-color: rgb(79, 70, 229);
+}
+.seccionPerfil__contForm__contBoton {
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.seccionPerfil__contForm__contBoton--boton {
+  background-color: rgb(79, 70, 229);
+  color: white;
+  border-color: rgb(140, 134, 238);
+  border-radius: 7px;
+  width: 100%;
+  padding: 0.6rem 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.seccionFooter {
+  background-color: rgb(21, 21, 21);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 7rem;
+}
+.seccionFooter__contenedor {
+  width: 28%;
+  height: 100%;
+  padding: 0 3rem;
+  margin: 3rem 0;
+}
+.seccionFooter__contenedor h1 {
+  color: white;
+  font-size: 0.95em;
+  font-family: "Inconsolata", monospace;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #959596;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.seccionFooter__contenedor__contTexto {
+  color: #959596;
+}
+.seccionFooter__contenedor__contTexto--info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+}
+.seccionFooter__contenedor__contTexto--info p {
+  margin-left: 1rem;
+}
+.seccionFooter__contenedor__contTexto__contBoton {
+  margin: 1rem 0;
+}
+.seccionFooter__contenedor__contTexto--boton {
+  text-decoration: none;
+  color: #959596;
+}
+.seccionFooter__contenedor__contTexto--boton:hover {
+  color: white;
+}
+.seccionFooter__contenedor__contTexto--nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.seccionFooter__contenedor__contTexto--nav ul li {
+  margin: 0.75rem 0;
+}
+
+.contProducto {
+  width: 17rem;
+  height: 24rem;
+  margin: 2rem 1rem;
+  outline: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  border-radius: 15px;
+}
+.contProducto__contImg {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contProducto__contInfo {
+  text-align: left;
+  width: 100%;
+  height: 30%;
+}
+.contProducto__contInfo__subcontenedor {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+}
+.contProducto__contInfo__subcontenedor--titulo {
+  color: #212529;
+  padding-left: 10%;
+  width: 75%;
+  margin: 0;
+}
+.contProducto__contInfo__subcontenedor--precio {
+  width: 25%;
+  padding-right: 5%;
+  color: #ff4c4c;
+  font-weight: bold;
+  margin: 0;
+}
+.contProducto__contInfo--info {
+  padding-left: 10%;
+  width: 90%;
+  margin: 0;
+}
+
+.seccionProducto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seccionProducto__contInfo {
+  width: 60%;
+  height: 30rem;
+  margin: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.seccionProducto__contInfo__contIzq {
+  width: 49%;
+  outline: 1px solid gray;
+}
+.seccionProducto__contInfo__contIzq img {
+  width: 100%;
+}
+.seccionProducto__contInfo__contDer {
+  width: 49%;
+  outline: 1px solid gray;
+}
+.seccionProducto__contInfo__contDer--boton {
+  background-color: rgb(79, 70, 229);
+  color: white;
+  border-color: rgb(140, 134, 238);
+  border-radius: 7px;
+  width: 40%;
+  padding: 0.6rem 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.seccionPageNotFound {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seccionPageNotFound__contMensaje {
+  width: 30rem;
+  height: 20rem;
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.validacion-incorrecto input {
+  border-color: #bb2929;
+}
+
+.validacion-correcto input {
+  border-color: #1ed12d;
+}
+
+.infoError {
+  display: none;
+  width: 70%;
+  font-size: 0.85em;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.infoError-activo {
+  display: block;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.icon_validacion {
+  position: absolute;
+  display: none;
+  right: 3rem;
+  top: 2.15rem;
+  height: 1.15rem;
+}
+.icon_validacion-correcto {
+  display: block;
+  color: #1ed12d;
+}
+.icon_validacion-incorrecto {
+  display: block;
+  color: #bb2929;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+- About US:
+    * Cambiar estilos de las letras
+    * Cambiar dos imagenes
+
+- Contact:
+    * Input al estar activo no cambie el borde
+
+-Footer:
+    * Input type="email" para introducir el correo y que le lleguen ofertas y novedades. OPCIONAL para rellenar (Sucede al registrarse también)
+*/
+
+/*# sourceMappingURL=App.css.map */
