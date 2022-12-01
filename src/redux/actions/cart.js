@@ -275,7 +275,7 @@ export const remove_item = item => async dispatch => {
         };
 
         try {
-            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/cart/remove-item`, config);
+            const res = await axios.delete('http://localhost:8000/api/cart/remove-item', config);
 
             if (res.status === 200) {
                 dispatch({

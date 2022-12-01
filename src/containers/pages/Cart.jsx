@@ -1,27 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import Layout from '../../hocs/Layout';
-import { get_items, get_item_total, get_total } from '../../redux/actions/cart';
+import CartItem from '../../components/product/CartItem';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX } from '@fortawesome/free-solid-svg-icons';
+import { get_items, get_item_total, get_total, remove_item } from '../../redux/actions/cart';
+
 
 function Cart({
   get_items,
   get_item_total,
   get_total,
+  remove_item,
   isAuthenticated,
   items,
   amount,
   total_items,
 }) {
+
+  const [reload, setReload] = useState(false)
+
   useEffect(() => {
     window.scrollTo(0, 0);
     get_items();
     get_item_total();
     get_total();
-  }, []);
+  }, [reload]);
 
   const showItems = () => {
     return (
@@ -33,25 +37,7 @@ function Cart({
               ? items.map((item, i) => {
                   return (
                     <div className="seccionCarrito__contenedor__contItems__item" key={i}>
-                      <div className="seccionCarrito__contenedor__contItems__item--img">
-                        <img src="#" />
-                      </div>
-                      <div className="seccionCarrito__contenedor__contItems__item--info">
-                        <div>
-                          <div>
-                            <h2>{items[i].product.name}</h2>
-                            <p>Precio: {items[i].product.price}</p>
-                          </div>
-                          <div>
-                            <p>Cantidad: {items[i].product.quantity}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="seccionCarrito__contenedor__contItems__item__contBoton">
-                        <button className="seccionCarrito__contenedor__contItems__item__contBoton--boton">
-                          <FontAwesomeIcon icon={faX} className="seccionCarrito__contenedor__contItems__item__contBoton--imgBoton" />
-                        </button>
-                      </div>
+                      <CartItem item={items[i]} setReload={setReload} reload={reload} remove_item={remove_item} />
                     </div>
                   );
                 })
@@ -94,4 +80,5 @@ export default connect(mapStateToProps, {
   get_items,
   get_item_total,
   get_total,
+  remove_item
 })(Cart);

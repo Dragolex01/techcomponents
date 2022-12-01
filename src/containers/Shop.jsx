@@ -84,7 +84,9 @@ function Shop({ get_categories, categories, get_products, products }) {
               products !== undefined &&
               products.map((product) => {
                 return (
-                  <Card product={product} key={product.id}/>
+                  <div className="contProducto" key={product.id}>
+                    <Card product={product} />
+                  </div>
                 );
               })}
           </div>

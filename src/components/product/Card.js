@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
 
-function Card({ product, id }){
+function Card({ product }){
 
     return(
-        <div className="contProducto" key={id}>
+        <>
             <div className="contProducto__contImg">
                 <img src={product.get_image} alt=""/>
             </div>
@@ -17,7 +17,7 @@ function Card({ product, id }){
                 </div>
                 <p className="contProducto__contInfo--info">{product.description}</p>
             </div>
-        </div>
+        </>
     )
 }
 
