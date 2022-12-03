@@ -1,21 +1,21 @@
-@import './otros/Variables.scss';
+@import './otros/_variables.scss';
 
-@import './sections/Header.scss';
-@import './sections/Home.scss';
-@import './sections/Shop.scss';
-@import './sections/Cart.scss';
-@import './sections/AboutUs.scss';
-@import './sections/Contact.scss';
-@import './sections/Profile.scss';
-@import './sections/Footer.scss';
+@import './sections/_header.scss';
+@import './sections/_home.scss';
+@import './sections/_shop.scss';
+@import './sections/_cart.scss';
+@import './sections/_aboutUs.scss';
+@import './sections/_contact.scss';
+@import './sections/_profile.scss';
+@import './sections/_footer.scss';
 
-@import './components/Card.scss';
-@import './components/ProductInfo.scss';
-// @import './components/Discount.scss';
-@import './components/PageNotFound.scss';
-// @import './components/Spinner.scss';
+@import './components/_card.scss';
+@import './components/_productInfo.scss';
+// @import './components/_discount.scss';
+@import './components/_pageNotFound.scss';
+// @import './components/_spinner.scss';
 
-@import './otros/ValidacionForms.scss';
+@import './otros/_validacionForms.scss';
 
 body {
   padding: 0;
