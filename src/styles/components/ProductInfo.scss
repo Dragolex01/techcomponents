@@ -9,31 +9,59 @@
         height: 30rem;
         margin: 5rem 0;
         display: flex;
-        justify-content: space-between;
+        border: 1px solid lightgray;
+        padding: 2rem;
 
         &__contIzq{
-            width: 49%;
-            outline: 1px solid gray;
+            width: 50%;
+            background-size: cover;
 
             img{
                 width: 100%;
+                border-radius: 10px;
             }
         }
 
         &__contDer{
-            width: 49%;
-            outline: 1px solid gray;
+            width: 50%;
+            padding-left: 2rem;
 
-            h1{
+            &__contInfo{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+                
+                margin-bottom: 2rem;
 
+                &--precio{
+                    margin: 0;
+                    color: $color-titulo;
+                    font-weight: bold;
+                    font-size: $fontSize-subtitulo3;
+                }
+
+                h1{
+                    margin: 0;
+                    font-family: $fontFamily-titulo;
+                    font-size: 1.9em;
+                    color: $color-titulo;
+                    font-weight: 200;
+                }
             }
+
+            
 
             h2{
-
+                font-family: $fontFamily-subtitulo;
+                font-size: $fontSize-subtitulo2;
+                color: $color-titulo;
+                margin-top: 3rem;
             }
 
-            p{
-
+            &--descripcion{
+                color: $color-subtitulo-claro;
+                margin-bottom: 2rem;
             }
 
             &--boton{
@@ -45,7 +73,12 @@
                 padding: 0.6rem 0;
                 margin-bottom: 0.5rem;
                 cursor: pointer;
+                margin-top: 2rem;
             }
         }
     }
 }
+
+
+
+//Img border raidius

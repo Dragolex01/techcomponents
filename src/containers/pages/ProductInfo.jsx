@@ -48,8 +48,10 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
                         <img src={imgPrueba} alt="" />
                     </div>
                     <div className="seccionProducto__contInfo__contDer">
-                        <h1>{product && product.name}</h1>
-                        <h2>{product && product.price}</h2>
+                        <div className="seccionProducto__contInfo__contDer__contInfo">
+                            <h1>{product && product.name}</h1>
+                            <p className="seccionProducto__contInfo__contDer__contInfo--precio">{product && product.price}€</p>
+                        </div>
                         <form onSubmit={e => onSubmit(e)}>
                             <label htmlFor="item_count">Cantidad: </label>
                             <select id="item_count">
@@ -60,7 +62,8 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
                                 <option>5</option>
                             </select>
                         </form>
-                        <p>{product && product.description}</p>
+                        <h2>Descripción</h2>
+                        <p className="seccionProducto__contInfo__contDer--descripcion">{product && product.description}</p>
                         {
                             product && product !== null && product !== undefined && product.quantity > 0 ?
                             <p>En stock</p> : <p>Sin stock</p>
@@ -84,3 +87,7 @@ export default connect(mapStateToProps, {
     add_item,
     get_total
 }) (ProductInfo)
+
+
+
+//Componentse?
