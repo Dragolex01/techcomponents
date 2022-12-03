@@ -39,7 +39,7 @@ function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
         <div className="menu">
           <ul>
             <li>
-              <a href="#">My profile</a>
+            <Link to="/profile">Mi perfil</Link>
             </li>
             <li>
               <Link to="/cart">Carrito</Link>

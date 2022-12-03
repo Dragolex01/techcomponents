@@ -129,6 +129,12 @@
             cursor: pointer; }
           .seccionCarrito__contenedor__contItems__item__contBoton--imgBoton {
             color: gray; }
+      .seccionCarrito__contenedor__contItems--boton {
+        width: 8rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        border: 1px solid lightgray;
+        cursor: pointer; }
     .seccionCarrito__contenedor__contInfoCompra {
       width: 30%; }
       .seccionCarrito__contenedor__contInfoCompra__contInfo {
@@ -152,7 +158,8 @@
           width: 100%;
           height: 2.5rem;
           border-radius: 10px;
-          border: 1px solid lightgray; }
+          border: 1px solid lightgray;
+          cursor: pointer; }
     .seccionCarrito__contenedor__contBoton {
       background-color: red;
       width: 1rem;
@@ -519,16 +526,22 @@
 .seccionPageNotFound {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center; }
   .seccionPageNotFound__contMensaje {
-    width: 30rem;
-    height: 20rem;
     margin: 5rem 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    flex-wrap: wrap; }
+    .seccionPageNotFound__contMensaje--info {
+      border-left: 1px solid lightgray;
+      padding-left: 2rem; }
+      .seccionPageNotFound__contMensaje--info p {
+        color: gray; }
+    .seccionPageNotFound__contMensaje h1 {
+      padding-right: 2rem; }
 
 .validacion-incorrecto input {
   border-color: #bb2929; }

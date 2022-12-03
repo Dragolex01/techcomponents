@@ -30,7 +30,7 @@ function Cart({
   const showItems = () => {
     return (
       <section className="seccionCarrito">
-        <h1>Tu carrito tiene {total_items} productos</h1>
+        <h1>{total_items} productos</h1>
         <div className="seccionCarrito__contenedor">
           <div className="seccionCarrito__contenedor__contItems">
             {items && items !== null && items !== undefined && items.length > 0
@@ -44,7 +44,7 @@ function Cart({
               : <p>No hay productos.</p>
             }
 
-            <button>Vaciar carrito</button>
+            <button onClick={console.log("vaciar carrito")} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
           </div>
           <div className="seccionCarrito__contenedor__contInfoCompra">
             <div className="seccionCarrito__contenedor__contInfoCompra__contInfo">

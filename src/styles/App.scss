@@ -7,6 +7,7 @@
 @import './sections/_aboutUs.scss';
 @import './sections/_contact.scss';
 @import './sections/_profile.scss';
+@import './sections/_user';
 @import './sections/_footer.scss';
 
 @import './components/_card.scss';
@@ -20,6 +21,10 @@
 body {
   padding: 0;
   margin: 0;
+//   background-image: url('../../../../../Escritorio/descarga.jpeg');
+//   background-size: cover;
+//   background-repeat: no-repeat;
+
 }
 
 

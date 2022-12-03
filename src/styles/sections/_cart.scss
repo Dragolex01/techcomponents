@@ -55,6 +55,14 @@
                 }
 
             }
+
+            &--boton{
+                width: 8rem;
+                height: 2.5rem;
+                border-radius: 10px;
+                border: 1px solid lightgray;
+                cursor: pointer;
+            }
         }
 
         &__contInfoCompra{
@@ -93,6 +101,7 @@
                     height: 2.5rem;
                     border-radius: 10px;
                     border: 1px solid lightgray;
+                    cursor: pointer;
                 }
             }
         }

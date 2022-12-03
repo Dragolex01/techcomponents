@@ -1,16 +1,33 @@
 .seccionPageNotFound{
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
     &__contMensaje{
-        width: 30rem;
-        height: 20rem;
+        //width: 30rem;
+        // height: 20rem;
         margin: 5rem 0;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+        
+        &--info{
+            border-left: 1px solid lightgray;
+            padding-left: 2rem;
+
+            p{
+                color: gray;
+            }
+        }
+
+        h1{
+            padding-right: 2rem;
+        }
     }
 }

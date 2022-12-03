@@ -11,6 +11,7 @@ import ProductInfo from './containers/pages/ProductInfo';
 import AboutUs from './containers/pages/AboutUs';
 import Contact from './containers/pages/Contact';
 import Cart from './containers/pages/Cart';
+import Profile from './containers/pages/Profile';
 
 import Signup from './containers/auth/Signup';
 import Login from './containers/auth/Login';
@@ -29,6 +30,9 @@ function App() {
 
           <Route exact path='/' element={<Home />} />
           <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='/profile' element={<Profile />} />
+          <Route exact path='/about_us' element={<AboutUs />} />
+          <Route exact path='/contact' element={<Contact />} />
 
           {/* Authentication users */}
           <Route exact path='/register' element={<Signup />} />
@@ -38,10 +42,6 @@ function App() {
           {/* Shop */}
           <Route exact path='/shop' element={<Shop/>} />
           <Route exact path='/product/:productId' element={<ProductInfo />}/>
-
-          {/* Pages */}
-          <Route exact path='/about_us' element={<AboutUs />} />
-          <Route exact path='/contact' element={<Contact />} />
         </Routes>
       </Router>
     </Provider>
