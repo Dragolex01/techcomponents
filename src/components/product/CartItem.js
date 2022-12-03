@@ -19,9 +19,12 @@ function CartItem({ item, setReload, reload, remove_item }) {
                         <h2>{item.product.name}</h2>
                         <p>Precio: {item.product.price}</p>
                     </div>
-                    <div>
+                    <form>
+                        {/* <select>
+                            <option></option>
+                        </select> */}
                         <p>Cantidad: {item.product.quantity}</p>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div className="seccionCarrito__contenedor__contItems__item__contBoton">

@@ -137,10 +137,11 @@
         border-radius: 10px;
         padding: 2rem; }
         .seccionCarrito__contenedor__contInfoCompra__contInfo--cont1 {
-          padding: 1rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between; }
+          padding: 1rem; }
+          .seccionCarrito__contenedor__contInfoCompra__contInfo--cont1 div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; }
         .seccionCarrito__contenedor__contInfoCompra__contInfo--cont2 {
           padding: 1rem;
           margin-top: 1rem;
@@ -545,4 +546,7 @@ body {
 
 -Footer:
     * Input type="email" para introducir el correo y que le lleguen ofertas y novedades. OPCIONAL para rellenar (Sucede al registrarse también)
+
+-ProductInfo:
+    *Al añadir producto a carrito que cargue (simbolo)
 */

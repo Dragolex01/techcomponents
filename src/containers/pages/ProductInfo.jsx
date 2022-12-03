@@ -36,7 +36,7 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
             await get_item_total()
             await get_total()
 
-            navigate("/cart")
+            navigate("/cart") //Quitar mejor
         }
     }
 

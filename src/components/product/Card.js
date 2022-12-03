@@ -15,7 +15,12 @@ function Card({ product }){
                     <h3 className="contProducto__contInfo__subcontenedor--titulo"><Link to={`/product/${product.id}`} >{product.name}</Link></h3>
                     <p className="contProducto__contInfo__subcontenedor--precio">{product.price}€</p>
                 </div>
-                <p className="contProducto__contInfo--info">{product.description}</p>
+                {/* <p className="contProducto__contInfo--info">{product.description}</p> */}
+                {
+                    product.quantity > 0 ?
+                        <p className="contProducto__contInfo--info">Stock</p> :
+                        <p className="contProducto__contInfo--info">Sin stock</p>
+                }
             </div>
         </>
     )

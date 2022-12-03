@@ -139,7 +139,6 @@ class GetTotalView(APIView):
                 status = status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-
 class GetItemTotalView(APIView):
     def get(self, request, format = None):
         user = self.request.user

@@ -18,14 +18,14 @@ function Cart({
   total_items,
 }) {
 
-  const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    get_items();
-    get_item_total();
-    get_total();
-  }, [reload]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        get_items()
+        get_total()
+        get_item_total()
+    }, [reload])
 
   const showItems = () => {
     return (
@@ -41,19 +41,32 @@ function Cart({
                     </div>
                   );
                 })
-              : null}
+              : <p>No hay productos.</p>
+            }
+
+            <button>Vaciar carrito</button>
           </div>
           <div className="seccionCarrito__contenedor__contInfoCompra">
             <div className="seccionCarrito__contenedor__contInfoCompra__contInfo">
                 <h2>Resumen</h2>
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont1">
-                    <h3>Precio total: </h3>
-                    <p>{amount}€</p>
+                  {/* <div>
+                    <h3>Productos totales: </h3>
+                    <p>{total_items}</p>
+                  </div> */}
+                  <div>
+                    <h3>Subtotal: </h3>
+                    <p>{amount.toFixed(2)}€</p>
+                  </div>
+                    <div>
+                      <h3>Descuento: </h3>
+                      <p>0.00</p>
+                    </div>
                 </div>
                 <hr/>
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont2">
                     <h3>Precio total: </h3>
-                    <p>{amount}€</p>
+                    <p>{amount.toFixed(2)}€</p>
                 </div>
                 <button>Finalizar compra</button>
             </div>
