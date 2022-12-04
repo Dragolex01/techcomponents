@@ -16,11 +16,16 @@ class Product(models.Model):
     sold = models.IntegerField(default = 0)
     date_created = models.DateTimeField(default = datetime.now)
 
+    # def get_image(self):
+    #     if self.photo:
+    #         # url_img = '127.0.0.1:8000' + self.photo.url
+    #         # return url_img
+    #         return self.photo.url
+    #     return ''
+
     def get_image(self):
         if self.photo:
-            url_img = '127.0.0.1:8000' + self.photo.url
-            return url_img
-            # return self.photo.url
+            return self.photo.url
         return ''
     
     def __str__(self):

@@ -8,7 +8,7 @@ function Card({ product }){
     return(
         <>
             <div className="contProducto__contImg">
-                <img src={product.get_image} alt=""/>
+                <img src={product.get_image} className="contProducto__contImg--img" alt=""/>
             </div>
             <div className="contProducto__contInfo">
                 <div className="contProducto__contInfo__subcontenedor">

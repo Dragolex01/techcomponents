@@ -30,7 +30,7 @@ function Cart({
   const showItems = () => {
     return (
       <section className="seccionCarrito">
-        <h1>{total_items} productos</h1>
+        <h1>Carrito: {total_items} productos</h1>
         <div className="seccionCarrito__contenedor">
           <div className="seccionCarrito__contenedor__contItems">
             {items && items !== null && items !== undefined && items.length > 0
