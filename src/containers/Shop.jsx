@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
+
 import { get_categories } from '../redux/actions/categories';
 import { get_products } from '../redux/actions/products';
 
 import Layout from '../hocs/Layout';
-import { useEffect } from 'react';
 import Card from '../components/product/Card';
 
 function Shop({ get_categories, categories, get_products, products }) {
@@ -84,7 +85,7 @@ function Shop({ get_categories, categories, get_products, products }) {
               products !== undefined &&
               products.map((product) => {
                 return (
-                  <div className="contProducto" key={product.id}>
+                  <div className="contProducto" key={product.id}> 
                     <Card product={product} />
                   </div>
                 );
