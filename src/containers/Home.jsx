@@ -30,7 +30,24 @@ function Home({ get_products, products }){
                 }
             </>
         )
-        
+    }
+
+    const ventas = () => { // Ordenar por más vendidos
+        return(
+            <>
+                {
+                    products.map((product, i) => {
+                        return(
+                            i <= 5 ?
+                            <div className="contProducto" key={product.id}>
+                                <Card product={product} />
+                                <p>{product.sold}</p>
+                            </div> : null
+                        )
+                    })
+                }
+            </>
+        )
     }
 
     return(
@@ -54,6 +71,15 @@ function Home({ get_products, products }){
                         products !== null &&
                         products !== undefined ?
                         novedades() : null
+                    }
+                </div>
+                <h1>Más vendidos</h1>
+                <div className="seccionHome__contProductos">
+                    {
+                        products &&
+                        products !== null &&
+                        products !== undefined ?
+                        ventas() : null
                     }
                 </div>
             </div>
