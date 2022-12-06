@@ -323,7 +323,7 @@ export const empty_cart = () => async dispatch => {
         };
 
         try {
-            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/cart/empty-cart`, config);
+            const res = await axios.delete('http://localhost:8000/api/cart/empty-cart', config);
 
             if (res.status === 200) {
                 dispatch({

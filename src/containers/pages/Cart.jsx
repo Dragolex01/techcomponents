@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import Layout from '../../hocs/Layout';
 import CartItem from '../../components/product/CartItem';
 
-import { get_items, get_item_total, get_total, remove_item } from '../../redux/actions/cart';
+import { get_items, get_item_total, get_total, remove_item, empty_cart } from '../../redux/actions/cart';
 
 
 function Cart({
@@ -12,6 +13,7 @@ function Cart({
   get_item_total,
   get_total,
   remove_item,
+  empty_cart,
   isAuthenticated,
   items,
   amount,
@@ -20,12 +22,35 @@ function Cart({
 
   const [reload, setReload] = useState(false);
 
+  const navigate = useNavigate()
+
     useEffect(() => {
         window.scrollTo(0, 0);
         get_items()
         get_total()
         get_item_total()
     }, [reload])
+
+  //   const onSubmit = e => {
+  //     e.preventDefault()
+  // }
+
+    async function emptyCart(){
+      // if(product && product !== null && product !== undefined && product.quantity > 0){
+      //     await add_item(product)
+      //     await get_items()
+      //     await get_item_total()
+      //     await get_total()
+
+      //     navigate("/cart") //Quitar mejor
+      // }
+      if(total_items > 0){
+        await empty_cart()
+        navigate("/cart")
+      }else{
+        alert("El carrito ya esta vacio")
+      }
+  }
 
   const showItems = () => {
     return (
@@ -44,7 +69,7 @@ function Cart({
               : <p>No hay productos.</p>
             }
 
-            <button onClick={console.log("vaciar carrito")} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
+            <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
           </div>
           <div className="seccionCarrito__contenedor__contInfoCompra">
             <div className="seccionCarrito__contenedor__contInfoCompra__contInfo">
@@ -93,5 +118,6 @@ export default connect(mapStateToProps, {
   get_items,
   get_item_total,
   get_total,
-  remove_item
+  remove_item,
+  empty_cart
 })(Cart);
