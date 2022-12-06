@@ -35,9 +35,11 @@ function Footer(){
                     <nav className="seccionFooter__contenedor__contTexto--nav">
                         <ul>
                             <li><NavLink to="/" className="seccionFooter__contenedor__contTexto--boton">Inicio</NavLink></li>
-                            <li><NavLink to="/lista" className="seccionFooter__contenedor__contTexto--boton">Ordenadores</NavLink></li>
+                            {/* <li><NavLink to="/lista" className="seccionFooter__contenedor__contTexto--boton">Ordenadores</NavLink></li>
                             <li><NavLink to="/lista" className="seccionFooter__contenedor__contTexto--boton">Móviles</NavLink></li>
-                            <li><NavLink to="/lista" className="seccionFooter__contenedor__contTexto--boton">Tablets</NavLink></li>
+                            <li><NavLink to="/lista" className="seccionFooter__contenedor__contTexto--boton">Tablets</NavLink></li> */}
+                            <li><NavLink to="/shop" className="seccionFooter__contenedor__contTexto--boton">Artículos</NavLink></li>
+                            <li><NavLink to="/about_us" className="seccionFooter__contenedor__contTexto--boton">Sobre nosostros</NavLink></li>
                             <li><NavLink to="/contact" className="seccionFooter__contenedor__contTexto--boton">Contacto</NavLink></li>
                         </ul>
                     </nav>

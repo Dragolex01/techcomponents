@@ -23,6 +23,7 @@ function Home({ get_products, products }){
                             i <= 5 ?
                             <div className="contProducto" key={product.id}>
                                 <Card product={product} />
+                                <p>{product.date_created}</p>
                             </div> : null
                         )
                     })
