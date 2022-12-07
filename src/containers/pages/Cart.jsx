@@ -14,7 +14,7 @@ function Cart({
   get_total,
   remove_item,
   empty_cart,
-  isAuthenticated,
+  // isAuthenticated,
   items,
   amount,
   total_items,

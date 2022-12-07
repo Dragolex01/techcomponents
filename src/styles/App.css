@@ -427,6 +427,9 @@
         margin-bottom: 0.5rem;
         cursor: pointer; }
 
+.seccionUser {
+  background-color: red; }
+
 .seccionFooter {
   background-color: #151515;
   width: 100%;
@@ -485,8 +488,7 @@
     justify-content: center;
     align-items: center; }
     .contProducto__contImg--img {
-      height: auto;
-      width: 2rem;
+      height: 80%;
       border-radius: 10px; }
   .contProducto__contInfo {
     text-align: left;
