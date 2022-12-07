@@ -14,7 +14,7 @@ import Layout from '../../hocs/Layout';
 
 import imgPrueba from '../../img/imgMundial.jpg';
 
-function ProductInfo({ get_product, product, get_items, get_item_total, add_item, get_total }){
+function ProductInfo({ isAuthenticated, get_product, product, get_items, get_item_total, add_item, get_total }){
     const params = useParams()
     const productId = params.productId
 
@@ -30,13 +30,17 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
     }
 
     async function addToCart(){
-        if(product && product !== null && product !== undefined && product.quantity > 0){
-            await add_item(product)
-            await get_items()
-            await get_item_total()
-            await get_total()
-
-            navigate("/cart") //Quitar mejor
+        if(isAuthenticated){
+            if(product && product !== null && product !== undefined && product.quantity > 0){
+                await add_item(product)
+                await get_items()
+                await get_item_total()
+                await get_total()
+    
+                navigate("/cart")
+            }
+        }else{
+            navigate("/login")
         }
     }
 
@@ -77,6 +81,7 @@ function ProductInfo({ get_product, product, get_items, get_item_total, add_item
     )
 }
 const mapStateToProps = state => ({
+    isAuthenticated: state.Auth.isAuthenticated,
     product: state.Products.product
 })
 

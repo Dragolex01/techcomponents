@@ -1,11 +1,11 @@
 import axios from "axios";
 import {
-    ADD_ITEM,
-    GET_TOTAL,
-    GET_ITEMS,
-    UPDATE_ITEM,
-    REMOVE_ITEM,
-    EMPTY_CART,
+    // ADD_ITEM,
+    // GET_TOTAL,
+    // GET_ITEMS,
+    // UPDATE_ITEM,
+    // REMOVE_ITEM,
+    // EMPTY_CART,
     ADD_ITEM_SUCCESS,
     ADD_ITEM_FAIL,
     GET_ITEMS_SUCCESS,
@@ -14,7 +14,7 @@ import {
     GET_TOTAL_FAIL,
     GET_ITEM_TOTAL_SUCCESS,
     GET_ITEM_TOTAL_FAIL,
-    GET_ITEM_TOTAL,
+    // GET_ITEM_TOTAL,
     UPDATE_ITEM_SUCCESS,
     UPDATE_ITEM_FAIL,
     REMOVE_ITEM_SUCCESS,
@@ -24,7 +24,7 @@ import {
 } from "./types";
 
 export const add_item = (product) => async dispatch => {
-    if(localStorage.getItem('access')){ //Esta logueada?
+    if(localStorage.getItem('access')){
         const config = {
             headers: {
                 'Content-Type': 'application/json',
@@ -54,34 +54,35 @@ export const add_item = (product) => async dispatch => {
                 type: ADD_ITEM_FAIL
             })
         }
-    }else{
-        let cart = []
-
-        if(localStorage.getItem('cart')){
-            cart = JSON.parse(localStorage.getItem('cart'));
-        }
-        let shouldAddItem = true;
-
-        cart.map(item => {
-            if(product.id.toString() === item.product.id.toString()){
-                shouldAddItem = false
-            }
-        })
-
-        const order_item = {
-            product: product,
-            count: 1
-        }
-
-        if(shouldAddItem){
-            cart.push(order_item)
-        }
-
-        dispatch({
-            type: ADD_ITEM,
-            payload: cart
-        })
     }
+    // else{
+    //     let cart = []
+
+    //     if(localStorage.getItem('cart')){
+    //         cart = JSON.parse(localStorage.getItem('cart'));
+    //     }
+    //     let shouldAddItem = true;
+
+    //     cart.map(item => {
+    //         if(product.id.toString() === item.product.id.toString()){
+    //             shouldAddItem = false
+    //         }
+    //     })
+
+    //     const order_item = {
+    //         product: product,
+    //         count: 1
+    //     }
+
+    //     if(shouldAddItem){
+    //         cart.push(order_item)
+    //     }
+
+    //     dispatch({
+    //         type: ADD_ITEM,
+    //         payload: cart
+    //     })
+    // }
 }
 
 export const get_items = () => async dispath => {
@@ -111,11 +112,12 @@ export const get_items = () => async dispath => {
                 type: GET_ITEMS_FAIL
             })
         }
-    }else{
-        dispath({
-            type: GET_ITEMS
-        })
     }
+    // else{
+    //     dispath({
+    //         type: GET_ITEMS
+    //     })
+    // }
 }
 
 export const get_total = () => async dispatch => {
@@ -145,25 +147,26 @@ export const get_total = () => async dispatch => {
                 type: GET_TOTAL_FAIL
             })
         }
-    }else{
-        let total = 0.0;
-        let compare_total = 0.0;
-        let cart = [];
-
-        if (localStorage.getItem('cart')) {
-            cart = JSON.parse(localStorage.getItem('cart'));
-
-            cart.map(item => {
-                total += parseFloat(item.product.price) * parseFloat(item.count);
-                compare_total += parseFloat(item.product.compare_price) * parseFloat(item.count);
-            });
-        }
-
-        dispatch({
-            type: GET_TOTAL,
-            payload: [parseFloat(total.toFixed(2)), parseFloat(compare_total.toFixed(2))] //Parsefloat para ver 2 decimales
-        });
     }
+    // else{
+    //     let total = 0.0;
+    //     let compare_total = 0.0;
+    //     let cart = [];
+
+    //     if (localStorage.getItem('cart')) {
+    //         cart = JSON.parse(localStorage.getItem('cart'));
+
+    //         cart.map(item => {
+    //             total += parseFloat(item.product.price) * parseFloat(item.count);
+    //             compare_total += parseFloat(item.product.compare_price) * parseFloat(item.count);
+    //         });
+    //     }
+
+    //     dispatch({
+    //         type: GET_TOTAL,
+    //         payload: [parseFloat(total.toFixed(2)), parseFloat(compare_total.toFixed(2))] //Parsefloat para ver 2 decimales
+    //     });
+    // }
 }
 
 export const get_item_total = () => async dispatch => {
@@ -193,18 +196,19 @@ export const get_item_total = () => async dispatch => {
                 type: GET_ITEM_TOTAL_FAIL
             });
         }
-    } else {
-        let total = 0;
-
-        if (localStorage.getItem('cart')) {
-            total = JSON.parse(localStorage.getItem('cart')).length;
-        }
-
-        dispatch({
-            type: GET_ITEM_TOTAL,
-            payload: total
-        });
     }
+    // else {
+    //     let total = 0;
+
+    //     if (localStorage.getItem('cart')) {
+    //         total = JSON.parse(localStorage.getItem('cart')).length;
+    //     }
+
+    //     dispatch({
+    //         type: GET_ITEM_TOTAL,
+    //         payload: total
+    //     });
+    // }
 }
 
 export const update_item = (item, count) => async dispatch => {
@@ -238,24 +242,25 @@ export const update_item = (item, count) => async dispatch => {
                 type: UPDATE_ITEM_FAIL
             });
         }
-    } else {
-        let cart = [];
-
-        if (localStorage.getItem('cart')) {
-            cart = JSON.parse(localStorage.getItem('cart'));
-
-            cart.map((cart_item, index) => {
-                if (cart_item.product.id.toString() === item.product.id.toString()) {
-                    cart[index].count = parseInt(count);
-                }
-            });
-        }
-
-        dispatch({
-            type: UPDATE_ITEM,
-            payload: cart
-        });
     }
+    // else {
+    //     let cart = [];
+
+    //     if (localStorage.getItem('cart')) {
+    //         cart = JSON.parse(localStorage.getItem('cart'));
+
+    //         cart.map((cart_item, index) => {
+    //             if (cart_item.product.id.toString() === item.product.id.toString()) {
+    //                 cart[index].count = parseInt(count);
+    //             }
+    //         });
+    //     }
+
+    //     dispatch({
+    //         type: UPDATE_ITEM,
+    //         payload: cart
+    //     });
+    // }
 }
 
 
@@ -292,25 +297,26 @@ export const remove_item = item => async dispatch => {
                 type: REMOVE_ITEM_FAIL
             });
         }
-    } else {
-        let cart = [];
-        let new_cart = [];
-
-        if (localStorage.getItem('cart')) {
-            cart = JSON.parse(localStorage.getItem('cart'));
-
-            cart.map(cart_item => {
-                if (cart_item.product.id.toString() !== item.product.id.toString()) {
-                    new_cart.push(cart_item);
-                }
-            });
-        }
-
-        dispatch({
-            type: REMOVE_ITEM,
-            payload: new_cart
-        });
     }
+    // else {
+    //     let cart = [];
+    //     let new_cart = [];
+
+    //     if (localStorage.getItem('cart')) {
+    //         cart = JSON.parse(localStorage.getItem('cart'));
+
+    //         cart.map(cart_item => {
+    //             if (cart_item.product.id.toString() !== item.product.id.toString()) {
+    //                 new_cart.push(cart_item);
+    //             }
+    //         });
+    //     }
+
+    //     dispatch({
+    //         type: REMOVE_ITEM,
+    //         payload: new_cart
+    //     });
+    // }
 }
 
 export const empty_cart = () => async dispatch => {
@@ -339,9 +345,10 @@ export const empty_cart = () => async dispatch => {
                 type: EMPTY_CART_FAIL
             });
         }
-    } else {
-        dispatch({
-            type: EMPTY_CART
-        });
     }
+    // else {
+    //     dispatch({
+    //         type: EMPTY_CART
+    //     });
+    // }
 }

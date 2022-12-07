@@ -33,13 +33,13 @@ export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
 export const GET_PRODUCT_FAIL = 'GET_PRODUCT_FAIL';
 
 //Cart (Local)
-export const ADD_ITEM = 'ADD_ITEM';
-export const GET_TOTAL = 'GET_TOTAL';
-export const GET_ITEMS = 'GET_ITEMS';
-export const GET_ITEM_TOTAL = 'GET_ITEM_TOTAL';
-export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const EMPTY_CART = 'EMPTY_CART';
+// export const ADD_ITEM = 'ADD_ITEM';
+// export const GET_TOTAL = 'GET_TOTAL';
+// export const GET_ITEMS = 'GET_ITEMS';
+// export const GET_ITEM_TOTAL = 'GET_ITEM_TOTAL';
+// export const UPDATE_ITEM = 'UPDATE_ITEM';
+// export const REMOVE_ITEM = 'REMOVE_ITEM';
+// export const EMPTY_CART = 'EMPTY_CART';
 
 //Cart (Base de datos)
 export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
