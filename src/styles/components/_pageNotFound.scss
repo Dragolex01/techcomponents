@@ -18,7 +18,7 @@
         flex-wrap: wrap;
         
         &--info{
-            border-left: 1px solid lightgray;
+            border-left: 1px solid $border-container;
             padding-left: 2rem;
 
             p{

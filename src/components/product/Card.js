@@ -19,8 +19,8 @@ function Card({ product }){
                 {/* <p className="contProducto__contInfo--info">{product.description}</p> */}
                 {
                     product.quantity > 0 ?
-                        <p className="contProducto__contInfo--info">Stock</p> :
-                        <p className="contProducto__contInfo--info">Sin stock</p>
+                        <p className="contProducto__contInfo--info" style={{color: "green"}}>Stock</p> :
+                        <p className="contProducto__contInfo--info" style={{color: "red"}}>Sin stock</p>
                 }
             </div>
         </>

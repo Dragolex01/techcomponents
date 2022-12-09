@@ -135,7 +135,7 @@
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     width: 46.25%;
-    border-bottom: 1px solid lightgray; }
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
   .seccionCarrito__contenedor {
     width: 100%;
     display: flex;
@@ -151,7 +151,7 @@
         padding: 1rem 0;
         margin-bottom: 0.5rem;
         display: flex;
-        border-bottom: 1px solid lightgray;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
         border-radius: 10px;
         position: relative; }
         .seccionCarrito__contenedor__contItems__item--img {
@@ -164,7 +164,7 @@
             border-radius: 10px; }
         .seccionCarrito__contenedor__contItems__item--info {
           padding-left: 2rem;
-          border-left: 1px solid lightgray; }
+          border-left: 1px solid rgba(128, 128, 128, 0.2); }
         .seccionCarrito__contenedor__contItems__item__contBoton {
           position: absolute;
           right: 2rem;
@@ -179,13 +179,13 @@
         width: 8rem;
         height: 2.5rem;
         border-radius: 10px;
-        border: 1px solid lightgray;
+        border: 1px solid rgba(128, 128, 128, 0.2);
         cursor: pointer; }
     .seccionCarrito__contenedor__contInfoCompra {
       width: 30%; }
       .seccionCarrito__contenedor__contInfoCompra__contInfo {
         width: 80%;
-        border: 1px solid lightgray;
+        border: 1px solid rgba(128, 128, 128, 0.2);
         border-radius: 10px;
         padding: 2rem; }
         .seccionCarrito__contenedor__contInfoCompra__contInfo--cont1 {
@@ -204,7 +204,7 @@
           width: 100%;
           height: 2.5rem;
           border-radius: 10px;
-          border: 1px solid lightgray;
+          border: 1px solid rgba(128, 128, 128, 0.2);
           cursor: pointer; }
     .seccionCarrito__contenedor__contBoton {
       background-color: red;
@@ -494,8 +494,9 @@
       border-radius: 10px; }
   .contProducto__contInfo {
     text-align: left;
-    width: 100%;
-    height: 30%; }
+    width: 80%;
+    height: 30%;
+    padding: 0 10%; }
     .contProducto__contInfo__subcontenedor {
       width: 100%;
       height: 50%;
@@ -505,17 +506,21 @@
       border-top: 1px solid #ddd; }
       .contProducto__contInfo__subcontenedor--titulo {
         color: #212529;
-        padding-left: 10%;
         width: 75%;
-        margin: 0; }
+        margin: 0;
+        color: red;
+        text-decoration: none; }
+        .contProducto__contInfo__subcontenedor--titulo :link {
+          text-decoration: none;
+          color: black; }
+        .contProducto__contInfo__subcontenedor--titulo :visited {
+          color: black; }
       .contProducto__contInfo__subcontenedor--precio {
         width: 25%;
-        padding-right: 5%;
         color: #ff4c4c;
         font-weight: bold;
         margin: 0; }
     .contProducto__contInfo--info {
-      padding-left: 10%;
       width: 90%;
       margin: 0; }
 
@@ -529,7 +534,7 @@
     height: 30rem;
     margin: 5rem 0;
     display: flex;
-    border: 1px solid lightgray;
+    border: 1px solid rgba(128, 128, 128, 0.2);
     padding: 2rem; }
     .seccionProducto__contInfo__contIzq {
       width: 50%;
@@ -588,7 +593,7 @@
     justify-content: center;
     flex-wrap: wrap; }
     .seccionPageNotFound__contMensaje--info {
-      border-left: 1px solid lightgray;
+      border-left: 1px solid rgba(128, 128, 128, 0.2);
       padding-left: 2rem; }
       .seccionPageNotFound__contMensaje--info p {
         color: gray; }
