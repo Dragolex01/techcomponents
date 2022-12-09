@@ -508,7 +508,6 @@
         color: #212529;
         width: 75%;
         margin: 0;
-        color: red;
         text-decoration: none; }
         .contProducto__contInfo__subcontenedor--titulo :link {
           text-decoration: none;
@@ -540,7 +539,7 @@
       width: 50%;
       background-size: cover; }
       .seccionProducto__contInfo__contIzq img {
-        width: 100%;
+        height: 100%;
         border-radius: 10px; }
     .seccionProducto__contInfo__contDer {
       width: 50%;
@@ -554,7 +553,8 @@
         .seccionProducto__contInfo__contDer__contInfo--precio {
           margin: 0;
           font-weight: bold;
-          font-size: 1.15em; }
+          font-size: 1.15em;
+          color: #ff4c4c; }
         .seccionProducto__contInfo__contDer__contInfo h1 {
           margin: 0;
           font-family: sans-serif;

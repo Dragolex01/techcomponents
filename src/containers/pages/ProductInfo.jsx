@@ -25,6 +25,8 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
         get_product(productId)
     }, [])
 
+    const link_img = "http://localhost:8000" + product.get_image;
+
     const onSubmit = e => {
         e.preventDefault()
     }
@@ -49,7 +51,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
             <div className="seccionProducto">
                 <div className="seccionProducto__contInfo">
                     <div className="seccionProducto__contInfo__contIzq">
-                        <img src={imgPrueba} alt="" />
+                        <img src={link_img} alt="" />
                     </div>
                     <div className="seccionProducto__contInfo__contDer">
                         <div className="seccionProducto__contInfo__contDer__contInfo">
@@ -70,7 +72,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
                         <p className="seccionProducto__contInfo__contDer--descripcion">{product && product.description}</p>
                         {
                             product && product !== null && product !== undefined && product.quantity > 0 ?
-                            <p>En stock</p> : <p>Sin stock</p>
+                            <p style={{color: "green"}}>En stock</p> : <p style={{color: "red"}}>Sin stock</p>
                         }
                         
                         <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
