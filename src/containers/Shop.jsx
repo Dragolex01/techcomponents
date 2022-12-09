@@ -24,59 +24,38 @@ function Shop({ get_categories, categories, get_products, products }) {
         <div className="seccionLista__contTienda">
           <div className="seccionLista__contTienda__contFiltros">
             <form className="seccionLista__contTienda__contFiltros--form">
-              {/* <h3>Categoria1</h3> */}
-              <ul>
+              
                 {categories &&
                   categories !== null &&
                   categories !== undefined &&
                   categories.map((category) => {
                     if (category.sub_categories.length === 0) {
                       return (
-                        <div key={category.id}>
-                          <input type="radio" name={category.id} />
+                      <ul key={category.name}>
+                        <li key={category.id}>
+                          <input type="checkbox" name="category_id" value={category.id.toString()} />
                           <label>{category.name}</label>
-                        </div>
+                        </li>
+                      </ul>
                       );
                     } else {
-                      let result = [];
-
-                      result.push(
-                        <div key={category.id}>
-                          <input type="radio" name={category.id} />
-                          <label>{category.name}</label>
-                        </div>
-                      );
-
-                      category.sub_categories.map((sub_category) => {
-                        result.push(
-                          <div key={sub_category.id}>
-                            <input type="radio" name={sub_category.id} />
-                            <label>{sub_category.name}</label>
-                          </div>
-                        );
-                      });
-
-                      return result;
+                      return(
+                        <ul key={category.name}>
+                          <h3>{category.name}</h3>
+                            {
+                              category.sub_categories.map((sub_category) => {
+                                return(
+                                  <li key={sub_category.id}>
+                                    <input type="checkbox" name="category_id" value={sub_category.id.toString()}/>
+                                    <label>{sub_category.name}</label>
+                                  </li>
+                                )
+                              })
+                            }
+                        </ul>
+                      )
                     }
                   })}
-              </ul>
-            </form>
-            <form className="seccionLista__contTienda__contFiltros--form">
-              <h3>Categoria2</h3>
-              <ul>
-                <li>
-                  <input type="checkbox" name="" id="" />
-                  <label>Categoria2</label>
-                </li>
-                <li>
-                  <input type="checkbox" name="" id="" />
-                  <label>Categoria2</label>
-                </li>
-                <li>
-                  <input type="checkbox" name="" id="" />
-                  <label>Categoria2</label>
-                </li>
-              </ul>
             </form>
           </div>
           <div className="seccionLista__contTienda__contArticulos">
@@ -256,3 +235,62 @@ export default connect(mapStateToProps, {
   get_categories,
   get_products,
 })(Shop);
+
+
+
+
+{/* <h3>Categoria1</h3> */}
+              {/* <ul>
+                {categories &&
+                  categories !== null &&
+                  categories !== undefined &&
+                  categories.map((category) => {
+                    if (category.sub_categories.length === 0) {
+                      return (
+                        <div key={category.id}>
+                          <input type="radio" name={category.id} />
+                          <label>{category.name}</label>
+                        </div>
+                      );
+                    } else {
+                      let result = [];
+
+                      result.push(
+                        <div key={category.id}>
+                          <input type="radio" name={category.id} />
+                          <label>{category.name}</label>
+                        </div>
+                      );
+
+                      category.sub_categories.map((sub_category) => {
+                        result.push(
+                          <div key={sub_category.id}>
+                            <input type="radio" name={sub_category.id} />
+                            <label>{sub_category.name}</label>
+                          </div>
+                        );
+                      });
+
+                      return result;
+                    }
+                  })}
+              </ul> */}
+
+
+
+// let result = [];
+
+// result.push(
+//     <h3>{category.name}</h3>
+// );
+
+// category.sub_categories.map((sub_category) => {
+//   result.push(
+//     <li key={sub_category.id}>
+//       <input type="radio" name="category_id" value={sub_category.id.toString()}/>
+//       <label>{sub_category.name}</label>
+//     </li>
+//   );
+// });
+
+// return result;
