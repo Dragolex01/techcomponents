@@ -10,7 +10,6 @@ import { get_items, get_item_total, get_total, remove_item, empty_cart } from '.
 
 
 function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, items, amount, total_items}) {
-
   
   const navigate = useNavigate()
   

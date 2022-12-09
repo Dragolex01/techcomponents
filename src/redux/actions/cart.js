@@ -263,7 +263,6 @@ export const update_item = (item, count) => async dispatch => {
     // }
 }
 
-
 export const remove_item = item => async dispatch => {
     if (localStorage.getItem('access')) {
         const product_id = item.product.id;

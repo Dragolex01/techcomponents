@@ -430,7 +430,34 @@
         cursor: pointer; }
 
 .seccionUser {
-  background-color: red; }
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .seccionUser__contenedor {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .seccionUser__contenedor__contImg {
+      width: 10rem;
+      height: 10rem;
+      margin-bottom: 2rem;
+      outline: 8px solid rgba(128, 128, 128, 0.2);
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .seccionUser__contenedor__contInfo {
+      outline: 1px solid red;
+      width: 100%;
+      margin-top: 5rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      .seccionUser__contenedor__contInfo ul {
+        list-style: none; }
+        .seccionUser__contenedor__contInfo ul li {
+          margin: 1rem 0; }
 
 .seccionFooter {
   background-color: #151515;
