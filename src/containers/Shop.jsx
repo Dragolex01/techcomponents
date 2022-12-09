@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+// import ClipLoader from 'react-spinners/ClipLoader';
 
 import { get_categories } from '../redux/actions/categories';
 import { get_products } from '../redux/actions/products';
@@ -8,11 +9,16 @@ import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
 
 function Shop({ get_categories, categories, get_products, products }) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
 
-    get_categories();
-    get_products();
+  // const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+    // setLoading(true)
+    get_categories()
+    get_products()
+    // setLoading(false)
   }, []);
 
   return (
@@ -68,7 +74,22 @@ function Shop({ get_categories, categories, get_products, products }) {
                     <Card product={product} />
                   </div>
                 );
-              })}
+              })
+            }
+            {/* {
+              isLoading ?
+                <ClipLoader color="#36d7b7" /> :
+                products &&
+                products !== null &&
+                products !== undefined &&
+                products.map((product) => {
+                  return (
+                    <div className="contProducto" key={product.id}> 
+                      <Card product={product} />
+                    </div>
+                  );
+                })
+            } */}
           </div>
         </div>
       </section>

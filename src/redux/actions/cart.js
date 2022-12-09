@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
     // ADD_ITEM,
     // GET_TOTAL,
@@ -21,7 +21,7 @@ import {
     REMOVE_ITEM_FAIL,
     EMPTY_CART_SUCCESS,
     EMPTY_CART_FAIL
-} from "./types";
+} from './types';
 
 export const add_item = (product) => async dispatch => {
     if(localStorage.getItem('access')){

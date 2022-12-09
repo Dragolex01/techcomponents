@@ -1,6 +1,6 @@
 import Layout from '../../hocs/Layout';
 
-import imgMundial from "../../img/imgMundial.jpg";
+import imgMundial from '../../img/imgMundial.jpg';
 
 function AboutUs(){
     return (

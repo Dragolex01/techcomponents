@@ -20,7 +20,7 @@ import {
     REMOVE_ITEM_FAIL,
     EMPTY_CART_SUCCESS,
     EMPTY_CART_FAIL
-} from "../actions/types";
+} from '../actions/types';
 
 const initialState = {
     items: null,

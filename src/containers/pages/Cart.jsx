@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import Layout from '../../hocs/Layout';
 import CartItem from '../../components/product/CartItem';
@@ -8,28 +9,20 @@ import CartItem from '../../components/product/CartItem';
 import { get_items, get_item_total, get_total, remove_item, empty_cart } from '../../redux/actions/cart';
 
 
-function Cart({
-  get_items,
-  get_item_total,
-  get_total,
-  remove_item,
-  empty_cart,
-  // isAuthenticated,
-  items,
-  amount,
-  total_items,
-}) {
+function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, items, amount, total_items}) {
 
-  const [reload, setReload] = useState(false);
-
+  
   const navigate = useNavigate()
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        get_items()
-        get_total()
-        get_item_total()
-    }, [reload])
+  
+  const [reload, setReload] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  
+  useEffect(() => {
+      window.scrollTo(0, 0);
+      get_items()
+      get_total()
+      get_item_total()
+  }, [reload])
 
   //   const onSubmit = e => {
   //     e.preventDefault()
@@ -45,7 +38,9 @@ function Cart({
       //     navigate("/cart") //Quitar mejor
       // }
       if(total_items > 0){
+        setLoading(true)
         await empty_cart()
+        setLoading(false)
         navigate("/cart")
       }else{
         alert("El carrito ya esta vacio")
@@ -57,20 +52,24 @@ function Cart({
       <section className="seccionCarrito">
         <h1>Carrito: {total_items} productos</h1>
         <div className="seccionCarrito__contenedor">
-          <div className="seccionCarrito__contenedor__contItems">
-            {items && items !== null && items !== undefined && items.length > 0
-              ? items.map((item, i) => {
-                  return (
-                    <div className="seccionCarrito__contenedor__contItems__item" key={i}>
-                      <CartItem item={items[i]} setReload={setReload} reload={reload} remove_item={remove_item} />
-                    </div>
-                  );
-                })
-              : <p>No hay productos.</p>
-            }
-
-            <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
-          </div>
+          {
+            isLoading ?
+              <ClipLoader color="#36d7b7" /> :
+              <div className="seccionCarrito__contenedor__contItems">
+                {items && items !== null && items !== undefined && items.length > 0
+                  ? items.map((item, i) => {
+                      return (
+                        <div className="seccionCarrito__contenedor__contItems__item" key={i}>
+                          <CartItem item={items[i]} setReload={setReload} reload={reload} remove_item={remove_item} />
+                        </div>
+                      );
+                    })
+                  : <p>No hay productos.</p>
+                }
+                <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
+              </div>
+              
+          }
           <div className="seccionCarrito__contenedor__contInfoCompra">
             <div className="seccionCarrito__contenedor__contInfoCompra__contInfo">
                 <h2>Resumen</h2>

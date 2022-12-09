@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAmericanSignLanguageInterpreting, faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAmericanSignLanguageInterpreting, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-import Layout from "../../hocs/Layout";
+import Layout from '../../hocs/Layout';
 
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth';
 
-// import { validarFormulario } from "../../helpers/functions";
+// import { validarFormulario } from '../../helpers/functions';
 
 function Login({ login }) {
 

@@ -1,4 +1,4 @@
-import Layout from "../../hocs/Layout";
+import Layout from '../../hocs/Layout';
 import { Link } from 'react-router-dom';
 
 function Error404(){

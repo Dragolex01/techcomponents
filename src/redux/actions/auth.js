@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
@@ -15,7 +15,7 @@ import {
     REFRESH_SUCCESS,
     REFRESH_FAIL,
     LOGOUT
-} from "./types";
+} from './types';
 
 
 export const check_authenticated = () => async dispatch => {

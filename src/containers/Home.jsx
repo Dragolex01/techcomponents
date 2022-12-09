@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { get_products } from '../redux/actions/products';
 
-import Layout from "../hocs/Layout";
+import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
 
 function Home({ get_products, products }){

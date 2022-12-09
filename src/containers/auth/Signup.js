@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Layout from "../../hocs/Layout";
+import Layout from '../../hocs/Layout';
 
 import { connect } from 'react-redux';
 import { signup } from '../../redux/actions/auth';
 
-// import { validarFormulario } from "../../helpers/functions";
+// import { validarFormulario } from '../../helpers/functions';
 
 function Signup({ signup }) {
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
 
     const navigate = useNavigate()
 
     const [accountCreated, setAccountCreated] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     const [formData, setFormData] = useState({
         first_name: '',

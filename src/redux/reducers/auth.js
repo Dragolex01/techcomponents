@@ -14,7 +14,7 @@ import {
     REFRESH_SUCCESS,
     REFRESH_FAIL,
     LOGOUT
-} from "../actions/types";
+} from '../actions/types';
 
 const initialState = {
     access: localStorage.getItem('access'),

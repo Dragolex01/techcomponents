@@ -1,5 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from 'react-redux'
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { get_product } from '../../redux/actions/products';
 import {
@@ -8,24 +10,25 @@ import {
     add_item,
     get_total
 } from '../../redux/actions/cart';
-import { useEffect } from "react";
+
 
 import Layout from '../../hocs/Layout';
 
-import imgPrueba from '../../img/imgMundial.jpg';
-
 function ProductInfo({ isAuthenticated, get_product, product, get_items, get_item_total, add_item, get_total }){
+   
     const params = useParams()
     const productId = params.productId
 
     const navigate = useNavigate()
+
+    const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0,0)
         get_product(productId)
     }, [])
 
-    const link_img = "http://localhost:8000" + product.get_image;
+    const link_img = product && "http://localhost:8000" + product.get_image;
 
     const onSubmit = e => {
         e.preventDefault()
@@ -34,10 +37,12 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
     async function addToCart(){
         if(isAuthenticated){
             if(product && product !== null && product !== undefined && product.quantity > 0){
+                setLoading(true)
                 await add_item(product)
                 await get_items()
                 await get_item_total()
                 await get_total()
+                setLoading(false)
     
                 navigate("/cart")
             }
@@ -74,8 +79,13 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
                             product && product !== null && product !== undefined && product.quantity > 0 ?
                             <p style={{color: "green"}}>En stock</p> : <p style={{color: "red"}}>Sin stock</p>
                         }
+                        {
+                            isLoading ?
+                                <ClipLoader color="#36d7b7" /> :
+                                <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
+
+                        }
                         
-                        <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
