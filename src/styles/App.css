@@ -158,11 +158,13 @@
           width: 10rem;
           display: flex;
           justify-content: center;
-          align-items: center;
-          background-color: gray; }
+          align-items: center; }
+          .seccionCarrito__contenedor__contItems__item--img img {
+            height: 80%;
+            border-radius: 10px; }
         .seccionCarrito__contenedor__contItems__item--info {
           padding-left: 2rem;
-          border-left: 1px solid gray; }
+          border-left: 1px solid lightgray; }
         .seccionCarrito__contenedor__contItems__item__contBoton {
           position: absolute;
           right: 2rem;

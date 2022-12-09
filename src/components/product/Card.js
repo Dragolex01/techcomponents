@@ -9,7 +9,7 @@ function Card({ product }){
     return(
         <>
             <div className="contProducto__contImg">
-                <img src={link_img} className="contProducto__contImg--img" alt=""/>
+                <img src={link_img} className="contProducto__contImg--img" alt="imgProduct"/>
             </div>
             <div className="contProducto__contInfo">
                 <div className="contProducto__contInfo__subcontenedor">

@@ -39,12 +39,16 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background-color: gray;
+
+                    img{
+                        height: 80%;
+                        border-radius: 10px;
+                    }
                 }
 
                 &--info{
                     padding-left: 2rem;
-                    border-left: 1px solid gray;
+                    border-left: 1px solid lightgray;
                 }
 
                 &__contBoton{
