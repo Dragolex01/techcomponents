@@ -21,18 +21,23 @@
         }
 
         &__contInfo{
-            outline: 1px solid red;
             width: 100%;
-            margin-top: 5rem;
+            border: 1px solid $border-container;
+            border-radius: 10px;
+            margin-top: 3rem;
             display: flex;
             justify-content: space-around;
             align-items: center;
+
+            &--icon{
+                margin-right: 1rem;
+            }
 
             ul{
                 list-style: none;
 
                 li{
-                    margin: 1rem 0;
+                    margin: 2rem 0;
                 }
             }
         }

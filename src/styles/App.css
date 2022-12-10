@@ -448,16 +448,19 @@
       justify-content: center;
       align-items: center; }
     .seccionUser__contenedor__contInfo {
-      outline: 1px solid red;
       width: 100%;
-      margin-top: 5rem;
+      border: 1px solid rgba(128, 128, 128, 0.2);
+      border-radius: 10px;
+      margin-top: 3rem;
       display: flex;
       justify-content: space-around;
       align-items: center; }
+      .seccionUser__contenedor__contInfo--icon {
+        margin-right: 1rem; }
       .seccionUser__contenedor__contInfo ul {
         list-style: none; }
         .seccionUser__contenedor__contInfo ul li {
-          margin: 1rem 0; }
+          margin: 2rem 0; }
 
 .seccionFooter {
   background-color: #151515;
