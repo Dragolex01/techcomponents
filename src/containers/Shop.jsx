@@ -25,12 +25,11 @@ function Shop({ get_categories, categories, get_products, products }) {
     <Layout>
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
-          <h2>Listado articulos</h2>
+          <h2>Listado articulos: {products && products.length} Articulos</h2>
         </div>
         <div className="seccionLista__contTienda">
           <div className="seccionLista__contTienda__contFiltros">
             <form className="seccionLista__contTienda__contFiltros--form">
-              
                 {categories &&
                   categories !== null &&
                   categories !== undefined &&
