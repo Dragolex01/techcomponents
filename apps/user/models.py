@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 import os
 
 from apps.cart.models import Cart
+from apps.user_profile.models import UserProfile
 
 class UserAccountManager(BaseUserManager):
     def create_user(self, email, password = None, **extra_fields):
@@ -17,6 +18,9 @@ class UserAccountManager(BaseUserManager):
 
         shopping_cart = Cart.objects.create(user = user)
         shopping_cart.save()
+
+        profile = UserProfile.objects.create(user = user)
+        profile.save()
 
         return user
 
