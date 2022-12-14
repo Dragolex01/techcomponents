@@ -104,8 +104,8 @@ export const load_user = () => async dispatch => {
     if(localStorage.getItem('access')){
         const config = {
             headers: {
-                'Authorization': `JWT ${localStorage.getItem('access')}`,
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`
             }
         };
 
