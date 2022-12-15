@@ -28,16 +28,18 @@ class UpdateUserProfile(APIView):
             user = self.request.data
             data = self.request.data
 
-            country = data['country'],
+            region = data['region'],
             city = data['city'],
+            province = data['province'],
             address = data['address'],
-            zipcode = data['zipcode']
+            postal_code = data['postal_code']
 
             UserProfile.objects.filter(user=user).update(
-                country = country,
+                region = region,
                 city = city,
+                province = province,
                 address = address,
-                zipcode = zipcode
+                postal_code = postal_code
             )
 
             user_profile = UserProfile.objects.get(user=user)
