@@ -11,7 +11,7 @@ import { login } from '../../redux/actions/auth';
 
 // import { validarFormulario } from '../../helpers/functions';
 
-function Login({ login }) {
+function Login({ login, isAuthenticated }) {
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -38,7 +38,7 @@ function Login({ login }) {
         e.preventDefault();
         login(email, password);
         
-        navigate("/")
+        // isAuthenticated ? navigate("/") : alert('no') //ERROR
     }
 
     return (
@@ -71,7 +71,8 @@ function Login({ login }) {
 }
 
 const mapStateToProps = state => ({
-    loading: state.Auth.loading
+    loading: state.Auth.loading,
+    isAuthenticated: state.Auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, {

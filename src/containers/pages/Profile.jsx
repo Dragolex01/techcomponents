@@ -13,9 +13,9 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
     const navigate = useNavigate()
     
     useEffect(() => {
-        if(!isAuthenticated){
+        if(isAuthenticated === false){
             navigate("/login")
-        }
+        }      
     }, [isAuthenticated])
 
     function get_type_account(){
