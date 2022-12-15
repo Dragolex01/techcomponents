@@ -6,6 +6,8 @@ import Layout from '../../hocs/Layout';
 import { connect } from 'react-redux';
 import { signup } from '../../redux/actions/auth';
 
+import { firstLetterUppercase } from '../../helpers/functions';
+
 // import { validarFormulario } from '../../helpers/functions';
 
 function Signup({ signup }) {
@@ -41,7 +43,7 @@ function Signup({ signup }) {
 
     function onSubmit(e) {
         e.preventDefault();
-        signup(first_name, last_name, email, password, re_password);
+        signup(firstLetterUppercase(first_name), firstLetterUppercase(last_name), email, password, re_password);
         setAccountCreated(true);
 
         navigate("/")

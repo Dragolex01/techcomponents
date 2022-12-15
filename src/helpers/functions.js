@@ -80,3 +80,9 @@ export function removeItemFromArr(arr, item) {
 
     return arr;
 }
+
+// Primera letra mayúscula
+
+export function firstLetterUppercase(str){
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
