@@ -64,24 +64,39 @@ function Home({ get_products, products }){
                         a
                     </div>
                 </div>
-                <h1>Novedades</h1>
-                <div className="seccionHome__contProductos">
-                    {
-                        products &&
-                        products !== null &&
-                        products !== undefined ?
-                        novedades() : null
-                    }
-                </div>
-                <h1>Más vendidos</h1>
-                <div className="seccionHome__contProductos">
-                    {
-                        products &&
-                        products !== null &&
-                        products !== undefined ?
-                        ventas() : null
-                    }
-                </div>
+                {
+                    products &&
+                    products !== null &&
+                    products !== undefined &&
+                    products.length > 0 ?
+                    <>
+                        <h1>Novedades</h1>
+                        <div className="seccionHome__contProductos">
+                            {
+                                novedades()
+                            }
+                            {
+                                // products &&
+                                // products !== null &&
+                                // products !== undefined ?
+                                // novedades() : null
+                            }
+                        </div>
+                        <h1>Más vendidos</h1>
+                        <div className="seccionHome__contProductos">
+                            {
+                                ventas()
+                            }
+                            {
+                                // products &&
+                                // products !== null &&
+                                // products !== undefined ?
+                                // ventas() : null
+                            }
+                        </div>
+                    </> : null
+                }
+                
             </div>
         </Layout>
     )

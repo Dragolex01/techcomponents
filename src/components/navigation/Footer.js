@@ -25,7 +25,7 @@ function Footer(){
                         <p>+34 666 66 66 66</p>
                     </div>
                     <nav className="seccionFooter__contenedor__contTexto__contBoton">
-                        <NavLink to="/contactanos" className="seccionFooter__contenedor__contTexto--boton">¿Quieres saber más?</NavLink>
+                        <NavLink to="/about_us" className="seccionFooter__contenedor__contTexto--boton">¿Quieres saber más?</NavLink>
                     </nav>
                 </div>
             </div>
