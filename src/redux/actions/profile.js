@@ -16,7 +16,7 @@ export const get_user_profile = () => async dispatch => {
         }
 
         try{
-            const res = await axios.get('http://localhost:8000/profile/user/', config);
+            const res = await axios.get('http://localhost:8000/api/profile/user', config);
 
             if(res.status === 200){
                 dispatch({
@@ -54,7 +54,7 @@ export const update_user_profile = (country, city, address, zipcode) => async di
         })
 
         try{
-            const res = await axios.put('http://localhost:8000/profile/update/', body, config);
+            const res = await axios.put('http://localhost:8000/api/profile/update/', body, config);
 
             if(res.status === 200){
                 dispatch({
