@@ -22,15 +22,24 @@
 
         &__contInfo{
             width: 100%;
+            position: relative;
             border: 1px solid $border-container;
             border-radius: 10px;
             margin-top: 3rem;
+            padding-bottom: 5rem;
             display: flex;
             justify-content: space-around;
             align-items: center;
+            color: $color-text-claro;
 
             &--icon{
-                margin-right: 1rem;
+                color: black;
+            }
+
+            &--label{
+                color: black;
+                margin-left: 1rem;
+                margin-right: 0.25rem;
             }
 
             ul{
@@ -38,8 +47,37 @@
 
                 li{
                     margin: 2rem 0;
+
+                    select{
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                        color: $color-text-claro;
+
+                        option{
+                            margin-top: 1rem;
+                        }
+                    }
+
+                    input{
+                        border: none;
+                        border-bottom: 1px solid $border-container;
+                        outline: none;
+                        color: $color-text-claro;
+                    }
                 }
             }
+
+            button{
+                position: absolute;
+                right: 5rem;
+                bottom: 2rem;
+                padding: 0.5rem;
+                border: 1px solid lightgray;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
         }
     }
 }

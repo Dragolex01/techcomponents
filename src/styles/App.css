@@ -449,18 +449,45 @@
       align-items: center; }
     .seccionUser__contenedor__contInfo {
       width: 100%;
+      position: relative;
       border: 1px solid rgba(128, 128, 128, 0.2);
       border-radius: 10px;
       margin-top: 3rem;
+      padding-bottom: 5rem;
       display: flex;
       justify-content: space-around;
-      align-items: center; }
+      align-items: center;
+      color: #8c9398; }
       .seccionUser__contenedor__contInfo--icon {
-        margin-right: 1rem; }
+        color: black; }
+      .seccionUser__contenedor__contInfo--label {
+        color: black;
+        margin-left: 1rem;
+        margin-right: 0.25rem; }
       .seccionUser__contenedor__contInfo ul {
         list-style: none; }
         .seccionUser__contenedor__contInfo ul li {
           margin: 2rem 0; }
+          .seccionUser__contenedor__contInfo ul li select {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: #8c9398; }
+            .seccionUser__contenedor__contInfo ul li select option {
+              margin-top: 1rem; }
+          .seccionUser__contenedor__contInfo ul li input {
+            border: none;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            outline: none;
+            color: #8c9398; }
+      .seccionUser__contenedor__contInfo button {
+        position: absolute;
+        right: 5rem;
+        bottom: 2rem;
+        padding: 0.5rem;
+        border: 1px solid lightgray;
+        border-radius: 6px;
+        cursor: pointer; }
 
 .seccionFooter {
   background-color: #151515;
