@@ -56,7 +56,6 @@ export function validateEmpty(input, name) {
 }
 
 function changeColorsInput(name, isCorrect){
-    console.log(name, isCorrect)
     if(isCorrect){
         document.getElementById(`grupo__${name}`).classList.remove('validacion-incorrecto');
         document.getElementById(`grupo__${name}`).classList.add('validacion-correcto');

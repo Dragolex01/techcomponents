@@ -1,16 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import Layout from '../../hocs/Layout';
 
 import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEnvelope,
-  faPhone,
-  faStreetView,
-  faCheckCircle,
-  faTimesCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faStreetView, faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import {
   regularExpressionsForm,
@@ -19,9 +14,30 @@ import {
 } from '../../helpers/functions';
 
 function Contact() {
+
+  const form = useRef();
+  const [emailStatus, setEmailStatus] = useState(false)
+  const [isLoading, setLoading] = useState(false)
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(emailStatus)
+    // setEmailStatus(false)
   }, []);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    setLoading(true)
+    emailjs.sendForm('service_ye8zlok', 'template_99152ao', form.current, 'X6DkMH6F8azXG4zS7') //('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+        .then((result) => {
+            setLoading(false)
+            setEmailStatus(true)
+        }, (error) => {
+            setLoading(false)
+            setEmailStatus(false)
+        });
+};
 
   const inputName = useRef('');
   const inputEmail = useRef('');
@@ -35,19 +51,6 @@ function Contact() {
       validateEmpty(inputMessage.current.value, 'message');
   }
 
-  const form = useRef();
-
-  const sendEmail = (e) => {
-      e.preventDefault();
-
-      emailjs.sendForm('service_ye8zlok', 'template_99152ao', form.current, 'X6DkMH6F8azXG4zS7') //('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-  };
-
   function validateForm(e) {
     switch (e.target.name) {
       case 'name':
@@ -56,7 +59,12 @@ function Contact() {
       case 'email':
         validateInput(regularExpressionsForm.email, inputEmail.current.value, 'email');
         break;
-        
+      case 'subject':
+        validateEmpty(inputSubject.current.value, 'subject');
+        break;
+      case 'message':
+        validateEmpty(inputMessage.current.value, 'message');
+        break;
       default:
         throw new Error('Error! Validadar formulario tipo erroneo');
     }
@@ -120,6 +128,12 @@ function Contact() {
               <p className="infoError">El texto no puede estar vacio.</p>
             </div>
           </div>
+          {
+            isLoading ? <ClipLoader color="#36d7b7" /> : null
+          }
+          {
+            emailStatus ? <p>Mensaje enviado correctamente. Gracias!</p> : null
+          }
           <button type="submit" onClick={validateIsEmpty} className="seccionContacto__contFormulario--boton">Enviar</button>
           {/* <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar"  /> */}
         </form>
