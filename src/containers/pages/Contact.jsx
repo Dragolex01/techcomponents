@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import Layout from '../../hocs/Layout';
 
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
@@ -28,26 +28,25 @@ function Contact() {
   const inputSubject = useRef('');
   const inputMessage = useRef('');
 
-  // function validateForm(){
-  //     console.log(inputName.current.value)
-  //     validateEmpty(inputName);
-  //     validateEmpty(inputEmail);
-  //     validateEmpty(inputSubject);
-  //     validateEmpty(inputMessage);
-  // }
+  function validateIsEmpty(){
+      validateEmpty(inputName.current.value, 'name');
+      validateEmpty(inputEmail.current.value, 'email');
+      validateEmpty(inputSubject.current.value, 'subject');
+      validateEmpty(inputMessage.current.value, 'message');
+  }
 
   const form = useRef();
 
-  // const sendEmail = (e) => {
-  //     e.preventDefault();
+  const sendEmail = (e) => {
+      e.preventDefault();
 
-  //     emailjs.sendForm('service_ye8zlok', 'template_99152ao', form.current, 'X6DkMH6F8azXG4zS7') //('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-  //         .then((result) => {
-  //             console.log(result.text);
-  //         }, (error) => {
-  //             console.log(error.text);
-  //         });
-  // };
+      emailjs.sendForm('service_ye8zlok', 'template_99152ao', form.current, 'X6DkMH6F8azXG4zS7') //('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+  };
 
   function validateForm(e) {
     switch (e.target.name) {
@@ -57,12 +56,7 @@ function Contact() {
       case 'email':
         validateInput(regularExpressionsForm.email, inputEmail.current.value, 'email');
         break;
-      case 'subject':
-        validateInput(regularExpressionsForm.subject, inputSubject, 'subject')
-        break;
-      case 'message':
-        //Vacio?
-        break;
+        
       default:
         throw new Error('Error! Validadar formulario tipo erroneo');
     }
@@ -97,38 +91,37 @@ function Contact() {
           </div>
         </div>
         {/* <form className="seccionContacto__contFormulario" ref={form} onSubmit={sendEmail}> */}
-        <form className="seccionContacto__contFormulario" ref={form}>
+        <form onSubmit={sendEmail} ref={form} className="seccionContacto__contFormulario">
           <div className="seccionContacto__contFormulario__contInputs">
             <div className="seccionContacto__contFormulario__contInputs__contIzq">
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__name">
                 <label>Nombre</label>
-                <input type="text" name="name" ref={inputName} onChange={validateForm} />
+                <input type="text" name="name" ref={inputName} onChange={validateForm} required/>
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" />
                 <p className="infoError"> No se permiten caracteres especiales y números. </p>
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__email">
                 <label>Email</label>
-                <input type="email" name="email" ref={inputEmail} onChange={validateForm}/>
+                <input type="email" name="email" ref={inputEmail} onChange={validateForm} required/>
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
                 {/* <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p> */}
                 <p className="infoError">El correo introducido no es válido.</p>
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__subject">
                 <label>Asunto</label>
-                <input type="text" name="subject" ref={inputSubject} onChange={validateForm}/>
+                <input type="text" name="subject" ref={inputSubject} onChange={validateForm} required/>
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
                 <p className="infoError">Error asunto.</p>
               </div>
             </div>
             <div className="seccionContacto__contFormulario__contInputs__contDer" id="grupo__message">
               <label>Mensaje</label>
-              <textarea name="message" ref={inputMessage} onChange={validateForm}/>
+              <textarea name="message" ref={inputMessage} onChange={validateForm} required/>
               <p className="infoError">El texto no puede estar vacio.</p>
             </div>
           </div>
-          <input type="submit" className="seccionContacto__contFormulario--boton" value="Enviar"
-          />
-          {/* <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar" onClick={validateForm} /> */}
+          <button type="submit" onClick={validateIsEmpty} className="seccionContacto__contFormulario--boton">Enviar</button>
+          {/* <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar"  /> */}
         </form>
         <hr />
 

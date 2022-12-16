@@ -39,30 +39,38 @@ export const regularExpressionsForm = {
     telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
 
-export function validateInput(expresion, value, name) {
-    if (expresion.test(value)) {
+export function validateInput(expresion, input, name) {
+    if (expresion.test(input)) {
+        changeColorsInput(name, true)
+    } else {
+        changeColorsInput(name, false)
+    }
+}
+
+export function validateEmpty(input, name) {
+    if (input.length === 0) {
+        changeColorsInput(name, false)
+    } else {
+        changeColorsInput(name, true)
+    }
+}
+
+function changeColorsInput(name, isCorrect){
+    console.log(name, isCorrect)
+    if(isCorrect){
         document.getElementById(`grupo__${name}`).classList.remove('validacion-incorrecto');
         document.getElementById(`grupo__${name}`).classList.add('validacion-correcto');
         document.querySelector(`#grupo__${name} .icon_validacion`).classList.remove('icon_validacion-incorrecto'); //Simbolo cruz rojo
         document.querySelector(`#grupo__${name} .icon_validacion`).classList.add('icon_validacion-correcto'); //Simbolo tick verde
-        // document.querySelector(`#grupo__${name} .icon_validacion`).setAttribute("data-icon", "faCheckCircle");
         document.querySelector(`#grupo__${name} .infoError`).classList.remove('infoError-activo');
-    } else {
+        // document.querySelector(`#grupo__${name} .icon_validacion`).setAttribute("data-icon", "faCheckCircle");
+    }else{
         document.getElementById(`grupo__${name}`).classList.remove('validacion-correcto');
         document.getElementById(`grupo__${name}`).classList.add('validacion-incorrecto');
         document.querySelector(`#grupo__${name} .icon_validacion`).classList.remove('icon_validacion-correcto'); //Simbolo tick verde
         document.querySelector(`#grupo__${name} .icon_validacion`).classList.add('icon_validacion-incorrecto'); //Simbolo cruz rojo
-        // document.querySelector(`#grupo__${name} .icon_validacion`).setAttribute("data-icon", "faTimesCircle");
         document.querySelector(`#grupo__${name} .infoError`).classList.add('infoError-activo');
-    }
-}
-
-export function validateEmpty(valor) {
-    if (valor.current.value.length === 0) {
-        return valor.current.style.border = "2px solid red";
-    } else {
-        //return valor.current.className = {prueba}; //¿?
-        return false;
+        // document.querySelector(`#grupo__${name} .icon_validacion`).setAttribute("data-icon", "faTimesCircle");
     }
 }
 
