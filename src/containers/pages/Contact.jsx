@@ -14,7 +14,7 @@ import {
 
 import {
   regularExpressionsForm,
-  validarCampo,
+  validateInput,
   validateEmpty,
 } from '../../helpers/functions';
 
@@ -23,17 +23,17 @@ function Contact() {
     window.scrollTo(0, 0);
   }, []);
 
-  const inputNombre = useRef('');
-  const inputCorreo = useRef('');
-  const inputAsunto = useRef('');
-  const inputMensaje = useRef('');
+  const inputName = useRef('');
+  const inputEmail = useRef('');
+  const inputSubject = useRef('');
+  const inputMessage = useRef('');
 
   // function validateForm(){
-  //     // console.log(inputNombre.current.value)
-  //     validateEmpty(inputNombre);
+  //     console.log(inputName.current.value)
+  //     validateEmpty(inputName);
   //     validateEmpty(inputEmail);
-  //     validateEmpty(inputAsunto);
-  //     validateEmpty(inputMensaje);
+  //     validateEmpty(inputSubject);
+  //     validateEmpty(inputMessage);
   // }
 
   const form = useRef();
@@ -49,18 +49,18 @@ function Contact() {
   //         });
   // };
 
-  function validarFormulario(e) {
+  function validateForm(e) {
     switch (e.target.name) {
-      case 'nombre':
-        validarCampo(regularExpressionsForm.nombre, inputNombre, 'nombre');
+      case 'name':
+        validateInput(regularExpressionsForm.name, inputName.current.value, 'name');
         break;
-      case 'correo':
-        validarCampo(regularExpressionsForm.correo, inputCorreo, 'correo');
+      case 'email':
+        validateInput(regularExpressionsForm.email, inputEmail.current.value, 'email');
         break;
-      case 'asunto':
-        //Vacio?
+      case 'subject':
+        validateInput(regularExpressionsForm.subject, inputSubject, 'subject')
         break;
-      case 'mensaje':
+      case 'message':
         //Vacio?
         break;
       default:
@@ -100,29 +100,29 @@ function Contact() {
         <form className="seccionContacto__contFormulario" ref={form}>
           <div className="seccionContacto__contFormulario__contInputs">
             <div className="seccionContacto__contFormulario__contInputs__contIzq">
-              <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__nombre">
+              <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__name">
                 <label>Nombre</label>
-                <input type="text" name="nombre" ref={inputNombre} onChange={validarFormulario} />
+                <input type="text" name="name" ref={inputName} onChange={validateForm} />
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" />
                 <p className="infoError"> No se permiten caracteres especiales y números. </p>
               </div>
-              <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__correo">
+              <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__email">
                 <label>Email</label>
-                <input type="email" name="correo" ref={inputCorreo} onChange={validarFormulario}/>
+                <input type="email" name="email" ref={inputEmail} onChange={validateForm}/>
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
                 {/* <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p> */}
                 <p className="infoError">El correo introducido no es válido.</p>
               </div>
-              <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__asunto">
+              <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__subject">
                 <label>Asunto</label>
-                <input type="text" name="asunto" ref={inputAsunto} onChange={validarFormulario}/>
+                <input type="text" name="subject" ref={inputSubject} onChange={validateForm}/>
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
                 <p className="infoError">Error asunto.</p>
               </div>
             </div>
-            <div className="seccionContacto__contFormulario__contInputs__contDer" id="grupo__mensaje">
+            <div className="seccionContacto__contFormulario__contInputs__contDer" id="grupo__message">
               <label>Mensaje</label>
-              <textarea name="mensaje" ref={inputMensaje} onChange={validarFormulario}/>
+              <textarea name="message" ref={inputMessage} onChange={validateForm}/>
               <p className="infoError">El texto no puede estar vacio.</p>
             </div>
           </div>

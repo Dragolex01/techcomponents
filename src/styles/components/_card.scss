@@ -42,9 +42,11 @@
 
             &--titulo{
                 color: $color-text;
-                width: 75%;
+                width: 70%;
                 margin: 0;
                 text-decoration: none;
+                font-size: 1em; //Cambiar
+                
 
                 :link{
                     text-decoration: none;

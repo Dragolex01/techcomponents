@@ -1,5 +1,4 @@
-//ORDENACIÓN LISTA
-
+// Ordenación lista
 export function sortBy(list, key, isReverse) {
     const sortedList = list.slice().sort((item1, item2) => {
 
@@ -19,7 +18,7 @@ export function sortBy(list, key, isReverse) {
     return isReverse ? sortedList.reverse() : sortedList
 }
 
-//BUSCADOR
+// Buscador
 
 export function removeDiacritics(texto) { //Eliminar diacriticos excepto la Ñ
     return texto
@@ -29,23 +28,18 @@ export function removeDiacritics(texto) { //Eliminar diacriticos excepto la Ñ
         .normalize();
 }
 
-//VALIDACION FORMULARIOS
+// Validación formularios
 
 export const regularExpressionsForm = {
     user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    email: /^[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+$/,
+    postal_code: /^[a-zA-Z\d\s\-\,\#\.\+]+$/,
     telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
 
-export function validarFormulario(input_name, input_value) {
-    console.log(regularExpressionsForm.input_name) //NO FUNCIONA
-    validarCampo(regularExpressionsForm.input_name, input_value, input_name);
-}
-
-export function validarCampo(expresion, value, name) {
-    console.log(expresion)
+export function validateInput(expresion, value, name) {
     if (expresion.test(value)) {
         document.getElementById(`grupo__${name}`).classList.remove('validacion-incorrecto');
         document.getElementById(`grupo__${name}`).classList.add('validacion-correcto');
