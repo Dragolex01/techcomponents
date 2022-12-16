@@ -10,7 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'photo',
             'description',
             'price',
-            'compare_price',
+            # 'compare_price',
             'category',
             'quantity',
             'sold',

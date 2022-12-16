@@ -120,18 +120,19 @@ class GetTotalView(APIView):
             cart_items = CartItem.objects.filter(cart = cart)
 
             total_cost = 0.0
-            total_compare_cost = 0.0
+            # total_compare_cost = 0.0
 
             if cart_items.exists():
                 for cart_item in cart_items:
                     total_cost += (float(cart_item.product.price)
                                    * float(cart_item.count))
-                    total_compare_cost += (float(cart_item.product.compare_price)
-                                           * float(cart_item.count))
+                    # total_compare_cost += (float(cart_item.product.compare_price)
+                    #                        * float(cart_item.count))
                 total_cost = round(total_cost, 2)
-                total_compare_cost = round(total_compare_cost, 2)
+                # total_compare_cost = round(total_compare_cost, 2)
             return Response(
-                {'total_cost': total_cost, 'total_compare_cost': total_compare_cost},
+                # {'total_cost': total_cost, 'total_compare_cost': total_compare_cost},
+                {'total_cost': total_cost},
                 status = status.HTTP_200_OK)
         except:
             return Response(
