@@ -5,16 +5,16 @@
 
   h2 {
     font-weight: $fontWeight-subtitulo;
-    font-family: $fontFamily-subtitulo;
+    font-family: $fontFamily-2;
     font-size: $fontSize-subtitulo;
     letter-spacing: 2px;
   }
 
   h3 {
-    color: $color-subtitulo-claro;
+    color: $color-lightgray;
     letter-spacing: 3px;
-    font-size: $fontSize-subtitulo3;
-    font-family: $fontFamily-subtitulo2;
+    font-size: $fontSize-subtitulo2;
+    font-family: $fontFamily-1;
     margin-bottom: 3rem;
   }
 

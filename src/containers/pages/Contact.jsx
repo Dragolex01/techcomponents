@@ -98,7 +98,6 @@ function Contact() {
             </div>
           </div>
         </div>
-        {/* <form className="seccionContacto__contFormulario" ref={form} onSubmit={sendEmail}> */}
         <form onSubmit={sendEmail} ref={form} className="seccionContacto__contFormulario">
           <div className="seccionContacto__contFormulario__contInputs">
             <div className="seccionContacto__contFormulario__contInputs__contIzq">
@@ -112,8 +111,8 @@ function Contact() {
                 <label>Email</label>
                 <input type="email" name="email" ref={inputEmail} onChange={validateForm} required/>
                 <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
-                {/* <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p> */}
-                <p className="infoError">El correo introducido no es válido.</p>
+                <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p>
+                {/* <p className="infoError">El correo introducido no es válido.</p> */}
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__subject">
                 <label>Asunto</label>

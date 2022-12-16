@@ -9,7 +9,7 @@
         height: 30rem;
         margin: 5rem 0;
         display: flex;
-        border: 1px solid $border-container;
+        border: 1px solid $borderColor-container;
         padding: 2rem;
 
         &__contIzq{
@@ -37,28 +37,28 @@
                 &--precio{
                     margin: 0;
                     font-weight: bold;
-                    font-size: $fontSize-subtitulo3;
-                    color: $color-price;
+                    font-size: $fontSize-subtitulo2;
+                    color: $color-red;
                 }
 
                 h1{
                     margin: 0;
-                    font-family: $fontFamily-titulo;
+                    font-family: $fontFamily-1;
                     font-size: 1.9em;
-                    color: $color-titulo;
+                    color: $color-black;
                     font-weight: 200;
                 }
             }
 
             h2{
-                font-family: $fontFamily-subtitulo;
+                font-family: $fontFamily-2;
                 font-size: $fontSize-subtitulo2;
-                color: $color-titulo;
+                color: $color-black;
                 margin-top: 3rem;
             }
 
             &--descripcion{
-                color: $color-subtitulo-claro;
+                color: $color-lightgray;
                 margin-bottom: 2rem;
             }
 

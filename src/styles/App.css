@@ -9,7 +9,7 @@
     width: 65rem; }
     .seccionHeader__contCentral h1 {
       font-size: 4em;
-      color: #212529;
+      color: #4a4a4a;
       font-family: sans-serif;
       letter-spacing: 3px; }
     .seccionHeader__contCentral__contMenu ul {
@@ -45,7 +45,7 @@
           padding: 0.15rem;
           position: relative; }
   .seccionHeader a {
-    color: #212529;
+    color: #4a4a4a;
     text-decoration: none;
     letter-spacing: 1px; }
   .seccionHeader a:after {
@@ -223,7 +223,7 @@
     color: #959596;
     letter-spacing: 3px;
     font-size: 1.15em;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: sans-serif;
     margin-bottom: 3rem; }
   .seccionInformacion__contInfo {
     width: 70%;
@@ -296,7 +296,7 @@
       .seccionContacto__contFormulario__contInputs textarea {
         border: 3px solid #ebeeef;
         border-radius: 7px;
-        color: #8c9398; }
+        color: #959596; }
       .seccionContacto__contFormulario__contInputs input:focus,
       .seccionContacto__contFormulario__contInputs textarea:focus {
         outline: 1px solid #ebeeef; }
@@ -341,7 +341,7 @@
     .seccionContacto__contFormulario--boton {
       width: 9rem;
       height: 3rem;
-      border: 2px solid orangered;
+      border: 2px solid #ff4c4c;
       background-color: white;
       margin-top: 5rem;
       font-size: 1em;
@@ -408,7 +408,8 @@
           padding: 0.65rem 0.5rem;
           margin-top: 0.25rem;
           border: 1px solid rgba(128, 128, 128, 0.3);
-          border-radius: 5px; }
+          border-radius: 5px;
+          letter-spacing: 1px; }
         .seccionPerfil__contForm__contInputs--input input:focus {
           outline-color: #4f46e5; }
     .seccionPerfil__contForm__contBoton {
@@ -456,29 +457,33 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      color: #8c9398; }
+      color: #959596; }
       .seccionUser__contenedor__contInfo--icon {
         color: black; }
       .seccionUser__contenedor__contInfo--label {
-        color: black;
+        color: #4a4a4a;
         margin-left: 1rem;
-        margin-right: 0.25rem; }
+        margin-right: 0.25rem;
+        letter-spacing: 0px; }
       .seccionUser__contenedor__contInfo ul {
         list-style: none; }
         .seccionUser__contenedor__contInfo ul li {
-          margin: 2rem 0; }
+          margin: 2rem 0;
+          letter-spacing: 1px; }
           .seccionUser__contenedor__contInfo ul li select {
             border: none;
             outline: none;
             background-color: transparent;
-            color: #8c9398; }
+            color: #959596;
+            letter-spacing: 1px; }
             .seccionUser__contenedor__contInfo ul li select option {
               margin-top: 1rem; }
           .seccionUser__contenedor__contInfo ul li input {
             border: none;
             border-bottom: 1px solid rgba(128, 128, 128, 0.2);
             outline: none;
-            color: #8c9398; }
+            color: #959596;
+            letter-spacing: 1px; }
       .seccionUser__contenedor__contInfo button {
         position: absolute;
         right: 5rem;
@@ -534,7 +539,7 @@
   width: 17rem;
   height: 24rem;
   margin: 2rem 1rem;
-  outline: 1px solid #e4e4e4;
+  outline: 1px solid rgba(128, 128, 128, 0.2);
   display: flex;
   flex-direction: column;
   letter-spacing: 1px;
@@ -561,7 +566,7 @@
       justify-content: space-between;
       border-top: 1px solid #ddd; }
       .contProducto__contInfo__subcontenedor--titulo {
-        color: #212529;
+        color: #4a4a4a;
         width: 70%;
         margin: 0;
         text-decoration: none;
@@ -616,12 +621,12 @@
           margin: 0;
           font-family: sans-serif;
           font-size: 1.9em;
-          color: #212529;
+          color: #4a4a4a;
           font-weight: 200; }
       .seccionProducto__contInfo__contDer h2 {
         font-family: "Inconsolata", monospace;
-        font-size: 0.95em;
-        color: #212529;
+        font-size: 1.15em;
+        color: #4a4a4a;
         margin-top: 3rem; }
       .seccionProducto__contInfo__contDer--descripcion {
         color: #959596;
@@ -664,7 +669,7 @@
   display: none;
   width: 70%;
   font-size: 0.85em;
-  font-family: "Source Sans Pro", sans-serif; }
+  font-family: sans-serif; }
   .infoError-activo {
     display: block;
     margin: 0;

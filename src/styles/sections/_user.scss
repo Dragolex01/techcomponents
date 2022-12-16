@@ -13,7 +13,7 @@
             width: 10rem;
             height: 10rem;
             margin: 2rem 0;
-            outline: 8px solid $border-container;
+            outline: 8px solid $borderColor-container;
             border-radius: 100%;
             display: flex;
             justify-content: center;
@@ -23,23 +23,24 @@
         &__contInfo{
             width: 100%;
             position: relative;
-            border: 1px solid $border-container;
+            border: 1px solid $borderColor-container;
             border-radius: 10px;
             margin-top: 3rem;
             padding-bottom: 5rem;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            color: $color-text-claro;
+            color: $color-lightgray;
 
             &--icon{
                 color: black;
             }
 
             &--label{
-                color: black;
+                color: $color-black;
                 margin-left: 1rem;
                 margin-right: 0.25rem;
+                letter-spacing: 0px;
             }
 
             ul{
@@ -47,12 +48,14 @@
 
                 li{
                     margin: 2rem 0;
+                    letter-spacing: $fontLetterSpacing-input;
 
                     select{
                         border: none;
                         outline: none;
                         background-color: transparent;
-                        color: $color-text-claro;
+                        color: $color-lightgray;
+                        letter-spacing: $fontLetterSpacing-input;
 
                         option{
                             margin-top: 1rem;
@@ -61,9 +64,10 @@
 
                     input{
                         border: none;
-                        border-bottom: 1px solid $border-container;
+                        border-bottom: 1px solid $borderColor-container;
                         outline: none;
-                        color: $color-text-claro;
+                        color: $color-lightgray;
+                        letter-spacing: $fontLetterSpacing-input;
                     }
                 }
             }

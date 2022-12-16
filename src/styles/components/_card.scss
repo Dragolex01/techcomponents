@@ -7,7 +7,7 @@
     width: 17rem;
     height: 24rem;
     margin: 2rem 1rem;
-    outline: 1px solid $border-item;
+    outline: 1px solid $borderColor-container;
     display: flex;
     flex-direction: column;
     letter-spacing: 1px;
@@ -41,7 +41,7 @@
             border-top: 1px solid #ddd;
 
             &--titulo{
-                color: $color-text;
+                color: $color-black;
                 width: 70%;
                 margin: 0;
                 text-decoration: none;
@@ -60,7 +60,7 @@
 
             &--precio{
                 width: 25%;
-                color: $color-price;
+                color: $color-red;
                 font-weight: bold;
                 margin: 0;
             }

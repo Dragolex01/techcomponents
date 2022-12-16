@@ -1,5 +1,5 @@
 .seccionFooter{
-    background-color: $backgroundColor-footer;
+    background-color: $backgroundColor-black;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -14,15 +14,15 @@
         h1{
             color: white;
             font-size: $fontSize-tituloFooter;
-            font-family: $fontFamily-subtitulo;
+            font-family: $fontFamily-2;
             letter-spacing: $fontLetterSpacing-tituloFooter;
-            border-bottom: 1px solid $border-outlineFooter;
+            border-bottom: 1px solid $color-lightgray;
             padding-bottom: 1rem;
             margin-bottom: 1.5rem;
         }
 
         &__contTexto{
-            color: $color-subtitulo-claro;
+            color: $color-lightgray;
 
             &--info{
                 display: flex;
@@ -41,11 +41,11 @@
 
             &--boton{
                 text-decoration: none;
-                color: $color-subtitulo-claro;
+                color: $color-lightgray;
             }
 
             &--boton:hover{
-                color: $color-boton-claro;
+                color: $color-white;
             }
 
             &--nav{

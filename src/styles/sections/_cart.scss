@@ -7,7 +7,7 @@
         margin-bottom: 2rem;
         padding-bottom: 2rem;
         width: 46.25%; // Cambiar
-        border-bottom: 1px solid $border-container;
+        border-bottom: 1px solid $borderColor-container;
     }
 
     &__contenedor{
@@ -30,7 +30,7 @@
                 padding: 1rem 0;
                 margin-bottom: 0.5rem;
                 display: flex;
-                border-bottom: 1px solid $border-container;
+                border-bottom: 1px solid $borderColor-container;
                 border-radius: 10px;
                 position: relative;
 
@@ -48,7 +48,7 @@
 
                 &--info{
                     padding-left: 2rem;
-                    border-left: 1px solid $border-container;
+                    border-left: 1px solid $borderColor-container;
                 }
 
                 &__contBoton{
@@ -73,7 +73,7 @@
                 width: 8rem;
                 height: 2.5rem;
                 border-radius: 10px;
-                border: 1px solid $border-container;
+                border: 1px solid $borderColor-container;
                 cursor: pointer;
             }
         }
@@ -83,7 +83,7 @@
             
             &__contInfo{
                 width: 80%;
-                border: 1px solid $border-container;
+                border: 1px solid $borderColor-container;
                 border-radius: 10px;
                 padding: 2rem;
 
@@ -113,7 +113,7 @@
                     width: 100%;
                     height: 2.5rem;
                     border-radius: 10px;
-                    border: 1px solid $border-container;
+                    border: 1px solid $borderColor-container;
                     cursor: pointer;
                 }
             }
