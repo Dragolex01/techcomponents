@@ -4,6 +4,19 @@
     justify-content: center;
     align-items: center;
 
+    h1{
+        margin: 0;
+        font-family: $fontFamily-1;
+        font-size: 1.9em;
+        font-weight: 200;
+    }
+
+    h2{
+        font-family: $fontFamily-2;
+        font-size: $fontSize-subtitulo2;
+        margin-top: 3rem;
+    }
+
     &__contInfo{
         width: 60%;
         height: 30rem;
@@ -40,21 +53,6 @@
                     font-size: $fontSize-subtitulo2;
                     color: $color-red;
                 }
-
-                h1{
-                    margin: 0;
-                    font-family: $fontFamily-1;
-                    font-size: 1.9em;
-                    color: $color-black;
-                    font-weight: 200;
-                }
-            }
-
-            h2{
-                font-family: $fontFamily-2;
-                font-size: $fontSize-subtitulo2;
-                color: $color-black;
-                margin-top: 3rem;
             }
 
             &--descripcion{

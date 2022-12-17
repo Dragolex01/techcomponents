@@ -1,10 +1,15 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLaptop, faMobile, faTablet } from '@fortawesome/free-solid-svg-icons';
+
 import { get_products } from '../redux/actions/products';
 
 import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
+
+import imgMundial from '../img/imgMundial2.jpg';
 
 function Home({ get_products, products }){
 
@@ -53,7 +58,7 @@ function Home({ get_products, products }){
     return(
         <Layout>
             <div className="seccionHome">
-                <div className="seccionHome__contOfertas">
+                {/* <div className="seccionHome__contOfertas">
                     <div className="seccionHome__contOfertas--oferta">
                         a
                     </div>
@@ -62,6 +67,42 @@ function Home({ get_products, products }){
                     </div>
                     <div className="seccionHome__contOfertas--oferta">
                         a
+                    </div>
+                </div> */}
+
+                <div className="seccionHome__contInfo">
+                    <div className="seccionHome__contInfo--img">
+                        <img src={imgMundial} />
+                    </div>
+                    <div className="seccionHome__contInfo--info">
+                        <h2>¿QUIÉNES SOMOS?</h2>
+                        <p>Est eiusmod cupidatat ut sunt eiusmod. Minim velit Lorem id nulla velit dolore mollit exercitation quis. Pariatur dolore laboris est laboris proident enim laboris consectetur veniam enim cillum quis. Sint nostrud sint duis aute aute ea occaecat in aute officia est aliquip labore laboris. Mollit mollit anim mollit mollit nulla magna non. Sit enim sunt id pariatur aliqua labore incididunt.</p>
+                    </div>
+                </div>
+                <div className="seccionHome__contProducto">
+                    <div className="seccionHome__contProducto__producto">
+                        <FontAwesomeIcon icon={faLaptop} className="seccionHome__contProducto__producto--icon" />
+                        <div className="seccionHome__contProducto__producto--info">
+                            <h3>Ordenador</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                        <button>Comprar</button>
+                    </div>
+                    <div className="seccionHome__contProducto__producto">
+                        <FontAwesomeIcon icon={faMobile} className="seccionHome__contProducto__producto--icon" />
+                        <div className="seccionHome__contProducto__producto--info">
+                            <h3>Movil</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                        <button>Comprar</button>
+                    </div>
+                    <div className="seccionHome__contProducto__producto">
+                        <FontAwesomeIcon icon={faTablet} className="seccionHome__contProducto__producto--icon" />
+                        <div className="seccionHome__contProducto__producto--info">
+                            <h3>Tablet</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </div>
+                        <button>Comprar</button>
                     </div>
                 </div>
                 {

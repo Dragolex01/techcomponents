@@ -9,7 +9,6 @@
     width: 65rem; }
     .seccionHeader__contCentral h1 {
       font-size: 4em;
-      color: #4a4a4a;
       font-family: sans-serif;
       letter-spacing: 3px; }
     .seccionHeader__contCentral__contMenu ul {
@@ -66,36 +65,72 @@
 .seccionHome {
   width: 100%; }
   .seccionHome h1 {
-    padding-left: 4rem;
-    margin-top: 5rem; }
-  .seccionHome__contOfertas {
+    margin-left: 5rem;
+    margin-top: 5rem;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    letter-spacing: 1.5px; }
+  .seccionHome h2 {
+    color: #959596;
+    letter-spacing: 3px;
+    font-size: 1.15em;
+    font-family: sans-serif;
+    margin-bottom: 3rem; }
+  .seccionHome__contInfo {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 5%;
+    margin-top: 8rem; }
+    .seccionHome__contInfo--img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%; }
+      .seccionHome__contInfo--img img {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px; }
+    .seccionHome__contInfo--info {
+      width: 50%;
+      padding: 0 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #f7f7f7;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px; }
+      .seccionHome__contInfo--info p {
+        font-size: 1em;
+        letter-spacing: 1.5px; }
+  .seccionHome__contProducto {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 10rem;
-    margin-bottom: 6rem; }
-    .seccionHome__contOfertas--oferta {
+    margin: 10rem 0; }
+    .seccionHome__contProducto__producto {
       width: 21%;
-      height: 8rem;
-      background-color: lightgray; }
-  .seccionHome__contenedorOfertas {
-    width: 100%;
-    margin-top: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; }
-    .seccionHome__contenedorOfertas__contenedorItemsOferta {
-      width: 100%;
+      height: 15rem;
       display: flex;
-      justify-content: space-around;
-      margin-top: 4rem;
-      list-style: none;
-      padding: 0; }
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center; }
+      .seccionHome__contProducto__producto--icon {
+        height: 2rem; }
+      .seccionHome__contProducto__producto--info {
+        margin: 1rem 0; }
+      .seccionHome__contProducto__producto button {
+        width: 7rem;
+        height: 2.5rem;
+        border: 2px solid #d50000;
+        background-color: #f7f7f7;
+        cursor: pointer; }
   .seccionHome__contProductos {
     display: flex;
     align-items: center;
-    padding: 0 2rem; }
+    margin: 0 3rem; }
 
 .seccionLista {
   width: 100%;
@@ -217,7 +252,7 @@
   .seccionInformacion h2 {
     font-weight: 400;
     font-family: "Inconsolata", monospace;
-    font-size: 2.15em;
+    font-size: 2em;
     letter-spacing: 2px; }
   .seccionInformacion h3 {
     color: #959596;
@@ -256,7 +291,7 @@
     text-align: center;
     font-weight: 400;
     font-family: "Inconsolata", monospace;
-    font-size: 2.15em;
+    font-size: 2em;
     letter-spacing: 2px; }
   .seccionContacto h3 {
     text-align: center;
@@ -341,8 +376,8 @@
     .seccionContacto__contFormulario--boton {
       width: 9rem;
       height: 3rem;
-      border: 2px solid #ff4c4c;
-      background-color: white;
+      border: 2px solid #d50000;
+      background-color: #f7f7f7;
       margin-top: 5rem;
       font-size: 1em;
       cursor: pointer; }
@@ -489,7 +524,9 @@
         right: 5rem;
         bottom: 2rem;
         padding: 0.5rem;
-        border: 1px solid lightgray;
+        border: 1px solid #d50000;
+        background-color: #f7f7f7;
+        font-size: 1em;
         border-radius: 6px;
         cursor: pointer; }
 
@@ -566,7 +603,6 @@
       justify-content: space-between;
       border-top: 1px solid #ddd; }
       .contProducto__contInfo__subcontenedor--titulo {
-        color: #4a4a4a;
         width: 70%;
         margin: 0;
         text-decoration: none;
@@ -578,7 +614,7 @@
           color: black; }
       .contProducto__contInfo__subcontenedor--precio {
         width: 25%;
-        color: #ff4c4c;
+        color: #d50000;
         font-weight: bold;
         margin: 0; }
     .contProducto__contInfo--info {
@@ -590,6 +626,15 @@
   display: flex;
   justify-content: center;
   align-items: center; }
+  .seccionProducto h1 {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 1.9em;
+    font-weight: 200; }
+  .seccionProducto h2 {
+    font-family: "Inconsolata", monospace;
+    font-size: 1.15em;
+    margin-top: 3rem; }
   .seccionProducto__contInfo {
     width: 60%;
     height: 30rem;
@@ -616,18 +661,7 @@
           margin: 0;
           font-weight: bold;
           font-size: 1.15em;
-          color: #ff4c4c; }
-        .seccionProducto__contInfo__contDer__contInfo h1 {
-          margin: 0;
-          font-family: sans-serif;
-          font-size: 1.9em;
-          color: #4a4a4a;
-          font-weight: 200; }
-      .seccionProducto__contInfo__contDer h2 {
-        font-family: "Inconsolata", monospace;
-        font-size: 1.15em;
-        color: #4a4a4a;
-        margin-top: 3rem; }
+          color: #d50000; }
       .seccionProducto__contInfo__contDer--descripcion {
         color: #959596;
         margin-bottom: 2rem; }
@@ -690,7 +724,8 @@
 
 body {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  color: #4a4a4a; }
 
 /*
 - About US:

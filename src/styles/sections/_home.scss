@@ -2,51 +2,125 @@
     width: 100%;
 
     h1{
-        padding-left: 4rem;
+        margin-left: 5rem; //4
         margin-top: 5rem;
+        font-family: $fontFamily-1;
+        font-weight: $fontWeight-subtitulo;
+        font-size: $fontSize-subtitulo;
+        letter-spacing: $fontLetterSpacing-subtitulo;
     }
 
-    &__contOfertas{
+    h2 {
+        color: $color-lightgray;
+        letter-spacing: 3px;
+        font-size: $fontSize-subtitulo2;
+        font-family: $fontFamily-1;
+        margin-bottom: 3rem;
+      }
+
+    &__contInfo{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        margin: 0 5%;
+        margin-top: 8rem;
+
+        &--img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // width: 45%;
+            width: 50%;
+
+            img{
+                width: 100%;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        }
+
+        &--info{
+            // width: 40%;
+            width: 50%;
+            padding: 0 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: $backgroundColor-lightgray;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+                
+            p{
+                font-size: $fontSize-texto;
+                letter-spacing: $fontLetterSpacing-tituloFooter;
+            }
+        }
+    }
+
+    &__contProducto{
         display: flex;
         align-items: center;
         justify-content: space-around;
-        margin-top: 10rem;
-        margin-bottom: 6rem;
+        margin: 10rem 0;
 
-        &--oferta{
+        &__producto{
             width: 21%;
-            height: 8rem;
-            background-color: lightgray;
+            height: 15rem;
+            // background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            &--icon{
+                height: 2rem;
+            }
+
+            &--info{
+                margin: 1rem 0;
+
+                p{
+
+                }
+            }
+
+            button{
+                width: 7rem;
+                height: 2.5rem;
+                border: 2px solid $color-red;
+                background-color: $backgroundColor-lightgray;
+                // font-size: $fontSize-boton;
+                cursor: pointer;
+            }
         }
     }
-
-    &__contenedorOfertas {
-        width: 100%;
-        margin-top: 6rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    
-        &__contenedorItemsOferta {
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-          margin-top: 4rem;
-          list-style: none;
-          padding: 0;
-        }
-      }
 
     &__contProductos{
         display: flex;
         align-items: center;
         // justify-content: center;
-        padding: 0 2rem;
+        margin: 0 3rem;
     }
 }
 
 
+// &__contOfertas{
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-around;
+    //     margin-top: 10rem;
+    //     margin-bottom: 6rem;
+
+    //     &--oferta{
+    //         width: 21%;
+    //         height: 8rem;
+    //         background-color: lightgray;
+    //     }
+    // }
+
+
+    
 
 
 

@@ -1,25 +1,25 @@
 // Colors
 
-$color-black: #4a4a4a; //212529
+$color-black: #4a4a4a; //#212529
 $color-white: #ffff;
 $color-lightgray: #959596;
-$color-red: #ff4c4c;
+$color-red: #d50000; //#ff4c4c
 $color-lightblue: #2a8490;
 $color-correcto: #1ed12d;
 $color-incorrecto: #bb2929;
 
-$backgroundColor-lightgray: #f7f7f7; //777777
+$backgroundColor-lightgray: #f7f7f7; //#777777
 $backgroundColor-black: rgba(21,21,21,255);
 // $backgroundColor-discount: rgba(255,76,76,255);
 
 $borderColor-input: #ebeeef;
-$borderColor-container: rgba(128, 128, 128, 0.200); //e4e4e4
+$borderColor-container: rgba(128, 128, 128, 0.200); //#e4e4e4
 
 
 // Font
 
 $fontSize-titulo: 4em;
-$fontSize-subtitulo: 2.15em;
+$fontSize-subtitulo: 2em; //2.15
 $fontSize-subtitulo2: 1.15em;
 $fontSize-subtitulo3: 0.95em;
 $fontSize-enlaces: 1.15em;
@@ -36,6 +36,7 @@ $fontWeight-subtitulo: 400;
 
 $fontLetterSpacing-input: 1px;
 $fontLetterSpacing-tituloFooter: 1.5px;
+$fontLetterSpacing-subtitulo: 1.5px;
 
 $fontFamily-1: sans-serif;
 $fontFamily-2: 'Inconsolata', monospace;
