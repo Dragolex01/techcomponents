@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUserCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import NavBar from './NavBar.js';
 import { logout } from '../../redux/actions/auth';
@@ -31,86 +31,48 @@ function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
   // }
 
   const authLinks = (
-    <>
-      <div className="action">
-        <div className="profile" onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
-        </div>
-        <div className="menu">
-          <ul>
-            <li>
-            <Link to="/profile">Mi perfil</Link>
-            </li>
-            <li>
-              <Link to="/cart">Carrito</Link>
-            </li>
-            <li>
-              <form method="POST" action="#">
-                <button type="button" onClick={logoutHandler}>Cerrar sesión</button>
-              </form>
-            </li>
-          </ul>
-        </div>
+    <div className="action">
+      <div className="profile" onClick={menuToggle}>
+        <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
       </div>
-        {/* <>
-        <div className="seccionHeader__contLateral">
-          <div onClick={menuToggle}>
-            <FontAwesomeIcon icon={faUserCircle} className="seccionHeader__contLateral--icono" />
-          </div>
-          <div className="seccionHeader__contLateral__contLinks">
-            <ul>
-              <li>
-                <a href="#">My profile</a>
-              </li>
-              <li>
-                <form method='POST' action='#'>
-                  <button onClick={logoutHandler}>Cerrar sesión</button>
-                </form>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </> */}
-    </>    
+      <div className="menu">
+        <ul>
+          <li>
+            <FontAwesomeIcon icon={faUser} className="icon" />
+            <Link to="/profile">Mi perfil</Link>
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+            <Link to="/cart">Carrito</Link>
+          </li>
+          <li>
+            <form method="POST" action="#">
+              <FontAwesomeIcon icon={faArrowLeft} className="icon" />
+              <button type="button" className="botonLogout" onClick={logoutHandler}>Cerrar sesión</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
   )
 
   const guestLinks = (
-    <>
-      <div className="action">
-        <div className="profile" onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
-        </div>
-        <div className="menu">
-          <ul>
-            <li>
-              <Link to="/login">Iniciar sesión</Link>
-            </li>
-            <li>
-              <Link to="/register">Registrarse</Link>
-            </li>
-          </ul>
-        </div>
+    <div className="action">
+      <div className="profile" onClick={menuToggle}>
+        <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
       </div>
-      {/* <>
-      <div className="seccionHeader__contLateral">
-        <div onClick={menuToggle}>
-          <FontAwesomeIcon icon={faUserCircle} className="seccionHeader__contLateral--icono" />
-        </div>
-        <div className="seccionHeader__contLateral__contLinks">
-          <ul>
-            <li>
-              <Link to="/login">Iniciar sesión</Link>
-            </li>
-            <li>
-              <Link to="/register">Registrarse</Link>
-            </li>
-          </ul>
-        </div>
+      <div className="menu">
+        <ul>
+          <li>
+            <Link to="/login">Iniciar sesión</Link>
+          </li>
+          <li>
+            <Link to="/register">Registrarse</Link>
+          </li>
+        </ul>
       </div>
-      </> */}
-    </>
+    </div>
   )
-      
 
   function menuToggle() {
     const toggleMenu = document.querySelector(".menu");
