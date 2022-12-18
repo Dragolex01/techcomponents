@@ -594,8 +594,7 @@
       .contProducto__contInfo__subcontenedor--titulo {
         margin: 0;
         text-decoration: none;
-        font-size: 1em;
-        background-color: red; }
+        font-size: 1em; }
         .contProducto__contInfo__subcontenedor--titulo :link {
           text-decoration: none;
           color: black; }
