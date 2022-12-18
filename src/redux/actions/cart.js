@@ -280,7 +280,7 @@ export const remove_item = item => async dispatch => {
 
         try {
             const res = await axios.delete('http://localhost:8000/api/cart/remove-item', config);
-
+            
             if (res.status === 200) {
                 dispatch({
                     type: REMOVE_ITEM_SUCCESS,

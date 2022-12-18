@@ -4,9 +4,6 @@ from rest_framework import permissions, status
 
 from apps.product.models import Product
 from apps.product.serializers import ProductSerializer
-from apps.category.models import Category
-
-from django.db.models import Q
 
 class ProductDetailView(APIView):
     permission_classes = (permissions.AllowAny, )

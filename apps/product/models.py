@@ -6,15 +6,15 @@ from django.conf import settings
 domain = settings.DOMAIN
 
 class Product(models.Model):
-    name = models.CharField(max_length = 255)
-    photo = models.ImageField(upload_to = 'photos/%Y/%m/')
+    name = models.CharField(max_length=255)
+    photo = models.ImageField(upload_to='photos/%Y/%m/')
     description = models.TextField()
-    price = models.DecimalField(max_digits = 6, decimal_places = 2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     # compare_price = models.DecimalField(max_digits = 6, decimal_places = 2)
-    category = models.ForeignKey(Category, on_delete = models.CASCADE)
-    quantity = models.IntegerField(default = 0)
-    sold = models.IntegerField(default = 0)
-    date_created = models.DateTimeField(default = datetime.now)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=0)
+    sold = models.IntegerField(default=0)
+    date_created = models.DateTimeField(default=datetime.now)
 
     # def get_image(self):
     #     if self.photo:

@@ -10,6 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
     # list_editable = ('compare_price', 'price', 'quantity', )
     list_editable = ('price', 'quantity', )
     search_fields = ('name', 'description', )
+    ordering = ('id', )
     list_per_page = 25
 
 admin.site.register(Product, ProductAdmin)
