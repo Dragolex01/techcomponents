@@ -1,5 +1,6 @@
 .seccionProducto{
-    width: 100%;
+    width: 90%;
+    margin: 0 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +19,8 @@
     }
 
     &__contInfo{
-        width: 60%;
+        //width: 60%;
+        width: 70rem;
         height: 30rem;
         margin: 5rem 0;
         display: flex;

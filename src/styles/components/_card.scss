@@ -16,12 +16,15 @@
 
     &__contImg{
         height: 70%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
 
         &--img{
-            height: 80%;
+            // height: 80%;
+            height: 10.5rem;
             border-radius: 10px;
         }
     }
@@ -41,10 +44,10 @@
             border-top: 1px solid #ddd;
 
             &--titulo{
-                width: 70%;
                 margin: 0;
                 text-decoration: none;
                 font-size: 1em; //Cambiar
+                background-color: red;
                 
 
                 :link{
@@ -58,7 +61,7 @@
             }
 
             &--precio{
-                width: 25%;
+                // width: 25%;
                 color: $color-red;
                 font-weight: bold;
                 margin: 0;
