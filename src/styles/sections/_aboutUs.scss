@@ -28,11 +28,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 45%;
+        // width: 45%;
 
         img{
-            width: 100%;
+            width: 30rem;
         }
+    }
+
+    @media (max-width: 920px) {
+      &--img {
+        display: none;
+        // width: 50%;
+      }
     }
 
     &--info {
@@ -45,6 +52,20 @@
             font-size: $fontSize-texto;
             letter-spacing: $fontLetterSpacing-tituloFooter;
         }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    &__contInfo {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 920px) {
+    &__contInfo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

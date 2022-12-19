@@ -15,8 +15,6 @@ function Activate({ activate, loading }){
         const uid = params.uid
         const token = params.token
 
-        // console.log(uid)
-        // console.log(token)
         activate(uid, token)
         setActivated(true)
     }

@@ -57,6 +57,12 @@
         }
     }
 
+    @media (max-width: 1340px) {
+        &__contInfo {
+          display: none;
+        }
+    }
+
     &__contProducto{
         display: flex;
         align-items: center;
@@ -99,8 +105,10 @@
     &__contProductos{
         display: flex;
         align-items: center;
+        width: 100%;
         // justify-content: center;
         margin: 0 3rem;
+        flex-wrap: wrap;
     }
 }
 

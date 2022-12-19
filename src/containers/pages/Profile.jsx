@@ -48,7 +48,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
 
     function update_profile(e){
         e.preventDefault();
-        console.log(region, city, province, address, postal_code)
+        //console.log(region, city, province, address, postal_code)
         update_user_profile()
         window.scrollTo(0, 0);
     }

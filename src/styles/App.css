@@ -91,6 +91,9 @@
       .seccionHome__contInfo--info p {
         font-size: 1em;
         letter-spacing: 1.5px; }
+  @media (max-width: 1340px) {
+    .seccionHome__contInfo {
+      display: none; } }
   .seccionHome__contProducto {
     display: flex;
     align-items: center;
@@ -117,7 +120,9 @@
   .seccionHome__contProductos {
     display: flex;
     align-items: center;
-    margin: 0 3rem; }
+    width: 100%;
+    margin: 0 3rem;
+    flex-wrap: wrap; }
 
 .seccionLista {
   width: 100%;
@@ -255,10 +260,12 @@
     .seccionInformacion__contInfo--img {
       display: flex;
       justify-content: center;
-      align-items: center;
-      width: 45%; }
+      align-items: center; }
       .seccionInformacion__contInfo--img img {
-        width: 100%; }
+        width: 30rem; }
+    @media (max-width: 920px) {
+      .seccionInformacion__contInfo--img {
+        display: none; } }
     .seccionInformacion__contInfo--info {
       width: 40%;
       display: flex;
@@ -267,6 +274,14 @@
       .seccionInformacion__contInfo--info p {
         font-size: 1em;
         letter-spacing: 1.5px; }
+  @media (max-width: 1200px) {
+    .seccionInformacion__contInfo {
+      width: 90%; } }
+  @media (max-width: 920px) {
+    .seccionInformacion__contInfo {
+      display: flex;
+      justify-content: center;
+      align-items: center; } }
 
 .seccionContacto {
   width: 100%;
@@ -287,24 +302,31 @@
     font-size: 0.95em;
     margin-bottom: 5rem; }
   .seccionContacto__contInfo {
-    width: 100%;
+    width: 70%;
     display: flex;
-    justify-content: center; }
+    justify-content: space-between;
+    align-items: center; }
     .seccionContacto__contInfo__bloque {
       width: 23.5rem;
       height: 9rem;
       border: 1px solid #ebeeef;
+      border-radius: 5px;
       background-color: #f7f7f7;
       display: flex;
-      align-items: center; }
-      .seccionContacto__contInfo__bloque--icono {
-        width: 7rem; }
-      .seccionContacto__contInfo__bloque--info {
-        width: 100%; }
+      align-items: center;
+      justify-content: center; }
       .seccionContacto__contInfo__bloque p {
         color: #2a8490; }
+  @media (max-width: 1280px) {
+    .seccionContacto__contInfo {
+      width: 90%; } }
+  @media (max-width: 900px) {
+    .seccionContacto__contInfo {
+      flex-direction: column;
+      height: 30rem;
+      justify-content: space-between; } }
   .seccionContacto__contFormulario {
-    width: 55%;
+    width: 55rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -368,6 +390,20 @@
       margin-top: 5rem;
       font-size: 1em;
       cursor: pointer; }
+  @media (max-width: 900px) {
+    .seccionContacto__contFormulario {
+      width: 40rem; } }
+  @media (max-width: 670px) {
+    .seccionContacto__contFormulario {
+      width: 30rem; }
+      .seccionContacto__contFormulario__contInputs {
+        flex-direction: column; }
+        .seccionContacto__contFormulario__contInputs__contDer {
+          margin-top: 1.5rem; }
+          .seccionContacto__contFormulario__contInputs__contDer label {
+            top: -0.5rem; }
+          .seccionContacto__contFormulario__contInputs__contDer textarea {
+            height: 8rem; } }
   .seccionContacto--googleMap {
     border: 0;
     width: 70%;

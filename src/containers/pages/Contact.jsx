@@ -77,21 +77,18 @@ function Contact() {
         <h3>INFORMANOS SOBRE NUEVAS IDEAS O ERRORES</h3>
         <div className="seccionContacto__contInfo">
           <div className="seccionContacto__contInfo__bloque">
-            <div className="seccionContacto__contInfo__bloque--icono"></div>
             <div className="seccionContacto__contInfo__bloque--info">
               <h4><FontAwesomeIcon icon={faStreetView} /> Direccion</h4>
               <p>Madrid, España</p>
             </div>
           </div>
           <div className="seccionContacto__contInfo__bloque">
-            <div className="seccionContacto__contInfo__bloque--icono"></div>
             <div className="seccionContacto__contInfo__bloque--info">
               <h4><FontAwesomeIcon icon={faEnvelope} /> Email</h4>
               <p>techcomponents@example.com</p>
             </div>
           </div>
           <div className="seccionContacto__contInfo__bloque">
-            <div className="seccionContacto__contInfo__bloque--icono"></div>
             <div className="seccionContacto__contInfo__bloque--info">
               <h4><FontAwesomeIcon icon={faPhone} /> Teléfono</h4>
               <p>+34 666 66 66 66</p>
