@@ -25,7 +25,7 @@ class GetUserProfileView(APIView):
 class UpdateUserProfile(APIView):
     def put(self, request, format=None):
         try:
-            user = self.request.data
+            user = self.request.user
             data = self.request.data
 
             region = data['region'],

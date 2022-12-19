@@ -36,7 +36,7 @@ export const get_user_profile = () => async dispatch => {
     }
 }
 
-export const update_user_profile = (country, city, address, zipcode) => async dispatch => {
+export const update_user_profile = () => async dispatch => {
     if(localStorage.getItem('access')){
         const config = {
             headers: {
@@ -47,14 +47,15 @@ export const update_user_profile = (country, city, address, zipcode) => async di
         }
 
         const body = JSON.stringify({
-            country,
-            city,
-            address,
-            zipcode
+            region:'asd',
+            city:'asd',
+            province:'asd',
+            address:'asd',
+            zipcode:'asd'
         })
 
         try{
-            const res = await axios.put('http://localhost:8000/api/profile/update/', body, config);
+            const res = await axios.put('http://localhost:8000/api/profile/update', body, config);
 
             if(res.status === 200){
                 dispatch({

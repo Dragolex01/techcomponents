@@ -26,7 +26,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
 
     const [formData, setFormData] = useState({
         gender: '',
-        region: '',
+        region: 'españa',
         city: '',
         province: '',
         address: '',
@@ -48,7 +48,8 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
 
     function update_profile(e){
         e.preventDefault();
-        update_user_profile(region, city, province, address, postal_code)
+        console.log(region, city, province, address, postal_code)
+        update_user_profile()
         window.scrollTo(0, 0);
     }
 
