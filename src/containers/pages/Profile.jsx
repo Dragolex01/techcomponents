@@ -26,7 +26,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
 
     const [formData, setFormData] = useState({
         // gender: '',
-        region: 'españa',
+        region: '',
         city: '',
         province: '',
         address: '',
@@ -81,14 +81,14 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Código postal: </label>
-                                <input type="text" name="postal_code" placeholder={profile && profile.postal_code} value={postal_code} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="postal_code" defaultValue={profile && profile.postal_code} onChange={(e) => change_field_value(e)}/>
                             </li>
                         </ul>
                         <ul>
                             <li>
                                 <FontAwesomeIcon icon={faHouse} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">País/Región: </label>
-                                <select id="region" name="region">
+                                <select id="region" name="region" onChange={(e) => change_field_value(e)}> {/*No funciona*/}
                                     <option value="españa">España</option>
                                     <option value="estados_unidos">Estados Unidos</option>
                                 </select>
@@ -96,20 +96,20 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Ciudad: </label>
-                                <input type="text" name="city" placeholder={profile && profile.city} value={city} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="city" defaultValue={profile && profile.city} onChange={(e) => change_field_value(e)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Provincia: </label>
-                                <input type="text" name="province" placeholder={profile && profile.province} value={province} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="province" defaultValue={profile && profile.province} onChange={(e) => change_field_value(e)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Direccion: </label>
-                                <input type="text" name="address" placeholder={profile && profile.address} value={address} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="address" defaultValue={profile && profile.address} onChange={(e) => change_field_value(e)}/>
                             </li>
                         </ul>
-                        <button type="subtmit" onClick={update_profile}>Guardar</button>
+                        <button type="subtmit">Guardar</button>
                     </form>
                 </div>
             </section>
