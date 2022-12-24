@@ -21,8 +21,6 @@ function Contact() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(emailStatus)
-    // setEmailStatus(false)
   }, []);
 
   const sendEmail = (e) => {

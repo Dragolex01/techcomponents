@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAmericanSignLanguageInterpreting, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -11,13 +12,15 @@ import { login } from '../../redux/actions/auth';
 
 // import { validarFormulario } from '../../helpers/functions';
 
-function Login({ login, isAuthenticated }) {
+function Login({ login, isAuthenticated, loading }) {
+    const navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
-
-    const navigate = useNavigate()
+        if(isAuthenticated){
+            navigate("/")
+        }
+    }, [isAuthenticated])
 
     const [formData, setFormData] = useState({
         email: '',
@@ -38,8 +41,7 @@ function Login({ login, isAuthenticated }) {
         e.preventDefault();
         login(email, password);
         
-        // isAuthenticated ? navigate("/") : alert('no') //ERROR
-        navigate("/")
+        // navigate("/")
     }
 
     return (
@@ -62,7 +64,10 @@ function Login({ login, isAuthenticated }) {
                         </div>
                     </div>
                     <div className="seccionPerfil__contForm__contBoton">
-                        <button type="submit" className="seccionPerfil__contForm__contBoton--boton">Iniciar sesión</button>
+                        {
+                            loading ? <ClipLoader color="#36d7b7" /> :
+                            <button type="submit" className="seccionPerfil__contForm__contBoton--boton">Iniciar sesión</button>
+                        }
                         <Link to="/register">¿Aún no tienes cuenta? Registrate</Link>
                     </div>
                 </form>
