@@ -22,16 +22,16 @@ class GetUserProfileView(APIView):
                 status = status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
-class UpdateUserProfile(APIView):
+class UpdateUserProfileView(APIView):
     def put(self, request, format=None):
         try:
             user = self.request.user
             data = self.request.data
 
-            region = data['region'],
-            city = data['city'],
-            province = data['province'],
-            address = data['address'],
+            region = data['region']
+            city = data['city']
+            province = data['province']
+            address = data['address']
             postal_code = data['postal_code']
 
             UserProfile.objects.filter(user=user).update(
@@ -51,6 +51,6 @@ class UpdateUserProfile(APIView):
             )
         except:
             return Response(
-                {'error': 'Algo salió mal al actualizar el perfil'},
+                {'error': 'Algo salio mal al actualizar el perfil'},
                 status = status.HTTP_500_INTERNAL_SERVER_ERROR
             )

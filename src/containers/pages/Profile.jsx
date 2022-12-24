@@ -15,7 +15,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
     useEffect(() => {
         if(isAuthenticated === false){
             navigate("/login")
-        }      
+        }
     }, [isAuthenticated])
 
     function get_type_account(){
@@ -25,7 +25,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
     // Editar informacion
 
     const [formData, setFormData] = useState({
-        gender: '',
+        // gender: '',
         region: 'españa',
         city: '',
         province: '',
@@ -34,7 +34,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
     })
 
     const {
-        gender,
+        // gender,
         region,
         city,
         province,
@@ -48,8 +48,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
 
     function update_profile(e){
         e.preventDefault();
-        //console.log(region, city, province, address, postal_code)
-        update_user_profile()
+        update_user_profile(region, city, province, address, postal_code)
         window.scrollTo(0, 0);
     }
 
