@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Layout from '../../hocs/Layout';
-import { useParams, Navigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { activate } from '../../redux/actions/auth';
@@ -11,23 +11,39 @@ function Activate({ activate, loading }){
     const params = useParams()
     const [activated, setActivated] = useState(false)
 
-    function activate_account(){
+    const navigate = useNavigate()
+
+    useEffect(() => {
         const uid = params.uid
         const token = params.token
 
         activate(uid, token)
-        setActivated(true)
-    }
+        navigate("/")
+    }, [])
 
-    if(activated && !loading){
-        return(
-            <Navigate to="/" />
-        )
-    }
+    // function activate_account(){
+    //     const uid = params.uid
+    //     const token = params.token
+
+    //     activate(uid, token)
+    //     setActivated(true)
+    // }
+
+    // function activate_success(){
+    //     return(
+    //         <Navigate to="/home" />
+    //     )
+    // }
+
+    // if(activated && !loading){
+    //     return(
+    //         <Navigate to="/" />
+    //     )
+    // }
 
     return(
         <Layout>
-            <button type="button" onClick={activate_account}>Activate account</button>
+            {/* <button type="button" onClick={activate_account}>Activate account</button> */}
         </Layout>
     )
 }

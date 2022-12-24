@@ -74,10 +74,10 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
                             <li>
                                 <FontAwesomeIcon icon={faPerson} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Sexo: </label>
-                                <label>H</label>
+                                {/* <label>H</label>
                                 <input type="radio" name="gender" value="male" onChange={(e) => change_field_value(e)}/>
                                 <label>M</label>
-                                <input type="radio" name="gender" value="female" onChange={(e) => change_field_value(e)}/>
+                                <input type="radio" name="gender" value="female" onChange={(e) => change_field_value(e)}/> */}
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />

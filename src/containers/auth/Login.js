@@ -39,6 +39,7 @@ function Login({ login, isAuthenticated }) {
         login(email, password);
         
         // isAuthenticated ? navigate("/") : alert('no') //ERROR
+        navigate("/")
     }
 
     return (

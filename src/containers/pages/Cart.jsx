@@ -17,7 +17,7 @@ function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, i
   const [isLoading, setLoading] = useState(false);
   
   useEffect(() => {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
       get_items()
       get_total()
       get_item_total()
