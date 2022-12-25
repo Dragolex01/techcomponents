@@ -54,3 +54,28 @@ class UpdateUserProfileView(APIView):
                 {'error': 'Algo salio mal al actualizar el perfil'},
                 status = status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+class UpdateUserPhotoView(APIView):
+    def put(self, request, format=None):
+        try:
+            user = self.request.user
+            data = self.request.data
+
+            photo = data['photo']
+
+            UserProfile.objects.filter(user=user).update(
+                photo = photo
+            )
+
+            user_profile = UserProfile.objects.get(user=user)
+            user_profile = UserProfileSerializer(user_profile)
+
+            return Response(
+                {'profile': user_profile.data},
+                status = status.HTTP_200_OK
+            )
+        except:
+            return Response(
+                {'error': 'Algo salio mal al actualizar la foto de perfil'},
+                status = status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

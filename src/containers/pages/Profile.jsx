@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faWrench, faEnvelope, faPerson, faHouse, faDirections } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faPen, faWrench, faEnvelope, faPerson, faHouse, faDirections } from '@fortawesome/free-solid-svg-icons';
 
 import Layout from '../../hocs/Layout';
 
-import { update_user_profile } from '../../redux/actions/profile';
+import { update_user_profile, update_user_photo } from '../../redux/actions/profile';
 
-function Profile({ isAuthenticated, user, profile, update_user_profile }){
+
+function Profile({ isAuthenticated, user, profile, update_user_profile, update_user_photo }){
     const navigate = useNavigate()
     
     useEffect(() => {
@@ -52,11 +53,26 @@ function Profile({ isAuthenticated, user, profile, update_user_profile }){
         window.scrollTo(0, 0);
     }
 
+    function update_photo(){ //Actualizar foto de perfil
+        update_user_photo("/users/prueba/Apple_Iphone_14_Pro_Max.png")
+        window.scrollTo(0, 0);
+    }
+
     return(
         <Layout>
             <section className="seccionUser">
                 <div className="seccionUser__contenedor">
-                    <div className="seccionUser__contenedor__contImg"></div>
+                    <div className="seccionUser__contenedor__contImg">
+                        {
+                            profile && <img src={`http://localhost:8000${profile.photo}`} alt="img_user" />
+                        }
+                        {/* <form>
+                            <input type="file" name="inputPhoto"/>
+                            <button type="submit" onClick={update_photo}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
+                        </form> */}
+                        <button type="submit" onClick={update_photo}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
+                        
+                    </div>
                     <h1>{user && user.get_full_name}</h1>
                     <form onSubmit={e => update_profile(e)} className="seccionUser__contenedor__contInfo">
                         <ul>
@@ -123,7 +139,8 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-    update_user_profile
+    update_user_profile,
+    update_user_photo
 }) (Profile);
 
 

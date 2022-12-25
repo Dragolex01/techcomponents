@@ -2,7 +2,9 @@ import {
     GET_USER_PROFILE_SUCCESS,
     GET_USER_PROFILE_FAIL,
     UPDATE_USER_PROFILE_SUCCESS,
-    UPDATE_USER_PROFILE_FAIL
+    UPDATE_USER_PROFILE_FAIL,
+    UPDATE_USER_PROFILE_PHOTO_SUCCESS,
+    UPDATE_USER_PROFILE_PHOTO_FAIL
 } from '../actions/types';
 
 const initialState = {
@@ -24,11 +26,13 @@ export default function Profile(state = initialState, action){
             }
 
         case UPDATE_USER_PROFILE_SUCCESS:
+        case UPDATE_USER_PROFILE_PHOTO_SUCCESS:
             return{
                 ...state,
                 profile: payload.profile
             }
         case UPDATE_USER_PROFILE_FAIL:
+        case UPDATE_USER_PROFILE_PHOTO_FAIL:
             return{
                 ...state
             }
