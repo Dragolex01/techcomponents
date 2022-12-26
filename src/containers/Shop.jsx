@@ -11,6 +11,7 @@ import Card from '../components/product/Card';
 function Shop({ get_categories, categories, get_products, products }) {
 
   // const [isLoading, setLoading] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -26,11 +27,12 @@ function Shop({ get_categories, categories, get_products, products }) {
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
           <h2>Listado articulos: {products && products.length} Articulos</h2>
+          <input type="search" className="seccionLista__contTitulo--buscador" onChange={(e) => setSearchTerm(e.target.value)} />
         </div>
         <div className="seccionLista__contTienda">
           <div className="seccionLista__contTienda__contFiltros">
             <form className="seccionLista__contTienda__contFiltros--form">
-                {categories &&
+                {/* {categories &&
                   categories !== null &&
                   categories !== undefined &&
                   categories.map((category) => {
@@ -60,14 +62,41 @@ function Shop({ get_categories, categories, get_products, products }) {
                         </ul>
                       )
                     }
-                  })}
+                  })} */}
+                  <ul>
+                    <h3>Productos</h3>
+                    <li>
+                        <input type="checkbox" name="" value="" />
+                        <label>Portatiles</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" value="" />
+                        <label>Monitores</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" value="" />
+                        <label>Móviles</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" value="" />
+                        <label>Tablets</label>
+                    </li>
+                  </ul>
+                  <ul>
+                    <h3>Precio</h3>
+                    <li></li>
+                  </ul>
+                  <ul>
+                    <h3>Stock</h3>
+                    <li></li>
+                  </ul>
             </form>
           </div>
           <div className="seccionLista__contTienda__contArticulos">
             {products &&
               products !== null &&
               products !== undefined &&
-              products.map((product) => {
+              products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
                 return (
                   <div className="contProducto" key={product.id}> 
                     <Card product={product} />
@@ -75,20 +104,6 @@ function Shop({ get_categories, categories, get_products, products }) {
                 );
               })
             }
-            {/* {
-              isLoading ?
-                <ClipLoader color="#36d7b7" /> :
-                products &&
-                products !== null &&
-                products !== undefined &&
-                products.map((product) => {
-                  return (
-                    <div className="contProducto" key={product.id}> 
-                      <Card product={product} />
-                    </div>
-                  );
-                })
-            } */}
           </div>
         </div>
       </section>

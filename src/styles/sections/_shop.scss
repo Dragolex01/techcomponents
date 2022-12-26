@@ -9,6 +9,23 @@
     margin-bottom: 2rem;
     margin-top: 2rem;
     border-bottom: 1px solid $borderColor-container;
+    display: flex;
+    align-items: center;
+
+    &--buscador{
+      margin-left: 5rem;
+      width: 30%;
+      padding: 0.6rem 2rem; //0.8
+      letter-spacing: 1px;
+      background-color: #f7f7f7;
+      border: 1px solid #ebeeef;
+      border-radius: 12px;
+      color: #8c9398;
+    }
+
+    &--buscador:focus{
+      outline: 1px solid #ebeeef;
+    }
   }
 
   &__contTienda{
