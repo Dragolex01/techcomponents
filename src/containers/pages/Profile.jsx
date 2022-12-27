@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -12,7 +12,7 @@ import { update_user_profile, update_user_photo } from '../../redux/actions/prof
 
 function Profile({ isAuthenticated, user, profile, update_user_profile, update_user_photo }){
     const navigate = useNavigate()
-    
+    const form = useRef();
     useEffect(() => {
         if(isAuthenticated === false){
             navigate("/login")
@@ -58,6 +58,13 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         window.scrollTo(0, 0);
     }
 
+    
+
+    function prueba(e){
+        e.preventDefault();
+        console.log(form.current.inputPhoto.value)
+    }
+
     return(
         <Layout>
             <section className="seccionUser">
@@ -66,11 +73,11 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                         {
                             profile && <img src={`http://localhost:8000${profile.photo}`} alt="img_user" />
                         }
-                        {/* <form>
+                        <form onSubmit={prueba} encType="multipart/form-data" ref={form}>
                             <input type="file" name="inputPhoto"/>
-                            <button type="submit" onClick={update_photo}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
-                        </form> */}
-                        <button type="submit" onClick={update_photo}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
+                            <button type="submit"><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
+                        </form>
+                        {/* <button type="submit" onClick={update_photo}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button> */}
                         
                     </div>
                     <h1>{user && user.get_full_name}</h1>
