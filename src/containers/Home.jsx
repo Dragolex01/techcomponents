@@ -5,25 +5,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptop, faMobile, faTablet } from '@fortawesome/free-solid-svg-icons';
 
 import { get_products } from '../redux/actions/products';
+import { sortBy } from '../helpers/functions';
 
 import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
 
 import imgMundial from '../img/imgMundial2.jpg';
 
-function Home({ get_products, products }){
+const SORTS = {
+    NONE: (list) => list,
+    TITLE: (list, isReverse) => sortBy(list, 'title', isReverse),
+    AUTHOR: (list, isReverse) => sortBy(list, 'author', isReverse),
+    COMMENT: (list, isReverse) => sortBy(list, 'num_comments', isReverse).reverse(),
+    POINT: (list, isReverse) => sortBy(list, 'points', isReverse).reverse(),
+};
+  
 
+function Home({ get_products, products }){
+  
     useEffect(() => {
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
 
         get_products();
     }, [])
 
-    const novedades = () => { // Ordenar por fecha nueva
+    const novedades = () => {
         return(
             <>
                 {
-                    products.map((product, i) => {
+                    sortBy(products, 'date_created', true).map((product, i) => {
                         return(
                             i <= 5 ?
                             <div className="contProducto" key={product.id}>
@@ -37,11 +47,11 @@ function Home({ get_products, products }){
         )
     }
 
-    const ventas = () => { // Ordenar por más vendidos
+    const ventas = () => {
         return(
             <>
                 {
-                    products.map((product, i) => {
+                    sortBy(products, 'sold', true).map((product, i) => {
                         return(
                             i <= 5 ?
                             <div className="contProducto" key={product.id}>

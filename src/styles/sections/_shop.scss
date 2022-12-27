@@ -1,16 +1,17 @@
 .seccionLista{
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   &__contTitulo{
+    position: relative;
+    display: flex;
+    align-items: center;
     width: 65%;
     margin-bottom: 2rem;
     margin-top: 2rem;
     border-bottom: 1px solid $borderColor-container;
-    display: flex;
-    align-items: center;
 
     &--buscador{
       margin-left: 5rem;
@@ -26,12 +27,24 @@
     &--buscador:focus{
       outline: 1px solid #ebeeef;
     }
+
+    &--ordenacion{
+      position: absolute;
+      right: 5rem;
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+      option{
+        padding: 2rem 1rem;
+      }
+    }
   }
 
   &__contTienda{
-    width: 65%;
     display: flex;
     justify-content: center;
+    width: 65%;
 
     &__contFiltros{
       //width: 18rem;
@@ -53,11 +66,11 @@
     }
   
     &__contArticulos{
-      //width: 56rem;
-      width: 80%;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      width: 80%;
+      //width: 56rem;
     }
   } 
 }

@@ -27,7 +27,11 @@ function Shop({ get_categories, categories, get_products, products }) {
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
           <h2>Listado articulos: {products && products.length} Articulos</h2>
-          <input type="search" className="seccionLista__contTitulo--buscador" onChange={(e) => setSearchTerm(e.target.value)} />
+          <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value)} />
+          <select className="seccionLista__contTitulo--ordenacion">
+            <option>Precio</option>
+            <option>A-Z</option>
+          </select>
         </div>
         <div className="seccionLista__contTienda">
           <div className="seccionLista__contTienda__contFiltros">

@@ -1,5 +1,5 @@
 // Ordenación lista
-export function sortBy(list, key, isReverse) {
+export function sortBy(list, key, isReverse = false) {
     const sortedList = list.slice().sort((item1, item2) => {
 
         if (typeof (item1[key]) === "number") {
