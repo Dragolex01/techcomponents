@@ -77,14 +77,24 @@ function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, i
                     <h3>Productos totales: </h3>
                     <p>{total_items}</p>
                   </div> */}
-                  <div>
+                  {/* <div>
                     <h3>Subtotal: </h3>
                     <p>{amount.toFixed(2)}€</p>
-                  </div>
-                    <div>
+                  </div> */}
+                    {/* <div>
                       <h3>Descuento: </h3>
                       <p>0.00</p>
-                    </div>
+                    </div> */}
+                  {
+                    items && items.map((item, i) => {
+                      return(
+                        <div key={i}>
+                          <h3>{item.product.name} x{item.count}</h3>
+                          <p>{item.product.price}</p>
+                        </div>
+                      )
+                    })
+                  }
                 </div>
                 <hr/>
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont2">
