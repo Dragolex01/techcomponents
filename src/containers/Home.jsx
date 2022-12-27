@@ -12,15 +12,6 @@ import Card from '../components/product/Card';
 
 import imgMundial from '../img/imgMundial2.jpg';
 
-const SORTS = {
-    NONE: (list) => list,
-    TITLE: (list, isReverse) => sortBy(list, 'title', isReverse),
-    AUTHOR: (list, isReverse) => sortBy(list, 'author', isReverse),
-    COMMENT: (list, isReverse) => sortBy(list, 'num_comments', isReverse).reverse(),
-    POINT: (list, isReverse) => sortBy(list, 'points', isReverse).reverse(),
-};
-  
-
 function Home({ get_products, products }){
   
     useEffect(() => {
