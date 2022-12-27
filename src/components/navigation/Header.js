@@ -89,16 +89,6 @@ function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
       <nav className="seccionHeader__contLateral">
         {isAuthenticated ? authLinks : guestLinks}
       </nav>
-      {/*
-      
-      <ul>
-          <li><Link to="/carrito" ><FontAwesomeIcon icon={faShoppingCart} className="header__contenedorLateral--icono"/></Link></li>
-          <li><Link to={selectUrl()} ><FontAwesomeIcon icon={faUserCircle} className="header__contenedorLateral--icono"/></Link></li>
-
-          <li><Link to="/register">Register</Link></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
-      */}
     </div>
   );
 }

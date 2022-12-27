@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .seccionHeader {
   width: 100%;
   display: flex;
@@ -120,7 +119,6 @@
   .seccionHome__contProductos {
     display: flex;
     align-items: center;
-    width: 100%;
     margin: 0 3rem;
     flex-wrap: wrap; }
 
@@ -782,18 +780,3 @@ body {
   padding: 0;
   margin: 0;
   color: #4a4a4a; }
-
-/*
-- About US:
-    * Cambiar estilos de las letras
-    * Cambiar dos imagenes
-
-- Contact:
-    * Input al estar activo no cambie el borde
-
--Footer:
-    * Input type="email" para introducir el correo y que le lleguen ofertas y novedades. OPCIONAL para rellenar (Sucede al registrarse también)
-
--ProductInfo:
-    *Al añadir producto a carrito que cargue (simbolo)
-*/

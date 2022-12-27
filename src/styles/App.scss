@@ -7,14 +7,12 @@
 @import './sections/_aboutUs.scss';
 @import './sections/_contact.scss';
 @import './sections/_profile.scss';
-@import './sections/_user';
+@import './sections/_userProfile';
 @import './sections/_footer.scss';
 
 @import './components/_card.scss';
 @import './components/_productInfo.scss';
-// @import './components/_discount.scss';
 @import './components/_pageNotFound.scss';
-// @import './components/_spinner.scss';
 
 @import './otros/_validacionForms.scss';
 
@@ -22,28 +20,4 @@ body {
   padding: 0;
   margin: 0;
   color: $color-black;
-//   background-image: url('../../../../../Escritorio/descarga.jpeg');
-//   background-size: cover;
-//   background-repeat: no-repeat;
-
 }
-
-
-
-
-// Cambios
-
-/*
-- About US:
-    * Cambiar estilos de las letras
-    * Cambiar dos imagenes
-
-- Contact:
-    * Input al estar activo no cambie el borde
-
--Footer:
-    * Input type="email" para introducir el correo y que le lleguen ofertas y novedades. OPCIONAL para rellenar (Sucede al registrarse también)
-
--ProductInfo:
-    *Al añadir producto a carrito que cargue (simbolo)
-*/
