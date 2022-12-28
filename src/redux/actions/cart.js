@@ -225,7 +225,7 @@ export const update_item = (item, count) => async dispatch => {
         const body = JSON.stringify({ product_id, count });
 
         try {
-            const res = await axios.put(`${process.env.REACT_APP_API_URL}/api/cart/update-item`, body, config);
+            const res = await axios.put('http://localhost:8000/api/cart/update-item', body, config);
 
             if (res.status === 200 && !res.data.error) {
                 dispatch({

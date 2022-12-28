@@ -1,13 +1,50 @@
+import { useEffect, useState } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
-function CartItem({ item, setReload, reload, remove_item }) {
+function CartItem({ item, setReload, reload, update_item, remove_item }) {
 
     const link_img = "http://localhost:8000" + item.product.get_image;
+
+    const [formData, setFormData] = useState({
+        item_count: 1
+    });
+
+    const { item_count } = formData;
+    
+    useEffect(() => {
+        if (item.count)
+            setFormData({ ...formData, item_count: item.count });
+    }, [item.count]);
+
+    const onChange = (e) => {
+        e.preventDefault()
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+        handleItemQuantity(e.target.value)
+    }
 
     async function removeItemHandler(){
         await remove_item(item)
         setReload(!reload)
+    }
+
+    // function updateItemQuantity(e){
+    //     e.preventDefault()
+    //     handleItemQuantity()
+    // }
+
+    async function handleItemQuantity(count){
+        try{
+            if (item.product.quantity >= count) {
+                await update_item(item, count)
+            }else{
+                console.log("error") // Cambiar
+            }
+            setReload(!reload)
+        }catch(err){
+            console.log("Error", err) // Cambiar
+        }
     }
 
     return (
@@ -21,10 +58,20 @@ function CartItem({ item, setReload, reload, remove_item }) {
                         <h2>{item.product.name}</h2>
                         <p>Precio: {item.product.price}</p>
                     </div>
+                    {/* <form onSubmit={(e) => updateItemQuantity(e)}> */}
                     <form>
-                        {/* <select>
-                            <option></option>
-                        </select> */}
+                        <select name="item_count" onChange={(e) => onChange(e)} value={item_count}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                        {/* <button type="submit">Update</button> */}
                         <p>Cantidad: {item.product.quantity}</p>
                     </form>
                 </div>

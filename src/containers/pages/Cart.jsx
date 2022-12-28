@@ -6,10 +6,10 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import Layout from '../../hocs/Layout';
 import CartItem from '../../components/product/CartItem';
 
-import { get_items, get_item_total, get_total, remove_item, empty_cart } from '../../redux/actions/cart';
+import { get_items, get_item_total, get_total, update_item, remove_item, empty_cart } from '../../redux/actions/cart';
 
 
-function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, items, amount, total_items}) {
+function Cart({ get_items, get_item_total, get_total, update_item, remove_item, empty_cart, items, amount, total_items}) {
   
   const navigate = useNavigate()
   
@@ -59,7 +59,7 @@ function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, i
                   ? items.map((item, i) => {
                       return (
                         <div className="seccionCarrito__contenedor__contItems__item" key={i}>
-                          <CartItem item={items[i]} setReload={setReload} reload={reload} remove_item={remove_item} />
+                          <CartItem item={items[i]} reload={reload} setReload={setReload} update_item={update_item} remove_item={remove_item} />
                         </div>
                       );
                     })
@@ -90,7 +90,7 @@ function Cart({ get_items, get_item_total, get_total, remove_item, empty_cart, i
                       return(
                         <div key={i}>
                           <h3>{item.product.name} x{item.count}</h3>
-                          <p>{item.product.price}</p>
+                          <p>{item.product.price * item.count}</p>
                         </div>
                       )
                     })
@@ -126,6 +126,7 @@ export default connect(mapStateToProps, {
   get_items,
   get_item_total,
   get_total,
+  update_item,
   remove_item,
   empty_cart
 })(Cart);
