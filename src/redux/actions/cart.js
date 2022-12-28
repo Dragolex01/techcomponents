@@ -23,7 +23,7 @@ import {
     EMPTY_CART_FAIL
 } from './types';
 
-export const add_item = (product) => async dispatch => {
+export const add_item = (product, count) => async dispatch => {
     if(localStorage.getItem('access')){
         const config = {
             headers: {
@@ -34,7 +34,10 @@ export const add_item = (product) => async dispatch => {
         }
 
         const product_id = product.id;
-        const body = JSON.stringify({product_id})
+        const body = JSON.stringify({
+            product_id,
+            count
+        })
 
         try{
             const res = await axios.post('http://localhost:8000/api/cart/add-item', body, config);
@@ -222,7 +225,9 @@ export const update_item = (item, count) => async dispatch => {
         };
 
         const product_id = item.product.id;
-        const body = JSON.stringify({ product_id, count });
+        const body = JSON.stringify({
+            product_id, count
+        });
 
         try {
             const res = await axios.put('http://localhost:8000/api/cart/update-item', body, config);

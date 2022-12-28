@@ -48,7 +48,14 @@ class AddItemView(APIView):
         except:
             return Response(
                 {'error': 'ID del producto debe ser un entero'},
-                status=status.HTTP_404_NOT_FOUND)
+                status = status.HTTP_404_NOT_FOUND)
+
+        try:
+            count = int(data['count'])
+        except:
+            return Response(
+                {'error': 'Cantidad del producto debe ser un entero'},
+                status = status.HTTP_404_NOT_FOUND)
 
         # count = 1
 
@@ -63,10 +70,11 @@ class AddItemView(APIView):
 
             if CartItem.objects.filter(cart = cart, product = product).exists(): #Si ya existe el producto
                 quantity = product.quantity
-                count = CartItem.objects.filter(product = product, cart = cart)[0].count
+                count = CartItem.objects.filter(product = product, cart = cart)[0].count + count
 
                 if count <= quantity:
-                    CartItem.objects.filter(product = product, cart = cart).update(count = count +1)
+                    # CartItem.objects.filter(product = product, cart = cart).update(count = count +1)
+                    CartItem.objects.filter(product = product, cart = cart).update(count = count)
                     cart_items = CartItem.objects.order_by('product').filter(cart = cart)
 
                     result = []
@@ -100,8 +108,8 @@ class AddItemView(APIView):
                 CartItem.objects.create(
                     product = product,
                     cart = cart,
-                    count = 1
-                    # count = count
+                    # count = 1
+                    count = count
                 )
 
                 if CartItem.objects.filter(cart=cart, product=product).exists():

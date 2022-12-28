@@ -25,6 +25,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
 
     useEffect(() => {
         window.scrollTo(0,0)
+
         get_product(productId)
     }, [])
 
@@ -45,8 +46,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
         if(isAuthenticated){
             if(product && product !== null && product !== undefined && product.quantity > 0){
                 setLoading(true)
-                await add_item(product)
-                // await update_item(product, count)
+                await add_item(product, item_count)
                 await get_items()
                 await get_item_total()
                 await get_total()
@@ -95,7 +95,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
                         </div>
                         <form>
                             <label htmlFor="item_count">Cantidad: </label>
-                            <select id="item_count" onChange={(e) => onChange(e)} value={item_count}>
+                            <select id="item_count" name="item_count" onChange={(e) => onChange(e)}>
                                 {product && setNumberOptions()}
                             </select>
                         </form>
