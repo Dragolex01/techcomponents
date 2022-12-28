@@ -10,7 +10,6 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
     const [formData, setFormData] = useState({
         item_count: 1
     });
-
     const { item_count } = formData;
     
     useEffect(() => {
@@ -47,6 +46,15 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
         }
     }
 
+    function setNumberOptions(){
+        const elementos = []
+
+        for(let n = 1; n <= item.product.quantity; n++){
+            elementos.push(<option key={n}>{n}</option>)
+        }
+        return elementos
+    }
+
     return (
         <>
             <div className="seccionCarrito__contenedor__contItems__item--img">
@@ -61,15 +69,7 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
                     {/* <form onSubmit={(e) => updateItemQuantity(e)}> */}
                     <form>
                         <select name="item_count" onChange={(e) => onChange(e)} value={item_count}>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
+                            {setNumberOptions()}
                         </select>
                         {/* <button type="submit">Update</button> */}
                         <p>Cantidad: {item.product.quantity}</p>

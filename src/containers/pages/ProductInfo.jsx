@@ -30,8 +30,15 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
 
     const link_img = product && "http://localhost:8000" + product.get_image;
 
-    const onSubmit = e => {
+    const [formData, setFormData] = useState({
+        item_count: 1
+    });
+    const { item_count } = formData;
+
+    const onChange = (e) => {
         e.preventDefault()
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+        // handleItemQuantity(e.target.value)
     }
 
     async function addToCart(){
@@ -39,6 +46,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
             if(product && product !== null && product !== undefined && product.quantity > 0){
                 setLoading(true)
                 await add_item(product)
+                // await update_item(product, count)
                 await get_items()
                 await get_item_total()
                 await get_total()
@@ -49,6 +57,28 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
         }else{
             navigate("/login")
         }
+    }
+
+    // async function handleItemQuantity(count){
+    //     try{
+    //         if (item.product.quantity >= count) {
+    //             await update_item(item, count)
+    //         }else{
+    //             console.log("error") // Cambiar
+    //         }
+    //         setReload(!reload)
+    //     }catch(err){
+    //         console.log("Error", err) // Cambiar
+    //     }
+    // }
+
+    function setNumberOptions(){
+        const elementos = []
+
+        for(let n = 1; n <= product.quantity; n++){
+            elementos.push(<option key={n}>{n}</option>)
+        }
+        return elementos
     }
 
     return(
@@ -63,14 +93,10 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
                             <h1>{product && product.name}</h1>
                             <p className="seccionProducto__contInfo__contDer__contInfo--precio">{product && product.price}€</p>
                         </div>
-                        <form onSubmit={e => onSubmit(e)}>
+                        <form>
                             <label htmlFor="item_count">Cantidad: </label>
-                            <select id="item_count">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select id="item_count" onChange={(e) => onChange(e)} value={item_count}>
+                                {product && setNumberOptions()}
                             </select>
                         </form>
                         <h2>Descripción</h2>
