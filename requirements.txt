@@ -105,7 +105,7 @@ systemd-python==234
 tenacity==8.1.0
 tinycss2==1.0.2
 ttystatus==0.38
-ubuntu-advantage-tools==27.11.3
+ubuntu-advantage-tools==27.12
 ubuntu-drivers-common==0.0.0
 ufw==0.36
 Unidecode==1.1.1

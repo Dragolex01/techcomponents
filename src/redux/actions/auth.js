@@ -83,6 +83,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
                 type: SIGNUP_SUCCESS,
                 payload: res.data
             });
+            dispatch(setAlert('Se ha registrado correctamente', 'green'));
         } else {
             dispatch({
                 type: SIGNUP_FAIL
@@ -99,7 +100,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('El correo introducido ya esta en uso', 'red'));
+            dispatch(setAlert('Los datos introducidos no son validos', 'red'));
         }
         dispatch({
             type: SIGNUP_FAIL
@@ -173,7 +174,7 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            // dispatch(setAlert('Inicio de sesión con éxito', 'green'));
+            dispatch(setAlert('Inicio de sesión con éxito', 'green'));
         }else {
             dispatch({
                 type: LOGIN_FAIL

@@ -12,7 +12,7 @@ import { firstLetterUppercase } from '../../helpers/functions';
 
 // import { validarFormulario } from '../../helpers/functions';
 
-function Signup({ signup }) {
+function Signup({ signup, loading, alert }) {
 
     const navigate = useNavigate()
 
@@ -21,10 +21,10 @@ function Signup({ signup }) {
     useEffect(() => {
         window.scrollTo(0, 0)
 
-        if(accountCreated && alert !== null){
+        if(accountCreated && alert && alert.alertType === 'green'){
             navigate("/")
         }
-    }, [accountCreated])
+    }, [accountCreated, alert])
 
     const [formData, setFormData] = useState({
         first_name: '',
@@ -50,10 +50,9 @@ function Signup({ signup }) {
     function onSubmit(e) {
         e.preventDefault();
         signup(firstLetterUppercase(first_name), firstLetterUppercase(last_name), email, password, re_password);
+        setAccountCreated(true);
 
-        if(alert !== null){
-            setAccountCreated(true);
-        }
+        // navigate("/")
     }
 
     return (
@@ -86,7 +85,10 @@ function Signup({ signup }) {
                         </div>
                     </div>
                     <div className="seccionPerfil__contForm__contBoton">
-                        <button type="submit" className="seccionPerfil__contForm__contBoton--boton" >Registrarse</button>
+                        {
+                            loading ? <ClipLoader color="#36d7b7" /> :
+                            <button type="submit" className="seccionPerfil__contForm__contBoton--boton" >Registrarse</button>
+                        }
                         <Link to="/login">¿Ya tienes una cuenta? Inicia Sesión</Link>
                     </div>
                 </form>
@@ -128,7 +130,8 @@ function Signup({ signup }) {
 }
 
 const mapStateToProps = state => ({
-
+    loading: state.Auth.loading,
+    alert: state.Alert.alert
 })
 
 export default connect(mapStateToProps, {
