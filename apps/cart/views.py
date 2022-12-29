@@ -69,12 +69,11 @@ class AddItemView(APIView):
             cart = Cart.objects.get(user=user)
 
             if CartItem.objects.filter(cart = cart, product = product).exists(): #Si ya existe el producto
-                quantity = product.quantity
-                count = CartItem.objects.filter(product = product, cart = cart)[0].count + count
+                total_count = CartItem.objects.filter(product = product, cart = cart)[0].count + count
 
-                if count <= quantity:
-                    # CartItem.objects.filter(product = product, cart = cart).update(count = count +1)
-                    CartItem.objects.filter(product = product, cart = cart).update(count = count)
+                if total_count <= product.quantity:
+                    # CartItem.objects.filter(product = product, cart = cart).update(count = total_count +1)
+                    CartItem.objects.filter(product = product, cart = cart).update(count = total_count)
                     cart_items = CartItem.objects.order_by('product').filter(cart = cart)
 
                     result = []
@@ -83,7 +82,7 @@ class AddItemView(APIView):
                         item = {}
 
                         item['id'] = cart_item.id
-                        item['count'] = cart_item.count
+                        item['count'] = cart_item.total_count
                         product = Product.objects.get(id=cart_item.product.id)
                         product = ProductSerializer(product)
 
@@ -97,7 +96,7 @@ class AddItemView(APIView):
                 else:
                     return Response(
                         {'error': 'No hay stock de este producto'},
-                        status = status.HTTP_200_OK
+                        status = status.HTTP_422_UNPROCESSABLE_ENTITY
                     )
 
                 # return Response(
@@ -136,11 +135,13 @@ class AddItemView(APIView):
 
                         result.append(item)
 
-                    return Response({'cart': result}, status=status.HTTP_201_CREATED)
+                    return Response(
+                        {'cart': result},
+                        status = status.HTTP_201_CREATED)
                 else:
                     return Response(
                         {'error': 'Sin stock de este producto'},
-                        status = status.HTTP_200_OK)
+                        status = status.HTTP_422_UNPROCESSABLE_ENTITY)
         except:
             return Response(
                 {'error': 'Algo ha salido mal al añadir el producto al carrito'},
@@ -293,7 +294,7 @@ class UpdateItemView(APIView):
             )
 
         try:
-            if not Product.objects.filter(id=product_id).exists():
+            if not Product.objects.filter(id = product_id).exists():
                 return Response(
                     {'error': 'Este producto no existe'},
                     status=status.HTTP_404_NOT_FOUND
@@ -311,7 +312,7 @@ class UpdateItemView(APIView):
             quantity = product.quantity
 
             if count <= quantity:
-                CartItem.objects.filter(product = product, cart = cart).update(count=count)
+                CartItem.objects.filter(product = product, cart = cart).update(count = count)
 
                 cart_items = CartItem.objects.order_by('product').filter(cart = cart)
 
@@ -335,7 +336,7 @@ class UpdateItemView(APIView):
             else:
                 return Response(
                     {'error': 'No hay stock de este producto'},
-                    status = status.HTTP_200_OK
+                    status = status.HTTP_422_UNPROCESSABLE_ENTITY
                 )
         except:
             return Response(

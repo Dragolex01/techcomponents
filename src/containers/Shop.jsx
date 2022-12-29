@@ -121,7 +121,7 @@ function Shop({ get_categories, categories, get_products, products }) {
                   </div>
                 );
               }) :
-              sortBy(products, sortKey, true).filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
+              products && sortBy(products, sortKey, true).filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
                 return (
                   <div className="contProducto" key={product.id}> 
                     <Card product={product} />

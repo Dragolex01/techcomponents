@@ -41,12 +41,14 @@ export const add_item = (product, count) => async dispatch => {
 
         try{
             const res = await axios.post('http://localhost:8000/api/cart/add-item', body, config);
-
+            console.log(res.status)
             if(res.status === 201){
                 dispatch({
                     type: ADD_ITEM_SUCCESS,
                     payload: res.data
                 })
+            }else if(res.status === 422){
+                console.log("Sin stock")
             }else{
                 dispatch({
                     type: ADD_ITEM_FAIL
