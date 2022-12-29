@@ -23,14 +23,14 @@ function Shop({ get_categories, categories, get_products, products }) {
     // setLoading(false)
   }, []);
 
-  const [sortKey, setSortKey] = useState('')
-
-  function handleShort(sortKey, isReverse = false){
-    // setSort({
-    //   sortKey,
-    //   isReverse: sortKey === sort.sortKey ? !sort.isReverse : false
-    // })
-  }
+  const [sortData, setSortData] = useState({
+    sortKey: '',
+    isReverse: false
+  });
+  const {
+    sortKey,
+    isReverse
+} = sortData;
 
   return (
     <Layout>
@@ -38,10 +38,10 @@ function Shop({ get_categories, categories, get_products, products }) {
         <div className="seccionLista__contTitulo">
           <h2>Listado articulos: {products && products.length} Articulos</h2>
           <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value)} />
-          <button onClick={() => setSortKey('price')}>Precio +</button>
-          <button onClick={() => setSortKey('price')}>Precio -</button>
-          <button onClick={() => setSortKey('name')}>Nombre Asc.</button>
-          <button onClick={() => setSortKey('name')}>Nombre Desc.</button>
+          <button onClick={() => setSortData({sortKey: 'price', isReverse: true})}>Precio +</button>
+          <button onClick={() => setSortData({sortKey: 'price', isReverse: false})}>Precio -</button>
+          <button onClick={() => setSortData({sortKey: 'name', isReverse: true})}>Nombre Asc.</button>
+          <button onClick={() => setSortData({sortKey: 'name', isReverse: false})}>Nombre Desc.</button>
           <select className="seccionLista__contTitulo--ordenacion">
             <option>Sort</option>
           </select>
@@ -121,7 +121,7 @@ function Shop({ get_categories, categories, get_products, products }) {
                   </div>
                 );
               }) :
-              products && sortBy(products, sortKey, true).filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
+              products && sortBy(products, sortKey, isReverse).filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
                 return (
                   <div className="contProducto" key={product.id}> 
                     <Card product={product} />
