@@ -6,6 +6,7 @@ import Layout from '../../hocs/Layout';
 
 import { connect } from 'react-redux';
 import { signup } from '../../redux/actions/auth';
+import Alert from '../../components/alert';
 
 import { firstLetterUppercase } from '../../helpers/functions';
 
@@ -19,7 +20,11 @@ function Signup({ signup }) {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    })
+
+        if(accountCreated && alert !== null){
+            navigate("/")
+        }
+    }, [accountCreated])
 
     const [formData, setFormData] = useState({
         first_name: '',
@@ -45,9 +50,10 @@ function Signup({ signup }) {
     function onSubmit(e) {
         e.preventDefault();
         signup(firstLetterUppercase(first_name), firstLetterUppercase(last_name), email, password, re_password);
-        setAccountCreated(true);
 
-        navigate("/")
+        if(alert !== null){
+            setAccountCreated(true);
+        }
     }
 
     return (
@@ -84,6 +90,7 @@ function Signup({ signup }) {
                         <Link to="/login">¿Ya tienes una cuenta? Inicia Sesión</Link>
                     </div>
                 </form>
+                <Alert />
             </section>
         </Layout>
 

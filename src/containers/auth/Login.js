@@ -9,6 +9,7 @@ import { faAmericanSignLanguageInterpreting, faCheckCircle, faTimesCircle } from
 import Layout from '../../hocs/Layout';
 
 import { login } from '../../redux/actions/auth';
+import Alert from '../../components/alert';
 
 // import { validarFormulario } from '../../helpers/functions';
 
@@ -71,6 +72,7 @@ function Login({ login, isAuthenticated, loading }) {
                         <Link to="/register">¿Aún no tienes cuenta? Registrate</Link>
                     </div>
                 </form>
+                <Alert />
             </section>
         </Layout>
     )

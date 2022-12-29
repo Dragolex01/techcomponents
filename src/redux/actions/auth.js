@@ -14,8 +14,9 @@ import {
     AUTHENTICATED_FAIL,
     REFRESH_SUCCESS,
     REFRESH_FAIL,
-    LOGOUT
+    LOGOUT,
 } from './types';
+import { setAlert } from './alert';
 
 
 export const check_authenticated = () => async dispatch => {
@@ -91,6 +92,15 @@ export const signup = (first_name, last_name, email, password, re_password) => a
             type: REMOVE_AUTH_LOADING
         });
     } catch(err) {
+        if(err.response.status === 400){
+            dispatch({
+                type: SIGNUP_FAIL
+            });
+            dispatch({
+                type: REMOVE_AUTH_LOADING
+            });
+            dispatch(setAlert('El correo introducido ya esta en uso', 'red'));
+        }
         dispatch({
             type: SIGNUP_FAIL
         });
@@ -154,7 +164,7 @@ export const login = (email, password) => async dispatch => {
     try {
         const res = await axios.post('http://localhost:8000/auth/jwt/create/', body, config);
     
-        if (res.status === 200) {
+        if(res.status === 200) {
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
@@ -163,22 +173,36 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-        } else {
+            // dispatch(setAlert('Inicio de sesión con éxito', 'green'));
+        }else {
             dispatch({
                 type: LOGIN_FAIL
             });
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
+            dispatch(setAlert('Error al iniciar sesion.', 'red'));
         }
     }
     catch(err){
-        dispatch({
-            type: LOGIN_FAIL
-        });
-        dispatch({
-            type: REMOVE_AUTH_LOADING
-        });
+        if(err.response.status === 401){
+            dispatch({
+                type: LOGIN_FAIL
+            });
+            dispatch({
+                type: REMOVE_AUTH_LOADING
+            });
+            dispatch(setAlert('El usuario o contraseña introducidos son incorrectos.', 'red'));
+        }else{
+            dispatch({
+                type: LOGIN_FAIL
+            });
+            dispatch({
+                type: REMOVE_AUTH_LOADING
+            });
+            dispatch(setAlert('Error al iniciar sesion. Intenta mas tarde', 'red'));
+        }
+
     }
 }
 
@@ -266,4 +290,5 @@ export const logout = () => async dispatch => {
     dispatch({
         type: LOGOUT
     })
+    dispatch(setAlert('Succesfully logged out', 'green'));
 }

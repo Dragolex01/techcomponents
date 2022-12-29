@@ -22,6 +22,10 @@ export const REFRESH_FAIL = 'REFRESH_FAIL';
 
 export const LOGOUT = 'LOGOUT';
 
+// Alerts
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+
 // User Profile
 export const GET_USER_PROFILE_SUCCESS = 'GET_USER_PROFILE_SUCCESS';
 export const GET_USER_PROFILE_FAIL = 'GET_USER_PROFILE_FAIL';
