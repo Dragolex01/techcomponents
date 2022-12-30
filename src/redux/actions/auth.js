@@ -88,6 +88,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
             dispatch({
                 type: SIGNUP_FAIL
             });
+            dispatch(setAlert('Error al crear cuenta', 'red'));
         }
         dispatch({
             type: REMOVE_AUTH_LOADING
@@ -101,13 +102,15 @@ export const signup = (first_name, last_name, email, password, re_password) => a
                 type: REMOVE_AUTH_LOADING
             });
             dispatch(setAlert('Los datos introducidos no son validos', 'red'));
+        }else{
+            dispatch({
+                type: SIGNUP_FAIL
+            });
+            dispatch({
+                type: REMOVE_AUTH_LOADING
+            });
+            dispatch(setAlert('Error conectando con el servidor, intenta mas tarde.', 'red'));
         }
-        dispatch({
-            type: SIGNUP_FAIL
-        });
-        dispatch({
-            type: REMOVE_AUTH_LOADING
-        });
     }
 };
 
