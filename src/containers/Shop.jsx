@@ -149,17 +149,16 @@ function Shop({ get_categories, categories, get_products, products }) {
           }
           <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value, e.target.checked)} />
           <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => handleSort(e.target.value)}>
-            <option>Ordenar</option>
-            <option value="none">Cualquiera</option>
-            <option value="price_asc">Precio Asc.</option>
-            <option value="price_des">Precio Des.</option>
+            <option value="none">Ordenar</option>
             <option value="name_asc">Nombre A-Z</option>
             <option value="name_des">Nombre Z-A</option>
+            <option value="price_asc">Precio Asc.</option>
+            <option value="price_des">Precio Des.</option>
           </select>
         </div>
         <div className="seccionLista__contTienda">
           <div className="seccionLista__contTienda__contFiltros">
-            <form className="seccionLista__contTienda__contFiltros--form">
+            <form className="seccionLista__contTienda__contFiltros__form">
               {
                 categories && categories.map((category) => {
                   if (category.sub_categories.length === 0) {
@@ -192,12 +191,14 @@ function Shop({ get_categories, categories, get_products, products }) {
               }
               <ul>
                 <h3>Precio</h3>
-                <li>
-                  <input type="number" placeholder="€ Min" onChange={(e) => setFilterData({min_price: e.target.value})}/>
-                </li>
-                <li>
-                  <input type="number" placeholder="€ Max" onChange={(e) => setFilterData({max_price: e.target.value})} />
-                </li>
+                <div className="seccionLista__contTienda__contFiltros__form--price">
+                  <li>
+                    <input type="number" placeholder="€ Min" onChange={(e) => setFilterData({min_price: e.target.value})}/>
+                  </li>
+                  <li>
+                    <input type="number" placeholder="€ Max" onChange={(e) => setFilterData({max_price: e.target.value})} />
+                  </li>
+                </div>
               </ul>
             </form>
           </div>

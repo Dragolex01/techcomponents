@@ -4,14 +4,11 @@ import Layout from '../../hocs/Layout';
 
 import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faStreetView, faCheckCircle, faXmarkCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faStreetView} from '@fortawesome/free-solid-svg-icons';
+// import { faCheckCircle, faXmarkCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import {
-  regularExpressionsForm,
-  validateInput,
-  validateEmpty,
-} from '../../helpers/functions';
+import { regularExpressionsForm, validateInput, validateEmpty } from '../../helpers/functions';
 
 function Contact() {
 
@@ -43,26 +40,30 @@ function Contact() {
   const inputMessage = useRef('');
 
   function validateIsEmpty(){
-      validateEmpty(inputName.current.value, 'name');
-      validateEmpty(inputEmail.current.value, 'email');
-      validateEmpty(inputSubject.current.value, 'subject');
-      validateEmpty(inputMessage.current.value, 'message');
+    validateEmpty(inputName.current.value, 'name');
+    validateEmpty(inputEmail.current.value, 'email');
+    validateEmpty(inputSubject.current.value, 'subject');
+    validateEmpty(inputMessage.current.value, 'message');
   }
 
   function validateForm(name) {
     switch (name) {
       case 'name':
-        validateInput(regularExpressionsForm.name, inputName.current.value, 'name');
+        validateInput(regularExpressionsForm.name, inputName.current.value, name);
         break;
+
       case 'email':
-        validateInput(regularExpressionsForm.email, inputEmail.current.value, 'email');
+        validateInput(regularExpressionsForm.email, inputEmail.current.value, name);
         break;
+
       case 'subject':
-        validateEmpty(inputSubject.current.value, 'subject');
+        validateEmpty(inputSubject.current.value, name);
         break;
+
       case 'message':
-        validateEmpty(inputMessage.current.value, 'message');
+        validateEmpty(inputMessage.current.value, name);
         break;
+        
       default:
         throw new Error('Error! Validadar formulario tipo erroneo');
     }
@@ -99,21 +100,18 @@ function Contact() {
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__name">
                 <label>Nombre</label>
                 <input type="text" name="name" ref={inputName} onChange={(e) => validateForm(e.target.name)} required/>
-                {/* <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" /> */}
-                <p className="infoError"> No se permiten caracteres especiales y números. </p>
+                <p className="infoError">No se permiten caracteres especiales y números.</p>
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__email">
                 <label>Email</label>
                 <input type="email" name="email" ref={inputEmail} onChange={(e) => validateForm(e.target.name)} required/>
-                {/* <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/> */}
                 <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p>
                 {/* <p className="infoError">El correo introducido no es válido.</p> */}
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__subject">
                 <label>Asunto</label>
                 <input type="text" name="subject" ref={inputSubject} onChange={(e) => validateForm(e.target.name)} required/>
-                {/* <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/> */}
-                <p className="infoError">Error asunto.</p>
+                <p className="infoError">El asunto no puede estar vacio</p>
               </div>
             </div>
             <div className="seccionContacto__contFormulario__contInputs__contDer" id="grupo__message">
