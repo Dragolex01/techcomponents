@@ -27,14 +27,14 @@ function Shop({ get_categories, categories, get_products, products }) {
     // setLoading(false)
   }, []);
 
-  const [sortData, setSortData] = useState({
-    sortKey: '',
+  const [sortList, setSortList] = useState({
+    sortKey: 'none',
     isReverse: false
   });
   const {
     sortKey,
     isReverse
-  } = sortData;
+  } = sortList;
 
   const [filterData, setFilterData] = useState({
     min_price: 100,
@@ -54,7 +54,7 @@ function Shop({ get_categories, categories, get_products, products }) {
   function filterProducts(){
     if(categoryFilter.length !== 0){
       return(
-        products.filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (categoryFilter.includes(product.category.toString())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
+        sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (categoryFilter.includes(product.category.toString())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
           return (
             <div className="contProducto" key={product.id}> 
               <Card product={product} />
@@ -64,7 +64,7 @@ function Shop({ get_categories, categories, get_products, products }) {
       )
     }else{
       return(
-        products.filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
+        sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
           return (
             <div className="contProducto" key={product.id}> 
               <Card product={product} />
@@ -73,8 +73,45 @@ function Shop({ get_categories, categories, get_products, products }) {
         })
       )
     }
-  }  
+  }
 
+  function sortProducts(){
+    if(sortKey !== 'none'){
+      return sortBy(products, sortKey, isReverse)
+    }else{
+      return products
+    }
+  }
+
+  function handleCategory(value, checked){
+    if(checked){
+      setCategoryFilter(pre => [...pre, value])
+    }else{
+      setCategoryFilter(pre => {
+        return [...pre.filter(cat => cat !== value)]
+      })
+    }
+  }
+
+  function handleSort(value){
+    switch(value){
+      case 'price_asc':
+        setSortList({sortKey: 'price', isReverse: true})
+        break;
+      case 'price_des':
+        setSortList({sortKey: 'price', isReverse: false})
+        break;
+      case 'name_asc':
+        setSortList({sortKey: 'name', isReverse: false})
+        break;
+      case 'name_des':
+        setSortList({sortKey: 'name', isReverse: true})
+        break;
+      default:
+        setSortList({sortKey: 'none'})
+        break;
+    }
+  }
   // function rellenarProductos(){ // No esta terminado
   //   let lista = []
     
@@ -95,28 +132,33 @@ function Shop({ get_categories, categories, get_products, products }) {
     }
   }
 
-  function handleCategory(value, checked){
-    if(checked){
-      setCategoryFilter(pre => [...pre, value])
-    }else{
-      setCategoryFilter(pre => {
-        return [...pre.filter(cat => cat !== value)]
-      })
-    }
-  }
 
   return (
     <Layout>
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
-          <h2>Listado articulos: {products && products.length} Articulos</h2>
+          {
+            (() => {
+              if(listProducts.length > 1){
+                return <h2>{listProducts.length} productos encontrados</h2>
+              }else if(listProducts.length === 1){
+                return <h2>{listProducts.length} producto encontrado</h2>
+              }else{
+                return <h2>Ningun producto encontrado</h2>
+              }
+            })()
+          }
           <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value, e.target.checked)} />
-          <button onClick={() => setSortData({sortKey: 'price', isReverse: true})}>Precio +</button>
-          <button onClick={() => setSortData({sortKey: 'price', isReverse: false})}>Precio -</button>
-          <button onClick={() => setSortData({sortKey: 'name', isReverse: true})}>Nombre Asc.</button>
-          <button onClick={() => setSortData({sortKey: 'name', isReverse: false})}>Nombre Desc.</button>
-          <select className="seccionLista__contTitulo--ordenacion">
-            <option>Sort</option>
+          {/* <button onClick={() => setSortList({sortKey: 'price', isReverse: true})}>Precio +</button>
+          <button onClick={() => setSortList({sortKey: 'price', isReverse: false})}>Precio -</button>
+          <button onClick={() => setSortList({sortKey: 'name', isReverse: true})}>Nombre Asc.</button>
+          <button onClick={() => setSortList({sortKey: 'name', isReverse: false})}>Nombre Desc.</button> */}
+          <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => handleSort(e.target.value)}>
+            <option value="none">Cualquiera</option>
+            <option value="price_asc">Precio Asc.</option>
+            <option value="price_des">Precio Des.</option>
+            <option value="name_asc">Nombre A-Z</option>
+            <option value="name_des">Nombre Z-A</option>
           </select>
         </div>
         <div className="seccionLista__contTienda">
@@ -156,12 +198,10 @@ function Shop({ get_categories, categories, get_products, products }) {
                   <ul>
                     <h3>Precio</h3>
                     <li>
-                      <label>Min: </label>
-                      <input type="number" onChange={(e) => setFilterData({min_price: e.target.value})}/>
+                      <input type="number" placeholder="€ Min" onChange={(e) => setFilterData({min_price: e.target.value})}/>
                     </li>
                     <li>
-                      <label>Max: </label>
-                      <input type="number" onChange={(e) => setFilterData({max_price: e.target.value})} />
+                      <input type="number" placeholder="€ Max" onChange={(e) => setFilterData({max_price: e.target.value})} />
                     </li>
                   </ul>
             </form>
@@ -169,16 +209,7 @@ function Shop({ get_categories, categories, get_products, products }) {
           <div className="seccionLista__contTienda__contArticulos">
             {
               products && products !== null && products !== undefined &&
-              sortKey === ''
-              ? listProducts
-              : null
-              // products && sortBy(products, sortKey, isReverse).filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
-              //   return (
-              //     <div className="contProducto" key={product.id}> 
-              //       <Card product={product} />
-              //     </div>
-              //   );
-              // })
+              listProducts
             }
           </div>
         </div>
