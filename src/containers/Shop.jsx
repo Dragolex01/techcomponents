@@ -8,14 +8,13 @@ import { sortBy } from '../helpers/functions';
 
 import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
-import { GET_CATEGORIES_FAIL } from '../redux/actions/types';
+// import { GET_CATEGORIES_FAIL } from '../redux/actions/types';
 
 function Shop({ get_categories, categories, get_products, products }) {
 
   // const [isLoading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState("")
-  // const [productsList, setProductsList] = useState([])
   const [categoryFilter, setCategoryFilter] = useState([])
 
   useEffect(() => {
@@ -54,7 +53,7 @@ function Shop({ get_categories, categories, get_products, products }) {
   function filterProducts(){
     if(categoryFilter.length !== 0){
       return(
-        sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (categoryFilter.includes(product.category.toString())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
+        products && sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (categoryFilter.includes(product.category.toString())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
           return (
             <div className="contProducto" key={product.id}> 
               <Card product={product} />
@@ -64,7 +63,7 @@ function Shop({ get_categories, categories, get_products, products }) {
       )
     }else{
       return(
-        sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
+        products && sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
           return (
             <div className="contProducto" key={product.id}> 
               <Card product={product} />
@@ -137,7 +136,7 @@ function Shop({ get_categories, categories, get_products, products }) {
     <Layout>
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
-          {
+          { products && 
             (() => {
               if(listProducts.length > 1){
                 return <h2>{listProducts.length} productos encontrados</h2>
@@ -149,11 +148,8 @@ function Shop({ get_categories, categories, get_products, products }) {
             })()
           }
           <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value, e.target.checked)} />
-          {/* <button onClick={() => setSortList({sortKey: 'price', isReverse: true})}>Precio +</button>
-          <button onClick={() => setSortList({sortKey: 'price', isReverse: false})}>Precio -</button>
-          <button onClick={() => setSortList({sortKey: 'name', isReverse: true})}>Nombre Asc.</button>
-          <button onClick={() => setSortList({sortKey: 'name', isReverse: false})}>Nombre Desc.</button> */}
           <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => handleSort(e.target.value)}>
+            <option>Ordenar</option>
             <option value="none">Cualquiera</option>
             <option value="price_asc">Precio Asc.</option>
             <option value="price_des">Precio Des.</option>
@@ -164,52 +160,56 @@ function Shop({ get_categories, categories, get_products, products }) {
         <div className="seccionLista__contTienda">
           <div className="seccionLista__contTienda__contFiltros">
             <form className="seccionLista__contTienda__contFiltros--form">
-                {categories &&
-                  categories !== null &&
-                  categories !== undefined &&
-                  categories.map((category) => {
-                    if (category.sub_categories.length === 0) {
-                      return (
+              {
+                categories && categories.map((category) => {
+                  if (category.sub_categories.length === 0) {
+                    return (
                       <ul key={category.name}>
                         <li key={category.id}>
                           <input type="checkbox" name="category_id" value={category.id.toString()} onChange={(e) => handleCategory(e.target.value, e.target.checked)}/>
                           <label>{category.name}</label>
                         </li>
                       </ul>
-                      );
-                    } else {
-                      return(
-                        <ul key={category.name}>
-                          <h3>{category.name}</h3>
-                            {
-                              category.sub_categories.map((sub_category) => {
-                                return(
-                                  <li key={sub_category.id}>
-                                    <input type="checkbox" name="category_id" value={sub_category.id.toString()} onChange={(e) => handleCategory(e.target.value, e.target.checked)} />
-                                    <label>{sub_category.name}</label>
-                                  </li>
-                                )
-                              })
-                            }
-                        </ul>
-                      )
-                    }
-                  })}
-                  <ul>
-                    <h3>Precio</h3>
-                    <li>
-                      <input type="number" placeholder="€ Min" onChange={(e) => setFilterData({min_price: e.target.value})}/>
-                    </li>
-                    <li>
-                      <input type="number" placeholder="€ Max" onChange={(e) => setFilterData({max_price: e.target.value})} />
-                    </li>
-                  </ul>
+                    );
+                  }else {
+                    return(
+                      <ul key={category.name}>
+                        <h3>{category.name}</h3>
+                        {
+                          category.sub_categories.map((sub_category) => {
+                            return(
+                              <li key={sub_category.id}>
+                                <input type="checkbox" name="category_id" value={sub_category.id.toString()} onChange={(e) => handleCategory(e.target.value, e.target.checked)} />
+                                <label>{sub_category.name}</label>
+                              </li>
+                            )
+                          })
+                        }
+                      </ul>
+                    )
+                  }
+                })
+              }
+              <ul>
+                <h3>Precio</h3>
+                <li>
+                  <input type="number" placeholder="€ Min" onChange={(e) => setFilterData({min_price: e.target.value})}/>
+                </li>
+                <li>
+                  <input type="number" placeholder="€ Max" onChange={(e) => setFilterData({max_price: e.target.value})} />
+                </li>
+              </ul>
             </form>
           </div>
           <div className="seccionLista__contTienda__contArticulos">
-            {
+            {/* {
               products && products !== null && products !== undefined &&
               listProducts
+            } */}
+            {
+              products && listProducts.length > 0
+                ? listProducts
+                : "No se han encontrado productos"
             }
           </div>
         </div>
@@ -219,7 +219,7 @@ function Shop({ get_categories, categories, get_products, products }) {
           </div>
       </section>
     </Layout>
-  );
+  )
 }
 
 const mapStateToProps = (state) => ({

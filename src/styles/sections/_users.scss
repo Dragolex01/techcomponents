@@ -1,0 +1,210 @@
+.seccionPerfil {
+  width: 100%;
+  padding-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  h2 {
+    font-family: 'Inter var', ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+      'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
+    font-size: 1.5em;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+
+  &__contForm {
+    background-color: rgba(249, 250, 251, 255);
+    border: 1px solid rgba(128, 128, 128, 0.108);
+    border-radius: 15px;
+    width: 28rem;
+    // height: 23rem;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__contInputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__contNombre {
+        width: 22rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &--input {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+
+          input {
+            width: 9.5rem;
+            padding: 0.65rem 0.5rem;
+            margin-top: 0.25rem;
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            border-radius: 5px;
+          }
+
+          input:focus{
+            outline-color: rgba(79, 70, 229, 255);
+          }
+        }
+      }
+
+      &--input {
+        width: 22rem;
+        margin-bottom: 1.5rem;
+
+        label {
+          font-family: 'Inter var', ui-sans-serif, system-ui, -apple-system,
+            BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+            'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol', 'Noto Color Emoji';
+          font-size: 0.9em;
+          font-weight: 400;
+        }
+
+        input{
+          width: 95%;
+          padding: 0.65rem 0.5rem;
+          margin-top: 0.25rem;
+          border: 1px solid rgba(128, 128, 128, 0.3);
+          border-radius: 5px;
+          letter-spacing: $fontLetterSpacing-input;
+        }
+
+        input:focus{
+          outline-color: rgba(79, 70, 229, 255);
+        }
+      }
+    }
+
+    &__contBoton {
+      width: 22rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+
+      &--boton {
+        background-color: rgba(79, 70, 229, 255);
+        color: white;
+        border-color: rgba(140, 134, 238, 255);
+        border-radius: 7px;
+        width: 100%;
+        padding: 0.6rem 0;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// .seccionPerfil {
+//   width: 100%;
+//   background-color: rgba(255, 68, 0, 0.1);
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   margin-bottom: 7rem;
+
+//   // h2 {
+//   //   margin: 1.5rem 0;
+//   //   text-align: center;
+//   //   font-family: $fontFamily-2;
+//   //   font-weight: $fontWeight-subtitulo;
+//   //   letter-spacing: 2px;
+//   //   font-size: $fontSize-subtitulo;
+//   // }
+
+//   h2 {
+//     text-align: center;
+//     color: $color-lightgray;
+//     letter-spacing: 3px;
+//     font-size: $fontSize-subtitulo3;
+//     margin-bottom: 5rem;
+//   }
+
+//   input {
+//     // background-color: $backgroundColor-lightgray;
+//     border: 3px solid $borderColor-input;
+//     border-radius: 7px;
+//     color: $color-lightgray;
+//     width: 88%;
+//     height: 3rem;
+//     padding-left: 1rem;
+//     margin: 1rem 0;
+//     letter-spacing: $fontLetterSpacing-input;
+//   }
+
+//   input:focus {
+//     outline: 1px solid $borderColor-input;
+//   }
+
+//   label {
+//     font-family: $fontFamily-label;
+//     padding: 1rem 0;
+//     letter-spacing: 1px;
+//     position: absolute;
+//     // left: 16%;
+//     left: 2rem;
+//     top: 0.5rem;
+//     background-color: white;
+//     padding: 0 0.8rem;
+//     font-size: $fontSize-labelInput;
+//   }
+
+//   &__contenedorForm {
+//     width: 25rem; //35rem
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     &__contenedorInputs {
+//       width: 100%;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       position: relative;
+//     }
+
+//     &--link {
+//       margin-top: 1rem;
+//     }
+
+//     &__contenedorNombre {
+//       width: 100%;
+//       display: flex;
+
+//       label {
+//         // left: 10%;
+//       }
+
+//       input {
+//         // width: 85%;
+//         width: 9.5rem;
+//       }
+//     }
+
+//     &--boton {
+//       width: 9rem;
+//       height: 3rem;
+//       border: 2px solid $color-red;
+//       background-color: white;
+//       margin-top: 5rem;
+//       font-size: $fontSize-boton;
+//       cursor: pointer;
+//     }
+//   }
+// }

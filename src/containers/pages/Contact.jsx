@@ -4,7 +4,7 @@ import Layout from '../../hocs/Layout';
 
 import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faStreetView, faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faStreetView, faCheckCircle, faXmarkCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import {
@@ -49,8 +49,8 @@ function Contact() {
       validateEmpty(inputMessage.current.value, 'message');
   }
 
-  function validateForm(e) {
-    switch (e.target.name) {
+  function validateForm(name) {
+    switch (name) {
       case 'name':
         validateInput(regularExpressionsForm.name, inputName.current.value, 'name');
         break;
@@ -98,27 +98,27 @@ function Contact() {
             <div className="seccionContacto__contFormulario__contInputs__contIzq">
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__name">
                 <label>Nombre</label>
-                <input type="text" name="name" ref={inputName} onChange={validateForm} required/>
-                <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" />
+                <input type="text" name="name" ref={inputName} onChange={(e) => validateForm(e.target.name)} required/>
+                {/* <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion" /> */}
                 <p className="infoError"> No se permiten caracteres especiales y números. </p>
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__email">
                 <label>Email</label>
-                <input type="email" name="email" ref={inputEmail} onChange={validateForm} required/>
-                <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
+                <input type="email" name="email" ref={inputEmail} onChange={(e) => validateForm(e.target.name)} required/>
+                {/* <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/> */}
                 <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p>
                 {/* <p className="infoError">El correo introducido no es válido.</p> */}
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__subject">
                 <label>Asunto</label>
-                <input type="text" name="subject" ref={inputSubject} onChange={validateForm} required/>
-                <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/>
+                <input type="text" name="subject" ref={inputSubject} onChange={(e) => validateForm(e.target.name)} required/>
+                {/* <FontAwesomeIcon icon={faCheckCircle} className="icon_validacion"/> */}
                 <p className="infoError">Error asunto.</p>
               </div>
             </div>
             <div className="seccionContacto__contFormulario__contInputs__contDer" id="grupo__message">
               <label>Mensaje</label>
-              <textarea name="message" ref={inputMessage} onChange={validateForm} required/>
+              <textarea name="message" ref={inputMessage} onChange={(e) => validateForm(e.target.name)} required/>
               <p className="infoError">El texto no puede estar vacio.</p>
             </div>
           </div>

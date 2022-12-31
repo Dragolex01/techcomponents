@@ -86,8 +86,9 @@ function Signup({ signup, loading, alert }) {
                     </div>
                     <div className="seccionPerfil__contForm__contBoton">
                         {
-                            loading ? <ClipLoader color="#36d7b7" /> :
-                            <button type="submit" className="seccionPerfil__contForm__contBoton--boton" >Registrarse</button>
+                            loading
+                            ? <ClipLoader color="#36d7b7" />
+                            : <button type="submit" className="seccionPerfil__contForm__contBoton--boton" >Registrarse</button>
                         }
                         <Link to="/login">¿Ya tienes una cuenta? Inicia Sesión</Link>
                     </div>
@@ -95,37 +96,6 @@ function Signup({ signup, loading, alert }) {
                 <Alert />
             </section>
         </Layout>
-
-        // <Layout>
-        //     <div className="seccionPerfil">
-        //         <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contenedorFormulario">
-        //             <h3>REGISTRARSE</h3>
-        //             <div className="seccionPerfil__contenedorFormulario__contenedorNombre">
-        //                 <div className="seccionPerfil__contenedorFormulario__contenedorInput">
-        //                     <label htmlFor="first_name">Nombre: </label>
-        //                     <input type="text" name="first_name" value={first_name} onChange={(e) => onChange(e)} required />
-        //                 </div>
-        //                 <div className="seccionPerfil__contenedorFormulario__contenedorInput">
-        // <label htmlFor="last_name">Apellido: </label>
-        // <input type="text" name="last_name" value={last_name} onChange={(e) => onChange(e)} required />
-        //                 </div>
-        //             </div>
-        //             <div className="seccionPerfil__contenedorFormulario__contenedorInput">
-        //                 <label htmlFor="email">Correo electrónico: </label>
-        //                 <input type="email" name="email" value={email} required onChange={(e) => onChange(e)} />
-        //             </div>
-        //             <div className="seccionPerfil__contenedorFormulario__contenedorInput">
-        // <label htmlFor="password">Contraseña: </label>
-        // <input type="password" name="password" value={password} required onChange={(e) => onChange(e)} />
-        //             </div>
-        //             <div className="seccionPerfil__contenedorFormulario__contenedorInput">
-        // <label htmlFor="re_password">Vuelva a introducir una contraseña: </label>
-        // <input type="password" name="re_password" value={re_password} required onChange={(e) => onChange(e)} />
-        //             </div>
-        // <button type="submit" className="seccionPerfil__contenedorFormulario--boton" >Registrarse</button>
-        //         </form>
-        //     </div>
-        // </Layout>
     )
 }
 
@@ -137,7 +107,3 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
     signup
 })(Signup);
-
-
-//Remember me (Cookies)
-//Que las dos contraseñas coincidan

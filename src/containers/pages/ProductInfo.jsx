@@ -106,12 +106,10 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
                             <p style={{color: "green"}}>En stock</p> : <p style={{color: "red"}}>Sin stock</p>
                         }
                         {
-                            isLoading ?
-                                <ClipLoader color="#36d7b7" /> :
-                                <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
-
+                            isLoading
+                                ? <ClipLoader color="#36d7b7" />
+                                : <button onClick={addToCart} className="seccionProducto__contInfo__contDer--boton">Agregar al carrito</button>
                         }
-                        
                     </div>
                 </div>
             </div>
@@ -130,7 +128,3 @@ export default connect(mapStateToProps, {
     add_item,
     get_total
 }) (ProductInfo)
-
-
-
-//Componentse?

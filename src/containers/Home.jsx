@@ -25,13 +25,13 @@ function Home({ get_products, products }){
             <>
                 {
                     sortBy(products, 'date_created', true).map((product, i) => {
-                        return(
-                            i <= 5 ?
+                        return i < 5 ? (
                             <div className="contProducto" key={product.id}>
                                 <Card product={product} />
-                                <p>{product.date_created}</p>
-                            </div> : null
+                                {/* <p>{product.date_created}</p> */}
+                            </div>
                         )
+                        : null;
                     })
                 }
             </>
@@ -43,13 +43,13 @@ function Home({ get_products, products }){
             <>
                 {
                     sortBy(products, 'sold', true).map((product, i) => {
-                        return(
-                            i <= 5 ?
+                        return i < 5 ? (
                             <div className="contProducto" key={product.id}>
                                 <Card product={product} />
-                                <p>{product.sold}</p>
-                            </div> : null
+                                {/* <p>{product.sold}</p> */}
+                            </div>
                         )
+                        : null
                     })
                 }
             </>
@@ -59,18 +59,6 @@ function Home({ get_products, products }){
     return(
         <Layout>
             <div className="seccionHome">
-                {/* <div className="seccionHome__contOfertas">
-                    <div className="seccionHome__contOfertas--oferta">
-                        a
-                    </div>
-                    <div className="seccionHome__contOfertas--oferta">
-                        a
-                    </div>
-                    <div className="seccionHome__contOfertas--oferta">
-                        a
-                    </div>
-                </div> */}
-
                 <div className="seccionHome__contInfo">
                     <div className="seccionHome__contInfo--img">
                         <img src={imgMundial} />
@@ -107,38 +95,23 @@ function Home({ get_products, products }){
                     </div>
                 </div>
                 {
-                    products &&
-                    products !== null &&
-                    products !== undefined &&
-                    products.length > 0 ?
-                    <>
-                        <h1>Novedades</h1>
-                        <div className="seccionHome__contProductos">
-                            {
-                                novedades()
-                            }
-                            {
-                                // products &&
-                                // products !== null &&
-                                // products !== undefined ?
-                                // novedades() : null
-                            }
-                        </div>
-                        <h1>Más vendidos</h1>
-                        <div className="seccionHome__contProductos">
-                            {
-                                ventas()
-                            }
-                            {
-                                // products &&
-                                // products !== null &&
-                                // products !== undefined ?
-                                // ventas() : null
-                            }
-                        </div>
-                    </> : null
+                    products && products.length > 0
+                    ?   <>
+                            <h1>Novedades</h1>
+                            <div className="seccionHome__contProductos">
+                                {
+                                    novedades()
+                                }
+                            </div>
+                            <h1>Más vendidos</h1>
+                            <div className="seccionHome__contProductos">
+                                {
+                                    ventas()
+                                }
+                            </div>
+                        </>
+                    : null
                 }
-                
             </div>
         </Layout>
     )

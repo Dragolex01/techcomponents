@@ -52,21 +52,21 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
         <h1>Carrito: {total_items} productos</h1>
         <div className="seccionCarrito__contenedor">
           {
-            isLoading ?
-              <ClipLoader color="#36d7b7" /> :
-              <div className="seccionCarrito__contenedor__contItems">
-                {items && items !== null && items !== undefined && items.length > 0
-                  ? items.map((item, i) => {
-                      return (
-                        <div className="seccionCarrito__contenedor__contItems__item" key={i}>
-                          <CartItem item={items[i]} reload={reload} setReload={setReload} update_item={update_item} remove_item={remove_item} />
-                        </div>
-                      );
-                    })
-                  : <p>No hay productos.</p>
-                }
-                <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
-              </div>
+            isLoading
+              ? <ClipLoader color="#36d7b7" />
+              : <div className="seccionCarrito__contenedor__contItems">
+                  {items && items !== null && items !== undefined && items.length > 0
+                    ? items.map((item, i) => {
+                        return (
+                          <div className="seccionCarrito__contenedor__contItems__item" key={i}>
+                            <CartItem item={items[i]} reload={reload} setReload={setReload} update_item={update_item} remove_item={remove_item} />
+                          </div>
+                        );
+                      })
+                    : <p>No hay productos.</p>
+                  }
+                  <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
+                </div>
               
           }
           <div className="seccionCarrito__contenedor__contInfoCompra">
