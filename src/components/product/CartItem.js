@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
+
 function CartItem({ item, setReload, reload, update_item, remove_item }) {
 
     const link_img = "http://localhost:8000" + item.product.get_image;
@@ -50,10 +51,11 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
         const elementos = []
 
         for(let n = 1; n <= item.product.quantity; n++){
-            elementos.push(<option key={n}>{n}</option>)
+            elementos.push(<option id="item_count" key={n}>{n}</option>)
         }
         return elementos
     }
+
 
     return (
         <>
@@ -68,11 +70,12 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
                     </div>
                     {/* <form onSubmit={(e) => updateItemQuantity(e)}> */}
                     <form>
+                        <label htmlFor="item_count">Cantidad: </label>
                         <select name="item_count" onChange={(e) => onChange(e)} value={item_count}>
                             {setNumberOptions()}
                         </select>
                         {/* <button type="submit">Update</button> */}
-                        <p>Cantidad: {item.product.quantity}</p>
+                        <p>Quedan en stock: {item.product.quantity}</p>
                     </form>
                 </div>
             </div>

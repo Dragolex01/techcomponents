@@ -3,7 +3,9 @@ import {
     GET_PRODUCTS_SUCCESS,
     GET_PRODUCTS_FAIL,
     GET_PRODUCT_SUCCESS,
-    GET_PRODUCT_FAIL
+    GET_PRODUCT_FAIL,
+    GET_PRODUCTS_BY_PAGE_SUCCESS,
+    GET_PRODUCTS_BY_PAGE_FAIL
 } from './types';
 
 export const get_products = () => async dispatch => {
@@ -29,6 +31,33 @@ export const get_products = () => async dispatch => {
     } catch (err) {
         dispatch({
             type: GET_PRODUCTS_FAIL
+        })
+    }
+}
+
+export const get_products_by_page = (page) => async dispatch => {
+    const config = {
+        headers: {
+            'Accept': 'application/json'
+        }
+    }
+
+    try {
+        const res = await axios.get(`http://localhost:8000/api/product/get-products/${page}`, config)
+
+        if (res.status === 200) {
+            dispatch({
+                type: GET_PRODUCTS_BY_PAGE_SUCCESS,
+                payload: res.data
+            })
+        } else {
+            dispatch({
+                type: GET_PRODUCTS_BY_PAGE_FAIL
+            })
+        }
+    } catch (err) {
+        dispatch({
+            type: GET_PRODUCTS_BY_PAGE_FAIL
         })
     }
 }

@@ -81,11 +81,13 @@
   }
   
   .action .menu ul li:hover a {
-    color: #fd7134;
+    /* color: #fd7134; */
+    color: #03C4EB;
   }
 
   .action .menu ul li:hover button {
-    color: #fd7134;
+    /* color: #fd7134; */
+    color: #03C4EB;
   }
 
   .icon{

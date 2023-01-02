@@ -41,7 +41,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #fd7134;
+    background-color: #03C4EB;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out; }
   .seccionHeader #linkHeader:hover:after {
@@ -105,7 +105,7 @@
       .seccionHome__contProducto__producto button {
         width: 8rem;
         height: 2.25rem;
-        border: 2px solid #fd7134;
+        border: 2px solid #03C4EB;
         background-color: white;
         font-size: 0.9em;
         cursor: pointer; }
@@ -133,7 +133,7 @@
       height: 2.25rem;
       margin-bottom: 5rem;
       margin-top: 2rem;
-      border: 2px solid #fd7134;
+      border: 2px solid #03C4EB;
       background-color: white;
       font-size: 0.9em;
       cursor: pointer; }
@@ -159,7 +159,7 @@
       letter-spacing: 1px;
       background-color: #f7f7f7;
       border: 1px solid #ebeeef;
-      border-radius: 12px;
+      border-radius: 7px;
       color: #8c9398; }
     .seccionLista__contTitulo--buscador:focus {
       outline: 1px solid #ebeeef; }
@@ -182,19 +182,24 @@
         list-style: none;
         padding-bottom: 2rem;
         border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
+        .seccionLista__contTienda__contFiltros__form ul li input[type=checkbox]:checked {
+          background-color: red; }
       .seccionLista__contTienda__contFiltros__form input {
         margin-right: 1rem; }
-      .seccionLista__contTienda__contFiltros__form--price {
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .seccionLista__contTienda__contFiltros__form--price input {
-          width: 3.5rem;
-          padding: 0.15rem; }
+      .seccionLista__contTienda__contFiltros__form--price input {
+        width: 100%; }
     .seccionLista__contTienda__contArticulos {
       display: flex;
       flex-wrap: wrap;
       width: 60rem; }
+  .seccionLista button {
+    width: 8rem;
+    height: 2.25rem;
+    margin: 0 1rem;
+    border: 2px solid #03C4EB;
+    background-color: white;
+    font-size: 0.9em;
+    cursor: pointer; }
 
 .seccionCarrito {
   width: 100%;
@@ -236,6 +241,10 @@
         .seccionCarrito__contenedor__contItems__item--info {
           padding-left: 2rem;
           border-left: 1px solid rgba(128, 128, 128, 0.2); }
+          .seccionCarrito__contenedor__contItems__item--info select {
+            border: none;
+            outline: none;
+            background-color: transparent; }
         .seccionCarrito__contenedor__contItems__item__contBoton {
           position: absolute;
           right: 2rem;
@@ -249,12 +258,12 @@
             color: gray; }
           .seccionCarrito__contenedor__contItems__item__contBoton--imgBoton:hover {
             transition: all 0.3s;
-            color: #fd7134; }
+            color: #03C4EB; }
       .seccionCarrito__contenedor__contItems--boton {
         width: 8rem;
         height: 2.25rem;
         margin-top: 5rem;
-        border: 2px solid #fd7134;
+        border: 2px solid #03C4EB;
         background-color: white;
         font-size: 0.9em;
         cursor: pointer; }
@@ -292,7 +301,7 @@
           bottom: 1.5rem;
           width: 8rem;
           height: 2.25rem;
-          border: 2px solid #fd7134;
+          border: 2px solid #03C4EB;
           background-color: white;
           font-size: 0.9em;
           cursor: pointer; }
@@ -391,7 +400,7 @@
           align-items: center; }
           .seccionContacto__contInfo__bloque__info--icono * {
             height: 1.6rem;
-            color: #fd7134; }
+            color: #03C4EB; }
         .seccionContacto__contInfo__bloque__info--texto {
           width: 75%; }
           .seccionContacto__contInfo__bloque__info--texto h4, .seccionContacto__contInfo__bloque__info--texto p {
@@ -469,7 +478,7 @@
       height: 2.5rem;
       margin-bottom: 5rem;
       margin-top: 5rem;
-      border: 2px solid #fd7134;
+      border: 2px solid #03C4EB;
       background-color: white;
       font-size: 0.9em;
       cursor: pointer; }
@@ -568,7 +577,7 @@
         width: 8rem;
         height: 2.5rem;
         margin-bottom: 1rem;
-        border: 2px solid #fd7134;
+        border: 2px solid #03C4EB;
         background-color: white;
         font-size: 0.9em;
         cursor: pointer; }
@@ -632,8 +641,6 @@
             background-color: transparent;
             color: #959596;
             letter-spacing: 1px; }
-            .seccionUser__contenedor__contInfo ul li select option {
-              margin-top: 1rem; }
           .seccionUser__contenedor__contInfo ul li input {
             border: none;
             border-bottom: 1px solid rgba(128, 128, 128, 0.2);
@@ -646,7 +653,7 @@
         position: absolute;
         right: 5rem;
         bottom: 2rem;
-        border: 2px solid #fd7134;
+        border: 2px solid #03C4EB;
         background-color: white;
         font-size: 0.9em;
         cursor: pointer; }
@@ -734,7 +741,7 @@
         .contProducto__contInfo__subcontenedor--titulo :visited {
           color: black; }
       .contProducto__contInfo__subcontenedor--precio {
-        color: #fd7134;
+        color: #03C4EB;
         font-weight: bold;
         margin: 0; }
     .contProducto__contInfo--info {
@@ -782,7 +789,11 @@
           margin: 0;
           font-weight: bold;
           font-size: 1.15em;
-          color: #fd7134; }
+          color: #03C4EB; }
+      .seccionProducto__contInfo__contDer select {
+        border: none;
+        outline: none;
+        background-color: transparent; }
       .seccionProducto__contInfo__contDer--descripcion {
         color: #959596;
         margin-bottom: 2rem; }
@@ -841,5 +852,5 @@ body {
 .titleDivider {
   width: 3.5rem;
   height: 0.25rem;
-  background-color: #fd7134;
+  background-color: #03C4EB;
   border-radius: 10px; }

@@ -59,6 +59,12 @@
                 &--info{
                     padding-left: 2rem;
                     border-left: 1px solid $borderColor-container;
+
+                    select{
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                    }
                 }
 
                 &__contBoton{

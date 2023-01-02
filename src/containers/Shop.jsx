@@ -1,132 +1,138 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import { connect } from 'react-redux';
 // import ClipLoader from 'react-spinners/ClipLoader';
 
 import { get_categories } from '../redux/actions/categories';
-import { get_products } from '../redux/actions/products';
+import { get_products, get_products_by_page } from '../redux/actions/products';
 import { sortBy } from '../helpers/functions';
 
 import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
-// import { GET_CATEGORIES_FAIL } from '../redux/actions/types';
+import Filter from '../components/product/Filter';
 
-function Shop({ get_categories, categories, get_products, products }) {
 
-  // const [isLoading, setLoading] = useState(false)
+
+const initialProductsState = {
+  products: []
+}
+
+const productsReducer = (state = initialProductsState, action) => {
+  switch(action.type){
+      case "rellenar":
+        return{
+          ...state,
+          products: action.payload
+        }
+      case "sortProducts":
+          return{
+              ...state,
+              products: action.payload
+          }
+        
+      case "categoryProducts":
+        return{
+          ...state,
+          products: action.payload
+        }
+
+      default:
+          throw Error("Action products Error!")
+  }
+}
+
+
+function Shop({ get_categories, categories, get_products, get_products_by_page, products, total_pages }) {
+
   const [page, setPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState("")
   const [categoryFilter, setCategoryFilter] = useState([])
+  const [productsState, dispatchProducts] = useReducer(
+    productsReducer,
+    initialProductsState
+  )
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
     
-    // setLoading(true)
     get_categories()
-    get_products()
-    // setLoading(false)
-  }, []);
+    get_products_by_page(page)
+    // get_products()
+  }, [page])
 
-  const [sortList, setSortList] = useState({
-    sortKey: 'none',
-    isReverse: false
-  });
-  const {
-    sortKey,
-    isReverse
-  } = sortList;
 
-  const [filterData, setFilterData] = useState({
-    min_price: 100,
-    max_price: 1000
-  });
-  const {
-    min_price,
-    max_price
-  } = filterData;
-
-  const listProducts = filterProducts();
-
-  function filterProducts(){
-    if(categoryFilter.length !== 0){
-      return(
-        products && sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (categoryFilter.includes(product.category.toString())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
-          return (
-            <div className="contProducto" key={product.id}> 
-              <Card product={product} />
-            </div>
-          );
+  useEffect(() => {
+    if(products){
+      if(categoryFilter.length === 0){
+        dispatchProducts({
+          type: 'rellenar',
+          payload: products
         })
-      )
-    }else{
-      return(
-        products && sortProducts().filter(product => (product.name.toLowerCase().includes(searchTerm.toLowerCase())) && (product.price >= min_price && product.price <= max_price)).map((product, i) => {
-          return (
-            <div className="contProducto" key={product.id}> 
-              <Card product={product} />
-            </div>
-          );
+      }else{
+        dispatchProducts({
+          type: 'categoryProducts',
+          payload: products.filter(product => categoryFilter.includes(product.category.toString()))
         })
-      )
+      }
     }
-  }
+  }, [products, categoryFilter])
 
-  function sortProducts(){
-    if(sortKey !== 'none'){
-      return sortBy(products, sortKey, isReverse)
-    }else{
-      return products
-    }
-  }
-
-  function handleCategory(value, checked){
-    if(checked){
-      setCategoryFilter(pre => [...pre, value])
-    }else{
-      setCategoryFilter(pre => {
-        return [...pre.filter(cat => cat !== value)]
-      })
-    }
-  }
 
   function handleSort(value){
     switch(value){
       case 'price_asc':
-        setSortList({sortKey: 'price', isReverse: true})
+        dispatchProducts({
+          type: 'sortProducts',
+          payload: sortBy(productsState.products, 'price', true)
+        })
         break;
+
       case 'price_des':
-        setSortList({sortKey: 'price', isReverse: false})
+        dispatchProducts({
+          type: 'sortProducts',
+          payload: sortBy(productsState.products, 'price', false)
+        })
         break;
+
       case 'name_asc':
-        setSortList({sortKey: 'name', isReverse: false})
+        dispatchProducts({
+          type: 'sortProducts',
+          payload: sortBy(productsState.products, 'name', false)
+        })
         break;
+
       case 'name_des':
-        setSortList({sortKey: 'name', isReverse: true})
+        dispatchProducts({
+          type: 'sortProducts',
+          payload: sortBy(productsState.products, 'name', true)
+        })
         break;
+
       default:
-        setSortList({sortKey: 'none'})
+        dispatchProducts({
+          type: 'sortProducts',
+          payload: products
+        })
         break;
     }
   }
 
-  // function rellenarProductos(){ // No esta terminado
-  //   let lista = []
-    
-  //   products.map((product, i) => {
-  //     if(product.id >= page && product <= page * 2){
-  //       lista.push(product)
-  //     }
-  //   })
 
-  //   setProductsList(lista)
-  // }
 
   function handlePage(method){ // No esta terminado
-    if(method === 'pre'){
-      
-    }else if(method === 'pos'){
-      setPage(page + 1)
+    if(method === 'anterior'){
+      if(page > 1){
+        setPage(page - 1)
+      }
+    }else if(method === 'siguiente'){
+      if(page < total_pages){
+        setPage(page + 1)
+      }
     }
   }
+
+
+
+
 
 
   return (
@@ -135,10 +141,10 @@ function Shop({ get_categories, categories, get_products, products }) {
         <div className="seccionLista__contTitulo">
           { products && 
             (() => {
-              if(listProducts.length > 1){
-                return <h2>{listProducts.length} productos encontrados</h2>
-              }else if(listProducts.length === 1){
-                return <h2>{listProducts.length} producto encontrado</h2>
+              if(productsState.products.length > 1){ // No sincronizado con searchterm
+                return <h2>{productsState.products.length} productos encontrados</h2>
+              }else if(productsState.products.length === 1){
+                return <h2>{productsState.products.length} producto encontrado</h2>
               }else{
                 return <h2>Ningun producto encontrado</h2>
               }
@@ -149,72 +155,30 @@ function Shop({ get_categories, categories, get_products, products }) {
             <option value="none">Ordenar</option>
             <option value="name_asc">Nombre A-Z</option>
             <option value="name_des">Nombre Z-A</option>
-            <option value="price_asc">Precio Asc.</option>
-            <option value="price_des">Precio Des.</option>
+            <option value="price_asc">Precio +</option>
+            <option value="price_des">Precio -</option>
           </select>
         </div>
         <div className="seccionLista__contTienda">
-          <div className="seccionLista__contTienda__contFiltros">
-            <form className="seccionLista__contTienda__contFiltros__form">
-              {
-                categories && categories.map((category) => {
-                  if (category.sub_categories.length === 0) {
-                    return (
-                      <ul key={category.name}>
-                        <li key={category.id}>
-                          <input type="checkbox" name="category_id" value={category.id.toString()} onChange={(e) => handleCategory(e.target.value, e.target.checked)}/>
-                          <label>{category.name}</label>
-                        </li>
-                      </ul>
-                    );
-                  }else {
-                    return(
-                      <ul key={category.name}>
-                        <h3>{category.name}</h3>
-                        {
-                          category.sub_categories.map((sub_category) => {
-                            return(
-                              <li key={sub_category.id}>
-                                <input type="checkbox" name="category_id" value={sub_category.id.toString()} onChange={(e) => handleCategory(e.target.value, e.target.checked)} />
-                                <label>{sub_category.name}</label>
-                              </li>
-                            )
-                          })
-                        }
-                      </ul>
-                    )
-                  }
-                })
-              }
-              <ul>
-                <h3>Precio</h3>
-                <div className="seccionLista__contTienda__contFiltros__form--price">
-                  <li>
-                    <input type="number" placeholder="€ Min" onChange={(e) => setFilterData({min_price: e.target.value})}/>
-                  </li>
-                  <li>
-                    <input type="number" placeholder="€ Max" onChange={(e) => setFilterData({max_price: e.target.value})} />
-                  </li>
-                </div>
-              </ul>
-            </form>
-          </div>
+          <Filter categories={categories} setCategoryFilter={setCategoryFilter} />
           <div className="seccionLista__contTienda__contArticulos">
-            {/* {
-              products && products !== null && products !== undefined &&
-              listProducts
-            } */}
             {
-              products && listProducts.length > 0
-                ? listProducts
+              productsState.products.length > 0
+                ? productsState.products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map(product => {
+                    return(
+                      <div className="contProducto" key={product.id}> 
+                        <Card product={product} />
+                      </div>
+                    )
+                  })
                 : "No se han encontrado productos"
             }
           </div>
         </div>
-          <div>
-            <button onClick={() => handlePage('pre')}>Anterior</button>
-            <button onClick={() => handlePage('pos')}>Posterior</button>
-          </div>
+        <div>
+          <button onClick={() => handlePage('anterior')}>Anterior</button>
+          <button onClick={() => handlePage('siguiente')}>Posterior</button>
+        </div>
       </section>
     </Layout>
   )
@@ -223,9 +187,12 @@ function Shop({ get_categories, categories, get_products, products }) {
 const mapStateToProps = (state) => ({
   categories: state.Categories.categories,
   products: state.Products.products,
+  total_pages: state.Products.total_pages,
+  page: state.Products.page
 });
 
 export default connect(mapStateToProps, {
   get_categories,
   get_products,
+  get_products_by_page
 })(Shop);
