@@ -1,17 +1,27 @@
 .seccionCarrito{
     width: 100%;
+    padding-bottom: 5rem;
 
+    // h1{
+    //     margin-left: 5rem;
+    //     padding-left: 5rem;
+    //     margin-bottom: 2rem;
+    //     padding-bottom: 2rem;
+    //     width: 46.25%; // Cambiar
+    //     border-bottom: 1px solid $borderColor-container;
+    // }
     h1{
         margin-left: 5rem;
         padding-left: 5rem;
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
-        width: 46.25%; // Cambiar
-        border-bottom: 1px solid $borderColor-container;
+        font-weight: $fontWeight-subtitulo;
+        font-family: $fontFamily-2;
+        font-size: $fontSize-subtitulo2;
+        letter-spacing: $fontLetterSpacing-subtitulo;
     }
 
     &__contenedor{
         width: 100%;
+        margin-top: 2rem;
         display: flex;
         justify-content: space-around;
 
@@ -63,7 +73,13 @@
                     }
 
                     &--imgBoton{
+                        transition: all 0.3s;
                         color: gray;
+                    }
+
+                    &--imgBoton:hover{
+                        transition: all 0.3s;
+                        color: $color-red;
                     }
                 }
 
@@ -71,9 +87,11 @@
 
             &--boton{
                 width: 8rem;
-                height: 2.5rem;
-                border-radius: 10px;
-                border: 1px solid $borderColor-container;
+                height: 2.25rem;
+                margin-top: 5rem;
+                border: 2px solid $color-red;
+                background-color: white;
+                font-size: $fontSize-boton;
                 cursor: pointer;
             }
         }
@@ -82,14 +100,18 @@
             width: 30%;
             
             &__contInfo{
+                position: relative;
                 width: 80%;
                 border: 1px solid $borderColor-container;
                 border-radius: 10px;
-                padding: 2rem;
+                padding-top: 2rem;
+                padding-left: 3rem;
+                padding-right: 3rem;
+                padding-bottom: 5rem;
+
 
                 &--cont1{
-                    padding: 1rem;
-
+                    margin-top: 2rem;
                     div{
                         display: flex;
                         align-items: center;
@@ -98,31 +120,32 @@
                 }
 
                 &--cont2{
-                    padding: 1rem;
-                    margin-top: 1rem;
+                    margin-top: 2rem;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    border-top: 1px solid $borderColor-container;
                 }
 
                 h2{
-
+                    font-weight: $fontWeight-subtitulo;
+                    font-family: $fontFamily-2;
+                    font-size: $fontSize-subtitulo2;
+                    letter-spacing: $fontLetterSpacing-subtitulo;
                 }
 
                 button{
-                    width: 100%;
-                    height: 2.5rem;
-                    border-radius: 10px;
-                    border: 1px solid $borderColor-container;
+                    position: absolute;
+                    right: 2.5rem;
+                    bottom: 1.5rem;
+                    width: 8rem;
+                    height: 2.25rem;
+                    border: 2px solid $color-red;
+                    background-color: white;
+                    font-size: $fontSize-boton;
                     cursor: pointer;
                 }
             }
-        }
-
-        &__contBoton{
-            background-color: red;
-            width: 1rem;
-            height: 1rem;
         }
     }
 }

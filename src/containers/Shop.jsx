@@ -44,10 +44,6 @@ function Shop({ get_categories, categories, get_products, products }) {
     max_price
   } = filterData;
 
-  // console.log(min_price)
-  // console.log(max_price)
-
-
   const listProducts = filterProducts();
 
   function filterProducts(){
@@ -111,6 +107,7 @@ function Shop({ get_categories, categories, get_products, products }) {
         break;
     }
   }
+
   // function rellenarProductos(){ // No esta terminado
   //   let lista = []
     

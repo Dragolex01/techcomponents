@@ -73,24 +73,40 @@ function Contact() {
     <Layout>
       <div className="seccionContacto">
         <h2>Contacto</h2>
+        <div className="titleDivider" />
         <h3>INFORMANOS SOBRE NUEVAS IDEAS O ERRORES</h3>
         <div className="seccionContacto__contInfo">
           <div className="seccionContacto__contInfo__bloque">
-            <div className="seccionContacto__contInfo__bloque--info">
-              <h4><FontAwesomeIcon icon={faStreetView} /> Direccion</h4>
-              <p>Madrid, España</p>
+            <div className="seccionContacto__contInfo__bloque__info">
+              <div className="seccionContacto__contInfo__bloque__info--icono">
+                <FontAwesomeIcon icon={faStreetView} />
+              </div>
+              <div className="seccionContacto__contInfo__bloque__info--texto">
+                <h4>Direccion</h4>
+                <p>Madrid, España</p>
+              </div>
             </div>
           </div>
           <div className="seccionContacto__contInfo__bloque">
-            <div className="seccionContacto__contInfo__bloque--info">
-              <h4><FontAwesomeIcon icon={faEnvelope} /> Email</h4>
-              <p>techcomponents@example.com</p>
+            <div className="seccionContacto__contInfo__bloque__info">
+              <div className="seccionContacto__contInfo__bloque__info--icono">
+              <FontAwesomeIcon icon={faEnvelope} />
+              </div>
+              <div className="seccionContacto__contInfo__bloque__info--texto">
+                <h4>Email</h4>
+                <p>techcomponents@example.com</p>
+              </div>
             </div>
           </div>
           <div className="seccionContacto__contInfo__bloque">
-            <div className="seccionContacto__contInfo__bloque--info">
-              <h4><FontAwesomeIcon icon={faPhone} /> Teléfono</h4>
-              <p>+34 666 66 66 66</p>
+            <div className="seccionContacto__contInfo__bloque__info">
+              <div className="seccionContacto__contInfo__bloque__info--icono">
+                <FontAwesomeIcon icon={faPhone} />
+              </div>
+              <div className="seccionContacto__contInfo__bloque__info--texto">
+                <h4>Teléfono</h4>
+                <p>+34 666 66 66 66</p>
+              </div>
             </div>
           </div>
         </div>
@@ -126,7 +142,7 @@ function Contact() {
           {
             emailStatus ? <p>Mensaje enviado correctamente. Gracias!</p> : null
           }
-          <button type="submit" onClick={validateIsEmpty} className="seccionContacto__contFormulario--boton">Enviar</button>
+          <button type="submit" onClick={validateIsEmpty}>Enviar</button>
           {/* <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar"  /> */}
         </form>
         <hr />

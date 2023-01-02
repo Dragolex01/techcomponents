@@ -6,13 +6,13 @@
     // height: 30rem
     width: 17rem;
     height: 24rem;
-    margin: 2rem 1rem;
-    outline: 1px solid $borderColor-container;
+    margin: 2rem 0.75rem;
     display: flex;
     flex-direction: column;
     letter-spacing: 1px;
     font-family: $fontFamily-label;
-    border-radius: 15px;
+    border-radius: 6px; // 15px
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.2);
 
     &__contImg{
         height: 70%;
@@ -47,7 +47,6 @@
                 margin: 0;
                 text-decoration: none;
                 font-size: 1em; //Cambiar
-                
 
                 :link{
                     text-decoration: none;

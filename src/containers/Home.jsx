@@ -10,7 +10,8 @@ import { sortBy } from '../helpers/functions';
 import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
 
-import imgMundial from '../img/imgMundial2.jpg';
+import imgBanner from '../img/imgBanner4.jpg';
+// import imgBanner from '../img/imgBanner6.jpg';
 
 function Home({ get_products, products }){
   
@@ -59,7 +60,7 @@ function Home({ get_products, products }){
     return(
         <Layout>
             <div className="seccionHome">
-                <div className="seccionHome__contInfo">
+                {/* <div className="seccionHome__contInfo">
                     <div className="seccionHome__contInfo--img">
                         <img src={imgMundial} />
                     </div>
@@ -67,12 +68,15 @@ function Home({ get_products, products }){
                         <h2>¿QUIÉNES SOMOS?</h2>
                         <p>Est eiusmod cupidatat ut sunt eiusmod. Minim velit Lorem id nulla velit dolore mollit exercitation quis. Pariatur dolore laboris est laboris proident enim laboris consectetur veniam enim cillum quis. Sint nostrud sint duis aute aute ea occaecat in aute officia est aliquip labore laboris. Mollit mollit anim mollit mollit nulla magna non. Sit enim sunt id pariatur aliqua labore incididunt.</p>
                     </div>
+                </div> */}
+                <div className="seccionHome__contInfo">
+                        <img src={imgBanner} />
                 </div>
                 <div className="seccionHome__contProducto">
                     <div className="seccionHome__contProducto__producto">
                         <FontAwesomeIcon icon={faLaptop} className="seccionHome__contProducto__producto--icon" />
                         <div className="seccionHome__contProducto__producto--info">
-                            <h3>Ordenador</h3>
+                            <h2>Ordenador</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
                         </div>
                         <button>Comprar</button>
@@ -80,7 +84,7 @@ function Home({ get_products, products }){
                     <div className="seccionHome__contProducto__producto">
                         <FontAwesomeIcon icon={faMobile} className="seccionHome__contProducto__producto--icon" />
                         <div className="seccionHome__contProducto__producto--info">
-                            <h3>Movil</h3>
+                            <h2>Movil</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
                         </div>
                         <button>Comprar</button>
@@ -88,7 +92,7 @@ function Home({ get_products, products }){
                     <div className="seccionHome__contProducto__producto">
                         <FontAwesomeIcon icon={faTablet} className="seccionHome__contProducto__producto--icon" />
                         <div className="seccionHome__contProducto__producto--info">
-                            <h3>Tablet</h3>
+                            <h2>Tablet</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
                         </div>
                         <button>Comprar</button>
@@ -97,17 +101,24 @@ function Home({ get_products, products }){
                 {
                     products && products.length > 0
                     ?   <>
-                            <h1>Novedades</h1>
-                            <div className="seccionHome__contProductos">
-                                {
-                                    novedades()
-                                }
-                            </div>
-                            <h1>Más vendidos</h1>
-                            <div className="seccionHome__contProductos">
-                                {
-                                    ventas()
-                                }
+                            <div className="seccionHome__contDestacados">
+                                <h1>Novedades</h1>
+                                <div className="titleDivider" />
+                                <div className="seccionHome__contDestacados--contProductos">
+                                    {
+                                        novedades()
+                                    }
+                                </div>
+                                <button>Comprar</button>
+
+                                <h1>Más vendidos</h1>
+                                <div className="titleDivider" />
+                                <div className="seccionHome__contDestacados--contProductos">
+                                    {
+                                        ventas()
+                                    }
+                                </div>
+                                <button>Comprar</button>
                             </div>
                         </>
                     : null

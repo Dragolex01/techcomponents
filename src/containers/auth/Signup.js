@@ -105,6 +105,7 @@ function Signup({ signup, loading, alert }) {
         <Layout>
             <section className="seccionPerfil">
                 <h2>Registrarse</h2>
+                <div className="titleDivider" />
                 <form className="seccionPerfil__contForm">
                     <div className="seccionPerfil__contForm__contInputs">
                         <div className="seccionPerfil__contForm__contInputs__contNombre">
@@ -139,7 +140,7 @@ function Signup({ signup, loading, alert }) {
                         {
                             loading
                             ? <ClipLoader color="#36d7b7" />
-                            : <button type="submit" onClick={validateIsEmpty} className="seccionPerfil__contForm__contBoton--boton" >Registrarse</button>
+                            : <button type="submit" onClick={validateIsEmpty}>Registrarse</button>
                         }
                         <Link to="/login">¿Ya tienes una cuenta? Inicia Sesión</Link>
                     </div>

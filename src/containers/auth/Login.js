@@ -74,7 +74,8 @@ function Login({ login, isAuthenticated, loading }) {
     return (
         <Layout>
             <section className="seccionPerfil">
-                <h2>Iniciar Sesión</h2>
+                <h2>Iniciar sesión</h2>
+                <div className="titleDivider" />
                 {/* <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contForm"> */}
                 <form className="seccionPerfil__contForm">
                     <div className="seccionPerfil__contForm__contInputs">
@@ -94,7 +95,7 @@ function Login({ login, isAuthenticated, loading }) {
                         {
                             loading
                             ? <ClipLoader color="#36d7b7" />
-                            : <button type="submit" onClick={validateIsEmpty} className="seccionPerfil__contForm__contBoton--boton">Iniciar sesión</button>
+                            : <button type="submit" onClick={validateIsEmpty}>Iniciar sesión</button>
                         }
                         <Link to="/register">¿Aún no tienes cuenta? Registrate</Link>
                     </div>

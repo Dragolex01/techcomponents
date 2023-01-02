@@ -49,7 +49,17 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
   const showItems = () => {
     return (
       <section className="seccionCarrito">
-        <h1>Carrito: {total_items} productos</h1>
+        { 
+          (() => {
+            if(total_items > 1){
+              return <h1>Carrito: {total_items} productos</h1>
+            }else if(total_items === 1){
+              return <h1>Carrito: {total_items} producto</h1>
+            }else{
+              return <h1>Sin productos</h1>
+            }
+          })()
+        }
         <div className="seccionCarrito__contenedor">
           {
             isLoading
@@ -65,13 +75,17 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
                       })
                     : <p>No hay productos.</p>
                   }
-                  <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
+                  {
+                    total_items > 0
+                      ? <button onClick={emptyCart} className="seccionCarrito__contenedor__contItems--boton" >Vaciar carrito</button>
+                      : null
+                  }
                 </div>
-              
           }
           <div className="seccionCarrito__contenedor__contInfoCompra">
             <div className="seccionCarrito__contenedor__contInfoCompra__contInfo">
                 <h2>Resumen</h2>
+                <div className="titleDivider" />
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont1">
                   {/* <div>
                     <h3>Productos totales: </h3>
@@ -96,7 +110,6 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
                     })
                   }
                 </div>
-                <hr/>
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont2">
                     <h3>Precio total: </h3>
                     <p>{amount.toFixed(2)}€</p>

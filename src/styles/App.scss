@@ -21,3 +21,10 @@ body {
   margin: 0;
   color: $color-black;
 }
+
+.titleDivider{
+  width: 3.5rem;
+  height: 0.25rem;
+  background-color: $color-red;
+  border-radius: 10px;
+}
