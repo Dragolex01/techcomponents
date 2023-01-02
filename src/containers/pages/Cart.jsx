@@ -99,16 +99,24 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
                       <h3>Descuento: </h3>
                       <p>0.00</p>
                     </div> */}
-                  {
-                    items && items.map((item, i) => {
-                      return(
-                        <div key={i}>
-                          <h3>{item.product.name} x{item.count}</h3>
-                          <p>{item.product.price * item.count}</p>
-                        </div>
-                      )
-                    })
-                  }
+                    { 
+                      (() => {
+                        if(total_items > 0){
+                          return(
+                            items && items.map((item, i) => {
+                              return(
+                                <div key={i}>
+                                  <h3>{item.product.name} x{item.count}</h3>
+                                  <p>{item.product.price * item.count}</p>
+                                </div>
+                              )
+                            })
+                          )
+                        }else{
+                          return <p>Sin productos</p>
+                        }
+                      })()
+                    }
                 </div>
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont2">
                     <h3>Precio total: </h3>
