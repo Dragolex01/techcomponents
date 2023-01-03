@@ -34,7 +34,7 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
     <div className="action">
       <div className="profile" onClick={menuToggle}>
         {
-          isAuthenticated
+          profile && isAuthenticated
           ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
           : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         }
@@ -64,7 +64,7 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
     <div className="action">
       <div className="profile" onClick={menuToggle}>
         {
-          isAuthenticated
+          profile && isAuthenticated
           ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
           : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         }

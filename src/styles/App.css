@@ -118,10 +118,10 @@
     flex-direction: column;
     background-color: #f7f7f7; }
     .seccionHome__contDestacados--contProductos {
+      width: 100%;
       display: flex;
       justify-content: center;
-      align-items: center;
-      flex-wrap: wrap; }
+      align-items: center; }
     .seccionHome__contDestacados h1 {
       text-align: center;
       font-weight: 400;
@@ -628,6 +628,14 @@
         background-color: transparent;
         border: none;
         cursor: pointer; }
+        .seccionUser__contenedor__contImg button * {
+          color: purple; }
+    .seccionUser__contenedor__contAvatares {
+      margin: 2rem 0;
+      display: none; }
+      .seccionUser__contenedor__contAvatares img {
+        height: 5rem;
+        margin: 0 0.5rem; }
     .seccionUser__contenedor__contInfo {
       position: relative;
       display: flex;
@@ -673,6 +681,11 @@
         background-color: white;
         font-size: 0.9em;
         cursor: pointer; }
+
+.menuVisible {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .seccionFooter {
   background-color: #151515;

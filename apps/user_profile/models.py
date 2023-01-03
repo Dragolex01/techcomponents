@@ -6,7 +6,7 @@ User = settings.AUTH_USER_MODEL
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='users/prueba/', default='users/prueba/default_avatar.jpg')
+    photo = models.ImageField(upload_to='users/avatares/', default='users/avatares/default_avatar.jpg')
     region = models.CharField(max_length=255, default='', null=True)
     city = models.CharField(max_length=255, default='',  null=True)
     province = models.CharField(max_length=255, default='', null=True)

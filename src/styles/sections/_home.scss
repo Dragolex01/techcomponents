@@ -99,7 +99,7 @@
             button{
                 width: 8rem;
                 height: 2.25rem;
-                border: 2px solid $color-red;
+                border: 2px solid $color-blue;
                 background-color: white;
                 font-size: $fontSize-boton;
                 cursor: pointer;
@@ -117,10 +117,11 @@
         background-color: $backgroundColor-lightgray;
 
         &--contProductos{
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
             // border-top: 1px solid #ddd;
             // border-bottom: 1px solid #ddd;
         }
@@ -138,7 +139,7 @@
             height: 2.25rem;
             margin-bottom: 5rem;
             margin-top: 2rem;
-            border: 2px solid $color-red;
+            border: 2px solid $color-blue;
             background-color: white;
             font-size: $fontSize-boton;
             cursor: pointer;
@@ -212,7 +213,7 @@
 //     &--boton {
 //       width: 9rem;
 //       height: 3rem;
-//       border: 2px solid $color-red;
+//       border: 2px solid $color-blue;
 //       background-color: white;
 //       margin-top: 5rem;
 //       font-size: $fontSize-boton;

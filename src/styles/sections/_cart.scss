@@ -85,7 +85,7 @@
 
                     &--imgBoton:hover{
                         transition: all 0.3s;
-                        color: $color-red;
+                        color: $color-blue;
                     }
                 }
 
@@ -95,7 +95,7 @@
                 width: 8rem;
                 height: 2.25rem;
                 margin-top: 5rem;
-                border: 2px solid $color-red;
+                border: 2px solid $color-blue;
                 background-color: white;
                 font-size: $fontSize-boton;
                 cursor: pointer;
@@ -146,7 +146,7 @@
                     bottom: 1.5rem;
                     width: 8rem;
                     height: 2.25rem;
-                    border: 2px solid $color-red;
+                    border: 2px solid $color-blue;
                     background-color: white;
                     font-size: $fontSize-boton;
                     cursor: pointer;

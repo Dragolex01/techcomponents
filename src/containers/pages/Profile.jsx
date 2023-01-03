@@ -53,16 +53,37 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         window.scrollTo(0, 0);
     }
 
-    function update_photo(){ //Actualizar foto de perfil
-        update_user_photo("/users/prueba/Apple_Iphone_14_Pro_Max.png")
+
+    const avatares = {
+        default: '/users/avatares/default_avatar.jpg',
+        avatar1: '/users/avatares/avatar1.png',
+        avatar2: '/users/avatares/avatar2.png',
+        avatar3: '/users/avatares/avatar3.jpg'
+    }
+
+    function update_photo(avatar){
+        update_user_photo(avatares[avatar])
+       
         window.scrollTo(0, 0);
     }
 
-    
+    function changeAvatarMenu(){
+        const contAvatares = document.getElementById('contAvatares')
 
-    function prueba(e){
-        e.preventDefault();
-        console.log(form.current.inputPhoto.value)
+        if(contAvatares.classList.contains('menuVisible')){
+            document.getElementById('contAvatares').classList.remove('menuVisible')
+        }else{
+            document.getElementById('contAvatares').classList.add('menuVisible')
+        }
+    }
+
+    function visualizarAvatares(){
+        let listAvatares = []
+        
+        Object.entries(avatares).forEach(([key, value]) => {
+                listAvatares.push(<img src={`http://localhost:8000/media${value}`} name={key} key={key} alt="img_user" onClick={(e) => update_photo(e.target.name)} />)
+        })
+        return listAvatares
     }
 
     return(
@@ -73,12 +94,19 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                         {
                             profile && <img src={`http://localhost:8000${profile.photo}`} alt="img_user" />
                         }
-                        <form onSubmit={prueba} encType="multipart/form-data" ref={form}>
-                            <input type="file" name="inputPhoto"/>
-                            <button type="submit"><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
-                        </form>
-                        {/* <button type="submit" onClick={update_photo}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button> */}
-                        
+                        <button type="button" onClick={changeAvatarMenu}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
+                    </div>
+                    <div className="seccionUser__contenedor__contAvatares" id="contAvatares">
+
+                        {/* {
+                            avatares.map(avatar => {
+                                <img src={`http://localhost:8000/media/users/avatares/default_avatar.jpg`} name="" alt="img_user" onClick={(e) => update_photo(e.target.name)} />
+                            })
+                        } */}
+                        {
+                            visualizarAvatares()
+                        }
+                        {/* <img src={`http://localhost:8000/media/users/avatares/default_avatar.jpg`} name="default" alt="img_user" onClick={(e) => update_photo(e.target.name)} /> */}
                     </div>
                     <h1>{user && user.get_full_name}</h1>
                     <form onSubmit={e => update_profile(e)} className="seccionUser__contenedor__contInfo">
