@@ -25,11 +25,8 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
 
     useEffect(() => {
         window.scrollTo(0,0)
-
         get_product(productId)
     }, [])
-
-    const link_img = product && "http://localhost:8000" + product.get_image;
 
     const [formData, setFormData] = useState({
         item_count: 1
@@ -86,7 +83,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
             <div className="seccionProducto">
                 <div className="seccionProducto__contInfo">
                     <div className="seccionProducto__contInfo__contIzq">
-                        <img src={link_img} alt="" />
+                        <img src={`http://localhost:8000${product.get_image}`} alt="imgProduct" />
                     </div>
                     <div className="seccionProducto__contInfo__contDer">
                         <div className="seccionProducto__contInfo__contDer__contInfo">

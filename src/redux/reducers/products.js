@@ -11,6 +11,7 @@ const initialState = {
     total_pages: 0,
     page: 0,
     products: null,
+    products_by_page: null,
     product: null
 }
 
@@ -18,7 +19,6 @@ export default function Products(state = initialState, action) {
     const { type, payload } = action;
 
     switch (type) {
-
         case GET_PRODUCTS_SUCCESS:
             return {
                 ...state,
@@ -33,14 +33,14 @@ export default function Products(state = initialState, action) {
         case GET_PRODUCTS_BY_PAGE_SUCCESS:
             return{
                 ...state,
-                products: payload.products,
+                products_by_page: payload.products,
                 total_pages: payload.total_pages,
                 page: payload.page
             }
         case GET_PRODUCTS_BY_PAGE_FAIL:
             return {
                 ...state,
-                products: null
+                products_by_page: null
             }
 
         case GET_PRODUCT_SUCCESS:

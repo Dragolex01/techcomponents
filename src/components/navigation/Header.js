@@ -13,7 +13,7 @@ import { logout } from '../../redux/actions/auth';
 import '../../styles/otros/dropdown.css'; //Temporal
 
 
-function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
+function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
 
   // const [redirect, setRedirect] = useState(false)
 
@@ -33,7 +33,11 @@ function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
   const authLinks = (
     <div className="action">
       <div className="profile" onClick={menuToggle}>
-        <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
+        {
+          isAuthenticated
+          ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
+          : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
+        }
       </div>
       <div className="menu">
         <ul>
@@ -59,7 +63,11 @@ function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
   const guestLinks = (
     <div className="action">
       <div className="profile" onClick={menuToggle}>
-        <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
+        {
+          isAuthenticated
+          ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
+          : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
+        }
       </div>
       <div className="menu">
         <ul>
@@ -95,7 +103,7 @@ function Header({ isAuthenticated, user, logout }) { //Redirect crea bucle
 
 const mapStateToProps = state => ({
   isAuthenticated: state.Auth.isAuthenticated,
-  user: state.Auth.user
+  profile: state.Profile.profile
 })
 
 export default connect(mapStateToProps, {

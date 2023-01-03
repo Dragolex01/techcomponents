@@ -6,8 +6,6 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 
 function CartItem({ item, setReload, reload, update_item, remove_item }) {
 
-    const link_img = "http://localhost:8000" + item.product.get_image;
-
     const [formData, setFormData] = useState({
         item_count: 1
     });
@@ -60,7 +58,7 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
     return (
         <>
             <div className="seccionCarrito__contenedor__contItems__item--img">
-                <img src={link_img} alt="imgProduct" />
+                <img src={`http://localhost:8000${item.product.get_image}`} alt="imgProduct" />
             </div>
             <div className="seccionCarrito__contenedor__contItems__item--info">
                 <div>

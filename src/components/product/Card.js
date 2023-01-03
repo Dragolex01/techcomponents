@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 // import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
 
 function Card({ product }){
-    const link_img = "http://localhost:8000" + product.get_image;
 
     return(
         <>
             <div className="contProducto__contImg">
-                <img src={link_img} className="contProducto__contImg--img" alt="imgProduct"/>
+                <img src={`http://localhost:8000${product.get_image}`} className="contProducto__contImg--img" alt="imgProduct"/>
             </div>
             <div className="contProducto__contInfo">
                 <div className="contProducto__contInfo__subcontenedor">

@@ -29,7 +29,13 @@ const productsReducer = (state = initialProductsState, action) => {
               products: action.payload
           }
         
-      case "categoryProducts":
+      case "filterProductsCategory":
+        return{
+          ...state,
+          products: action.payload
+        }
+
+      case "filterProductsPrice":
         return{
           ...state,
           products: action.payload
@@ -41,22 +47,33 @@ const productsReducer = (state = initialProductsState, action) => {
 }
 
 
-function Shop({ get_categories, categories, get_products, get_products_by_page, products, total_pages }) {
+function Shop({ get_categories, categories, get_products, get_products_by_page, products, products_by_page, total_pages }) {
 
   const [page, setPage] = useState(1)
+
   const [searchTerm, setSearchTerm] = useState("")
   const [categoryFilter, setCategoryFilter] = useState([])
+  const [priceFilter, setPriceFilter] = useState({
+    minPrice: 0,
+    maxPrice: 2000
+  })
+
+  const {
+    minPrice,
+    maxPrice
+  } = priceFilter
+
   const [productsState, dispatchProducts] = useReducer(
     productsReducer,
     initialProductsState
   )
 
+  
   useEffect(() => {
     // window.scrollTo(0, 0)
-    
     get_categories()
+    get_products()
     get_products_by_page(page)
-    // get_products()
   }, [page])
 
 
@@ -65,16 +82,25 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
       if(categoryFilter.length === 0){
         dispatchProducts({
           type: 'rellenar',
-          payload: products
+          payload: products_by_page
         })
       }else{
         dispatchProducts({
-          type: 'categoryProducts',
-          payload: products.filter(product => categoryFilter.includes(product.category.toString()))
+          type: 'filterProductsCategory',
+          payload: productsState.products.filter(product => categoryFilter.includes(product.category.toString()))
         })
       }
     }
   }, [products, categoryFilter])
+
+  // useEffect(() => {
+  //   if(products){
+  //     dispatchProducts({
+  //       type: 'filterProductsPrice',
+  //       payload: productsState.products.filter(product => product.price >= minPrice && product.price <= maxPrice)
+  //     })
+  //   }
+  // }, [priceFilter])
 
 
   function handleSort(value){
@@ -116,9 +142,7 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
     }
   }
 
-
-
-  function handlePage(method){ // No esta terminado
+  function handlePage(method){
     if(method === 'anterior'){
       if(page > 1){
         setPage(page - 1)
@@ -131,15 +155,11 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
   }
 
 
-
-
-
-
   return (
     <Layout>
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
-          { products && 
+          {products && 
             (() => {
               if(productsState.products.length > 1){ // No sincronizado con searchterm
                 return <h2>{productsState.products.length} productos encontrados</h2>
@@ -160,7 +180,7 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
           </select>
         </div>
         <div className="seccionLista__contTienda">
-          <Filter categories={categories} setCategoryFilter={setCategoryFilter} />
+          <Filter categories={categories} setCategoryFilter={setCategoryFilter} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
           <div className="seccionLista__contTienda__contArticulos">
             {
               productsState.products.length > 0
@@ -187,6 +207,7 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
 const mapStateToProps = (state) => ({
   categories: state.Categories.categories,
   products: state.Products.products,
+  products_by_page: state.Products.products_by_page,
   total_pages: state.Products.total_pages,
   page: state.Products.page
 });

@@ -186,8 +186,24 @@
           background-color: red; }
       .seccionLista__contTienda__contFiltros__form input {
         margin-right: 1rem; }
-      .seccionLista__contTienda__contFiltros__form--price input {
-        width: 100%; }
+      .seccionLista__contTienda__contFiltros__form--price {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .seccionLista__contTienda__contFiltros__form--price span {
+          border: 1px solid lightblue;
+          padding: 0.5rem 1rem;
+          margin-bottom: 1rem;
+          text-align: center; }
+        .seccionLista__contTienda__contFiltros__form--price label {
+          margin-top: 0.5rem; }
+        .seccionLista__contTienda__contFiltros__form--price input {
+          margin-top: 0.5rem; }
+        .seccionLista__contTienda__contFiltros__form--price input[type=range]::-webkit-slider-runnable-track {
+          height: 5px; }
+        .seccionLista__contTienda__contFiltros__form--price input[type=range]::-webkit-slider-thumb {
+          margin-top: -6px;
+          cursor: pointer; }
     .seccionLista__contTienda__contArticulos {
       display: flex;
       flex-wrap: wrap;
