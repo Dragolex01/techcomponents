@@ -76,7 +76,6 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
     get_products_by_page(page)
   }, [page])
 
-
   useEffect(() => {
     if(products){
       if(categoryFilter.length === 0){
@@ -153,14 +152,14 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
       }
     }
   }
-
+  
 
   return (
     <Layout>
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
-          {products && 
-            (() => {
+          {products_by_page && products_by_page !== null && products_by_page !== undefined 
+            ? (() => {
               if(productsState.products.length > 1){ // No sincronizado con searchterm
                 return <h2>{productsState.products.length} productos encontrados</h2>
               }else if(productsState.products.length === 1){
@@ -169,7 +168,20 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
                 return <h2>Ningun producto encontrado</h2>
               }
             })()
+            : null
           }
+          {/* {products_by_page && products_by_page !== null && products_by_page !== undefined 
+            ? (() => {
+              if(Object.values(productsState.products).length > 1){ // No sincronizado con searchterm
+                return <h2>{Object.values(productsState.products).length} productos encontrados</h2>
+              }else if(Object.values(productsState.products).length === 1){
+                return <h2>{Object.values(productsState.products).length} producto encontrado</h2>
+              }else{
+                return <h2>Ningun producto encontrado</h2>
+              }
+            })()
+            : null
+          } */}
           <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value, e.target.checked)} />
           <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => handleSort(e.target.value)}>
             <option value="none">Ordenar</option>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faWrench, faEnvelope, faPerson, faHouse, faDirections } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faWrench, faEnvelope, faPhone, faHouse, faDirections } from '@fortawesome/free-solid-svg-icons';
 
 import Layout from '../../hocs/Layout';
 
@@ -26,7 +26,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
     // Editar informacion
 
     const [formData, setFormData] = useState({
-        // gender: '',
+        phone_number: '',
         region: '',
         city: '',
         province: '',
@@ -35,7 +35,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
     })
 
     const {
-        // gender,
+        phone_number,
         region,
         city,
         province,
@@ -43,13 +43,13 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         postal_code
     } = formData;
 
-    function change_field_value(e){
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    function change_field_value(name, value){
+        setFormData({ ...formData, [name]: value });
     }
 
     function update_profile(e){
         e.preventDefault();
-        update_user_profile(region, city, province, address, postal_code)
+        update_user_profile(phone_number, region, city, province, address, postal_code)
         window.scrollTo(0, 0);
     }
 
@@ -59,12 +59,6 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         avatar1: '/users/avatares/avatar1.png',
         avatar2: '/users/avatares/avatar2.png',
         avatar3: '/users/avatares/avatar3.jpg'
-    }
-
-    function update_photo(avatar){
-        update_user_photo(avatares[avatar])
-       
-        window.scrollTo(0, 0);
     }
 
     function changeAvatarMenu(){
@@ -81,7 +75,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         let listAvatares = []
         
         Object.entries(avatares).forEach(([key, value]) => {
-                listAvatares.push(<img src={`http://localhost:8000/media${value}`} name={key} key={key} alt="img_user" onClick={(e) => update_photo(e.target.name)} />)
+                listAvatares.push(<img src={`http://localhost:8000/media${value}`} name={key} key={key} alt="img_user" onClick={(e) => update_user_photo(avatares[e.target.name])} />)
         })
         return listAvatares
     }
@@ -97,19 +91,12 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                         <button type="button" onClick={changeAvatarMenu}><FontAwesomeIcon icon={faPen} className="seccionUser__contenedor__contImg--icon" /></button>
                     </div>
                     <div className="seccionUser__contenedor__contAvatares" id="contAvatares">
-
-                        {/* {
-                            avatares.map(avatar => {
-                                <img src={`http://localhost:8000/media/users/avatares/default_avatar.jpg`} name="" alt="img_user" onClick={(e) => update_photo(e.target.name)} />
-                            })
-                        } */}
                         {
                             visualizarAvatares()
                         }
-                        {/* <img src={`http://localhost:8000/media/users/avatares/default_avatar.jpg`} name="default" alt="img_user" onClick={(e) => update_photo(e.target.name)} /> */}
                     </div>
                     <h1>{user && user.get_full_name}</h1>
-                    <form onSubmit={e => update_profile(e)} className="seccionUser__contenedor__contInfo">
+                    <form onSubmit={(e) => update_profile(e)} className="seccionUser__contenedor__contInfo">
                         <ul>
                             <li>
                                 <FontAwesomeIcon icon={faWrench} className="seccionUser__contenedor__contInfo--icon" />
@@ -122,24 +109,21 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                                 {user && user.email}
                             </li>
                             <li>
-                                <FontAwesomeIcon icon={faPerson} className="seccionUser__contenedor__contInfo--icon" />
-                                <label className="seccionUser__contenedor__contInfo--label">Sexo: </label>
-                                {/* <label>H</label>
-                                <input type="radio" name="gender" value="male" onChange={(e) => change_field_value(e)}/>
-                                <label>M</label>
-                                <input type="radio" name="gender" value="female" onChange={(e) => change_field_value(e)}/> */}
+                                <FontAwesomeIcon icon={faPhone} className="seccionUser__contenedor__contInfo--icon" />
+                                <label className="seccionUser__contenedor__contInfo--label">Telefono: </label>
+                                <input type="text" name="phone_number" defaultValue={profile && profile.phone_number} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Código postal: </label>
-                                <input type="text" name="postal_code" defaultValue={profile && profile.postal_code} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="postal_code" defaultValue={profile && profile.postal_code} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                         </ul>
                         <ul>
                             <li>
                                 <FontAwesomeIcon icon={faHouse} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">País/Región: </label>
-                                <select id="region" name="region" onChange={(e) => change_field_value(e)}> {/*No funciona*/}
+                                <select id="region" defaultValue={profile.region} name="region" onChange={(e) => change_field_value(e.target.name, e.target.value)}> {/*No funciona*/}
                                     <option value="españa">España</option>
                                     <option value="estados_unidos">Estados Unidos</option>
                                 </select>
@@ -147,17 +131,17 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Ciudad: </label>
-                                <input type="text" name="city" defaultValue={profile && profile.city} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="city" defaultValue={profile && profile.city} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Provincia: </label>
-                                <input type="text" name="province" defaultValue={profile && profile.province} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="province" defaultValue={profile && profile.province} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Direccion: </label>
-                                <input type="text" name="address" defaultValue={profile && profile.address} onChange={(e) => change_field_value(e)}/>
+                                <input type="text" name="address" defaultValue={profile && profile.address} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                         </ul>
                         <button type="subtmit">Guardar</button>

@@ -38,7 +38,7 @@ export const get_user_profile = () => async dispatch => {
     }
 }
 
-export const update_user_profile = (region, city, province, address, postal_code) => async dispatch => {
+export const update_user_profile = (phone_number, region, city, province, address, postal_code) => async dispatch => {
     if(localStorage.getItem('access')){
         const config = {
             headers: {
@@ -49,6 +49,7 @@ export const update_user_profile = (region, city, province, address, postal_code
         }
 
         const body = JSON.stringify({
+            phone_number,
             region,
             city,
             province,

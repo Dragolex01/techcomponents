@@ -28,6 +28,7 @@ class UpdateUserProfileView(APIView):
             user = self.request.user
             data = self.request.data
 
+            phone_number = data['phone_number']
             region = data['region']
             city = data['city']
             province = data['province']
@@ -35,6 +36,7 @@ class UpdateUserProfileView(APIView):
             postal_code = data['postal_code']
 
             UserProfile.objects.filter(user=user).update(
+                phone_number = phone_number,
                 region = region,
                 city = city,
                 province = province,

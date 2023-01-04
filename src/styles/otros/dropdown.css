@@ -16,8 +16,8 @@
   
   .action .profile {
     position: relative;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 3rem; /*2.25*/
+    height: 3rem; /*2.25*/
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
