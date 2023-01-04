@@ -17,10 +17,12 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
   const [isLoading, setLoading] = useState(false);
   
   useEffect(() => {
-      // window.scrollTo(0, 0);
-      get_items()
-      get_total()
-      get_item_total()
+    // window.scrollTo(0, 0);
+    get_items()
+    get_total()
+    get_item_total()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload])
 
   //   const onSubmit = e => {

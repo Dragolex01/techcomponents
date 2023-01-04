@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Layout from '../../hocs/Layout';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -9,7 +9,6 @@ import { activate } from '../../redux/actions/auth';
 function Activate({ activate, loading }){
 
     const params = useParams()
-    const [activated, setActivated] = useState(false)
 
     const navigate = useNavigate()
 
@@ -19,6 +18,7 @@ function Activate({ activate, loading }){
 
         activate(uid, token)
         navigate("/")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // function activate_account(){

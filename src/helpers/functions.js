@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 // Ordenación lista
 
 export function sortBy(list, key, isReverse = false) {

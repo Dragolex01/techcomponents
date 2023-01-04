@@ -12,8 +12,10 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
     const { item_count } = formData;
     
     useEffect(() => {
-        if (item.count)
+        if (item.count){
             setFormData({ ...formData, item_count: item.count });
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [item.count]);
 
     const onChange = (e) => {

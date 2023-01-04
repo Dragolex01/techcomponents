@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 function Filter({ categories, setCategoryFilter, setPriceFilter, priceFilter }) {
 
   const {

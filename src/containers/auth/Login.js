@@ -1,10 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAmericanSignLanguageInterpreting, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Layout from '../../hocs/Layout';
 
@@ -22,6 +19,7 @@ function Login({ login, isAuthenticated, loading }) {
         if(isAuthenticated){
             navigate("/")
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isAuthenticated])
 
     // const [formData, setFormData] = useState({

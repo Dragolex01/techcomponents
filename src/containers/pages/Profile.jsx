@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -12,9 +12,8 @@ import { update_user_profile, update_user_photo } from '../../redux/actions/prof
 
 function Profile({ isAuthenticated, user, profile, update_user_profile, update_user_photo }){
     const navigate = useNavigate()
-    const form = useRef();
 
-    const [formData, setFormData] = useState({
+    const [profileData, setProfileData] = useState({
         phone_number: '',
         region: '',
         city: '',
@@ -31,23 +30,36 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         province,
         address,
         postal_code
-    } = formData;
+    } = profileData;
 
 
     useEffect(() => {
         if(isAuthenticated === false){
             navigate("/login")
         }else{
-            setFormData({
-                phone_number: profile.phone_number,
-                region: '',
-                city: profile.city,
-                province: profile.province,
-                address: profile.address,
-                postal_code: profile.postal_code
-            })
+            if(profile && profile !== null && profile !== undefined){
+                setProfileData({
+                    phone_number: profile.phone_number,
+                    region: '',
+                    city: profile.city,
+                    province: profile.province,
+                    address: profile.address,
+                    postal_code: profile.postal_code
+                })
+
+                if(profile.region !== null){
+                    console.log(`option__${profile.region}`)
+                    
+                    document.getElementById(`option__${profile.region}`).removeAttribute('selected', 'selected')
+                    document.getElementById(`option__${profile.region}`).setAttribute('selected', 'selected')
+                }
+            }
+
+
+
         }
-    }, [isAuthenticated])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isAuthenticated, profile])
 
     function get_type_account(){
         return user && user.is_staff === false ? ' cliente' : ' admin'
@@ -58,7 +70,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
 
 
     function change_field_value(name, value){
-        setFormData({ ...formData, [name]: value });
+        setProfileData({ ...profileData, [name]: value });
     }
 
     function update_profile(e){
@@ -79,9 +91,9 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         const contAvatares = document.getElementById('contAvatares')
 
         if(contAvatares.classList.contains('menuVisible')){
-            document.getElementById('contAvatares').classList.remove('menuVisible')
+            contAvatares.classList.remove('menuVisible')
         }else{
-            document.getElementById('contAvatares').classList.add('menuVisible')
+            contAvatares.classList.add('menuVisible')
         }
     }
 
@@ -125,37 +137,38 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                             <li>
                                 <FontAwesomeIcon icon={faPhone} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Telefono: </label>
-                                <input type="text" name="phone_number" defaultValue={profile && profile.phone_number} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
+                                <input type="text" name="phone_number" defaultValue={phone_number} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Código postal: </label>
-                                <input type="text" name="postal_code" defaultValue={profile && profile.postal_code} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
+                                <input type="text" name="postal_code" defaultValue={postal_code} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                         </ul>
                         <ul>
                             <li>
                                 <FontAwesomeIcon icon={faHouse} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">País/Región: </label>
-                                <select id="region" defaultValue={profile.region} name="region" onChange={(e) => change_field_value(e.target.name, e.target.value)}> {/*No funciona*/}
-                                    <option value="españa">España</option>
-                                    <option value="estados_unidos">Estados Unidos</option>
+                                <select id="region" defaultValue={region} name="region" onChange={(e) => change_field_value(e.target.name, e.target.value)}> {/*No funciona*/}
+                                    <option value="">--Selecciona--</option>
+                                    <option id="option__españa" value="españa">España</option>
+                                    <option id="option__estados_unidos" value="estados_unidos">Estados Unidos</option>
                                 </select>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Ciudad: </label>
-                                <input type="text" name="city" defaultValue={profile && profile.city} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
+                                <input type="text" name="city" defaultValue={city} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Provincia: </label>
-                                <input type="text" name="province" defaultValue={profile && profile.province} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
+                                <input type="text" name="province" defaultValue={province} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Direccion: </label>
-                                <input type="text" name="address" defaultValue={profile && profile.address} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
+                                <input type="text" name="address" defaultValue={address} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                         </ul>
                         <button type="subtmit">Guardar</button>

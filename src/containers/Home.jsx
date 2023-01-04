@@ -11,7 +11,6 @@ import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
 
 import imgBanner from '../img/imgBanner4.jpg';
-// import imgBanner from '../img/imgBanner6.jpg';
 
 function Home({ get_products, products }){
   
@@ -19,6 +18,7 @@ function Home({ get_products, products }){
         // window.scrollTo(0, 0)
 
         get_products();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const novedades = () => {
@@ -70,7 +70,7 @@ function Home({ get_products, products }){
                     </div>
                 </div> */}
                 <div className="seccionHome__contInfo">
-                        <img src={imgBanner} />
+                        <img src={imgBanner} alt="imgBanner" />
                 </div>
                 <div className="seccionHome__contProducto">
                     <div className="seccionHome__contProducto__producto">

@@ -1,8 +1,4 @@
-import { connect } from 'react-redux';
-
 import { Link } from 'react-router-dom';
-
-
 
 function NavBar() {
 
@@ -19,9 +15,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
-
-
-//Hacer menú desplegable de artículos
-//Pensar que 5 opción poner (Cambiar en footer)

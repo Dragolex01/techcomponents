@@ -24,6 +24,7 @@ function Signup({ signup, loading, alert }) {
         if(accountCreated && alert && alert.alertType === 'green'){
             navigate("/")
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accountCreated, alert])
 
     // const [formData, setFormData] = useState({

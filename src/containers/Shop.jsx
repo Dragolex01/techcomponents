@@ -58,10 +58,10 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
     maxPrice: 2000
   })
 
-  const {
-    minPrice,
-    maxPrice
-  } = priceFilter
+  // const {
+  //   minPrice,
+  //   maxPrice
+  // } = priceFilter
 
   const [productsState, dispatchProducts] = useReducer(
     productsReducer,
@@ -74,6 +74,8 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
     get_categories()
     get_products()
     get_products_by_page(page)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page])
 
   useEffect(() => {
@@ -81,7 +83,8 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
       if(categoryFilter.length === 0){
         dispatchProducts({
           type: 'rellenar',
-          payload: products_by_page
+          // payload: products_by_page
+          payload: products
         })
       }else{
         dispatchProducts({
@@ -90,6 +93,8 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
         })
       }
     }
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products, categoryFilter])
 
   // useEffect(() => {
@@ -158,7 +163,7 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
     <Layout>
       <section className="seccionLista">
         <div className="seccionLista__contTitulo">
-          {products_by_page && products_by_page !== null && products_by_page !== undefined 
+          {/* {products_by_page && products_by_page !== null && products_by_page !== undefined 
             ? (() => {
               if(productsState.products.length > 1){ // No sincronizado con searchterm
                 return <h2>{productsState.products.length} productos encontrados</h2>
@@ -169,10 +174,10 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
               }
             })()
             : null
-          }
+          } */}
           {/* {products_by_page && products_by_page !== null && products_by_page !== undefined 
             ? (() => {
-              if(Object.values(productsState.products).length > 1){ // No sincronizado con searchterm
+              if(Object.values(productsState.products).lenght > 1){ // No sincronizado con searchterm
                 return <h2>{Object.values(productsState.products).length} productos encontrados</h2>
               }else if(Object.values(productsState.products).length === 1){
                 return <h2>{Object.values(productsState.products).length} producto encontrado</h2>
@@ -195,7 +200,7 @@ function Shop({ get_categories, categories, get_products, get_products_by_page, 
           <Filter categories={categories} setCategoryFilter={setCategoryFilter} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
           <div className="seccionLista__contTienda__contArticulos">
             {
-              productsState.products.length > 0
+              products && products !== null && products !== undefined && productsState.products.length > 0
                 ? productsState.products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map(product => {
                     return(
                       <div className="contProducto" key={product.id}> 

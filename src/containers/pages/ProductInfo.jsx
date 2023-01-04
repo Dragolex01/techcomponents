@@ -25,7 +25,10 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
 
     useEffect(() => {
         window.scrollTo(0,0)
+        
         get_product(productId)
+        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const [formData, setFormData] = useState({

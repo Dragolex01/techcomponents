@@ -19,7 +19,7 @@ function Layout(props){
         props.get_items()
         props.get_total()
         props.get_item_total()
-        props.get_user_profile()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return(
@@ -39,5 +39,4 @@ export default connect(null, {
     get_items,
     get_total,
     get_item_total,
-    get_user_profile
 }) (Layout);
