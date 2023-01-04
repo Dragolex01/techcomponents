@@ -13,17 +13,6 @@ import { update_user_profile, update_user_photo } from '../../redux/actions/prof
 function Profile({ isAuthenticated, user, profile, update_user_profile, update_user_photo }){
     const navigate = useNavigate()
     const form = useRef();
-    useEffect(() => {
-        if(isAuthenticated === false){
-            navigate("/login")
-        }
-    }, [isAuthenticated])
-
-    function get_type_account(){
-        return user && user.is_staff === false ? ' cliente' : ' admin'
-    }
-
-    // Editar informacion
 
     const [formData, setFormData] = useState({
         phone_number: '',
@@ -34,6 +23,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         postal_code: ''
     })
 
+
     const {
         phone_number,
         region,
@@ -43,6 +33,30 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
         postal_code
     } = formData;
 
+
+    useEffect(() => {
+        if(isAuthenticated === false){
+            navigate("/login")
+        }else{
+            setFormData({
+                phone_number: profile.phone_number,
+                region: '',
+                city: profile.city,
+                province: profile.province,
+                address: profile.address,
+                postal_code: profile.postal_code
+            })
+        }
+    }, [isAuthenticated])
+
+    function get_type_account(){
+        return user && user.is_staff === false ? ' cliente' : ' admin'
+    }
+
+    // Editar informacion
+
+
+
     function change_field_value(name, value){
         setFormData({ ...formData, [name]: value });
     }
@@ -50,7 +64,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
     function update_profile(e){
         e.preventDefault();
         update_user_profile(phone_number, region, city, province, address, postal_code)
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
     }
 
 
