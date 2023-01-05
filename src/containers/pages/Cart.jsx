@@ -25,27 +25,15 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload])
 
-  //   const onSubmit = e => {
-  //     e.preventDefault()
-  // }
-
-    async function emptyCart(){
-      // if(product && product !== null && product !== undefined && product.quantity > 0){
-      //     await add_item(product)
-      //     await get_items()
-      //     await get_item_total()
-      //     await get_total()
-
-      //     navigate("/cart") //Quitar mejor
-      // }
-      if(total_items > 0){
-        setLoading(true)
-        await empty_cart()
-        setLoading(false)
-        navigate("/cart")
-      }else{
-        alert("El carrito ya esta vacio")
-      }
+  async function emptyCart(){
+    if(total_items > 0){
+      setLoading(true)
+      await empty_cart()
+      setLoading(false)
+      navigate("/cart")
+    }else{
+      alert("El carrito ya esta vacio")
+    }
   }
 
   const showItems = () => {

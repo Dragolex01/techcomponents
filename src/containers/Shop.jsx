@@ -1,6 +1,6 @@
 import { useEffect, useState, useReducer } from 'react';
 import { connect } from 'react-redux';
-// import ClipLoader from 'react-spinners/ClipLoader';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { get_categories } from '../redux/actions/categories';
 import { get_products, get_filtered_products } from '../redux/actions/products';
@@ -29,12 +29,16 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
 
   
   useEffect(() => {
-    setLoading(true)
     get_categories()
-    get_products()
-    setLoading(false)
+    getProducts()
   }, [])
 
+  async function getProducts(){
+    setLoading(true)
+    await get_products()
+    setLoading(false)
+  }
+  
   useEffect(() => {
     if(filtered){
       get_filtered_products(category_id, min_price, max_price, stock, sortBy, order)
@@ -130,7 +134,12 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
           <Filter categories={categories} setFilterData={setFilterData} filterData={filterData} setFiltered={setFiltered} />
           <div className="seccionLista__contTienda__contArticulos">
             {
-              products && showProducts()
+              // products && showProducts()
+            }
+            {
+              isLoading
+                ? <ClipLoader color="#36d7b7" />
+                : <div className="seccionLista__contTienda__contArticulos--cont">{showProducts()}</div>
             }
           </div>
         </div>

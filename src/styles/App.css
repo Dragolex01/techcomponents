@@ -207,8 +207,13 @@
             cursor: pointer; }
     .seccionLista__contTienda__contArticulos {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
       width: 60rem; }
+      .seccionLista__contTienda__contArticulos--cont {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; }
   .seccionLista button {
     width: 8rem;
     height: 2.25rem;
