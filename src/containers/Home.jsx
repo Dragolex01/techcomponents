@@ -26,7 +26,7 @@ function Home({ get_products, products }){
             <>
                 {
                     sortBy(products, 'date_created', true).map((product, i) => {
-                        return i < 5 ? (
+                        return i < 10 ? (
                             <div className="contProducto" key={product.id}>
                                 <Card product={product} />
                                 {/* <p>{product.date_created}</p> */}
@@ -105,9 +105,11 @@ function Home({ get_products, products }){
                                 <h1>Novedades</h1>
                                 <div className="titleDivider" />
                                 <div className="seccionHome__contDestacados--contProductos">
-                                    {
-                                        novedades()
-                                    }
+                                    <div className="seccionHome__contDestacados--contProductos--slider">
+                                        {
+                                            novedades()
+                                        }
+                                    </div>
                                 </div>
                                 <button>Comprar</button>
 

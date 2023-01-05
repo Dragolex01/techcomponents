@@ -21,6 +21,7 @@ import Error404 from './containers/errors/Error404';
 
 
 function App() {
+  
   return (
     <Provider store={store}>
       <Router>

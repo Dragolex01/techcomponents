@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from 'react-redux'
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { get_product } from '../../redux/actions/products';
+import { get_product, get_products } from '../../redux/actions/products';
 import {
     get_items,
     get_item_total,
@@ -14,7 +14,7 @@ import {
 
 import Layout from '../../hocs/Layout';
 
-function ProductInfo({ isAuthenticated, get_product, product, get_items, get_item_total, add_item, get_total }){
+function ProductInfo({ isAuthenticated, get_product, product, get_items, get_item_total, add_item, get_total, get_products }){
    
     const params = useParams()
     const productId = params.productId
@@ -25,7 +25,6 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
 
     useEffect(() => {
         window.scrollTo(0,0)
-        
         get_product(productId)
         
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -86,7 +85,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
             <div className="seccionProducto">
                 <div className="seccionProducto__contInfo">
                     <div className="seccionProducto__contInfo__contIzq">
-                        <img src={`http://localhost:8000${product.get_image}`} alt="imgProduct" />
+                        <img src={`http://localhost:8000${product && product.get_image}`} alt="imgProduct" />
                     </div>
                     <div className="seccionProducto__contInfo__contDer">
                         <div className="seccionProducto__contInfo__contDer__contInfo">
@@ -123,6 +122,7 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
     get_product,
+    get_products,
     get_items,
     get_item_total,
     add_item,

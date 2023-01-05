@@ -51,12 +51,14 @@
 .seccionHome {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center; }
+  flex-direction: column; }
   .seccionHome__contInfo {
-    width: 95%; }
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .seccionHome__contInfo img {
-      width: 100%;
+      width: 90%;
       height: 40rem;
       object-fit: cover;
       box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2); }
@@ -110,18 +112,13 @@
         font-size: 0.9em;
         cursor: pointer; }
   .seccionHome__contDestacados {
-    width: 100%;
     padding: 5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #f7f7f7; }
+    background-color: #f7f7f7;
+    overflow: hidden; }
     .seccionHome__contDestacados--contProductos {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
+      display: flex; }
+      .seccionHome__contDestacados--contProductos--slider {
+        display: flex; }
     .seccionHome__contDestacados h1 {
       text-align: center;
       font-weight: 400;
@@ -195,15 +192,19 @@
           padding: 0.5rem 1rem;
           margin-bottom: 1rem;
           text-align: center; }
-        .seccionLista__contTienda__contFiltros__form--price label {
-          margin-top: 0.5rem; }
-        .seccionLista__contTienda__contFiltros__form--price input {
-          margin-top: 0.5rem; }
-        .seccionLista__contTienda__contFiltros__form--price input[type=range]::-webkit-slider-runnable-track {
-          height: 5px; }
-        .seccionLista__contTienda__contFiltros__form--price input[type=range]::-webkit-slider-thumb {
-          margin-top: -6px;
-          cursor: pointer; }
+        .seccionLista__contTienda__contFiltros__form--price li {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; }
+          .seccionLista__contTienda__contFiltros__form--price li label {
+            margin-top: 0.5rem; }
+          .seccionLista__contTienda__contFiltros__form--price li input {
+            margin-top: 0.5rem; }
+          .seccionLista__contTienda__contFiltros__form--price li input[type=range]::-webkit-slider-runnable-track {
+            height: 5px; }
+          .seccionLista__contTienda__contFiltros__form--price li input[type=range]::-webkit-slider-thumb {
+            margin-top: -6px;
+            cursor: pointer; }
     .seccionLista__contTienda__contArticulos {
       display: flex;
       flex-wrap: wrap;

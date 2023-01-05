@@ -77,7 +77,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
 
     try {
         const res = await axios.post('http://localhost:8000/auth/users/', body, config);
-
+        
         if (res.status === 201) {
             dispatch({
                 type: SIGNUP_SUCCESS,
