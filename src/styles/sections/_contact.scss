@@ -51,7 +51,6 @@
         display: flex;
         justify-content: center;
 
-
         &--icono{
           width: 25%;
           padding: 0 15px;
@@ -81,6 +80,11 @@
       }
     }
   }
+  @media (max-width: 1430px) {
+    &__contInfo {
+      width: 70%;
+    }
+  }
 
   @media (max-width: 1280px) {
     &__contInfo {
@@ -93,6 +97,10 @@
       flex-direction: column;
       height: 30rem;
       justify-content: space-between;
+
+      &__bloque{
+        width: 20rem;
+      }
     }
   }
 
@@ -194,7 +202,7 @@
 
   @media (max-width: 900px) {
     &__contFormulario{
-      width: 40rem;      
+      width: 40rem;
     }
   }
 

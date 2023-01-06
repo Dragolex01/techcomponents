@@ -1,6 +1,7 @@
   .action {
     /* top: 20px;
     right: 30px; */
+    z-index: 20000;
   }
 
   .profile{

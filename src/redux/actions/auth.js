@@ -83,12 +83,12 @@ export const signup = (first_name, last_name, email, password, re_password) => a
                 type: SIGNUP_SUCCESS,
                 payload: res.data
             });
-            dispatch(setAlert('Se ha registrado correctamente', 'green'));
+            dispatch(setAlert('Se ha enviado un correo para verificar tu cuenta.'));
         } else {
             dispatch({
                 type: SIGNUP_FAIL
             });
-            dispatch(setAlert('Error al crear cuenta', 'red'));
+            dispatch(setAlert('Error al crear cuenta'));
         }
         dispatch({
             type: REMOVE_AUTH_LOADING
@@ -101,7 +101,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('Los datos introducidos no son validos', 'red'));
+            dispatch(setAlert('Los datos introducidos no son validos'));
         }else{
             dispatch({
                 type: SIGNUP_FAIL
@@ -109,7 +109,7 @@ export const signup = (first_name, last_name, email, password, re_password) => a
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('Error conectando con el servidor, intenta mas tarde.', 'red'));
+            dispatch(setAlert('Error conectando con el servidor, intenta mas tarde.'));
         }
     }
 };
@@ -177,7 +177,7 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('Inicio de sesión con éxito', 'green'));
+            // dispatch(setAlert('Inicio de sesión con éxito', 'green'));
         }else {
             dispatch({
                 type: LOGIN_FAIL
@@ -185,7 +185,7 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('Error al iniciar sesion.', 'red'));
+            dispatch(setAlert('Error al iniciar sesion.'));
         }
     }
     catch(err){
@@ -196,7 +196,7 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('El usuario o contraseña introducidos son incorrectos.', 'red'));
+            dispatch(setAlert('El usuario o contraseña introducidos son incorrectos.'));
         }else{
             dispatch({
                 type: LOGIN_FAIL
@@ -204,7 +204,7 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            dispatch(setAlert('Error al iniciar sesion. Intenta mas tarde', 'red'));
+            dispatch(setAlert('Error al iniciar sesion. Intenta mas tarde'));
         }
 
     }
@@ -294,5 +294,5 @@ export const logout = () => async dispatch => {
     dispatch({
         type: LOGOUT
     })
-    dispatch(setAlert('Succesfully logged out', 'green'));
+    dispatch(setAlert('Succesfully logged out'));
 }

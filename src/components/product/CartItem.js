@@ -39,11 +39,11 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
             if (item.product.quantity >= count) {
                 await update_item(item, count)
             }else{
-                console.log("error") // Cambiar
+                throw new Error("Error! No hay productos suficientes.")
             }
             setReload(!reload)
         }catch(err){
-            console.log("Error", err) // Cambiar
+            throw new Error("Error! No se ha podido actualizar la cantidad del producto.")
         }
     }
 

@@ -139,11 +139,11 @@ class ListBySearchView(APIView):
         if len(product_results.data) > 0:
             return Response(
                 {'filtered_products': product_results.data},
-                status=status.HTTP_200_OK)
+                status = status.HTTP_200_OK)
         else:
             return Response(
                 {'error': 'No products found'},
-                status=status.HTTP_200_OK)
+                status = status.HTTP_200_OK)
 
 # class ListProductsByPageView(APIView):
 #     permission_classes = (permissions.AllowAny, )

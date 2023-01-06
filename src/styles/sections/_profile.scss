@@ -55,13 +55,13 @@
         }
 
         &__contInfo{
+            width: 100%;
+            margin-top: 3rem;
+            padding-bottom: 5rem;
             position: relative;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            width: 100%;
-            margin-top: 3rem;
-            padding-bottom: 5rem;
             color: $color-lightgray;
             border: 1px solid $borderColor-container;
             border-radius: 10px;
@@ -81,6 +81,7 @@
                 list-style: none;
 
                 li{
+                    width: 20rem;
                     margin: 2rem 0;
                     letter-spacing: $fontLetterSpacing-input;
 
@@ -118,6 +119,25 @@
                 cursor: pointer;
             }
 
+        }
+        @media (max-width: 770px) {
+            &__contInfo{
+                flex-direction: column;
+
+                label{
+                    
+                }
+            }
+        }
+    }
+    @media (max-width: 1250px) {
+        &__contenedor{
+            width: 75%;
+        }
+    }
+    @media (max-width: 980px) {
+        &__contenedor{
+            width: 90%;
         }
     }
 }

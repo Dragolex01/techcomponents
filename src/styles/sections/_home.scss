@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
 
-    &__contInfo{
+    &__contBanner{
         width: 100%;
         display: flex;
         justify-content: center;
@@ -50,17 +50,18 @@
         }
     }
 
-    @media (max-width: 1340px) {
-        &__contInfo {
-          display: none;
-        }
-    }
+    // @media (max-width: 1340px) {
+    //     &__contBanner {
+    //       display: none;
+    //     }
+    // }
 
     &__contProducto{
         display: flex;
         align-items: center;
         justify-content: space-around;
         margin: 8rem 0;
+        width: 100%;
 
         &__producto{
             // width: 21%;
@@ -104,9 +105,22 @@
                 cursor: pointer;
             }
         }
+        @media (max-width: 1100px) {
+            &__producto {
+              padding: 40px;
+            }
+        }
+        @media (max-width: 700px) {
+            &__producto {
+              padding: 10px;
+            }
+        }
     }
 
+    
+
     &__contDestacados{
+        
         // width: 100%;
         padding: 5rem 0;
         // display: flex;
@@ -114,16 +128,36 @@
         // justify-content: center;
         // align-items: center;
         background-color: $backgroundColor-lightgray;
-        overflow: hidden;
 
         &--contProductos{
-            display: flex;
+            position: relative;
+            height: 27rem;
+            overflow: hidden;
+            
             // float: left;
             // justify-content: center;
 
-            &--slider{
+            &__slider{
+                position: absolute;
                 display: flex;
+                align-items: center;
+                justify-content: center;
+                left: 0;
+                top: 0;
+                transition: 0.4s ease-in-out;
                 // align-items: center;
+
+                &--btnLeft{
+                    position: absolute;
+                    left: 0;
+                    top: 8rem;
+                }
+
+                &--btnRight{
+                    position: absolute;
+                    left: 0;
+                    top: 10rem;
+                }
             }
             
             // flex-wrap: wrap;

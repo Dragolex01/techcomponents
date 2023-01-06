@@ -1,10 +1,9 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import { get_categories } from '../redux/actions/categories';
 import { get_products, get_filtered_products } from '../redux/actions/products';
-import { sortBy } from '../helpers/functions';
 
 import Layout from '../hocs/Layout';
 import Card from '../components/product/Card';
@@ -31,6 +30,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   useEffect(() => {
     get_categories()
     getProducts()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   async function getProducts(){

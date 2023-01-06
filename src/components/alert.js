@@ -8,9 +8,9 @@ function Alert({ alert }) {
     const displayAlert = () => {
         if (alert !== null){
             return (
-                <div>
+                <div className="contAlerta">
                     {/* {alert.alertType} */}
-                    {alert.msg}
+                    <p>{alert.msg}</p>
                 </div>
                 
             )

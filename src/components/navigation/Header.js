@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+// import { faUserCircle, faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import NavBar from './NavBar.js';
 import { logout } from '../../redux/actions/auth';
@@ -37,7 +38,8 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
         {
           profile && isAuthenticated
           ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
-          : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
+          : <img src="http://localhost:8000/media/users/avatares/default_avatar.jpg" className="profileimg" alt="img_user" />
+          // : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         }
       </div>
       <div className="menu">
@@ -67,7 +69,8 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
         {
           profile && isAuthenticated
           ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
-          : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
+          : <img src="http://localhost:8000/media/users/avatares/default_avatar.jpg" className="profileimg" alt="img_user" />
+          // : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         }
       </div>
       <div className="menu">

@@ -24,13 +24,20 @@ function Filter({ categories, setFilterData, filterData, setFiltered }) {
               return (
                 <ul key={category.name}>
                   <h3>{category.name}</h3>
+                  <li key="0">
+                    <input type="radio" name="category_id" value="0" onChange={(e) => {
+                        setFilterData({ ...filterData, [e.target.name]: e.target.value})
+                        setFiltered(true)
+                      }} />
+                    <label>Todos</label>
+                  </li>
                   {
                     category.sub_categories.map((sub_category) => {
                       return (
                         <li key={sub_category.id}>
                           <input type="radio" name="category_id" value={sub_category.id.toString()} onChange={(e) => {
-                            setFilterData({ ...filterData, [e.target.name]: e.target.value})
-                            setFiltered(true)
+                              setFilterData({ ...filterData, [e.target.name]: e.target.value})
+                              setFiltered(true)
                             }} />
                           <label>{sub_category.name}</label>
                         </li>
