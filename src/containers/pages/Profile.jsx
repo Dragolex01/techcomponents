@@ -47,7 +47,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                     postal_code: profile.postal_code
                 })
 
-                if(profile.region !== null){                   
+                if(profile.region !== null && profile.region !== ""){
                     document.getElementById(`option__${profile.region}`).removeAttribute('selected', 'selected')
                     document.getElementById(`option__${profile.region}`).setAttribute('selected', 'selected')
                 }
