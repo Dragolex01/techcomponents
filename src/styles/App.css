@@ -161,13 +161,11 @@
   flex-direction: column;
   align-items: center; }
   .seccionLista__contTitulo {
+    width: 70%;
+    margin-top: 2rem;
     position: relative;
     display: flex;
-    align-items: center;
-    width: 70%;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
+    align-items: center; }
     .seccionLista__contTitulo--buscador {
       margin-left: 5rem;
       width: 20rem;
@@ -188,9 +186,12 @@
       .seccionLista__contTitulo--ordenacion option {
         padding: 2rem 1rem; }
   .seccionLista__contTienda {
+    width: 80%;
+    padding-top: 2rem;
     display: flex;
     justify-content: center;
-    width: 80%; }
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
     .seccionLista__contTienda__contFiltros {
       width: 15rem;
       padding: 0 1.5rem; }
@@ -233,14 +234,36 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap; }
-  .seccionLista button {
-    width: 8rem;
-    height: 2.25rem;
-    margin: 0 1rem;
-    border: 2px solid #03C4EB;
-    background-color: white;
-    font-size: 0.9em;
-    cursor: pointer; }
+  .seccionLista__contPaginacion {
+    width: 30%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .seccionLista__contPaginacion button {
+      border: none;
+      background-color: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .seccionLista__contPaginacion button:hover {
+      color: #03C4EB; }
+    .seccionLista__contPaginacion--icono {
+      margin: 0 1rem; }
+    .seccionLista__contPaginacion__paginacionCentral {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .seccionLista__contPaginacion__paginacionCentral--botonActual {
+        color: #03C4EB; }
+      .seccionLista__contPaginacion__paginacionCentral button {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 0.25rem;
+        background-color: white;
+        border-top: 2px solid #03C4EB;
+        cursor: pointer; }
 
 .seccionCarrito {
   width: 100%;

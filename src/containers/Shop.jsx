@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeftLong, faLeftRight, faRightLong } from '@fortawesome/free-solid-svg-icons';
+
 import { get_categories } from '../redux/actions/categories';
 import { get_products, get_filtered_products } from '../redux/actions/products';
 
@@ -26,10 +29,15 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   })
   const { category_id, min_price, max_price, stock, sortBy, order } = filterData;
 
+  const [page, setPage] = useState(2)
+  const productPerPage = 3
+  var totalPages = calculateTotalPages()
+
   
   useEffect(() => {
     get_categories()
     getProducts()
+    setPage(0)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -42,30 +50,70 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   useEffect(() => {
     if(filtered){
       get_filtered_products(category_id, min_price, max_price, stock, sortBy, order)
+      setPage(0)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterData, filtered])
 
+  function calculateTotalPages(){
+    if(!filtered && products && products !== null){
+      totalPages = products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).length / productPerPage;
+    }else if(filtered && filtered_products && filtered_products !== null){
+      totalPages = filtered_products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).length / productPerPage;
+    }else{
+      totalPages = 0;
+    }
+    
+    return Math.ceil(totalPages)
+  }
+
+  function handlePage(action){
+    if(action === 'next'){
+      console.log("page", page)
+      console.log("max", totalPages)
+      if(page < totalPages - 1){
+        setPage(page + 1)
+      }
+    }else if(action === 'previous'){
+      if(page !== 0){
+        setPage(page - 1)
+      }
+    }
+  }
+
 
   function showProducts(){
     // let results = [];
-    let display = [];
+    var display = [];
+    var minProduct = 0;
+    var maxProduct = 0;
+
+    if(page > 0){
+      minProduct = page * productPerPage;
+    }else{
+      minProduct = page;
+    }
+    maxProduct = page * productPerPage + productPerPage -1;
 
     if(filtered_products && filtered_products !== null && filtered_products !== undefined && filtered){
-      filtered_products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
-        return display.push(
-          <div className="contProducto" key={product.id}> 
-            <Card product={product} />
-          </div>
-        )
+      filtered_products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product, i) => {
+        if(i >= minProduct && i <= maxProduct){
+          return display.push(
+            <div className="contProducto" key={product.id}> 
+              <Card product={product} />
+            </div>
+          )
+        }
       })
     }else if(products && products !== null && products !== undefined && !filtered){
-      products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product) => {
-        return display.push(
-          <div className="contProducto" key={product.id}> 
-            <Card product={product} />
-          </div>
-        )
+      products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product, i) => {
+        if(i >= minProduct && i <= maxProduct){
+          return display.push(
+            <div className="contProducto" key={product.id}> 
+              <Card product={product} />
+            </div>
+          )
+        }
       })
     }
 
@@ -108,6 +156,25 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     }
   }
 
+  function showPaginationButtons(){
+    let display = []
+
+    for(let i = 1; i <= totalPages; i++){
+      if(page === i - 1){
+        display.push(
+          <button onClick={() => setPage(i - 1)} className="seccionLista__contPaginacion__paginacionCentral--botonActual">{i}</button>
+        )
+      }else{
+        display.push(
+          <button onClick={() => setPage(i - 1)}>{i}</button>
+        )
+      }
+      
+    }
+
+    return display;
+  }
+
 
   function sortProducts(value){
     let valores = value.split('_')
@@ -123,7 +190,10 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
           {
             products && showNumberProducts()
           }
-          <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => setSearchTerm(e.target.value, e.target.checked)} />
+          <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => {
+            setSearchTerm(e.target.value, e.target.checked)
+            setPage(0)
+            }} />
           <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => {
             sortProducts(e.target.value)
             setFiltered(true)
@@ -151,9 +221,20 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
             }
           </div>
         </div>
-        <div>
-          {/* <button onClick={() => handlePage('anterior')}>Anterior</button>
-          <button onClick={() => handlePage('siguiente')}>Posterior</button> */}
+        <div className="seccionLista__contPaginacion">
+          <button onClick={() => handlePage('previous')}>
+            <FontAwesomeIcon icon={faLeftLong} className="seccionLista__contPaginacion--icono" />
+            Anterior
+          </button>
+          <div className="seccionLista__contPaginacion__paginacionCentral">
+            {
+              showPaginationButtons()
+            }
+          </div>
+          <button onClick={() => handlePage('next')}>
+            Posterior
+            <FontAwesomeIcon icon={faRightLong} className="seccionLista__contPaginacion--icono" />
+          </button>
         </div>
       </section>
     </Layout>

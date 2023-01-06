@@ -6,13 +6,13 @@
   align-items: center;
 
   &__contTitulo{
+    width: 70%;
+    margin-top: 2rem;
     position: relative;
     display: flex;
     align-items: center;
-    width: 70%;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    border-bottom: 1px solid $borderColor-container;
+    // margin-bottom: 2rem;
+    // border-bottom: 1px solid $borderColor-container;
 
     &--buscador{
       margin-left: 5rem;
@@ -47,9 +47,12 @@
   }
 
   &__contTienda{
+    width: 80%; //65%
+    padding-top: 2rem;
     display: flex;
     justify-content: center;
-    width: 80%; //65%
+    border-top: 1px solid $borderColor-container;
+    border-bottom: 1px solid $borderColor-container;
 
     &__contFiltros{
       width: 15rem;
@@ -132,15 +135,59 @@
     }
   }
 
-  button{
-    width: 8rem;
-    height: 2.25rem;
-    margin: 0 1rem;
-    border: 2px solid $color-blue;
-    background-color: white;
-    font-size: $fontSize-boton;
-    cursor: pointer;
-}
+  &__contPaginacion{
+    width: 30%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    button{
+      border: none;
+      background-color: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button:hover{
+      color: $color-blue;
+    }
+
+    &--icono{
+      margin: 0 1rem;
+    }
+
+    &__paginacionCentral{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &--botonActual{
+        color: $color-blue;
+        
+      }
+
+      button{
+        width: 3rem;
+        height: 3rem;
+        margin: 0 0.25rem;
+        background-color: white;
+        border-top: 2px solid $color-blue;
+        cursor: pointer;
+        // width: 8rem;
+        // height: 2.25rem;
+        // margin: 0 1rem;
+        // border: 2px solid $color-blue;
+        // background-color: white;
+        // font-size: $fontSize-boton;
+        // cursor: pointer;
+      }
+    }
+
+  }
+
 }
 
 

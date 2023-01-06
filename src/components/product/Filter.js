@@ -81,7 +81,7 @@ function Filter({ categories, setFilterData, filterData, setFiltered }) {
               setFilterData({ ...filterData, [e.target.name]: e.target.value})
               setFiltered(true)
               }} />
-            <label id="filterYesStock">Stock</label>
+            <label id="filterYesStock">En stock</label>
           </li>
           <li>
             <input type="radio" id="filterNoStock" name="stock" value="no" onChange={(e) => {
