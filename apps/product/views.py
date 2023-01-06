@@ -108,16 +108,14 @@ class ListBySearchView(APIView):
         product_results = product_results.filter(price__gte=min_price)
         product_results = product_results.filter(price__lte=max_price)
 
-        # sold = data['sold']
-        # quantity = data['quantity']
 
         # Filtrar por stock
-        # if stock == 'all':
-        #     product_results = Product.objects.all()
-        # elif stock == 'yes':
-        #     product_results = product_results.filter(sold<=23)
-        # elif stock == 'no':
-        #     product_results = product_results.filter(sold__gte=quantity)
+        if stock == 'all':
+            product_results = product_results
+        elif stock == 'yes':
+            product_results = product_results.filter(quantity__gt=0)
+        elif stock == 'no':
+            product_results = product_results.filter(quantity=0)
 
             # QuerySet(foo__lte=10) # foo <= 10
             # QuerySet(foo__gte=10) # foo >= 10

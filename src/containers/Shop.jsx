@@ -83,23 +83,28 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   }
 
   function showNumberProducts(){ // Codigo repetido solucionar
-    
-    if(filtered_products && filtered_products !== null && filtered_products !== undefined && filtered){
-      if(filtered_products.length > 1){
-        return <h2>{filtered_products.length} productos encontrados</h2>
-      }else if(filtered_products.length === 1){
-        return <h2>{filtered_products.length} producto encontrado</h2>
+    if(filtered_products && filtered){
+      let filtered_products_search = filtered_products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      
+      if(filtered_products_search.length > 1){
+        return <h2>{filtered_products_search.length} productos encontrados</h2>
+      }else if(filtered_products_search.length === 1){
+        return <h2>{filtered_products_search.length} producto encontrado</h2>
       }else{
         return <h2>Ningun producto encontrado</h2>
       }
-    }else if(products && products !== null && products !== undefined && !filtered){
-      if(products.length > 1){
-        return <h2>{products.length} productos encontrados</h2>
-      }else if(products.length === 1){
-        return <h2>{products.length} producto encontrado</h2>
+    }else if(products && !filtered){
+      let products_search = products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      
+      if(products_search.length > 1){
+        return <h2>{products_search.length} productos encontrados</h2>
+      }else if(products_search.length === 1){
+        return <h2>{products_search.length} producto encontrado</h2>
       }else{
         return <h2>Ningun producto encontrado</h2>
       }
+    }else if(filtered_products === null || products === null){
+      return <h2>Ningun producto encontrado</h2>
     }
   }
 
@@ -134,12 +139,15 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
           <Filter categories={categories} setFilterData={setFilterData} filterData={filterData} setFiltered={setFiltered} />
           <div className="seccionLista__contTienda__contArticulos">
             {
-              // products && showProducts()
-            }
-            {
               isLoading
                 ? <ClipLoader color="#36d7b7" />
-                : <div className="seccionLista__contTienda__contArticulos--cont">{showProducts()}</div>
+                : <div className="seccionLista__contTienda__contArticulos--cont">
+                    {
+                      showProducts().length > 0
+                        ? showProducts()
+                        : <p>Sin productos</p>
+                    }
+                  </div>
             }
           </div>
         </div>

@@ -226,9 +226,8 @@
             cursor: pointer; }
     .seccionLista__contTienda__contArticulos {
       display: flex;
-      align-items: center;
       justify-content: center;
-      align-items: center;
+      height: auto;
       width: 60rem; }
       .seccionLista__contTienda__contArticulos--cont {
         width: 100%;

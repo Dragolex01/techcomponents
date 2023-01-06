@@ -149,83 +149,6 @@ class AddItemView(APIView):
 
 
 
-# class AddItemView(APIView):
-#     def post(self, request, format = None):
-#         user = self.request.user
-#         data = self.request.data
-
-#         try:
-#             product_id = int(data['product_id'])
-#         except:
-#             return Response(
-#                 {'error': 'ID del producto debe ser un entero'},
-#                 status = status.HTTP_404_NOT_FOUND
-#             )
-        
-#         count = 1
-
-#         try:
-#             if not Product.objects.filter(id = product_id).exists(): #Si no existe
-#                 return Response(
-#                     {'error': 'El producto no existe'},
-#                     status = status.HTTP_404_NOT_FOUND
-#                 )
-            
-#             product = Product.objects.get(id = product_id)
-#             cart = Cart.objects.get(user = user)
-
-#             if CartItem.objects.filter(cart=cart, product=product).exists():
-#                 return Response(
-#                     {'error': 'Item is already in cart'},
-#                     status=status.HTTP_409_CONFLICT)
-
-#             if int(product.quantity) > 0: #Si no existe el producto
-#                 CartItem.objects.create(
-#                     product = product,
-#                     cart = cart,
-#                     count = count
-#                 )
-
-#                 if CartItem.objects.filter(cart = cart, product = product).exists(): #Si ya existe el producto
-#                     total_items = int(cart.total_items) + 1
-
-#                     Cart.objects.filter(user = user).update(
-#                         total_items = total_items
-#                     )
-
-#                     cart_items = CartItem.objects.order_by('product').filter(cart = cart)
-
-#                     result = []
-
-#                     for cart_item in cart_items:
-#                         item = {}
-
-#                         item['id'] = cart_item.id
-#                         item['count'] = cart_item.count
-#                         product = Product.objects.get(id = cart_item.product.id)
-#                         product = ProductSerializer(product)
-
-#                         item['product'] = product.data
-                        
-#                         result.append(item)
-
-#                     return Response(
-#                         {'cart': result},
-#                         status = status.HTTP_201_CREATED
-#                     )
-#                 else:
-#                     return Response(
-#                         {'error': 'No se ha encontrado este producto'},
-#                         status = status.HTTP_200_OK
-#                     )
-
-#         except:
-#             return Response(
-#                 {'error': 'Error al añadir producto al carrito'},
-#                 status = status.HTTP_500_INTERNAL_SERVER_ERROR
-#             )
-
-
 class GetTotalView(APIView):
     def get(self, request, format = None):
         user = self.request.user
@@ -235,18 +158,14 @@ class GetTotalView(APIView):
             cart_items = CartItem.objects.filter(cart = cart)
 
             total_cost = 0.0
-            # total_compare_cost = 0.0
 
             if cart_items.exists():
                 for cart_item in cart_items:
                     total_cost += (float(cart_item.product.price)
                                    * float(cart_item.count))
-                    # total_compare_cost += (float(cart_item.product.compare_price)
-                    #                        * float(cart_item.count))
+
                 total_cost = round(total_cost, 2)
-                # total_compare_cost = round(total_compare_cost, 2)
             return Response(
-                # {'total_cost': total_cost, 'total_compare_cost': total_compare_cost},
                 {'total_cost': total_cost},
                 status = status.HTTP_200_OK)
         except:
@@ -282,7 +201,7 @@ class UpdateItemView(APIView):
         except:
             return Response(
                 {'error': 'ID del producto debe ser un entero'},
-                status=status.HTTP_404_NOT_FOUND
+                status = status.HTTP_404_NOT_FOUND
             )
         
         try:
@@ -290,14 +209,14 @@ class UpdateItemView(APIView):
         except:
             return Response(
                 {'error': 'Cantidad de producto debe ser un entero'},
-                status=status.HTTP_404_NOT_FOUND
+                status = status.HTTP_404_NOT_FOUND
             )
 
         try:
             if not Product.objects.filter(id = product_id).exists():
                 return Response(
                     {'error': 'Este producto no existe'},
-                    status=status.HTTP_404_NOT_FOUND
+                    status = status.HTTP_404_NOT_FOUND
                 )
             
             product = Product.objects.get(id = product_id)
@@ -306,7 +225,7 @@ class UpdateItemView(APIView):
             if not CartItem.objects.filter(cart = cart, product = product).exists():
                 return Response(
                     {'error': 'Este producto no esta en tu carrito'},
-                    status=status.HTTP_404_NOT_FOUND
+                    status = status.HTTP_404_NOT_FOUND
                 )
             
             quantity = product.quantity
@@ -418,7 +337,7 @@ class EmptyCartView(APIView):
             if not CartItem.objects.filter(cart=cart).exists():
                 return Response(
                     {'success': 'Tu carrito esta vacio'},
-                    status=status.HTTP_200_OK)
+                    status = status.HTTP_200_OK)
 
             CartItem.objects.filter(cart=cart).delete()
 
@@ -427,10 +346,10 @@ class EmptyCartView(APIView):
 
             return Response(
                 {'success': 'Se ha limpiado tu carrito correctamente'},
-                status=status.HTTP_200_OK
+                status = status.HTTP_200_OK
             )
         except:
             return Response(
                 {'error': 'Error al limpiar tu carrito'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                status = status.HTTP_500_INTERNAL_SERVER_ERROR
             )

@@ -114,9 +114,10 @@
   
     &__contArticulos{
       display: flex;
-      align-items: center;
+      // align-items: center;
       justify-content: center;
-      align-items: center;
+      height: auto;
+      
       // flex-wrap: wrap;
       // justify-content: space-around;
       width: 60rem; //80% 60rem
@@ -125,6 +126,7 @@
       &--cont{
         width: 100%;
         display: flex;
+        // justify-content: center;
         flex-wrap: wrap;
       }
     }
