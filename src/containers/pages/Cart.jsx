@@ -24,6 +24,8 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload])
 
+  
+  // Vaciar carrito
   async function emptyCart(){
     if(total_items > 0){
       setLoading(true)
@@ -35,6 +37,7 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
     }
   }
 
+  // Mostrar productos
   function showItems(){
     let display = []
 
@@ -53,6 +56,8 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
     return display;
   }
 
+
+  // Mostrar información compra
   function showInfoProducts(){
     let display = []
 

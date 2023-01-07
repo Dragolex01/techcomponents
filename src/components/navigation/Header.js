@@ -14,8 +14,7 @@ import '../../styles/otros/dropdown.css'; //Temporal
 
 function Header({ isAuthenticated, profile, logout }) {
 
-  // Menu logueado
-
+  // Mostrar menu logueado
   const authLinks = (
     <div className="action">
       <div className="profile" onClick={menuToggle}>
@@ -46,8 +45,7 @@ function Header({ isAuthenticated, profile, logout }) {
     </div>
   )
 
-  // Menu sin loguear
-
+  // Mostrar menu sin loguear
   const guestLinks = (
     <div className="action">
       <div className="profile" onClick={menuToggle}>
@@ -71,7 +69,6 @@ function Header({ isAuthenticated, profile, logout }) {
   )
 
   // Cambiar estado menu
-  
   function menuToggle() {
     const toggleMenu = document.querySelector(".menu");
     toggleMenu.classList.toggle("active");

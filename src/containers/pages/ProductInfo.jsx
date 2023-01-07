@@ -11,8 +11,8 @@ import {
     get_total
 } from '../../redux/actions/cart';
 
-
 import Layout from '../../hocs/Layout';
+
 
 function ProductInfo({ isAuthenticated, get_product, product, get_items, get_item_total, add_item, get_total, get_products }){
    
@@ -41,6 +41,7 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
         // handleItemQuantity(e.target.value)
     }
 
+    // Añadir al carrito
     async function addToCart(){
         if(isAuthenticated){
             if(product && product !== null && product !== undefined && product.quantity > 0){

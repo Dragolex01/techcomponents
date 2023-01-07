@@ -108,7 +108,14 @@
                 background-color: white;
                 font-size: $fontSize-boton;
                 cursor: pointer;
+                transition: all 0.5s;
             }
+
+            &--boton:hover{
+                transform: translateY(-5px);
+                transition: all 0.5s;
+            }
+
             @media (max-width: 900px) {
                 &--boton{
                     margin-top: 2rem;
@@ -139,6 +146,7 @@
 
                 &--cont1{
                     margin-top: 2rem;
+                    
                     div{
                         display: flex;
                         align-items: center;
@@ -171,6 +179,12 @@
                     background-color: white;
                     font-size: $fontSize-boton;
                     cursor: pointer;
+                    transition: all 0.5s;
+                }
+
+                button:hover{
+                    transform: translateY(-5px);
+                    transition: all 0.5s;
                 }
             }
         }

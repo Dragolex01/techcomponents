@@ -1,6 +1,6 @@
 function Filter({ categories, setFilterData, filterData, setFiltered }) {
 
-  const { category_id, min_price, max_price, stock, sortBy, order } = filterData;
+  const { min_price, max_price } = filterData;
 
   return (
     <div className="seccionLista__contTienda__contFiltros">

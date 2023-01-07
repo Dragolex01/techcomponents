@@ -41,12 +41,15 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+
+  // Obtener productos
   async function getProducts(){
     setLoading(true)
     await get_products()
     setLoading(false)
   }
   
+  // Obtener productos filtrados
   useEffect(() => {
     if(filtered){
       get_filtered_products(category_id, min_price, max_price, stock, sortBy, order)
@@ -55,6 +58,8 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterData, filtered])
 
+
+  // Calcular paginas totales
   function calculateTotalPages(){
     if(!filtered && products && products !== null){
       totalPages = products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).length / productPerPage;
@@ -67,6 +72,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     return Math.ceil(totalPages)
   }
 
+  // Cambiar pagina
   function handlePage(action){
     if(action === 'next'){
       console.log("page", page)
@@ -82,6 +88,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   }
 
 
+  // Mostrar productos
   function showProducts(){
     var display = [];
     var minProduct = 0;
@@ -102,6 +109,8 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
               <Card product={product} />
             </div>
           )
+        }else{
+          return null
         }
       })
     }else if(products && products !== null && products !== undefined && !filtered){
@@ -112,6 +121,8 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
               <Card product={product} />
             </div>
           )
+        }else{
+          return null
         }
       })
     }
@@ -119,6 +130,8 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     return display;
   }
 
+
+  // Mostrar número productos encontrados
   function showNumberProducts(){ // Codigo repetido solucionar
     if(filtered_products && filtered){
       let filtered_products_search = filtered_products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -145,6 +158,8 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     }
   }
 
+
+  // Mostrar botones paginación
   function showPaginationButtons(){
     let display = []
 
@@ -165,6 +180,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   }
 
 
+  // Establecer metodo de ordenación en filtro
   function sortProducts(value){
     let valores = value.split('_')
 

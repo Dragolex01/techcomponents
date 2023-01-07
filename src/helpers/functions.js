@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-escape */
 
 // Ordenación lista
-
 export function sortBy(list, key, isReverse = false) {
     const sortedList = list.slice().sort((item1, item2) => {
 
@@ -22,7 +21,6 @@ export function sortBy(list, key, isReverse = false) {
 }
 
 // Eliminar diacriticos excepto la Ñ (Buscador)
-
 export function removeDiacritics(texto) {
     return texto
         .toLowerCase()
@@ -32,7 +30,6 @@ export function removeDiacritics(texto) {
 }
 
 // Validación formularios
-
 export const regularExpressionsForm = {
     name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
     password: /^.{4,20}$/,

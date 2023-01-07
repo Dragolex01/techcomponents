@@ -1,7 +1,6 @@
   .action {
     /* top: 20px;
     right: 30px; */
-    z-index: 20000;
   }
 
   .profile{
@@ -29,7 +28,7 @@
     top: 120px;
     right: -19px;
     padding: 1rem 1.5rem; /* 0.6 1.25 */
-    background: #fff;
+    background: white;
     outline: 2px solid rgba(128, 128, 128, 0.6);
     width: 200px;
     box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
@@ -38,6 +37,7 @@
     visibility: hidden;
     opacity: 0;
     width: 10rem;
+    z-index: 1000;
   }
   
   .action .menu.active {

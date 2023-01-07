@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import Layout from '../../hocs/Layout';
+// import Layout from '../../hocs/Layout';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -20,12 +20,6 @@ function Activate({ activate, loading }){
         navigate("/")
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    return(
-        <Layout>
-            <></>
-        </Layout>
-    )
 }
 
 const mapStateToProps = state => ({

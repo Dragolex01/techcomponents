@@ -12,6 +12,9 @@ import { regularExpressionsForm, validateInput, validateEmpty } from '../../help
 function Login({ login, isAuthenticated, loading }) {
     const navigate = useNavigate()
 
+    const inputEmail = useRef('');
+    const inputPassword = useRef('');
+
     useEffect(() => {
         window.scrollTo(0, 0)
         if(isAuthenticated){
@@ -20,9 +23,8 @@ function Login({ login, isAuthenticated, loading }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isAuthenticated])
 
-    const inputEmail = useRef('');
-    const inputPassword = useRef('');
 
+    // Validar campo vacio
     function validateIsEmpty(){
         validateEmpty(inputEmail.current.value, 'email');
         validateEmpty(inputPassword.current.value, 'password');
@@ -30,6 +32,7 @@ function Login({ login, isAuthenticated, loading }) {
         login(inputEmail.current.value, inputPassword.current.value)
     }
 
+    // Validar campos formulario
     function validateForm(name) {
         switch (name) {
           case 'email':

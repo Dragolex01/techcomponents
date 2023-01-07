@@ -6,7 +6,7 @@ function Footer(){
             <div className="seccionFooter__contenedor">
                 <h1>Sobre Nosotros</h1>
                 <div className="seccionFooter__contenedor__contTexto">
-                    <p>Reprehenderit velit amet minim duis minim ut Lorem voluptate excepteur eiusmod. Et non enim amet elit dolor sit. Consequat in ex cupidatat sunt. Incididunt ad sunt veniam pariatur veniam deserunt deserunt dolor do. Esse occaecat sunt aliquip tempor do cillum magna cupidatat sint ut Lorem Lorem. Nulla consectetur dolore tempor magna in ea Lorem id exercitation non. Deserunt magna labore cupidatat cupidatat enim labore amet deserunt duis.</p>
+                    <p>Reprehenderit velit amet minim duis minim ut Lorem voluptate excepteur eiusmod. Et non enim amet elit dolor sit. Consequat in ex cupidatat sunt. Incididunt ad sunt veniam pariatur veniam deserunt deserunt dolor do. Esse occaecat sunt aliquip tempor do cillum magna cupidatat sint ut Lorem Lorem.</p>
                 </div>
             </div>
             <div className="seccionFooter__contenedor">

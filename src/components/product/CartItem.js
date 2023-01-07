@@ -1,22 +1,10 @@
-import { useEffect, useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 
 function CartItem({ item, setReload, reload, update_item, remove_item }) {
 
-    
-    // useEffect(() => {
-    //     // if (item.count){
-    //     //     setCountData({ ...countData, item_count: item.count });
-    //     // }
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [item.count]);
-
-
     // Update count
-
     function changeCount(value){
         if(value > 0 && value <= item.product.quantity){
             handleItemQuantity(value)
@@ -37,7 +25,6 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
     }
 
     // Delete item
-
     async function removeItemHandler(){
         await remove_item(item)
         setReload(!reload)

@@ -16,6 +16,12 @@ function Signup({ signup, loading, alert }) {
 
     const [accountCreated, setAccountCreated] = useState(false)
 
+    const inputFirstName = useRef('');
+    const inputLastName = useRef('');
+    const inputEmail = useRef('');
+    const inputPassoword = useRef('');
+    const inputRePassoword = useRef('');
+
     useEffect(() => {
         window.scrollTo(0, 0)
 
@@ -26,12 +32,8 @@ function Signup({ signup, loading, alert }) {
     }, [accountCreated, alert])
 
 
-    const inputFirstName = useRef('');
-    const inputLastName = useRef('');
-    const inputEmail = useRef('');
-    const inputPassoword = useRef('');
-    const inputRePassoword = useRef('');
 
+    // Validar campo vacio
     function validateIsEmpty(){
         validateEmpty(inputFirstName.current.value, 'firstName');
         validateEmpty(inputLastName.current.value, 'lastName');
@@ -43,6 +45,7 @@ function Signup({ signup, loading, alert }) {
         setAccountCreated(true);
     }
 
+    // Validar campos formulario
     function validateForm(name) {
         switch (name) {
             case 'firstName':

@@ -14,12 +14,6 @@ function Error404(){
                 </div>
                     <Link to="/">Volver al menu</Link>
             </section>
-            {/* <section className="seccionPageNotFound">
-                <div className="seccionPageNotFound__contMensaje">
-                    <h1>Error 404</h1>
-                    <Link to="/">Volver al menu</Link>
-                </div>
-            </section> */}
         </Layout>
     )
 }

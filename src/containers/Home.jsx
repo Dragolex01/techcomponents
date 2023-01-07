@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,53 +19,10 @@ function Home({ get_products, products }){
   
     useEffect(() => {
         // window.scrollTo(0, 0)
+        get_products()
 
-        // get_products() // LLama infinitamente
-        products && handleResize()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [products])
-
-    function handleResize(){ //Cambiar
-        
-    }
-    // const handleResize = () => {
-    //     var count = 0;
-    //     var inc = 0;
-    //     var margin = 0;
-        
-    //     var slider = document.getElementsByClassName("seccionHome__contDestacados--contProductos__slider")[0]
-    //     var itemDisplay = 0;
-
-    //     if(window.screen.width > 990){
-    //         itemDisplay = document.getElementsByClassName("seccionHome__contDestacados--contProductos")[0].getAttribute("item-display-d")
-    //         margin = itemDisplay * 5
-    //     }
-    //     if(window.screen.width > 700 && window.screen.width < 990){
-    //         itemDisplay = document.getElementsByClassName("seccionHome__contDestacados--contProductos")[0].getAttribute("item-display-t")
-    //         margin = itemDisplay * 6.8
-    //     }
-    //     if(window.screen.width > 280 && window.screen.width < 700){
-    //         itemDisplay = document.getElementsByClassName("seccionHome__contDestacados--contProductos")[0].getAttribute("item-display-m")
-    //         margin = itemDisplay * 20
-    //     }
-
-    //     var item = document.getElementsByClassName("contProducto")
-    //     var itemleft = item.length % itemDisplay
-    //     var itemSlide = Math.floor(item.length / itemDisplay)
-
-    //     for(let i = 0; i < item.length; i++){
-    //         // item[i].style.width = (window.screen.width / itemDisplay) - margin + "px"
-    //         item[i].style.marginLeft = ((window.screen.width / (itemDisplay*24))/2) - margin + "px";
-    //         item[i].style.marginRight = ((window.screen.width / (itemDisplay*24))/2) - margin + "px";
-    //     }
-    //   }
-    
-    //   useEffect(() => {
-    //   window.addEventListener("resize", handleResize, false);
-    // }, []);
-
-
-
+    }, [])
 
     const novedades = () => {
         return(
@@ -103,40 +60,6 @@ function Home({ get_products, products }){
         )
     }
 
-    function moveSlider(){
-        // var count = 0;
-        // var inc = 0;
-        // var margin = 0;
-        
-        // var slider = document.getElementsByClassName("seccionHome__contDestacados--contProductos__slider")[0]
-        // var itemDisplay = 0;
-
-        // if(window.screen.width > 990){
-        //     itemDisplay = document.getElementsByClassName("seccionHome__contDestacados--contProductos")[0].getAttribute("item-display-d")
-        //     margin = itemDisplay * 5
-        // }
-        // if(window.screen.width > 700 && window.screen.width < 990){
-        //     itemDisplay = document.getElementsByClassName("seccionHome__contDestacados--contProductos")[0].getAttribute("item-display-t")
-        //     margin = itemDisplay * 6.8
-        // }
-        // if(window.screen.width > 280 && window.screen.width < 700){
-        //     itemDisplay = document.getElementsByClassName("seccionHome__contDestacados--contProductos")[0].getAttribute("item-display-m")
-        //     margin = itemDisplay * 20
-        // }
-
-        // var item = document.getElementsByClassName("contProducto")
-        // var itemleft = item.length % itemDisplay
-        // var itemSlide = Math.floor(item.length / itemDisplay)
-
-        // for(let i = 0; i < item.length; i++){
-        //     item[i].style.width = (window.screen.width / itemDisplay) - margin + "px"
-        // }
-    }
-
-    function nextSlider(){
-        document.getElementsByClassName("seccionHome__contDestacados--contProductos__slider").style.left = - window.screen.width + "px"
-    }
-
     return(
         <Layout>
             <div className="seccionHome">
@@ -171,39 +94,26 @@ function Home({ get_products, products }){
                 </div>
                 {
                     products && products.length > 0
-                    ?   <>
-                            <div className="seccionHome__contDestacados">
+                        ?   <div className="seccionHome__contDestacados">
                                 <h1>Novedades</h1>
                                 <div className="titleDivider" />
-                                <div className="seccionHome__contDestacados--contProductos" item-display-d="4" item-display-t="3" item-display-m="1">
-                                    <div className="seccionHome__contDestacados--contProductos__slider">
-                                        {
-                                            novedades()
-                                        }
-                                        <button className="seccionHome__contDestacados--contProductos__slider--btnLeft" onClick={moveSlider}>Left</button>
-                                        <button className="seccionHome__contDestacados--contProductos__slider--btnRight" onClick={moveSlider}>Right</button>
-                                    </div>
+                                <div className="seccionHome__contDestacados--contProductos">
+                                    {
+                                        novedades()
+                                    }
                                 </div>
-                                <button>Comprar</button>
+                                <button>Ver más</button>
 
                                 <h1>Más vendidos</h1>
                                 <div className="titleDivider" />
-                                <div className="seccionHome__contDestacados--contProductos" item-display-d="5" item-display-t="3" item-display-m="1">
-                                    <div className="seccionHome__contDestacados--contProductos__slider">
-                                        {
-                                            ventas()
-                                        }
-                                    </div>
-                                </div>
-                                {/* <div className="seccionHome__contDestacados--contProductos">
+                                <div className="seccionHome__contDestacados--contProductos">
                                     {
                                         ventas()
                                     }
-                                </div> */}
-                                <button>Comprar</button>
+                                </div>
+                                <button>Ver más</button>
                             </div>
-                        </>
-                    : null
+                        : null
                 }
             </div>
         </Layout>

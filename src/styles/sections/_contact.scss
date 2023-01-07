@@ -21,6 +21,7 @@
     font-size: $fontSize-subtitulo3;
     margin-top: 1.5rem;
     margin-bottom: 5rem;
+    padding: 0 1rem;
   }
 
   &__contInfo {
@@ -30,14 +31,6 @@
     align-items: center;
 
     &__bloque {
-      // width: 23.5rem;
-      // height: 9rem;
-      // border: 1px solid #ebeeef;
-      // border-radius: 5px;
-      // background-color: $backgroundColor-lightgray;
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
       width: 33%;
       padding: 3em 1em;
       display: flex;
@@ -105,11 +98,9 @@
   }
 
   &__contFormulario {
-    // width: 55%;
     width: 55rem;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     padding-bottom: 5rem;
 
@@ -121,7 +112,6 @@
 
       input,
       textarea {
-        // background-color: $backgroundColor-lightgray;
         border: 3px solid $borderColor-input;
         border-radius: 7px;
         color: $color-lightgray;
@@ -147,10 +137,6 @@
 
       &__contIzq {
         width: 100%;
-        // display: flex;
-        // align-items: center;
-        // flex-direction: column;
-        // justify-content: center;
 
         &--contenedor {
           width: 100%;
@@ -197,6 +183,12 @@
       background-color: white;
       font-size: $fontSize-boton;
       cursor: pointer;
+      transition: all 0.5s;
+    }
+
+    button:hover{
+      transform: translateY(-5px);
+      transition: all 0.5s;
     }
   }
 

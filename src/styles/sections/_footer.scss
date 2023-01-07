@@ -1,8 +1,9 @@
 .seccionFooter{
-    background-color: $backgroundColor-black;
     width: 100%;
+    background-color: $backgroundColor-black;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     // margin-top: 7rem;
 
     &__contenedor{
@@ -60,5 +61,15 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 700px) {
+    .seccionFooter {
+      flex-direction: column;
+
+      &__contenedor{
+        width: 70%;
+      }
     }
 }

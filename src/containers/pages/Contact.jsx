@@ -15,10 +15,16 @@ function Contact() {
   const [emailStatus, setEmailStatus] = useState(false)
   const [isLoading, setLoading] = useState(false)
 
+  const inputName = useRef('');
+  const inputEmail = useRef('');
+  const inputSubject = useRef('');
+  const inputMessage = useRef('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Enviar email
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -31,13 +37,9 @@ function Contact() {
             setLoading(false)
             setEmailStatus(false)
         });
-};
+  };
 
-  const inputName = useRef('');
-  const inputEmail = useRef('');
-  const inputSubject = useRef('');
-  const inputMessage = useRef('');
-
+  // Validar campo vacio
   function validateIsEmpty(){
     validateEmpty(inputName.current.value, 'name');
     validateEmpty(inputEmail.current.value, 'email');
@@ -45,6 +47,7 @@ function Contact() {
     validateEmpty(inputMessage.current.value, 'message');
   }
 
+  //Validar campos formulario
   function validateForm(name) {
     switch (name) {
       case 'name':
