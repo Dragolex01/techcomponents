@@ -71,9 +71,10 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
                     {/* <form onSubmit={(e) => updateItemQuantity(e)}> */}
                     <form>
                         <label htmlFor="item_count">Cantidad: </label>
-                        <select name="item_count" onChange={(e) => onChange(e)} value={item_count}>
+                        {/* <select name="item_count" onChange={(e) => onChange(e)} value={item_count}>
                             {setNumberOptions()}
-                        </select>
+                        </select> */}
+                        <input type="number" id="item_count" name="item_count" defaultValue="1" min="0" max={item.product.quantity} onChange={(e) => onChange(e)}/>
                         {/* <button type="submit">Update</button> */}
                         <p>Quedan en stock: {item.product.quantity}</p>
                     </form>

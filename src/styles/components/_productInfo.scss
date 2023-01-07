@@ -24,15 +24,21 @@
         height: 30rem;
         margin: 5rem 0;
         display: flex;
+        justify-content: center;
+
         border: 1px solid $borderColor-container;
         padding: 2rem;
 
         &__contIzq{
             width: 50%;
             background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             img{
                 height: 100%;
+                max-height: 28rem;
                 border-radius: 10px;
             }
         }
@@ -55,11 +61,30 @@
                     color: $color-blue;
                 }
             }
+            @media (max-width: 420px) {
+                &__contInfo{
+                    flex-direction: column;
+
+                    &--precio{
+                        margin: 1rem 0;
+                    }
+                }
+            }
 
             select{
                 border: none;
                 outline: none;
                 background-color: transparent;
+            }
+
+            input[type=number]{
+                width: 2rem;
+                padding-left: 0.5rem;
+                color: $color-lightgray;
+                border: 1px solid $borderColor-container;
+            }
+            input[type=number]:focus{
+                outline-color: $color-blue;
             }
 
             &--descripcion{
@@ -80,8 +105,24 @@
             }
         }
     }
+    @media (max-width: 930px) {
+        &__contInfo {
+          flex-direction: column;
+          align-items: center;
+          height: auto;
+
+          &__contIzq{
+            width: 80%;
+            margin-bottom: 2rem;
+
+            img{
+                width: 60%;
+            }
+          }
+
+          &__contDer{
+            width: 80%;
+          }
+        }
+    }
 }
-
-
-
-//Img border raidius

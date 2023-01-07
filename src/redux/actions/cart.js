@@ -49,6 +49,9 @@ export const add_item = (product, count) => async dispatch => {
                 })
             }else if(res.status === 422){
                 console.log("Sin stock")
+                dispatch({
+                    type: ADD_ITEM_FAIL
+                })
             }else{
                 dispatch({
                     type: ADD_ITEM_FAIL

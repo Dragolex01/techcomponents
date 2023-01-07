@@ -52,9 +52,6 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                     document.getElementById(`option__${profile.region}`).setAttribute('selected', 'selected')
                 }
             }
-
-
-
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isAuthenticated, profile])
@@ -135,7 +132,7 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
                             <li>
                                 <FontAwesomeIcon icon={faPhone} className="seccionUser__contenedor__contInfo--icon" />
                                 <label className="seccionUser__contenedor__contInfo--label">Telefono: </label>
-                                <input type="text" name="phone_number" defaultValue={phone_number} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
+                                <input type="tel" name="phone_number" defaultValue={phone_number} onChange={(e) => change_field_value(e.target.name, e.target.value)}/>
                             </li>
                             <li>
                                 <FontAwesomeIcon icon={faDirections} className="seccionUser__contenedor__contInfo--icon" />

@@ -11,7 +11,6 @@ function Filter({ categories, setFilterData, filterData, setFiltered }) {
               return (
                 <ul key={category.name}>
                   <li key={category.id}>
-                    {/* <input type="checkbox" name="category_id" value={category.id.toString()} onChange={(e) => handleCategory(e.target.value, e.target.checked)} /> */}
                     <input type="radio" name="category_id" value={category.id.toString()} onChange={(e) => {
                       setFilterData({ ...filterData, [e.target.name]: e.target.value})
                       setFiltered(true)
@@ -24,7 +23,7 @@ function Filter({ categories, setFilterData, filterData, setFiltered }) {
               return (
                 <ul key={category.name}>
                   <h3>{category.name}</h3>
-                  <li key="0">
+                  <li key={category.id}>
                     <input type="radio" name="category_id" value="0" onChange={(e) => {
                         setFilterData({ ...filterData, [e.target.name]: e.target.value})
                         setFiltered(true)

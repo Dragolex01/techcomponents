@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong, faLeftRight, faRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons';
 
 import { get_categories } from '../redux/actions/categories';
 import { get_products, get_filtered_products } from '../redux/actions/products';
@@ -83,7 +83,6 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
 
 
   function showProducts(){
-    // let results = [];
     var display = [];
     var minProduct = 0;
     var maxProduct = 0;
@@ -93,7 +92,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     }else{
       minProduct = page;
     }
-    maxProduct = page * productPerPage + productPerPage -1;
+    maxProduct = page * productPerPage + productPerPage - 1;
 
     if(filtered_products && filtered_products !== null && filtered_products !== undefined && filtered){
       filtered_products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase())).map((product, i) => {
@@ -116,16 +115,6 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
         }
       })
     }
-
-    // for (let i = 0; i < display.length; i += 3) {
-    //   results.push(
-    //     <div key={i} className="grid md:grid-cols-3 ">
-    //       {display[i] ? display[i] : <div className=""></div>}
-    //       {display[i + 1] ? display[i + 1] : <div className=""></div>}
-    //       {display[i + 2] ? display[i + 2] : <div className=""></div>}
-    //     </div>
-    //   );
-    // }
 
     return display;
   }
@@ -162,11 +151,11 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     for(let i = 1; i <= totalPages; i++){
       if(page === i - 1){
         display.push(
-          <button onClick={() => setPage(i - 1)} className="seccionLista__contPaginacion__paginacionCentral--botonActual">{i}</button>
+          <button onClick={() => setPage(i - 1)} className="seccionLista__contPaginacion__paginacionCentral--botonActual" key={i}>{i}</button>
         )
       }else{
         display.push(
-          <button onClick={() => setPage(i - 1)}>{i}</button>
+          <button onClick={() => setPage(i - 1)} key={i}>{i}</button>
         )
       }
       
@@ -191,12 +180,12 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
             products && showNumberProducts()
           }
           <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => {
-            setSearchTerm(e.target.value, e.target.checked)
-            setPage(0)
+              setSearchTerm(e.target.value, e.target.checked)
+              setPage(0)
             }} />
           <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => {
-            sortProducts(e.target.value)
-            setFiltered(true)
+              sortProducts(e.target.value)
+              setFiltered(true)
             }}>
             <option value="none_des">Ordenar</option>
             <option value="name_asc">Nombre A-Z</option>

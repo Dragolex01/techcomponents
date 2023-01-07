@@ -94,9 +94,10 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
                         </div>
                         <form>
                             <label htmlFor="item_count">Cantidad: </label>
-                            <select id="item_count" name="item_count" onChange={(e) => onChange(e)}>
+                            {/* <select id="item_count" name="item_count" onChange={(e) => onChange(e)}>
                                 {product && setNumberOptions()}
-                            </select>
+                            </select> */}
+                            <input type="number" id="item_count" name="item_count" defaultValue="1" min="0" max={product && product.quantity} onChange={(e) => onChange(e)}/>
                         </form>
                         <h2>Descripción</h2>
                         <p className="seccionProducto__contInfo__contDer--descripcion">{product && product.description}</p>

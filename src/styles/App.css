@@ -165,7 +165,8 @@
     margin-top: 2rem;
     position: relative;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    justify-content: space-between; }
     .seccionLista__contTitulo--buscador {
       margin-left: 5rem;
       width: 20rem;
@@ -178,8 +179,6 @@
     .seccionLista__contTitulo--buscador:focus {
       outline: 1px solid #ebeeef; }
     .seccionLista__contTitulo--ordenacion {
-      position: absolute;
-      right: 5rem;
       background-color: transparent;
       border: none;
       outline: none; }
@@ -875,13 +874,18 @@
     height: 30rem;
     margin: 5rem 0;
     display: flex;
+    justify-content: center;
     border: 1px solid rgba(128, 128, 128, 0.2);
     padding: 2rem; }
     .seccionProducto__contInfo__contIzq {
       width: 50%;
-      background-size: cover; }
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
       .seccionProducto__contInfo__contIzq img {
         height: 100%;
+        max-height: 28rem;
         border-radius: 10px; }
     .seccionProducto__contInfo__contDer {
       width: 50%;
@@ -897,10 +901,22 @@
           font-weight: bold;
           font-size: 1.15em;
           color: #03C4EB; }
+      @media (max-width: 420px) {
+        .seccionProducto__contInfo__contDer__contInfo {
+          flex-direction: column; }
+          .seccionProducto__contInfo__contDer__contInfo--precio {
+            margin: 1rem 0; } }
       .seccionProducto__contInfo__contDer select {
         border: none;
         outline: none;
         background-color: transparent; }
+      .seccionProducto__contInfo__contDer input[type=number] {
+        width: 2rem;
+        padding-left: 0.5rem;
+        color: #959596;
+        border: 1px solid rgba(128, 128, 128, 0.2); }
+      .seccionProducto__contInfo__contDer input[type=number]:focus {
+        outline-color: #03C4EB; }
       .seccionProducto__contInfo__contDer--descripcion {
         color: #959596;
         margin-bottom: 2rem; }
@@ -914,6 +930,18 @@
         margin-bottom: 0.5rem;
         cursor: pointer;
         margin-top: 2rem; }
+  @media (max-width: 930px) {
+    .seccionProducto__contInfo {
+      flex-direction: column;
+      align-items: center;
+      height: auto; }
+      .seccionProducto__contInfo__contIzq {
+        width: 80%;
+        margin-bottom: 2rem; }
+        .seccionProducto__contInfo__contIzq img {
+          width: 60%; }
+      .seccionProducto__contInfo__contDer {
+        width: 80%; } }
 
 .seccionPageNotFound {
   width: 100%;
