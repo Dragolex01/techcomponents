@@ -177,7 +177,6 @@ export const login = (email, password) => async dispatch => {
             dispatch({
                 type: REMOVE_AUTH_LOADING
             });
-            // dispatch(setAlert('Inicio de sesión con éxito', 'green'));
         }else {
             dispatch({
                 type: LOGIN_FAIL

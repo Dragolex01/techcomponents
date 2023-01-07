@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  h2{
+    padding-right: 2rem;
+  }
 
   &__contTitulo{
     width: 70%;
@@ -15,21 +18,27 @@
     // margin-bottom: 2rem;
     // border-bottom: 1px solid $borderColor-container;
 
-    &--buscador{
-      margin-left: 5rem;
-      width: 20rem; //30%
-      padding: 0.6rem 2rem; //0.8
-      letter-spacing: 1px;
-      background-color: #f7f7f7;
-      border: 1px solid #ebeeef;
-      border-radius: 7px;
-      color: #8c9398;
-    }
+    &__contBuscador{
+      display: flex;
+      // justify-content: center;
+      align-items: center;
 
-    &--buscador:focus{
-      outline: 1px solid #ebeeef;
+      input[type=search]{
+        // margin-left: 5rem;
+        margin-left: 1rem;
+        width: 20rem; //30%
+        padding: 0.6rem 2rem; //0.8
+        letter-spacing: 1px;
+        background-color: #f7f7f7;
+        border: 1px solid #ebeeef;
+        border-radius: 7px;
+        color: #8c9398;
+      }
+      input[type=search]:focus{
+        outline: 1px solid #ebeeef;
+      }
     }
-
+  
     &--ordenacion{
       // position: absolute;
       // right: 5rem;
@@ -40,10 +49,6 @@
       option{
         padding: 2rem 1rem;
       }
-    }
-
-    h2{
-
     }
   }
 

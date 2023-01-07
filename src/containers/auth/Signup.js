@@ -10,8 +10,6 @@ import Alert from '../../components/alert';
 
 import { firstLetterUppercase, regularExpressionsForm, validateInput, validateEmpty } from '../../helpers/functions';
 
-// import { validarFormulario } from '../../helpers/functions';
-
 function Signup({ signup, loading, alert }) {
 
     const navigate = useNavigate()
@@ -26,36 +24,6 @@ function Signup({ signup, loading, alert }) {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accountCreated, alert])
-
-    // const [formData, setFormData] = useState({
-    //     first_name: '',
-    //     last_name: '',
-    //     email: '',
-    //     password: '',
-    //     re_password: ''
-    // })
-
-    // const {
-    //     first_name,
-    //     last_name,
-    //     email,
-    //     password,
-    //     re_password
-    // } = formData;
-
-    // function onChange(e) {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    //     // validarFormulario(e.target.name, e.target.value); -------------> NO FUNCIONA (functions.js)
-    // }
-
-    // function onSubmit(e) {
-    //     e.preventDefault();
-    //     signup(firstLetterUppercase(first_name), firstLetterUppercase(last_name), email, password, re_password);
-    //     setAccountCreated(true);
-
-    //     // navigate("/")
-    // }
-
 
 
     const inputFirstName = useRef('');

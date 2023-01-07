@@ -1,4 +1,5 @@
 /* eslint-disable no-useless-escape */
+
 // Ordenación lista
 
 export function sortBy(list, key, isReverse = false) {
@@ -20,9 +21,9 @@ export function sortBy(list, key, isReverse = false) {
     return isReverse ? sortedList.reverse() : sortedList
 }
 
-// Buscador
+// Eliminar diacriticos excepto la Ñ (Buscador)
 
-export function removeDiacritics(texto) { //Eliminar diacriticos excepto la Ñ
+export function removeDiacritics(texto) {
     return texto
         .toLowerCase()
         .normalize('NFD')
@@ -33,8 +34,8 @@ export function removeDiacritics(texto) { //Eliminar diacriticos excepto la Ñ
 // Validación formularios
 
 export const regularExpressionsForm = {
-    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    password: /^.{4,20}$/, // 4 a 12 digitos.
+    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    password: /^.{4,20}$/,
     email: /^[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+$/,
     postal_code: /^[a-zA-Z\d\s\-\,\#\.\+]+$/,
 }
@@ -60,29 +61,12 @@ function changeColorsInput(name, isCorrect){
         document.getElementById(`grupo__${name}`).classList.remove('validacion-incorrecto');
         document.getElementById(`grupo__${name}`).classList.add('validacion-correcto');
         document.querySelector(`#grupo__${name} .infoError`).classList.remove('infoError-activo');
-        // document.querySelector(`#grupo__${name} .icon_validacion`).classList.remove('icon_validacion-incorrecto'); //Simbolo cruz rojo
-        // document.querySelector(`#grupo__${name} .icon_validacion`).classList.add('icon_validacion-correcto'); //Simbolo tick verde
-        // document.querySelector(`#grupo__${name} .icon_validacion`).setAttribute("data-icon", "faCheckCircle");
     }else{
         document.getElementById(`grupo__${name}`).classList.remove('validacion-correcto');
         document.getElementById(`grupo__${name}`).classList.add('validacion-incorrecto');
         document.querySelector(`#grupo__${name} .infoError`).classList.add('infoError-activo');
-        // document.querySelector(`#grupo__${name} .icon_validacion`).classList.remove('icon_validacion-correcto'); //Simbolo tick verde
-        // document.querySelector(`#grupo__${name} .icon_validacion`).classList.add('icon_validacion-incorrecto'); //Simbolo cruz rojo
-        // document.querySelector(`#grupo__${name} .icon_validacion`).setAttribute("data-icon", "faTimesCircle");
     }
 }
-
-// Eliminar elemento de array
-
-// export function removeItemFromArr(arr, item) {
-//     var i = arr.indexOf(item);
-//     arr.splice(i, 1);
-
-//     return arr;
-// }
-
-// Primera letra mayúscula
 
 export function firstLetterUppercase(str){
     return str.charAt(0).toUpperCase() + str.slice(1)

@@ -1,10 +1,7 @@
-// import { useState } from 'react';
-// import { Link, Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faUserCircle, faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import NavBar from './NavBar.js';
@@ -15,22 +12,9 @@ import { logout } from '../../redux/actions/auth';
 import '../../styles/otros/dropdown.css'; //Temporal
 
 
-function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
+function Header({ isAuthenticated, profile, logout }) {
 
-  // const [redirect, setRedirect] = useState(false)
-
-  function logoutHandler(){
-    logout()
-    //setRedirect(true)
-  }
-
-  // if(redirect){
-  //   return <Navigate to='/' />
-  // }
-
-  // function selectUrl(){
-  //   return user === null ? "/perfil/iniciar_sesion" : "perfil/usuario"
-  // }
+  // Menu logueado
 
   const authLinks = (
     <div className="action">
@@ -39,7 +23,6 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
           profile && isAuthenticated
           ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
           : <img src="http://localhost:8000/media/users/avatares/default_avatar.jpg" className="profileimg" alt="img_user" />
-          // : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         }
       </div>
       <div className="menu">
@@ -55,13 +38,15 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
           <li>
             <form method="POST" action="#">
               <FontAwesomeIcon icon={faArrowLeft} className="icon" />
-              <button type="button" className="botonLogout" onClick={logoutHandler}>Cerrar sesión</button>
+              <button type="button" className="botonLogout" onClick={() => logout()}>Cerrar sesión</button>
             </form>
           </li>
         </ul>
       </div>
     </div>
   )
+
+  // Menu sin loguear
 
   const guestLinks = (
     <div className="action">
@@ -70,7 +55,6 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
           profile && isAuthenticated
           ? <img src={`http://localhost:8000${profile.photo}`} className="profileimg" alt="img_user" />
           : <img src="http://localhost:8000/media/users/avatares/default_avatar.jpg" className="profileimg" alt="img_user" />
-          // : <FontAwesomeIcon icon={faUserCircle} className="profileimg" />
         }
       </div>
       <div className="menu">
@@ -86,6 +70,8 @@ function Header({ isAuthenticated, profile, logout }) { //Redirect crea bucle
     </div>
   )
 
+  // Cambiar estado menu
+  
   function menuToggle() {
     const toggleMenu = document.querySelector(".menu");
     toggleMenu.classList.toggle("active");

@@ -20,7 +20,7 @@ function Home({ get_products, products }){
     useEffect(() => {
         // window.scrollTo(0, 0)
 
-        get_products();
+        // get_products() // LLama infinitamente
         products && handleResize()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [products])
@@ -140,15 +140,6 @@ function Home({ get_products, products }){
     return(
         <Layout>
             <div className="seccionHome">
-                {/* <div className="seccionHome__contInfo">
-                    <div className="seccionHome__contInfo--img">
-                        <img src={imgMundial} />
-                    </div>
-                    <div className="seccionHome__contInfo--info">
-                        <h2>¿QUIÉNES SOMOS?</h2>
-                        <p>Est eiusmod cupidatat ut sunt eiusmod. Minim velit Lorem id nulla velit dolore mollit exercitation quis. Pariatur dolore laboris est laboris proident enim laboris consectetur veniam enim cillum quis. Sint nostrud sint duis aute aute ea occaecat in aute officia est aliquip labore laboris. Mollit mollit anim mollit mollit nulla magna non. Sit enim sunt id pariatur aliqua labore incididunt.</p>
-                    </div>
-                </div> */}
                 <div className="seccionHome__contBanner">
                         <img src={imgBanner} alt="imgBanner" />
                 </div>

@@ -160,6 +160,8 @@
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .seccionLista h2 {
+    padding-right: 2rem; }
   .seccionLista__contTitulo {
     width: 70%;
     margin-top: 2rem;
@@ -167,17 +169,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between; }
-    .seccionLista__contTitulo--buscador {
-      margin-left: 5rem;
-      width: 20rem;
-      padding: 0.6rem 2rem;
-      letter-spacing: 1px;
-      background-color: #f7f7f7;
-      border: 1px solid #ebeeef;
-      border-radius: 7px;
-      color: #8c9398; }
-    .seccionLista__contTitulo--buscador:focus {
-      outline: 1px solid #ebeeef; }
+    .seccionLista__contTitulo__contBuscador {
+      display: flex;
+      align-items: center; }
+      .seccionLista__contTitulo__contBuscador input[type=search] {
+        margin-left: 1rem;
+        width: 20rem;
+        padding: 0.6rem 2rem;
+        letter-spacing: 1px;
+        background-color: #f7f7f7;
+        border: 1px solid #ebeeef;
+        border-radius: 7px;
+        color: #8c9398; }
+      .seccionLista__contTitulo__contBuscador input[type=search]:focus {
+        outline: 1px solid #ebeeef; }
     .seccionLista__contTitulo--ordenacion {
       background-color: transparent;
       border: none;
@@ -304,10 +309,13 @@
         .seccionCarrito__contenedor__contItems__item--info {
           padding-left: 2rem;
           border-left: 1px solid rgba(128, 128, 128, 0.2); }
-          .seccionCarrito__contenedor__contItems__item--info select {
-            border: none;
-            outline: none;
-            background-color: transparent; }
+          .seccionCarrito__contenedor__contItems__item--info input[type=number] {
+            width: 2rem;
+            padding-left: 0.5rem;
+            color: #959596;
+            border: 1px solid rgba(128, 128, 128, 0.2); }
+          .seccionCarrito__contenedor__contItems__item--info input[type=number]:focus {
+            outline-color: #03C4EB; }
         .seccionCarrito__contenedor__contItems__item__contBoton {
           position: absolute;
           right: 2rem;

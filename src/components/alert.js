@@ -9,18 +9,11 @@ function Alert({ alert }) {
         if (alert !== null){
             return (
                 <div className="contAlerta">
-                    {/* {alert.alertType} */}
                     <p>{alert.msg}</p>
                 </div>
                 
             )
         }
-        // } else {
-        //     return(
-        //         // <Fragment></Fragment>
-        //         console.log(alert)
-        //     )
-        // }
     }
 
     return (

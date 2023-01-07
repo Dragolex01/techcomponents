@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faLeftLong, faRightLong, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { get_categories } from '../redux/actions/categories';
 import { get_products, get_filtered_products } from '../redux/actions/products';
@@ -179,10 +179,13 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
           {
             products && showNumberProducts()
           }
-          <input type="search" className="seccionLista__contTitulo--buscador" placeholder="¿Qué buscas?" onChange={(e) => {
-              setSearchTerm(e.target.value, e.target.checked)
-              setPage(0)
-            }} />
+          <div className="seccionLista__contTitulo__contBuscador">
+            <FontAwesomeIcon icon={faSearch} className="" />
+            <input type="search" placeholder="¿Qué buscas?" onChange={(e) => {
+                setSearchTerm(e.target.value, e.target.checked)
+                setPage(0)
+              }} />
+          </div>
           <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => {
               sortProducts(e.target.value)
               setFiltered(true)

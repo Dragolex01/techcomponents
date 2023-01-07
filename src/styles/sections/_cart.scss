@@ -60,10 +60,14 @@
                     padding-left: 2rem;
                     border-left: 1px solid $borderColor-container;
 
-                    select{
-                        border: none;
-                        outline: none;
-                        background-color: transparent;
+                    input[type=number]{
+                        width: 2rem;
+                        padding-left: 0.5rem;
+                        color: $color-lightgray;
+                        border: 1px solid $borderColor-container;
+                    }
+                    input[type=number]:focus{
+                        outline-color: $color-blue;
                     }
                 }
 

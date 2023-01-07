@@ -140,7 +140,7 @@ class AddItemView(APIView):
 
                 if total_count <= product.quantity: # Seria solo menor
                     # CartItem.objects.filter(product = product, cart = cart).update(count = total_count +1)
-                    CartItem.objects.filter(roduct = product, cart = cart).update(count = total_count)
+                    CartItem.objects.filter(product = product, cart = cart).update(count = total_count)
                     cart_items = CartItem.objects.order_by('product').filter(cart = cart)
 
                     result = []
@@ -149,7 +149,7 @@ class AddItemView(APIView):
                         item = {}
 
                         item['id'] = cart_item.id
-                        item['count'] = cart_item.total_count
+                        item['count'] = cart_item.count
 
                         product = Product.objects.get(id=cart_item.product.id)
                         product = ProductSerializer(product)
@@ -182,20 +182,18 @@ class AddItemView(APIView):
                     if CartItem.objects.filter(cart=cart, product=product).exists():
                         total_items = int(cart.total_items) + 1
 
-                        Cart.objects.filter(user=user).update(
-                            total_items = total_items
-                        )
+                        Cart.objects.filter(user=user).update(total_items = total_items)
                     
-                        cart_items = CartItem.objects.order_by(
-                        'product').filter(cart = cart)
+                        cart_items = CartItem.objects.order_by('product').filter(cart = cart)
 
                         result = []
 
                         for cart_item in cart_items:
-
                             item = {}
+
                             item['id'] = cart_item.id
                             item['count'] = cart_item.count
+                            
                             product = Product.objects.get(id=cart_item.product.id)
                             product = ProductSerializer(product)
 

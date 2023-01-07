@@ -9,8 +9,6 @@ import { login } from '../../redux/actions/auth';
 import Alert from '../../components/alert';
 import { regularExpressionsForm, validateInput, validateEmpty } from '../../helpers/functions';
 
-// import { validarFormulario } from '../../helpers/functions';
-
 function Login({ login, isAuthenticated, loading }) {
     const navigate = useNavigate()
 
@@ -21,28 +19,6 @@ function Login({ login, isAuthenticated, loading }) {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isAuthenticated])
-
-    // const [formData, setFormData] = useState({
-    //     email: '',
-    //     password: ''
-    // })
-
-    // const {
-    //     email,
-    //     password
-    // } = formData;
-
-    // function onChange(e) {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    //     // validarFormulario(e.target.name, e.target.value); -------------> NO FUNCIONA (functions.js)
-    // }
-
-    // function onSubmit(e) {
-    //     e.preventDefault();
-    //     login(email, password);
-        
-    //     // navigate("/")
-    // }
 
     const inputEmail = useRef('');
     const inputPassword = useRef('');
@@ -74,12 +50,10 @@ function Login({ login, isAuthenticated, loading }) {
             <section className="seccionPerfil">
                 <h2>Iniciar sesión</h2>
                 <div className="titleDivider" />
-                {/* <form onSubmit={(e) => onSubmit(e)} className="seccionPerfil__contForm"> */}
                 <form className="seccionPerfil__contForm">
                     <div className="seccionPerfil__contForm__contInputs">
                         <div className="seccionPerfil__contForm__contInputs--input" id="grupo__email">
                             <label htmlFor="email">Correo electrónico: </label>
-                            {/* <input type="email" name="email" ref={inputEmail} value={email} required onChange={(e) => onChange(e)} /> */}
                             <input type="email" name="email" ref={inputEmail} onChange={(e) => validateForm(e.target.name)} required/>
                             <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p>
                         </div>

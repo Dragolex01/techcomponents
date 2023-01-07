@@ -1,4 +1,3 @@
-// import './styles/App.scss';
 import './styles/App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 

@@ -5,7 +5,6 @@ import Layout from '../../hocs/Layout';
 import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faStreetView} from '@fortawesome/free-solid-svg-icons';
-// import { faCheckCircle, faXmarkCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import { regularExpressionsForm, validateInput, validateEmpty } from '../../helpers/functions';
@@ -122,7 +121,6 @@ function Contact() {
                 <label>Email</label>
                 <input type="email" name="email" ref={inputEmail} onChange={(e) => validateForm(e.target.name)} required/>
                 <p className="infoError">El correo solo puede contener letras, números, puntos, guiones y aguión bajo.</p>
-                {/* <p className="infoError">El correo introducido no es válido.</p> */}
               </div>
               <div className="seccionContacto__contFormulario__contInputs__contIzq--contenedor" id="grupo__subject">
                 <label>Asunto</label>
@@ -143,8 +141,8 @@ function Contact() {
             emailStatus ? <p>Mensaje enviado correctamente. Gracias!</p> : null
           }
           <button type="submit" onClick={validateIsEmpty}>Enviar</button>
-          {/* <input type="submit" className="seccionContacto__contenedorFormulario--boton" value="Enviar"  /> */}
         </form>
+        
         <hr />
 
         <iframe

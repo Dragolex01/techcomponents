@@ -6,33 +6,22 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 
 function CartItem({ item, setReload, reload, update_item, remove_item }) {
 
-    const [formData, setFormData] = useState({
-        item_count: 1
-    });
-    const { item_count } = formData;
     
-    useEffect(() => {
-        if (item.count){
-            setFormData({ ...formData, item_count: item.count });
+    // useEffect(() => {
+    //     // if (item.count){
+    //     //     setCountData({ ...countData, item_count: item.count });
+    //     // }
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [item.count]);
+
+
+    // Update count
+
+    function changeCount(value){
+        if(value > 0 && value <= item.product.quantity){
+            handleItemQuantity(value)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [item.count]);
-
-    const onChange = (e) => {
-        e.preventDefault()
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-        handleItemQuantity(e.target.value)
     }
-
-    async function removeItemHandler(){
-        await remove_item(item)
-        setReload(!reload)
-    }
-
-    // function updateItemQuantity(e){
-    //     e.preventDefault()
-    //     handleItemQuantity()
-    // }
 
     async function handleItemQuantity(count){
         try{
@@ -47,13 +36,11 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
         }
     }
 
-    function setNumberOptions(){
-        const elementos = []
+    // Delete item
 
-        for(let n = 1; n <= item.product.quantity; n++){
-            elementos.push(<option id="item_count" key={n}>{n}</option>)
-        }
-        return elementos
+    async function removeItemHandler(){
+        await remove_item(item)
+        setReload(!reload)
     }
 
 
@@ -68,14 +55,9 @@ function CartItem({ item, setReload, reload, update_item, remove_item }) {
                         <h2>{item.product.name}</h2>
                         <p>Precio: {item.product.price}</p>
                     </div>
-                    {/* <form onSubmit={(e) => updateItemQuantity(e)}> */}
                     <form>
                         <label htmlFor="item_count">Cantidad: </label>
-                        {/* <select name="item_count" onChange={(e) => onChange(e)} value={item_count}>
-                            {setNumberOptions()}
-                        </select> */}
-                        <input type="number" id="item_count" name="item_count" defaultValue="1" min="0" max={item.product.quantity} onChange={(e) => onChange(e)}/>
-                        {/* <button type="submit">Update</button> */}
+                        <input type="number" id="item_count" name="item_count" defaultValue={item.count} min="1" max={item.product.quantity} onChange={(e) => changeCount(e.target.value)}/>
                         <p>Quedan en stock: {item.product.quantity}</p>
                     </form>
                 </div>

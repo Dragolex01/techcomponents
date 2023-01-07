@@ -71,7 +71,6 @@ function Profile({ isAuthenticated, user, profile, update_user_profile, update_u
     function update_profile(e){
         e.preventDefault();
         update_user_profile(phone_number, region, city, province, address, postal_code)
-        // window.scrollTo(0, 0);
     }
 
 
@@ -183,16 +182,3 @@ export default connect(mapStateToProps, {
     update_user_profile,
     update_user_photo
 }) (Profile);
-
-
-
-
-//Tipo de cuenta
-//Correo
-//Genero
-//Direccion
-//País/Región
-//Ciudad
-//Provincia
-//Codigo postal
-//Telefono

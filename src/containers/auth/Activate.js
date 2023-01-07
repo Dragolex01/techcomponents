@@ -21,29 +21,9 @@ function Activate({ activate, loading }){
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    // function activate_account(){
-    //     const uid = params.uid
-    //     const token = params.token
-
-    //     activate(uid, token)
-    //     setActivated(true)
-    // }
-
-    // function activate_success(){
-    //     return(
-    //         <Navigate to="/home" />
-    //     )
-    // }
-
-    // if(activated && !loading){
-    //     return(
-    //         <Navigate to="/" />
-    //     )
-    // }
-
     return(
         <Layout>
-            {/* <button type="button" onClick={activate_account}>Activate account</button> */}
+            <></>
         </Layout>
     )
 }

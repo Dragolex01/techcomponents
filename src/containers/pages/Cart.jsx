@@ -17,7 +17,6 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
   const [isLoading, setLoading] = useState(false);
   
   useEffect(() => {
-    // window.scrollTo(0, 0);
     get_items()
     get_total()
     get_item_total()
@@ -36,8 +35,47 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
     }
   }
 
-  const showItems = () => {
-    return (
+  function showItems(){
+    let display = []
+
+    items && items !== null && items !== undefined && items.length > 0
+      ? items.map((item, i) => {
+          return (
+            display.push(
+              <div className="seccionCarrito__contenedor__contItems__item" key={i}>
+                <CartItem item={item} reload={reload} setReload={setReload} update_item={update_item} remove_item={remove_item} />
+              </div>
+            )
+          );
+        })
+      : <p>No hay productos.</p>
+
+    return display;
+  }
+
+  function showInfoProducts(){
+    let display = []
+
+    if(total_items > 0){
+      items && items.map((item, i) => {
+        return(
+          display.push(
+            <div key={i}>
+              <h3>{item.product.name} x{item.count}</h3>
+              <p>{item.product.price * item.count}</p>
+            </div>
+          )
+        )
+      })
+    }else{
+      return <p>Sin productos</p>
+    }
+
+    return display;
+  }
+
+  return (
+    <Layout>
       <section className="seccionCarrito">
         { 
           (() => {
@@ -55,15 +93,8 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
             isLoading
               ? <ClipLoader color="#36d7b7" />
               : <div className="seccionCarrito__contenedor__contItems">
-                  {items && items !== null && items !== undefined && items.length > 0
-                    ? items.map((item, i) => {
-                        return (
-                          <div className="seccionCarrito__contenedor__contItems__item" key={i}>
-                            <CartItem item={items[i]} reload={reload} setReload={setReload} update_item={update_item} remove_item={remove_item} />
-                          </div>
-                        );
-                      })
-                    : <p>No hay productos.</p>
+                  {
+                    showItems()
                   }
                   {
                     total_items > 0
@@ -77,35 +108,8 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
                 <h2>Resumen</h2>
                 <div className="titleDivider" />
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont1">
-                  {/* <div>
-                    <h3>Productos totales: </h3>
-                    <p>{total_items}</p>
-                  </div> */}
-                  {/* <div>
-                    <h3>Subtotal: </h3>
-                    <p>{amount.toFixed(2)}€</p>
-                  </div> */}
-                    {/* <div>
-                      <h3>Descuento: </h3>
-                      <p>0.00</p>
-                    </div> */}
                     { 
-                      (() => {
-                        if(total_items > 0){
-                          return(
-                            items && items.map((item, i) => {
-                              return(
-                                <div key={i}>
-                                  <h3>{item.product.name} x{item.count}</h3>
-                                  <p>{item.product.price * item.count}</p>
-                                </div>
-                              )
-                            })
-                          )
-                        }else{
-                          return <p>Sin productos</p>
-                        }
-                      })()
+                      showInfoProducts()
                     }
                 </div>
                 <div className="seccionCarrito__contenedor__contInfoCompra__contInfo--cont2">
@@ -117,12 +121,6 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
           </div>
         </div>
       </section>
-    );
-  };
-
-  return (
-    <Layout>
-      <div>{showItems()}</div>
     </Layout>
   );
 }
