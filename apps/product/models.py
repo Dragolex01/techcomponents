@@ -10,20 +10,12 @@ class Product(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    # compare_price = models.DecimalField(max_digits = 6, decimal_places = 2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     sold = models.IntegerField(default=0)
     date_created = models.DateTimeField(default=datetime.now)
 
-    # def get_image(self):
-    #     if self.photo:
-    #         # url_img = '127.0.0.1:8000' + self.photo.url
-    #         # return url_img
-    #         return self.photo.url
-    #     return ''
-
-    def get_image(self):
+    def get_image(self): #Quitar?
         if self.photo:
             return self.photo.url
         return ''

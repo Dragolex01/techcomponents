@@ -6,14 +6,6 @@
   outline-color: $color-incorrecto;
 }
   
-  // .validacion-incorrecto .seccionPerfil__contenedorFormulario__contenedorInput--infoError{
-  //   color: #bb2929;
-  // }
-  
-.validacion-correcto input {
-  // border-color: $color-correcto;
-}
-  
 .infoError{
   display: none;
   width: 70%;
@@ -26,21 +18,3 @@
       margin-bottom: 0.5rem;
     }
   }
-  
-  // .icon_validacion{
-  //   position: absolute;
-  //   display: none;
-  //   right: 3rem;
-  //   top: 2.15rem;
-  //   height: 1.15rem;
-  
-  //   &-correcto{
-  //     display: block;
-  //     color: $color-correcto;
-  //   }
-  
-  //   &-incorrecto{
-  //     display: block;
-  //     color: $color-incorrecto;
-  //   }
-  // }

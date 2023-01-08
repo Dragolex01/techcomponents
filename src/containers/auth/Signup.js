@@ -23,8 +23,6 @@ function Signup({ signup, loading, alert }) {
     const inputRePassoword = useRef('');
 
     useEffect(() => {
-        window.scrollTo(0, 0)
-
         if(accountCreated && alert && alert.alertType === 'green'){
             navigate("/")
         }

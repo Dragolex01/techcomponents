@@ -22,10 +22,6 @@
       .seccionHeader__contCentral__contMenu ul li {
         padding: 0.15rem;
         position: relative; }
-    .seccionHeader__contCentral__contMenu__subcontenedor {
-      height: 15rem;
-      display: none;
-      background-color: rgba(255, 68, 0, 0.511); }
   @media (max-width: 850px) {
     .seccionHeader__contCentral {
       width: 90%; } }
@@ -55,6 +51,97 @@
   .seccionHeader #linkHeader:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left; }
+
+.action {
+  /* top: 20px;
+  right: 30px; */ }
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+.profileimg {
+  height: 100%; }
+
+.action .profile {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer; }
+
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: -19px;
+  padding: 1rem 1.5rem;
+  background: white;
+  outline: 2px solid rgba(128, 128, 128, 0.6);
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+  width: 10rem;
+  z-index: 1000; }
+
+.action .menu.active {
+  top: 4rem;
+  visibility: visible;
+  opacity: 1; }
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -0.3rem;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg); }
+
+.action .menu ul {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0; }
+
+.action .menu ul li {
+  list-style: none;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center; }
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 500;
+  transition: 0.5s; }
+
+.action .menu ul li:hover a {
+  color: #03C4EB; }
+
+.action .menu ul li:hover button {
+  color: #03C4EB; }
+
+.icon {
+  height: 0.8rem;
+  margin-right: 1rem; }
+
+.botonLogout {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  color: #4a4a4a; }
 
 .seccionHome {
   width: 100%;
@@ -218,8 +305,6 @@
         list-style: none;
         padding-bottom: 2rem;
         border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
-        .seccionLista__contTienda__contFiltros__form ul li input[type=checkbox]:checked {
-          background-color: red; }
       .seccionLista__contTienda__contFiltros__form input {
         margin-right: 1rem; }
       .seccionLista__contTienda__contFiltros__form--price {
@@ -699,7 +784,11 @@
         border: 2px solid #03C4EB;
         background-color: white;
         font-size: 0.9em;
-        cursor: pointer; }
+        cursor: pointer;
+        transition: all 0.5s; }
+      .seccionPerfil__contForm__contBoton button:hover {
+        transform: translateY(-5px);
+        transition: all 0.5s; }
 
 .seccionUser {
   width: 100%;

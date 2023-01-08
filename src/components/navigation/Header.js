@@ -8,10 +8,6 @@ import NavBar from './NavBar.js';
 import { logout } from '../../redux/actions/auth';
 
 
-
-import '../../styles/otros/dropdown.css'; //Temporal
-
-
 function Header({ isAuthenticated, profile, logout }) {
 
   // Mostrar menu logueado

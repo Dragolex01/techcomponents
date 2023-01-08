@@ -1,17 +1,12 @@
 .contProducto{
-    //background-color: rgba(211, 211, 211, 0.244);
-    // width: 14rem;
-    // height: 20rem;
-    // width: 20rem;
-    // height: 30rem
-    width: 15rem; //17
-    height: 24rem; //24
+    width: 15rem;
+    height: 24rem;
     margin: 2rem 0.75rem;
     display: flex;
     flex-direction: column;
     letter-spacing: 1px;
     font-family: $fontFamily-label;
-    border-radius: 6px; // 15px
+    border-radius: 6px;
     box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.2);
 
     &__contImg{
@@ -23,7 +18,6 @@
         position: relative;
 
         &--img{
-            // height: 80%;
             height: 10.5rem;
             border-radius: 10px;
         }
@@ -42,8 +36,6 @@
             align-items: center;
             justify-content: space-between;
             border-top: 1px solid #ddd;
-            // white-space: normal;
-            
 
             &--titulo{
                 margin: 0;
@@ -61,7 +53,6 @@
             }
 
             &--precio{
-                // width: 25%;
                 color: $color-blue;
                 font-weight: bold;
                 margin: 0;

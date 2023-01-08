@@ -69,9 +69,6 @@ class ListBySearchView(APIView):
         stock = data['stock']
         sort_by = data['sort_by']
 
-        # if not (sort_by == 'date_created' or sort_by == 'price' or sort_by == 'sold' or sort_by == 'name'):
-        #     sort_by = 'date_created'
-
         if not (sort_by == 'price' or sort_by == 'name'):
             sort_by = 'date_created'
 

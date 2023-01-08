@@ -1,56 +1,42 @@
 // Colors
 
-$color-black: #4a4a4a; //#212529
+$color-black: #4a4a4a;
 $color-white: #ffff;
 $color-lightgray: #959596;
-//$color-blue: #fd7134; //#ff4c4c #d50000
 $color-blue: #03C4EB;
 $color-lightblue: #2a8490;
 $color-correcto: #1ed12d;
 $color-incorrecto: #bb2929;
 
-$backgroundColor-lightgray: #f7f7f7; //#777777
+$backgroundColor-lightgray: #f7f7f7;
 $backgroundColor-black: rgba(21,21,21,255);
-// $backgroundColor-discount: rgba(255,76,76,255);
 
 $borderColor-input: #ebeeef;
-$borderColor-container: rgba(128, 128, 128, 0.200); //#e4e4e4
+$borderColor-container: rgba(128, 128, 128, 0.200);
 
 
 // Font
 
 $fontSize-titulo: 4em;
-$fontSize-subtitulo: 2em; //2.15
+$fontSize-subtitulo: 2em;
 $fontSize-subtitulo2: 1.15em;
 $fontSize-subtitulo3: 0.95em;
 $fontSize-enlaces: 1.15em;
 $fontSize-tituloFooter: 0.95em;
-$fontSize-texto: 1em; //Unir con boton????
+$fontSize-texto: 1em;
 $fontSize-boton: 0.9em;
 $fontSize-labelInput: 0.95em;
 $fontSize-inputError: 0.85em;
-
-// $fontSize-tituloOferta: 0.9em;
-// $fontSize-infoOferta: 0.9em;
 
 $fontWeight-subtitulo: 400;
 
 $fontLetterSpacing-input: 1px;
 $fontLetterSpacing-tituloFooter: 1.5px;
-$fontLetterSpacing-subtitulo: 2px; //1.5
+$fontLetterSpacing-subtitulo: 2px;
 
 $fontFamily-1: sans-serif;
 $fontFamily-2: 'Inconsolata', monospace;
 
 $fontFamily-titulo: sans-serif;
 $fontFamily-subtitulo: 'Inconsolata', monospace;
-
-
-
-
-
-$fontFamily-label: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; //Mirar sin funciona
-
-
-//-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
-//"Source Sans Pro", sans-serif
+$fontFamily-label: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
