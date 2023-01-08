@@ -298,8 +298,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: #f7f7f7; }
+    align-items: center; }
     .seccionHome__contDestacados--contProductos {
       width: 100%;
       display: flex;
