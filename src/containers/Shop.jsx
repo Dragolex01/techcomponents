@@ -22,7 +22,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   const [filterData, setFilterData] = useState({
     category_id: '0',
     min_price: 0,
-    max_price: 2000,
+    max_price: 8000,
     stock: 'all',
     sortBy: 'created',
     order: 'des',
@@ -30,7 +30,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   const { category_id, min_price, max_price, stock, sortBy, order } = filterData;
 
   const [page, setPage] = useState(2)
-  const productPerPage = 3
+  const productPerPage = 6
   var totalPages = calculateTotalPages()
 
   

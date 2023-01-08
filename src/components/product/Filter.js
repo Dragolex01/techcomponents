@@ -60,7 +60,7 @@ function Filter({ categories, setFilterData, filterData, setFiltered }) {
           </li>
           <li>
             <label>Maximo: </label>
-            <input type="range" defaultValue="2000" min={min_price} max="2000" step="50" name="max_price" onChange={(e) => {
+            <input type="range" defaultValue="8000" min={min_price} max="8000" step="50" name="max_price" onChange={(e) => {
               setFilterData({ ...filterData, [e.target.name]: e.target.value})
               setFiltered(true)
               }} />
