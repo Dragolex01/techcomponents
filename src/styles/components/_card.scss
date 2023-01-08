@@ -30,27 +30,33 @@
         height: 30%;
         padding: 0 10%;
 
+        &--titulo{
+            border-top: 1px solid $borderColor-container;
+            padding-top: 1rem;
+            margin: 0;
+            text-decoration: none;
+            font-size: 1em; //Cambiar
+
+            :link{
+                text-decoration: none;
+                color: black;
+            }
+
+            :visited{
+                color: black;
+            }
+        }
+
         &__subcontenedor{
             width: 100%;
-            height: 50%;
+            height: 70%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid #ddd;
-
-            &--titulo{
+            
+            &--info{
+                width: 90%;
                 margin: 0;
-                text-decoration: none;
-                font-size: 1em; //Cambiar
-
-                :link{
-                    text-decoration: none;
-                    color: black;
-                }
-
-                :visited{
-                    color: black;
-                }
             }
 
             &--precio{
@@ -60,9 +66,5 @@
             }
         }
 
-        &--info{
-            width: 90%;
-            margin: 0;
-        }
     }
 }

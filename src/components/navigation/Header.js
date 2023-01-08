@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faShoppingCart, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faShoppingCart, faArrowLeft, faX, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import NavBar from './NavBar.js';
 import { logout } from '../../redux/actions/auth';
@@ -71,16 +71,39 @@ function Header({ isAuthenticated, profile, logout }) {
   }
 
   return (
-    <div className="seccionHeader">
-      <div className="seccionHeader__contCentral">
-        <h1>TechComponents</h1>
-        <hr />
-        <NavBar />
+    <>
+      <div className="seccionHeader">
+        <div className="seccionHeader__contCentral">
+          <h1>TechComponents</h1>
+          <hr />
+          <NavBar />
+        </div>
+        <nav className="seccionHeader__contLateral">
+          {isAuthenticated ? authLinks : guestLinks}
+        </nav>
       </div>
-      <nav className="seccionHeader__contLateral">
-        {isAuthenticated ? authLinks : guestLinks}
-      </nav>
-    </div>
+      <div className="seccionHeaderCompacto">
+        <nav className="seccionHeaderCompacto__contLateral">
+          {isAuthenticated ? authLinks : guestLinks}
+        </nav>
+      </div>
+      <input type="checkbox" id="check" />
+      <label htmlFor="check">
+        <i id="btnMenu"><FontAwesomeIcon icon={faBars} id="iconMenu" /></i>
+      </label>
+      <div id="menuLateral">
+        <label htmlFor="check">
+          <i id="btnMenuCancel"><FontAwesomeIcon icon={faX} className="icon" /></i>
+        </label>
+        <h1>TechComponents</h1>
+          <ul>
+            <li><Link to="/" id="linkHeaderCompact" >Inicio</Link></li>
+            <li><Link to="/shop" id="linkHeaderCompact" >Artículos</Link></li>
+            <li><Link to="/about_us" id="linkHeaderCompact" >Sobre nosotros</Link></li>
+            <li><Link to="/contact" id="linkHeaderCompact" >Contactanos</Link></li>
+          </ul>
+        </div>
+    </>
   );
 }
 

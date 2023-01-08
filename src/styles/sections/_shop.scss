@@ -23,6 +23,7 @@
 
       input[type=search]{
         margin-left: 1rem;
+        margin-right: 2rem;
         width: 20rem;
         padding: 0.6rem 2rem;
         letter-spacing: 1px;
@@ -154,7 +155,6 @@
 
       &--botonActual{
         color: $color-blue;
-        
       }
 
       button{
@@ -168,5 +168,9 @@
     }
 
   }
+}
 
+#sinProductos{
+  text-align: center;
+  width: 100%;
 }

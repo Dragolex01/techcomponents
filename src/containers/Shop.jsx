@@ -75,8 +75,6 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
   // Cambiar pagina
   function handlePage(action){
     if(action === 'next'){
-      console.log("page", page)
-      console.log("max", totalPages)
       if(page < totalPages - 1){
         setPage(page + 1)
       }
@@ -201,17 +199,17 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
                 setSearchTerm(e.target.value, e.target.checked)
                 setPage(0)
               }} />
+            <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => {
+                sortProducts(e.target.value)
+                setFiltered(true)
+              }}>
+              <option value="none_des">Ordenar</option>
+              <option value="name_asc">Nombre A-Z</option>
+              <option value="name_des">Nombre Z-A</option>
+              <option value="price_des">Precio +</option>
+              <option value="price_asc">Precio -</option>
+            </select>
           </div>
-          <select className="seccionLista__contTitulo--ordenacion" onChange={(e) => {
-              sortProducts(e.target.value)
-              setFiltered(true)
-            }}>
-            <option value="none_des">Ordenar</option>
-            <option value="name_asc">Nombre A-Z</option>
-            <option value="name_des">Nombre Z-A</option>
-            <option value="price_des">Precio +</option>
-            <option value="price_asc">Precio -</option>
-          </select>
         </div>
         <div className="seccionLista__contTienda">
           <Filter categories={categories} setFilterData={setFilterData} filterData={filterData} setFiltered={setFiltered} />
@@ -223,7 +221,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
                     {
                       showProducts().length > 0
                         ? showProducts()
-                        : <p>Sin productos</p>
+                        : <p id="sinProductos">No se han encontrado productos.</p>
                     }
                   </div>
             }

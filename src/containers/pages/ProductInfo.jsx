@@ -37,7 +37,13 @@ function ProductInfo({ isAuthenticated, get_product, product, get_items, get_ite
 
     const onChange = (e) => { // Cambiar
         e.preventDefault()
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        if(e.target.value > 0 && e.target.value <= product.quantity){
+            setFormData({ ...formData, [e.target.name]: e.target.value })
+        }else if(e.target.value > 0){
+            setFormData({ ...formData, [e.target.name]: product.quantity })
+        }else{
+            setFormData({ ...formData, [e.target.name]: 1 })
+        }
         // handleItemQuantity(e.target.value)
     }
 

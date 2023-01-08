@@ -1,5 +1,4 @@
 .seccionHeader {
-  display: none;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -25,9 +24,6 @@
   @media (max-width: 850px) {
     .seccionHeader__contCentral {
       width: 90%; } }
-  @media (max-width: 820px) {
-    .seccionHeader__contCentral {
-      display: none; } }
   .seccionHeader__contLateral {
     position: absolute;
     right: 4rem;
@@ -52,9 +48,86 @@
     transform: scaleX(1);
     transform-origin: bottom left; }
 
-.action {
-  /* top: 20px;
-  right: 30px; */ }
+.seccionHeaderCompacto {
+  background-color: #03C4EB;
+  width: 100%;
+  height: 5rem;
+  margin-top: 2.8rem;
+  margin-bottom: 2rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center; }
+  .seccionHeaderCompacto__contLateral {
+    position: absolute;
+    right: 4rem;
+    top: 3.8rem;
+    z-index: 1000; }
+
+@media (max-width: 820px) {
+  .seccionHeader {
+    display: none; }
+  .seccionHeaderCompacto {
+    display: flex; } }
+
+#menuLateral {
+  width: 15rem;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 500;
+  left: -20rem;
+  top: 0;
+  transition: all 0.5s;
+  border: 1px solid rgba(128, 128, 128, 0.2); }
+  #menuLateral h1 {
+    font-size: 25px;
+    width: 100%;
+    margin-top: 3rem;
+    text-align: center; }
+  #menuLateral ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 3rem;
+    list-style: none; }
+  #menuLateral li {
+    padding: 1rem 0;
+    padding-left: 2rem;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray; }
+
+#linkHeaderCompact {
+  color: #4a4a4a;
+  text-decoration: none;
+  letter-spacing: 1px; }
+
+#linkHeaderCompact:hover {
+  color: #03C4EB; }
+
+#check {
+  display: none; }
+
+#btnMenu {
+  visibility: hidden;
+  position: absolute;
+  left: 3.5rem;
+  top: 4.8rem;
+  cursor: pointer; }
+
+@media (max-width: 820px) {
+  #btnMenu {
+    visibility: visible; } }
+
+#btnMenuCancel {
+  position: absolute;
+  right: 1rem;
+  top: 1rem; }
+
+#check:checked ~ #menuLateral {
+  left: 0;
+  transition: all 0.5s; }
+
+#iconMenu {
+  height: 1.2rem; }
 
 .profile {
   display: flex;
@@ -76,7 +149,7 @@
 .action .menu {
   position: absolute;
   top: 120px;
-  right: -19px;
+  right: -15px;
   padding: 1rem 1.5rem;
   background: white;
   outline: 2px solid rgba(128, 128, 128, 0.6);
@@ -276,6 +349,7 @@
       align-items: center; }
       .seccionLista__contTitulo__contBuscador input[type=search] {
         margin-left: 1rem;
+        margin-right: 2rem;
         width: 20rem;
         padding: 0.6rem 2rem;
         letter-spacing: 1px;
@@ -368,6 +442,10 @@
         background-color: white;
         border-top: 2px solid #03C4EB;
         cursor: pointer; }
+
+#sinProductos {
+  text-align: center;
+  width: 100%; }
 
 .seccionCarrito {
   width: 100%;
@@ -967,29 +1045,30 @@
     width: 80%;
     height: 30%;
     padding: 0 10%; }
+    .contProducto__contInfo--titulo {
+      border-top: 1px solid rgba(128, 128, 128, 0.2);
+      padding-top: 1rem;
+      margin: 0;
+      text-decoration: none;
+      font-size: 1em; }
+      .contProducto__contInfo--titulo :link {
+        text-decoration: none;
+        color: black; }
+      .contProducto__contInfo--titulo :visited {
+        color: black; }
     .contProducto__contInfo__subcontenedor {
       width: 100%;
-      height: 50%;
+      height: 70%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid #ddd; }
-      .contProducto__contInfo__subcontenedor--titulo {
-        margin: 0;
-        text-decoration: none;
-        font-size: 1em; }
-        .contProducto__contInfo__subcontenedor--titulo :link {
-          text-decoration: none;
-          color: black; }
-        .contProducto__contInfo__subcontenedor--titulo :visited {
-          color: black; }
+      justify-content: space-between; }
+      .contProducto__contInfo__subcontenedor--info {
+        width: 90%;
+        margin: 0; }
       .contProducto__contInfo__subcontenedor--precio {
         color: #03C4EB;
         font-weight: bold;
         margin: 0; }
-    .contProducto__contInfo--info {
-      width: 90%;
-      margin: 0; }
 
 .seccionProducto {
   width: 90%;
