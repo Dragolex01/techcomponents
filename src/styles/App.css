@@ -1081,6 +1081,7 @@
 
 .seccionPageNotFound {
   width: 100%;
+  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1098,6 +1099,23 @@
         color: gray; }
     .seccionPageNotFound__contMensaje h1 {
       padding-right: 2rem; }
+  .seccionPageNotFound__contBoton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .seccionPageNotFound__contBoton--icono {
+      margin-right: 1rem; }
+    .seccionPageNotFound__contBoton button {
+      height: 2.5rem;
+      padding: 0 1rem;
+      border: 2px solid #03C4EB;
+      background-color: white;
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: all 0.5s; }
+    .seccionPageNotFound__contBoton button:hover {
+      transform: translateY(-5px);
+      transition: all 0.5s; }
 
 .validacion-incorrecto input {
   border-color: #bb2929; }

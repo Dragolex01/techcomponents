@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
+
 import Layout from '../../hocs/Layout';
-import { Link } from 'react-router-dom';
+
 
 function Error404(){
+    const navigate = useNavigate()
+
     return(
         <Layout>
             <section className="seccionPageNotFound">
@@ -12,7 +19,9 @@ function Error404(){
                         <p>La dirección URL no existe o no esta disponible</p>
                     </div>
                 </div>
-                    <Link to="/">Volver al menu</Link>
+                <div className="seccionPageNotFound__contBoton">
+                    <button onClick={() => navigate("/")}><FontAwesomeIcon icon={faLeftLong} className="seccionPageNotFound__contBoton--icono" /> Volver al menu</button>
+                </div>
             </section>
         </Layout>
     )
