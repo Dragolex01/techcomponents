@@ -19,18 +19,6 @@ DOMAIN = os.environ.get('DOMAIN')
 
 ALLOWED_HOSTS = ['*']
 
-# ALLOWED_HOSTS = [
-#     ".vudera.com",
-#     "vudera.com",
-#     "www.vudera.com",
-#     "127.0.0.1",
-#     "localhost",
-#     ]
-
-# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-# if RENDER_EXTERNAL_HOSTNAME:
-#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,8 +37,6 @@ THIRD_PARTY_APPS = [
     'social_django',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    # 'ckeditor',
-    # 'ckeditor_uploader',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + ECOMMERCE_APPS + THIRD_PARTY_APPS
@@ -75,7 +61,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'

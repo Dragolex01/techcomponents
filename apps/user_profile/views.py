@@ -5,11 +5,12 @@ from rest_framework import status
 from .models import UserProfile
 from .serializers import UserProfileSerializer
 
+# Obtener usuarios
 class GetUserProfileView(APIView):
     def get(self, request, format=None):
         try:
             user = self.request.user
-            user_profile = UserProfile.objects.get(user=user)
+            user_profile = UserProfile.objects.get(user = user)
             user_profile = UserProfileSerializer(user_profile)
 
             return Response(
@@ -22,6 +23,7 @@ class GetUserProfileView(APIView):
                 status = status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+# Actualizar perfil de usuario
 class UpdateUserProfileView(APIView):
     def put(self, request, format=None):
         try:
@@ -35,7 +37,7 @@ class UpdateUserProfileView(APIView):
             address = data['address']
             postal_code = data['postal_code']
 
-            UserProfile.objects.filter(user=user).update(
+            UserProfile.objects.filter(user = user).update(
                 phone_number = phone_number,
                 region = region,
                 city = city,
@@ -44,7 +46,7 @@ class UpdateUserProfileView(APIView):
                 postal_code = postal_code
             )
 
-            user_profile = UserProfile.objects.get(user=user)
+            user_profile = UserProfile.objects.get(user = user)
             user_profile = UserProfileSerializer(user_profile)
 
             return Response(
@@ -57,6 +59,7 @@ class UpdateUserProfileView(APIView):
                 status = status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+#Actualizar foto de perfil
 class UpdateUserPhotoView(APIView):
     def put(self, request, format=None):
         try:
@@ -65,11 +68,11 @@ class UpdateUserPhotoView(APIView):
 
             photo = data['photo']
 
-            UserProfile.objects.filter(user=user).update(
+            UserProfile.objects.filter(user = user).update(
                 photo = photo
             )
 
-            user_profile = UserProfile.objects.get(user=user)
+            user_profile = UserProfile.objects.get(user = user)
             user_profile = UserProfileSerializer(user_profile)
 
             return Response(
