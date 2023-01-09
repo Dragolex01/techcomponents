@@ -67,7 +67,7 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
           display.push(
             <div key={i}>
               <h3>{item.product.name} x{item.count}</h3>
-              <p>{item.product.price * item.count}</p>
+              <p>{calculateFinalPrice(item.product.price, item.count)}</p>
             </div>
           )
         )
@@ -77,6 +77,13 @@ function Cart({ get_items, get_item_total, get_total, update_item, remove_item, 
     }
 
     return display;
+  }
+
+  // Calcular precio final redondeado
+  function calculateFinalPrice(price, count){
+    var finalPrice = price * count;
+
+    return finalPrice.toFixed(2)
   }
 
   return (

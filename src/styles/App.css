@@ -892,13 +892,13 @@
         height: 100%; }
       .seccionUser__contenedor__contImg button {
         position: absolute;
-        bottom: 30px;
-        right: 30px;
+        bottom: 40px;
+        right: 20px;
         background-color: transparent;
         border: none;
         cursor: pointer; }
         .seccionUser__contenedor__contImg button * {
-          color: purple; }
+          color: black; }
     .seccionUser__contenedor__contAvatares {
       margin: 2rem 0;
       display: none; }

@@ -32,7 +32,10 @@ class GetItemsView(APIView):
 
                     result.append(item)
 
-            return Response({'cart': result}, status = status.HTTP_200_OK)
+            return Response(
+                {'cart': result},
+                status = status.HTTP_200_OK
+            )
         except:
             return Response(
                 {'error': 'Error al obtener los productos del carrito'},
@@ -109,7 +112,7 @@ class AddItemView(APIView):
                     if CartItem.objects.filter(cart = cart, product = product).exists():
                         total_items = int(cart.total_items) + 1
 
-                        Cart.objects.filter(user=user).update(total_items = total_items)
+                        Cart.objects.filter(user = user).update(total_items = total_items)
                     
                         cart_items = CartItem.objects.order_by('product').filter(cart = cart)
 
