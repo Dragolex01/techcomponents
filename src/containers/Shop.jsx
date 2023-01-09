@@ -83,6 +83,7 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
         setPage(page - 1)
       }
     }
+    window.scrollTo(0, 0)
   }
 
 
@@ -164,11 +165,17 @@ function Shop({ get_categories, categories, get_products, products, get_filtered
     for(let i = 1; i <= totalPages; i++){
       if(page === i - 1){
         display.push(
-          <button onClick={() => setPage(i - 1)} className="seccionLista__contPaginacion__paginacionCentral--botonActual" key={i}>{i}</button>
+          <button onClick={() => {
+            setPage(i - 1)
+            window.scrollTo(0, 0)
+          }} className="seccionLista__contPaginacion__paginacionCentral--botonActual" key={i}>{i}</button>
         )
       }else{
         display.push(
-          <button onClick={() => setPage(i - 1)} key={i}>{i}</button>
+          <button onClick={() => {
+            setPage(i - 1)
+            window.scrollTo(0, 0)
+          }} key={i}>{i}</button>
         )
       }
       

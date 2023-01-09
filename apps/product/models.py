@@ -15,7 +15,7 @@ class Product(models.Model):
     sold = models.IntegerField(default=0)
     date_created = models.DateTimeField(default=datetime.now)
 
-    def get_image(self): #Quitar?
+    def get_image(self):
         if self.photo:
             return self.photo.url
         return ''

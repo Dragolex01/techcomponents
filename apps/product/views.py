@@ -14,7 +14,7 @@ class ProductDetailView(APIView):
             product_id = int(productId)
         except:
             return Response(
-                {'error': 'Product ID must be an integer'},
+                {'error': 'Product ID debe ser un entero'},
                 status = status.HTTP_404_NOT_FOUND)
         
         if Product.objects.filter(id = product_id).exists():
@@ -27,7 +27,7 @@ class ProductDetailView(APIView):
                 status = status.HTTP_200_OK)
         else:
             return Response(
-                {'error': 'Product with this ID does not exist'},
+                {'error': 'No existe un producto con este ID'},
                 status = status.HTTP_404_NOT_FOUND)
 
 
@@ -47,7 +47,7 @@ class ListProductsView(APIView):
                 status = status.HTTP_200_OK)
         else:
             return Response(
-                {'error': 'No products to list'},
+                {'error': 'No hay productos en la lista'},
                 status = status.HTTP_404_NOT_FOUND)
 
 
@@ -59,22 +59,22 @@ class ListBySearchView(APIView):
 
         try:
             category_id = int(data['category_id'])
+            min_price = int(data['min_price'])
+            max_price = int(data['max_price'])
+            stock = str(data['stock'])
+            sort_by = str(data['sort_by'])
+            order = str(data['order'])
+
         except:
             return Response(
-                {'error': 'Categoria ID debe ser un entero'},
-                status=status.HTTP_404_NOT_FOUND)
+                {'error': 'Datos introducidos erroneos'},
+                status = status.HTTP_404_NOT_FOUND)
         
-        min_price = data['min_price']
-        max_price = data['max_price']
-        stock = data['stock']
-        sort_by = data['sort_by']
-
         if not (sort_by == 'price' or sort_by == 'name'):
             sort_by = 'date_created'
 
-        order = data['order']
-
-        ## Si categoryID es = 0, filtrar todas las categorias
+        
+        #Filtrar por categorias
         if category_id == 0:
             product_results = Product.objects.all()
         elif not Category.objects.filter(id=category_id).exists():
@@ -101,22 +101,20 @@ class ListBySearchView(APIView):
                         category__in=filtered_categories)
 
         # Filtrar por precio
-        product_results = product_results.filter(price__gte=min_price)
-        product_results = product_results.filter(price__lte=max_price)
+        product_results = product_results.filter(price__gte=min_price) # (>=)
+        product_results = product_results.filter(price__lte=max_price) # (<=)
 
 
         # Filtrar por stock
         if stock == 'all':
             product_results = product_results
         elif stock == 'yes':
-            product_results = product_results.filter(quantity__gt=0)
+            product_results = product_results.filter(quantity__gt=0) # (>)
         elif stock == 'no':
             product_results = product_results.filter(quantity=0)
+        else:
+            product_results = product_results
 
-            # QuerySet(foo__lte=10) # foo <= 10
-            # QuerySet(foo__gte=10) # foo >= 10
-            # QuerySet(foo__lt=10) # foo < 10
-            # QuerySet(foo__gt=10) # foo > 10
 
         
         # Filtrar producto por ordenacion
@@ -136,5 +134,5 @@ class ListBySearchView(APIView):
                 status = status.HTTP_200_OK)
         else:
             return Response(
-                {'error': 'No products found'},
+                {'error': 'No se han encontrado productos'},
                 status = status.HTTP_200_OK)

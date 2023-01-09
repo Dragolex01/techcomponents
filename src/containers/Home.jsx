@@ -18,7 +18,6 @@ import imgBanner from '../img/imgBanner4.jpg';
 function Home({ get_products, products }){
   
     useEffect(() => {
-        // window.scrollTo(0, 0)
         get_products()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

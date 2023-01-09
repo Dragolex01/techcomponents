@@ -487,7 +487,7 @@
           padding-left: 2rem;
           border-left: 1px solid rgba(128, 128, 128, 0.2); }
           .seccionCarrito__contenedor__contItems__item--info input[type=number] {
-            width: 2rem;
+            width: 3rem;
             padding-left: 0.5rem;
             color: #959596;
             border: 1px solid rgba(128, 128, 128, 0.2); }
